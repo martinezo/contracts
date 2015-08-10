@@ -1,13 +1,28 @@
 Rails.application.routes.draw do
+  devise_for :admin, class_name: "Admin::User"
+  namespace :system do
+    resources :contracts
+  end
+  namespace :catalogs do
+    resources :locations
+  end
+  namespace :catalogs do
+    resources :devices
+  end
+  namespace :catalogs do
+    resources :siteviews
+  end
+  namespace :catalogs do
+    resources :suppliers
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'admin/sign#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
+  get 'admin/sign_out' => 'admin/sign#index'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
