@@ -1,0 +1,26 @@
+%h1 Listing catalogs_locations
+= render partial: 'layouts/search',locals: { viewer: 'locations' }
+
+%table
+  %thead
+    %tr
+      %th Department
+      %th Responsible
+      %th Email
+      %th
+      %th
+      %th
+
+  %tbody
+    - @catalogs_locations.each do |catalogs_location|
+      %tr
+        %td= catalogs_location.department
+        %td= catalogs_location.responsible
+        %td= catalogs_location.email
+        %td= link_to 'Show', catalogs_location
+        %td= link_to 'Edit', edit_catalogs_location_path(catalogs_location)
+        %td= link_to 'Destroy', catalogs_location, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+= will_paginate @catalogs_locations
+= link_to 'New Location', new_catalogs_location_path

@@ -1,0 +1,25 @@
+= form_for @system_contract do |f|
+  - if @system_contract.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@system_contract.errors.count, "error")} prohibited this system_contract from being saved:"
+      %ul
+        - @system_contract.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :device_id
+    = f.number_field :device_id
+  .field
+    = f.label :supplier_id
+    = f.number_field :supplier_id
+  .field
+    = f.label :start_date
+    = f.date_select :start_date
+  .field
+    = f.label :end_date
+    = f.date_select :end_date
+  .field
+    = f.label :contract_no
+    = f.text_field :contract_no
+  .actions
+    = f.submit 'Save'

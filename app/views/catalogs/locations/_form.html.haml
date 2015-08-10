@@ -1,0 +1,19 @@
+= form_for @catalogs_location do |f|
+  - if @catalogs_location.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@catalogs_location.errors.count, "error")} prohibited this catalogs_location from being saved:"
+      %ul
+        - @catalogs_location.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :department
+    = f.text_field :department
+  .field
+    = f.label :responsible
+    = f.text_field :responsible
+  .field
+    = f.label :email
+    = f.text_field :email
+  .actions
+    = f.submit 'Save'

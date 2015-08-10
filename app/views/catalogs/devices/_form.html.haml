@@ -1,0 +1,19 @@
+= form_for @catalogs_device do |f|
+  - if @catalogs_device.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@catalogs_device.errors.count, "error")} prohibited this catalogs_device from being saved:"
+      %ul
+        - @catalogs_device.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :unam_stock_number
+    = f.text_field :unam_stock_number
+  .field
+    = f.label :location_id
+    = f.number_field :location_id
+  .actions
+    = f.submit 'Save'

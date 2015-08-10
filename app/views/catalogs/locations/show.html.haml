@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Department:
+  = @catalogs_location.department
+%p
+  %b Responsible:
+  = @catalogs_location.responsible
+%p
+  %b Email:
+  = @catalogs_location.email
+
+= link_to 'Edit', edit_catalogs_location_path(@catalogs_location)
+\|
+= link_to 'Back', catalogs_locations_path

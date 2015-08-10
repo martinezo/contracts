@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Business name:
+  = @catalogs_supplier.business_name
+%p
+  %b Contact:
+  = @catalogs_supplier.contact
+%p
+  %b Phone:
+  = @catalogs_supplier.phone
+%p
+  %b Email:
+  = @catalogs_supplier.email
+
+= link_to 'Edit', edit_catalogs_supplier_path(@catalogs_supplier)
+\|
+= link_to 'Back', catalogs_suppliers_path

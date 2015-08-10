@@ -1,0 +1,25 @@
+%h1 Listing catalogs_devices
+= render partial: 'layouts/search',locals: { viewer: 'devices' }
+%table
+  %thead
+    %tr
+      %th Name
+      %th Unam stock number
+      %th Location
+      %th
+      %th
+      %th
+
+  %tbody
+    - @catalogs_devices.each do |catalogs_device|
+      %tr
+        %td= catalogs_device.name
+        %td= catalogs_device.unam_stock_number
+        %td= catalogs_device.location_id
+        %td= link_to 'Show', catalogs_device
+        %td= link_to 'Edit', edit_catalogs_device_path(catalogs_device)
+        %td= link_to 'Destroy', catalogs_device, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+= will_paginate @catalogs_devices
+= link_to 'New Device', new_catalogs_device_path

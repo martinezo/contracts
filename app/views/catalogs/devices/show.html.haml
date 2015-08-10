@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @catalogs_device.name
+%p
+  %b Unam stock number:
+  = @catalogs_device.unam_stock_number
+%p
+  %b Location:
+  = @catalogs_device.location_id
+
+= link_to 'Edit', edit_catalogs_device_path(@catalogs_device)
+\|
+= link_to 'Back', catalogs_devices_path

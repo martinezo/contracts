@@ -1,0 +1,28 @@
+%h1 Listing catalogs_suppliers
+= render partial: 'layouts/search',locals: { viewer: 'suppliers' }
+
+%table
+  %thead
+    %tr
+      %th Business name
+      %th Contact
+      %th Phone
+      %th Email
+      %th
+      %th
+      %th
+
+  %tbody
+    - @catalogs_suppliers.each do |catalogs_supplier|
+      %tr
+        %td= catalogs_supplier.business_name
+        %td= catalogs_supplier.contact
+        %td= catalogs_supplier.phone
+        %td= catalogs_supplier.email
+        %td= link_to 'Show', catalogs_supplier
+        %td= link_to 'Edit', edit_catalogs_supplier_path(catalogs_supplier)
+        %td= link_to 'Destroy', catalogs_supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+= will_paginate @catalogs_suppliers
+= link_to 'New Supplier', new_catalogs_supplier_path

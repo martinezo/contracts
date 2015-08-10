@@ -1,0 +1,30 @@
+%h1 Listing system_contracts
+= render partial: 'layouts/search',locals: { viewer: 'contracts' }
+
+%table
+  %thead
+    %tr
+      %th Device
+      %th Supplier
+      %th Start date
+      %th End date
+      %th Contract no
+      %th
+      %th
+      %th
+
+  %tbody
+    - @system_contracts.each do |system_contract|
+      %tr
+        %td= system_contract.device_id
+        %td= system_contract.supplier_id
+        %td= system_contract.start_date
+        %td= system_contract.end_date
+        %td= system_contract.contract_no
+        %td= link_to 'Show', system_contract
+        %td= link_to 'Edit', edit_system_contract_path(system_contract)
+        %td= link_to 'Destroy', system_contract, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+= will_paginate @system_contracts
+= link_to 'New Contract', new_system_contract_path

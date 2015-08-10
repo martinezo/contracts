@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Contract:
+  = @catalogs_siteview.contract_id
+%p
+  %b Visit date:
+  = @catalogs_siteview.visit_date
+%p
+  %b Completed:
+  = @catalogs_siteview.completed
+
+= link_to 'Edit', edit_catalogs_siteview_path(@catalogs_siteview)
+\|
+= link_to 'Back', catalogs_siteviews_path
