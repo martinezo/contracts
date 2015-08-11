@@ -1,0 +1,25 @@
+%h1 Listing system_siteviews
+
+%table
+  %thead
+    %tr
+      %th Contract
+      %th Visit date
+      %th Completed
+      %th
+      %th
+      %th
+
+  %tbody
+    - @system_siteviews.each do |system_siteview|
+      %tr
+        %td= system_siteview.contract_id
+        %td= system_siteview.visit_date
+        %td= system_siteview.completed
+        %td= link_to 'Show', system_siteview
+        %td= link_to 'Edit', edit_system_siteview_path(system_siteview)
+        %td= link_to 'Destroy', system_siteview, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Siteview', new_system_siteview_path

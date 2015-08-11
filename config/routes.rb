@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :system do
+    resources :siteviews
+  end
   devise_for :admin, class_name: "Admin::User"
   namespace :system do
     resources :contracts
@@ -8,9 +11,6 @@ Rails.application.routes.draw do
   end
   namespace :catalogs do
     resources :devices
-  end
-  namespace :catalogs do
-    resources :siteviews
   end
   namespace :catalogs do
     resources :suppliers

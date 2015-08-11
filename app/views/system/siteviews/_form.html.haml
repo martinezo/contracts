@@ -1,0 +1,19 @@
+= form_for @system_siteview do |f|
+  - if @system_siteview.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@system_siteview.errors.count, "error")} prohibited this system_siteview from being saved:"
+      %ul
+        - @system_siteview.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :contract_id
+    = f.number_field :contract_id
+  .field
+    = f.label :visit_date
+    = f.datetime_select :visit_date
+  .field
+    = f.label :completed
+    = f.check_box :completed
+  .actions
+    = f.submit 'Save'

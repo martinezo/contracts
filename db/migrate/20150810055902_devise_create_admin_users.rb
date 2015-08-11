@@ -1,9 +1,9 @@
 class DeviseCreateAdminUsers < ActiveRecord::Migration
   def change
     create_table(:admin_users) do |t|
-      ## Database authenticatable
+      # Database authenticatable
       t.string :login, null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      #t.string :encrypted_password, null: false, default: ""
 	  t.string :name, null: false, default: ""
 	  t.string :email, null: false, default: ""
       ## Recoverable
@@ -32,7 +32,8 @@ class DeviseCreateAdminUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
 
-      t.timestamps null: false
+      
+	  #t.timestamps null: false
     end
 
     add_index :admin_users, :login,                unique: true
