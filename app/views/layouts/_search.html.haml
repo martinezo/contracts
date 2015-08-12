@@ -1,7 +1,14 @@
-= form_tag({:controller => viewer, :action => "index"}, :method => "get") do
-  = label_tag "código", "Search:"
-  = text_field_tag "codigo", "", :size => 5, :maxlenght => 5, :placeholder => "value"
-  %br/
-  = submit_tag "Search"
-= form_tag({:controller => viewer, :action => "index"}, :method => "get") do
-  = submit_tag "Show All"
+%nav.navbar.navbar-default
+  .container-fluid
+    .nav-header
+      %a.navbar-brand{:href => "#"}
+        %i.fa.fa-home.fa-fw>   INB
+      %form.navbar-form.navbar-left{:role => "search"}
+        .form-group
+          = form_tag({:controller => viewer, :action => "index"}, :method => "get") do
+            = label_tag "código", "Search:"
+            = text_field_tag "codigo", "", :size => 5, :maxlenght => 5, :placeholder => "value"
+            %br/
+            = submit_tag "Search"
+          = form_tag({:controller => viewer, :action => "index"}, :method => "get") do
+            = submit_tag "Show All"
