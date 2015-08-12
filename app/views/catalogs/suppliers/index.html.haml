@@ -2,32 +2,34 @@
 = render partial: 'layouts/search',locals: { viewer: 'suppliers' }
 
 = t('saludo')
-%table
-  %thead
-    %tr
-      %th Business name
-      %th Contact
-      %th Phone
-      %th Email
-      %th
-      %th
-      %th
-
-  %tbody
-    - @catalogs_suppliers.each do |catalogs_supplier|
+.table-responsive
+  %table.table.table-striped
+    %thead
       %tr
-        %td= catalogs_supplier.business_name
-        %td= catalogs_supplier.contact
-        %td= catalogs_supplier.phone
-        %td= catalogs_supplier.email
+        %th Business name
+        %th Contact
+        %th Phone
+        %th Email
+        %th
+        %th
+        %th
+
+    %tbody
+      - @catalogs_suppliers.each do |catalogs_supplier|
+        %tr
+          %td= catalogs_supplier.business_name
+          %td= catalogs_supplier.contact
+          %td= catalogs_supplier.phone
+          %td= catalogs_supplier.email
         
-        
+          %td
+            = link_to '', catalogs_supplier, class:"btn btn-ttc fa fa-eye"
+          %td
+            = link_to '', edit_catalogs_supplier_path(catalogs_supplier), class: "btn btn-ttc fa fa-pencil-square-o"
+          %td
+            = link_to '', catalogs_supplier, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-ttc fa fa-trash-o"
+.apple_pagination
+  = will_paginate @catalogs_suppliers, :container => false
 
+= link_to 'New Supplier', new_catalogs_supplier_path, class:"btn btn-ttc"
 
-        %td= link_to 'Show', catalogs_supplier
-        %td= link_to 'Edit', edit_catalogs_supplier_path(catalogs_supplier)
-        %td= link_to 'Destroy', catalogs_supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-= will_paginate @catalogs_suppliers
-= link_to 'New Supplier', new_catalogs_supplier_path
