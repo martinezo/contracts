@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %nav.navbar.navbar-default
   .container-fluid
     .nav-header
@@ -12,3 +13,12 @@
             = submit_tag "Search"
           = form_tag({:controller => viewer, :action => "index"}, :method => "get") do
             = submit_tag "Show All"
+=======
+= form_tag({:controller => viewer, :action => "index"}, :method => "get") do
+  = label_tag "código", "Search:"
+  = text_field_tag "codigo", "", :size => 5, :maxlenght => 5, :placeholder => "value"
+  %br/
+  = submit_tag "Search"
+= form_tag({:controller => viewer, :action => "index"}, :method => "get") do
+  = submit_tag "Show All"                                                                                                                                                                              
+>>>>>>> 20150812_I18n
