@@ -1,14 +1,19 @@
 %nav.navbar.navbar-default
   .container-fluid
     .nav-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       %a.navbar-brand{:href => "#"}
-        %i.fa.fa-home.fa-fw>   INB
-      %form.navbar-form.navbar-left{:role => "search"}
-        .form-group
-          = form_tag({:controller => viewer, :action => "index"}, :method => "get") do
+        %i.fa.fa-home.fa-fw> INB
+       
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %form.navbar-form.navbar-left{:role => "search"}        
+        = form_tag({:controller => viewer, :action => "index"}, :method => "get", class: "form-inline") do
+          .form-group
             = label_tag "código", "Search:"
-            = text_field_tag "codigo", "", :size => 5, :maxlenght => 5, :placeholder => "value"
-            %br/
-            = submit_tag "Search"
-          = form_tag({:controller => viewer, :action => "index"}, :method => "get") do
-            = submit_tag "Show All"
+            = text_field_tag "codigo", "", :size => 50, :maxlenght => 50, :placeholder => "value"        
+            = submit_tag "Search", class:"btn btn-tss"     
+            = submit_tag "Show All", class:"btn btn-tss"
