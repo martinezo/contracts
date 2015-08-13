@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20150811155602) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "catalogs_siteviews", force: :cascade do |t|
+    t.integer  "contract_id", null: false
+    t.datetime "visit_date",  null: false
+    t.boolean  "completed"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "catalogs_suppliers", force: :cascade do |t|
     t.string   "business_name", null: false
     t.string   "contact",       null: false

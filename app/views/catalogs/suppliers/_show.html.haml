@@ -13,6 +13,6 @@
   %b Email:
   = @catalogs_supplier.email
 
-= link_to 'Edit', edit_catalogs_supplier_path(@catalogs_supplier)
+= link_to 'Edit', edit_catalogs_supplier_path(@catalogs_supplier), remote: true
 \|
 = link_to 'Back', catalogs_suppliers_path
