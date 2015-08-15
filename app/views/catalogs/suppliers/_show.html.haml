@@ -1,18 +1,22 @@
 %p#notice= notice
 
 %p
-  %b Business name:
+  %b
+    = t('business')
   = @catalogs_supplier.business_name
 %p
-  %b Contact:
+  %b
+    = t('contact')
   = @catalogs_supplier.contact
 %p
-  %b Phone:
+  %b 
+    = t('phone')
   = @catalogs_supplier.phone
 %p
-  %b Email:
+  %b 
+    = t('email')
   = @catalogs_supplier.email
 
-= link_to 'Edit', edit_catalogs_supplier_path(@catalogs_supplier), remote: true
+= link_to t('edit'), edit_catalogs_supplier_path(@catalogs_supplier), remote: true
 \|
-= link_to 'Back', catalogs_suppliers_path
+= link_to t('back'), catalogs_suppliers_path

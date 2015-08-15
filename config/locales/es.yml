@@ -1,2 +1,31 @@
 es:
-  saludo: hola
+  title: Contratos
+  footer: Instituto de Neurobiologia UNAM
+  brand: INB
+  value: Valor
+  menu: Menu
+  menu_1: UNO
+  menu_2: DOS
+  menu_3: TRES
+  menu_4: LINK SEPARADO
+
+  search: Buscar
+  show_all: Mostrar todo
+  show: Mostrar
+  edit: Editar
+  delete: Eliminar
+  save: Guardar
+
+  previous: anterior
+  next: Siguiente
+  back: Regresar
+
+  business: Nombre de Compania
+  contact: Contacto
+  phone: Telefono
+  email: Correo electronico
+
+  title_cat_suppliers: Proveedores
+  title_edit_suppliers: Editar Proveedor
+  title_new_suppliers: Nuevo Proveedor
+  add_supplier: Agregar Proveedor

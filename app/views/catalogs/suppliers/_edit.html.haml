@@ -1,7 +1,8 @@
-%h1 Editing catalogs_supplier
+%h1
+  = t('title_edit_suppliers')
 
 = render 'form'
 
-= link_to 'Show', @catalogs_supplier, remote: true
+= link_to t('show'), @catalogs_supplier, remote: true
 \|
-= link_to 'Back', catalogs_suppliers_path
+= link_to t('back'), catalogs_suppliers_path

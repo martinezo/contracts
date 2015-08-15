@@ -1,15 +1,19 @@
-%h1 Listing catalogs_suppliers
+%h1 
+  = t('title_cat_suppliers')
 = render partial: 'layouts/search',locals: { viewer: 'suppliers' }
 
-= t('saludo')
 .table-responsive
   %table.table.table-striped
     %thead
       %tr
-        %th Business name
-        %th Contact
-        %th Phone
-        %th Email
+        %th 
+          = t('business')
+        %th
+          = t('contact')
+        %th
+          = t('phone')
+        %th
+          = t('email')
         %th
         %th
         %th
@@ -30,8 +34,8 @@
             = link_to '', catalogs_supplier, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-ttc fa fa-trash-o"
 .apple_pagination
   = will_paginate @catalogs_suppliers, :container => false
-
-= link_to 'New Supplier', new_catalogs_supplier_path, class:"btn btn-ttc", remote: true
+%br
+= link_to t('add_supplier'), new_catalogs_supplier_path, class:"btn btn-ttc", remote: true
 #supplier-modal.modal.fade
   .modal-dialog
     #inner-supplier-modal.modal-content
