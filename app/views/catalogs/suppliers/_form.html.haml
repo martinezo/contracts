@@ -7,16 +7,16 @@
           %li= msg
 
   .field
-    = f.label :business_name
+    = f.label :business_name, t('business')
     = f.text_field :business_name
   .field
-    = f.label :contact
+    = f.label :contact, t('contact')
     = f.text_field :contact
   .field
-    = f.label :phone
+    = f.label :phone, t('phone')
     = f.text_field :phone
   .field
-    = f.label :email
+    = f.label :email, t('email')
     = f.text_field :email
   .actions
-    = f.submit 'Save'
+    = f.submit t('save')

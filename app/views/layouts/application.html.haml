@@ -2,7 +2,8 @@
 !!!
 %html
   %head
-    %title Contracts
+    %title 
+      = t('title')
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
@@ -15,4 +16,4 @@
           = yield
     %footer.text-center
       .containerfooter
-        Instituto de NeurobiologíaUNAM
+        = t('footer')

@@ -20,4 +20,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: Contracts
+  footer: Instituto de Neurobiologia UNAM
+  brand: INB
+  value: Value
+  search: Search 
+  show_all: Show all
+  show: Show
+  menu: Menu
+  menu_1: One
+  menu_2: Two
+  menu_3: Three
+  menu_4: Separated link
+
+  show: Show
+  edit: Edit
+  delete: Delete
+  save: Save
+
+  previous: Previous
+  next: Next
+  back: Back
+
+  business: Business name
+  contact: Contact
+  phone: Phone
+  email: Email
+
+  title_cat_suppliers: Suppliers Catalog
+  title_edit_suppliers: Edit Supplier
+  title_new_suppliers: New Supplier
+  new_supplier: New Supplier
+
+  saludo: Hi

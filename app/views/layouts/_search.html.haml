@@ -2,7 +2,7 @@
   .container-fluid
     .nav-header
       %a.navbar-brand{:href => "#"} 
-        INB
+        = t('brand')
         %i.fa.fa-home.fa-fw
       %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
@@ -15,23 +15,27 @@
         %i.fa.fa-search.fa-fw
         = form_tag({:controller => viewer, :action => "index"}, :method => "get", class: "form-inline") do
           .form-group
-            = label_tag "código", "Search:"
-            = text_field_tag "codigo", "", :size => 30, :maxlenght => 50, :placeholder => "value"        
-            = submit_tag "Search", class:"btn btn-tss"
-            = submit_tag "Show All", class:"btn btn-tss"
+            = label_tag "códig", t('search')
+            = text_field_tag "codigo", "", :size => 30, :maxlenght => 50, :placeholder => t('value')
+            = submit_tag t('search'), class:"btn btn-tss"
+            = submit_tag t('show_all'), class:"btn btn-tss"
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Menú
+            = t('menu')
             %span.caret
           %ul.dropdown-menu
             %li
-              %a{:href => "#"} Action
+              %a{:href => "#"}
+                = t('menu_1')
             %li
-              %a{:href => "#"} Another action
+              %a{:href => "#"}
+                = t('menu_2')
             %li
-              %a{:href => "#"} Something else here
+              %a{:href => "#"}
+                = t('menu_3')
             %li.divider{:role => "separator"}
             %li
-              %a{:href => "#"} Separated link
+              %a{:href => "#"}
+                = t('menu_4')
     
