@@ -3,32 +3,29 @@ es:
   footer: Instituto de Neurobiologia UNAM
   brand: INB
   value: Valor
+  menu: Menu
+  menu_1: UNO
+  menu_2: DOS
+  menu_3: TRES
+  menu_4: LINK SEPARADO
+
   search: Buscar
   show_all: Mostrar todo
-  show: Mostrar
-  menu: Menu
-  menu_1: Uno
-  menu_2: Dos
-  menu_3: Tres
-  menu_4: Link separado  
-  
   show: Mostrar
   edit: Editar
   delete: Eliminar
   save: Guardar
 
-  previous: Anterior
+  previous: anterior
   next: Siguiente
   back: Regresar
 
   business: Nombre de Compania
   contact: Contacto
   phone: Telefono
-  email: Correo Electronico
-  
-  title_cat_suppliers: Catalogo de Proveedores
-  title_edit_suppliers: Editar Proveedor
-  title_new_suppliers: Proveedor nuevo
-  new_supplier: Nuevo Proveedor
+  email: Correo electronico
 
-  saludo: hola
+  title_cat_suppliers: Proveedores
+  title_edit_suppliers: Editar Proveedor
+  title_new_suppliers: Nuevo Proveedor
+  add_supplier: Agregar Proveedor
