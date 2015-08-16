@@ -16,7 +16,10 @@ es:
   delete: Eliminar
   save: Guardar
 
-  previous: anterior
+  will_paginate:
+    next_label: Siguiente
+    previous_label: Anterior
+  previous: Anterior
   next: Siguiente
   back: Regresar
 

@@ -1,22 +1,28 @@
-%p#notice= notice
+.modal-header
+  %h3.modal-title
+    = t('information')
 
-%p
-  %b
-    = t('business')
-  = @catalogs_supplier.business_name
-%p
-  %b
-    = t('contact')
-  = @catalogs_supplier.contact
-%p
-  %b 
-    = t('phone')
-  = @catalogs_supplier.phone
-%p
-  %b 
-    = t('email')
-  = @catalogs_supplier.email
+.modal-body
+  %p#notice= notice
 
-= link_to t('edit'), edit_catalogs_supplier_path(@catalogs_supplier), remote: true
-\|
-= link_to t('back'), catalogs_suppliers_path
+  %p
+    %b
+      = t('business')
+    = @catalogs_supplier.business_name
+  %p
+    %b
+      = t('contact')
+    = @catalogs_supplier.contact
+  %p
+    %b 
+      = t('phone')
+    = @catalogs_supplier.phone
+  %p
+    %b 
+      = t('email')
+    = @catalogs_supplier.email
+
+.modal-footer
+  = link_to t('edit'), edit_catalogs_supplier_path(@catalogs_supplier), remote: true
+  \|
+  = link_to t('back'), catalogs_suppliers_path

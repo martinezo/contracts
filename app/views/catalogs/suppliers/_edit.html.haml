@@ -1,8 +1,9 @@
-%h1
-  = t('title_edit_suppliers')
-
-= render 'form'
-
-= link_to t('show'), @catalogs_supplier, remote: true
-\|
-= link_to t('back'), catalogs_suppliers_path
+.modal-header
+  %h3.modal-title
+    = t('title_edit_suppliers')
+.modal-body
+  = render 'form'
+.modal-footer
+  = link_to t('show'), @catalogs_supplier, remote: true
+  \|
+  = link_to t('back'), catalogs_suppliers_path

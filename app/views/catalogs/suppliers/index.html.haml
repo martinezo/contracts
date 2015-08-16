@@ -27,15 +27,15 @@
           %td= catalogs_supplier.email
         
           %td
-            = link_to '', catalogs_supplier, class:"btn btn-ttc fa fa-eye", remote: true
+            = link_to '', catalogs_supplier, class:"btn btn-tss fa fa-eye", remote: true
           %td
-            = link_to '', edit_catalogs_supplier_path(catalogs_supplier), class: "btn btn-ttc fa fa-pencil-square-o", remote: true
+            = link_to '', edit_catalogs_supplier_path(catalogs_supplier), class: "btn btn-tss fa fa-pencil-square-o", remote: true
           %td
-            = link_to '', catalogs_supplier, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-ttc fa fa-trash-o"
+            = link_to '', catalogs_supplier, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o"
 .apple_pagination
   = will_paginate @catalogs_suppliers, :container => false
 %br
-= link_to t('add_supplier'), new_catalogs_supplier_path, class:"btn btn-ttc", remote: true
+= link_to t('add_supplier'), new_catalogs_supplier_path, class:"btn btn-tss", remote: true
 #supplier-modal.modal.fade
   .modal-dialog
     #inner-supplier-modal.modal-content

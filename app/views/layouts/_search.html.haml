@@ -12,6 +12,7 @@
         %i.fa.fa-search.fa-fw
         = form_tag({:controller => viewer, :action => "index"}, :method => "get", class: "form-inline") do
           .form-group
+            = label_tag "codigo", t('search'), class: "sr-only"
             = text_field_tag "codigo", "", :size => 30, :maxlenght => 50, :placeholder => t('search')
             = submit_tag t('search'), class:"btn btn-tss"
             = submit_tag t('show_all'), class:"btn btn-tss"

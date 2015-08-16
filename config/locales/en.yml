@@ -15,7 +15,10 @@ en:
   edit: Edit
   delete: Delete
   save: Save
-
+ 
+  will_paginate:
+    next_label: Siguiente
+    previous_label: Anterior
   previous: Previous
   next: Next
   back: Back
