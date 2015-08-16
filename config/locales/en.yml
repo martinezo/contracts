@@ -4,9 +4,9 @@ en:
   brand: INB
   value: Value
   menu: Menu
-  menu_1: One
-  menu_2: Two
-  menu_3: Three
+  menu_1: Suppliers
+  menu_2: Devices
+  menu_3: Locations
   menu_4: Separated link
 
   search: Search

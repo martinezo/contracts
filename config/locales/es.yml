@@ -4,9 +4,9 @@ es:
   brand: INB
   value: Valor
   menu: Menu
-  menu_1: UNO
-  menu_2: DOS
-  menu_3: TRES
+  menu_1: Proveedores
+  menu_2: Equipos
+  menu_3: Localizacion
   menu_4: LINK SEPARADO
 
   search: Buscar

@@ -32271,3 +32271,409 @@ Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.
 
 Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 177.227.97.39 at 2015-08-15 14:48:07 -0500
 Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/catalogs/suppliers" for 177.227.97.39 at 2015-08-15 18:49:58 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Catalogs::SuppliersController#index as HTML
+  Rendered layouts/_search.html.haml (11.2ms)
+  [1m[35mCatalogs::Supplier Load (0.9ms)[0m  SELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "catalogs_suppliers"[0m
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (131.4ms)
+Completed 200 OK in 1396ms (Views: 1287.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/catalogs/suppliers" for 177.227.97.39 at 2015-08-15 18:51:23 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Rendered layouts/_search.html.haml (22.2ms)
+  [1m[35mCatalogs::Supplier Load (0.9ms)[0m  SELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "catalogs_suppliers"[0m
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (42.3ms)
+Completed 200 OK in 292ms (Views: 288.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/catalogs/suppliers" for 177.227.97.39 at 2015-08-15 18:51:49 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Rendered layouts/_search.html.haml (164.6ms)
+  [1m[35mCatalogs::Supplier Load (0.5ms)[0m  SELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "catalogs_suppliers"[0m
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (175.7ms)
+Completed 200 OK in 400ms (Views: 397.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/admin/sign_out.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/devices.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/locations.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/suppliers.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/scaffolds.self-9e872d1c4e184d5ad2888b361737be0437b362bf6569d58f3135f07cf62f461e.css?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/contracts.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/siteviews.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-99023cc3b1389dda2919651aed5cf7e1c9ea060dff0a22be9bf3ddc6303f26e8.css?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:52 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:53 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:53 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:53 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/admin/sign_out.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:53 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/locations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:53 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/devices.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:53 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/suppliers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:55 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/contracts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:55 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/siteviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:55 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 177.227.97.39 at 2015-08-15 18:51:55 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/catalogs/suppliers?utf8=%E2%9C%93&codigo=DELL&commit=Buscar" for 177.227.97.39 at 2015-08-15 18:52:01 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Parameters: {"utf8"=>"✓", "codigo"=>"DELL", "commit"=>"Buscar"}
+  Rendered layouts/_search.html.haml (3.7ms)
+  [1m[35mCatalogs::Supplier Load (1.5ms)[0m  SELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" WHERE (business_name LIKE '%DELL%' or contact LIKE '%DELL%' or phone LIKE '%DELL%' or email LIKE '%DELL%') LIMIT 2 OFFSET 0
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (13.6ms)
+Completed 200 OK in 413ms (Views: 409.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/catalogs/suppliers?utf8=%E2%9C%93&codigo=&commit=Mostrar+todo" for 177.227.97.39 at 2015-08-15 18:52:05 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Parameters: {"utf8"=>"✓", "codigo"=>"", "commit"=>"Mostrar todo"}
+  Rendered layouts/_search.html.haml (3.7ms)
+  [1m[36mCatalogs::Supplier Load (1.0ms)[0m  [1mSELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "catalogs_suppliers"
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (20.1ms)
+Completed 200 OK in 282ms (Views: 278.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/catalogs/suppliers" for 177.227.97.39 at 2015-08-15 18:54:19 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Rendered layouts/_search.html.haml (21.3ms)
+  [1m[36mCatalogs::Supplier Load (1.1ms)[0m  [1mSELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "catalogs_suppliers"
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (41.8ms)
+Completed 200 OK in 422ms (Views: 418.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/catalogs/suppliers" for 177.227.97.39 at 2015-08-15 18:56:07 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Rendered layouts/_search.html.haml (18.5ms)
+  [1m[36mCatalogs::Supplier Load (1.1ms)[0m  [1mSELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "catalogs_suppliers"
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (37.3ms)
+Completed 200 OK in 297ms (Views: 293.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/catalogs/suppliers" for 177.227.97.39 at 2015-08-15 18:57:08 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Rendered layouts/_search.html.haml (17.8ms)
+  [1m[36mCatalogs::Supplier Load (0.6ms)[0m  [1mSELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "catalogs_suppliers"
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (31.3ms)
+Completed 200 OK in 415ms (Views: 412.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/admin/sign_out.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:08 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/devices.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:08 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/suppliers.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:08 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/locations.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:08 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/scaffolds.self-9e872d1c4e184d5ad2888b361737be0437b362bf6569d58f3135f07cf62f461e.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:08 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/contracts.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:08 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/siteviews.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:08 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-99023cc3b1389dda2919651aed5cf7e1c9ea060dff0a22be9bf3ddc6303f26e8.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/admin/sign_out.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/devices.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/locations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/suppliers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/contracts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/siteviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:09 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/catalogs/suppliers" for 177.227.97.39 at 2015-08-15 18:57:36 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Rendered layouts/_search.html.haml (19.6ms)
+  [1m[36mCatalogs::Supplier Load (0.9ms)[0m  [1mSELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "catalogs_suppliers"
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (39.0ms)
+Completed 200 OK in 423ms (Views: 419.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/admin/sign_out.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/devices.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/locations.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/suppliers.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/contracts.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/scaffolds.self-9e872d1c4e184d5ad2888b361737be0437b362bf6569d58f3135f07cf62f461e.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/siteviews.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-99023cc3b1389dda2919651aed5cf7e1c9ea060dff0a22be9bf3ddc6303f26e8.css?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/admin/sign_out.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/devices.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/locations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/suppliers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:37 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/contracts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:38 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:38 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/siteviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:38 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 177.227.97.39 at 2015-08-15 18:57:38 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/catalogs/suppliers" for 177.227.97.39 at 2015-08-15 19:03:46 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Catalogs::SuppliersController#index as HTML
+  Rendered layouts/_search.html.haml (12.8ms)
+  [1m[36mCatalogs::Supplier Load (0.7ms)[0m  [1mSELECT  "catalogs_suppliers".* FROM "catalogs_suppliers" LIMIT 2 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "catalogs_suppliers"
+  Rendered catalogs/suppliers/index.html.haml within layouts/application (55.9ms)
+Completed 200 OK in 438ms (Views: 422.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/admin/sign_out.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.227.97.39 at 2015-08-15 19:03:46 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/devices.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/suppliers.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/locations.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/contracts.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/scaffolds.self-9e872d1c4e184d5ad2888b361737be0437b362bf6569d58f3135f07cf62f461e.css?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/siteviews.self-7511c2ef91d25555cd1832636b2cd3245c5e0a5d51ddcd70fa960cb27cdd5a01.css?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-99023cc3b1389dda2919651aed5cf7e1c9ea060dff0a22be9bf3ddc6303f26e8.css?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/admin/sign_out.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/devices.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/locations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/catalogs/suppliers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/contracts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/system/siteviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.227.97.39 at 2015-08-15 19:03:47 -0500
+Cannot render console from 177.227.97.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
