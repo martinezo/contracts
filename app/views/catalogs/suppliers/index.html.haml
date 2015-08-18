@@ -1,6 +1,6 @@
 .title_supplier
   %h1#supplier
-    = t('title_cat_suppliers')
+    = t('.title_supplier')
 .barra_busqueda    
   = render partial: 'layouts/search',locals: { viewer: 'suppliers' }
 .cuerpo_suppliers
@@ -9,13 +9,13 @@
       %thead
         %tr
           %th
-            = t('business')
+            = t('.business')
           %th
-            = t('contact')
+            = t('.contact')
           %th
-            = t('phone')
+            = t('.phone')
           %th
-            = t('email')
+            = t('.email')
           %th
           %th
           %th
@@ -36,7 +36,7 @@
   .apple_pagination
     = will_paginate @catalogs_suppliers, :container => false
   %br
-  = link_to t('add_supplier'), new_catalogs_supplier_path, class:"btn btn-tss", remote: true
+  = link_to t('.add_supplier'), new_catalogs_supplier_path, class:"btn btn-tss", remote: true
 #supplier-modal.modal.fade
   .modal-dialog
     #inner-supplier-modal.modal-content

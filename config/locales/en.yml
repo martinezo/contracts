@@ -1,13 +1,36 @@
 en:
-  title: Contracts
-  footer: Instituto de Neurobiologia UNAM
-  brand: INB
-  value: Value
-  menu: Menu
-  menu_1: Suppliers
-  menu_2: Devices
-  menu_3: Locations
-  menu_4: Separated link
+  catalogs:
+    suppliers:
+      index:
+        title_supplier: Suppliers
+        business: Bussines Name
+        contact: Contact
+        phone: Phone
+        email: Email
+        add_supplier: Add supplier
+      show:
+        title_info_supplier: Supplier's information
+        business: Bussines name
+        contact: Contact
+        phone: Phone
+        email: Email
+      edit:
+        title_edit_supplier: Edit Supplier
+      new:
+        title_new_supplier: New Supplier
+
+  layouts:
+    application:
+      title_system: Contracts
+      title_footer: Instituto de Neurobiologia UNAM
+    search:
+      search: Search
+      show_all: Show all
+      menu: Menu
+      menu_1: Suppliers
+      menu_2: Devices
+      menu_3: Locations
+      menu_4: A
 
   search: Search
   show_all: Show all
@@ -15,20 +38,21 @@ en:
   edit: Edit
   delete: Delete
   save: Save
- 
-  will_paginate:
-    next_label: Siguiente
-    previous_label: Anterior
   previous: Previous
   next: Next
   back: Back
 
-  business: Business name
-  contact: Contact
-  phone: Phone
-  email: Email
+  will_paginate:
+    next_label: Next
+    previous_label: Previous
 
-  title_cat_suppliers: Suppliers Catalog
-  title_edit_suppliers: Edit Supplier
-  title_new_suppliers: New Supplier
-  add_supplier: Add Supplier
+  msgs:
+    succesful: Proveedor fue creado exitosamente_ingles.
+
+  activerecord:
+    attributes:
+      catalogs/supplier:
+        business_name: Bussines name
+        contact: Contact
+        phone: Phone
+        email: Email

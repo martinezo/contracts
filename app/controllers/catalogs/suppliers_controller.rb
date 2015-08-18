@@ -35,9 +35,9 @@ class Catalogs::SuppliersController < ApplicationController
 
     respond_to do |format|
       if @catalogs_supplier.save
-        format.html { redirect_to @catalogs_supplier, notice: 'Supplier was successfully created.' }
+        format.html { redirect_to @catalogs_supplier, notice: t('msj.succesful') }
         format.json { render :show, status: :created, location: @catalogs_supplier }
-        format.js   { redirect_to @catalogs_supplier, notice: 'Supplier was successfully created.' }
+        format.js   { redirect_to @catalogs_supplier, notice: t('msj.succesful') }
       else
         format.html { render :new }
         format.json { render json: @catalogs_supplier.errors, status: :unprocessable_entity }
