@@ -30,6 +30,8 @@
   background-color: rgb(238,150,40);
   color: white;
 }
+
+  
 .apple_pagination {
   background: #f1f1f1;
   border: 1px solid #e5e5e5;
@@ -55,4 +57,9 @@
     text-decoration: none;
     color: black; }
     .apple_pagination a:hover, .apple_pagination a:focus {
-      text-decoration: underline; }
+      color: rgb(53,143,212);
+      background-color: #e0e0e0;
+      text-decoration: underline;
+      -moz-border-radius: 1em;
+      -webkit-border-radius: 1em;
+      border-radius: 1em; }
