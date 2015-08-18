@@ -1,34 +1,65 @@
 es:
-  title: Contratos
-  footer: Instituto de Neurobiologia UNAM
-  brand: INB
-  value: Valor
-  menu: Menu
-  menu_1: Proveedores
-  menu_2: Equipos
-  menu_3: Localizacion
-  menu_4: LINK SEPARADO
+  catalogs:
+    suppliers:
+      index:
+        title_supplier: Proveedores
+        business: Nombre de Compania
+        contact: Contacto
+        phone: Telefono
+        email: Correo electronico
+        add_supplier: Agregar proveedor
+      show:
+        title_info_supplier: Informacion de Proveedor
+        business: Nombre de Compañía
+        contact: Contacto
+        phone: Teléfono
+        email: Correo electrónico
+      edit:
+        title_edit_supplier: Editar Proveedor
+      new:
+        title_new_supplier: Nuevo Proveedor
 
+  layouts:
+    application:
+      title_system: Contratos
+      title_footer: Instituto de Neurobiologia UNAM
+    search:
+      menu: Menu
+      menu_1: Proveedores
+      menu_2: Dispositivo
+      menu_3: Locaciones
+      menu_4: A
+
+  title:
+    title_system: Contratos
+    title_footer: Instituto de Neurobiologia UNAM
+    title_supplier: Proveedores
+    title_info_supplier: Informacion de Proveedor
+    title_edit_supplier: Editar Proveedor
+    title_new_supplier: Nuevo Proveedor
+  
   search: Buscar
   show_all: Mostrar todo
   show: Mostrar
   edit: Editar
   delete: Eliminar
   save: Guardar
-
-  will_paginate:
-    next_label: Siguiente
-    previous_label: Anterior
+  add_supplier: Agregar Proveedor
   previous: Anterior
   next: Siguiente
   back: Regresar
 
-  business: Nombre de Compania
-  contact: Contacto
-  phone: Telefono
-  email: Correo electronico
+  will_paginate:
+    next_label: Siguiente
+    previous_label: Anterior
 
-  title_cat_suppliers: Proveedores
-  title_edit_suppliers: Editar Proveedor
-  title_new_suppliers: Nuevo Proveedor
-  add_supplier: Agregar Proveedor
+  msgs:
+    succesful: Proveedor fue creado exitosamente_diccionario.
+
+  activerecord:
+    attributes:
+      catalogs/supplier:
+        business_name: Nombre de Compañía
+        contact: Contacto
+        phone: Teléfono
+        email: Correo electrónico
