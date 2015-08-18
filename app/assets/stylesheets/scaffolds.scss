@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  color: #333;
+  color: #fff;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -19,15 +19,19 @@ pre {
 }
 
 a {
-  color: #000;
+  color: white;
 
   &:visited {
     color: #666;
   }
 
   &:hover {
+    .apple_pagination{
+      -moz-border-radius: 1em;
+      -webkit-border-radius: 1em;
+    border-radius: 1em;}
     color: #fff;
-    background-color: #000;
+    background-color: #e0e0e0;
   }
 }
 
@@ -48,7 +52,7 @@ div {
 }
 
 #error_explanation {
-  width: 450px;
+  width: 650px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
