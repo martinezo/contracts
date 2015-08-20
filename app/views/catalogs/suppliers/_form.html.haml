@@ -1,22 +1,29 @@
-= form_for @catalogs_supplier, remote: true do |f|
-  - if @catalogs_supplier.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@catalogs_supplier.errors.count, "error")} prohibited this catalogs_supplier from being saved:"
-      %ul
-        - @catalogs_supplier.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :business_name
-    = f.text_field :business_name
-  .field
-    = f.label :contact
-    = f.text_field :contact
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :email
-    = f.text_field :email
-  .actions
-    = f.submit 'Save'
+.container-fluid
+  = form_for @catalogs_supplier, remote: true do |f|
+    - if @catalogs_supplier.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@catalogs_supplier.errors.count, "error")} prohibited this catalogs_supplier from being saved:"
+        %ul
+          - @catalogs_supplier.errors.full_messages.each do |msg|
+            %li= msg
+    %form.form-horizontal
+      .form-group#rows
+        = f.label :business_name, class:"col-xs-3 control-label"
+        .col-xs-9
+          = f.text_field :business_name, class:"form-control"
+      .form-group#rows
+        = f.label :contact, class:"col-xs-3 control-label"
+        .col-xs-9
+          = f.text_field :contact, class:"form-control"
+      .form-group#rows
+        = f.label :phone, class:"col-xs-3 control-label"
+        .col-xs-9
+          = f.text_field :phone, class:"form-control"
+      .form-group#rows
+        = f.label :email, class:"col-xs-3 control-label"
+        .col-xs-9
+          = f.text_field :email, class:"form-control"
+      .form-group#rows
+        .col-xs-offset-3.col-xs-9
+          .actions
+            = f.submit t('save'), class:"btn btn-tss"

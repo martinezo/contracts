@@ -4,6 +4,7 @@ class Catalogs::SuppliersController < ApplicationController
   # GET /catalogs/suppliers
   # GET /catalogs/suppliers.json
  def index
+<<<<<<< HEAD
    
    # if params[:codigo].nil? || params[:codigo].empty?
 	#@catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],'').paginate(page: params[:page], per_page: 2)
@@ -15,6 +16,16 @@ class Catalogs::SuppliersController < ApplicationController
    #end
  end
 
+=======
+    puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
+    if params[:codigo].nil? || params[:codigo].empty?
+      @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 5)
+    else
+      #@catalogs_suppliers.where(business_name: params[:codido])
+      @catalogs_suppliers= Catalogs::Supplier.where("business_name LIKE :codigo or contact LIKE :codigo or phone LIKE :codigo or email LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 5)
+    end
+  end
+>>>>>>> dc4ef25e723dfa587ef8f081971c3e110eb6dfa5
 
 
   # GET /catalogs/suppliers/1
@@ -38,9 +49,9 @@ class Catalogs::SuppliersController < ApplicationController
 
     respond_to do |format|
       if @catalogs_supplier.save
-        format.html { redirect_to @catalogs_supplier, notice: 'Supplier was successfully created.' }
+        format.html { redirect_to @catalogs_supplier, notice: t('msj.succesful') }
         format.json { render :show, status: :created, location: @catalogs_supplier }
-        format.js   { redirect_to @catalogs_supplier, notice: 'Supplier was successfully created.' }
+        format.js   { redirect_to @catalogs_supplier, notice: t('msj.succesful') }
       else
         format.html { render :new }
         format.json { render json: @catalogs_supplier.errors, status: :unprocessable_entity }

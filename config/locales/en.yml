@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -21,5 +22,63 @@
 
 I18n.locale = :es
 
+=======
+>>>>>>> dc4ef25e723dfa587ef8f081971c3e110eb6dfa5
 en:
-  hello: "Hello world"
+  catalogs:
+    suppliers:
+      index:
+        title_supplier: Suppliers
+        business: Bussines Name
+        contact: Contact
+        phone: Phone
+        email: Email
+        add_supplier: Add supplier
+      show:
+        title_info_supplier: Supplier's information
+        business: Bussines name
+        contact: Contact
+        phone: Phone
+        email: Email
+      edit:
+        title_edit_supplier: Edit Supplier
+      new:
+        title_new_supplier: New Supplier
+
+  layouts:
+    application:
+      title_system: Contracts
+      title_footer: Instituto de Neurobiologia UNAM
+    search:
+      search: Search
+      show_all: Show all
+      menu: Menu
+      menu_1: Suppliers
+      menu_2: Devices
+      menu_3: Locations
+      menu_4: A
+
+  search: Search
+  show_all: Show all
+  show: Show
+  edit: Edit
+  delete: Delete
+  save: Save
+  previous: Previous
+  next: Next
+  back: Back
+
+  will_paginate:
+    next_label: Next
+    previous_label: Previous
+
+  msgs:
+    succesful: Proveedor fue creado exitosamente_ingles.
+
+  activerecord:
+    attributes:
+      catalogs/supplier:
+        business_name: Bussines name
+        contact: Contact
+        phone: Phone
+        email: Email

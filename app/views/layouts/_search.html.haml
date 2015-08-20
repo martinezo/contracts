@@ -5,15 +5,34 @@
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
-        %span.icon-bar
-      %a.navbar-brand{:href => "#"}
-        %i.fa.fa-home.fa-fw> INB
+        %span.icon-bar      
        
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %form.navbar-form.navbar-left{:role => "search"}        
+      %form.navbar-form.navbar-left        
+        %i.fa.fa-search.fa-fw
         = form_tag({:controller => viewer, :action => "index"}, :method => "get", class: "form-inline") do
           .form-group
-            = label_tag "código", "Search:"
-            = text_field_tag "codigo", "", :size => 50, :maxlenght => 50, :placeholder => "value"        
-            = submit_tag "Search", class:"btn btn-tss"     
-            = submit_tag "Show All", class:"btn btn-tss"
+            = label_tag "codigo", t('search'), class: "sr-only"
+            = text_field_tag "codigo", "", :size => 30, :maxlenght => 50, :placeholder => t('search')
+            = submit_tag t('search'), class:"btn btn-ttc"
+            = submit_tag t('show_all'), class:"btn btn-ttc"
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            = t('.menu')
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"}
+                = t('.menu_1')
+            %li
+              %a{:href => "#"}
+                = t('.menu_2')
+            %li
+              %a{:href => "#"}
+                = t('.menu_3')
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#"}
+                = t('.menu_4')
+    

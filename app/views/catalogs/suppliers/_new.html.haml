@@ -1,5 +1,7 @@
-%h1 New catalogs_supplier
-
-= render 'form'
-
-= link_to 'Back', catalogs_suppliers_path
+.modal-header
+  %h3.modal-title
+    = t('.title_new_supplier')
+.modal-body
+  = render 'form'
+.modal-footer
+  = link_to t('back'), catalogs_suppliers_path
