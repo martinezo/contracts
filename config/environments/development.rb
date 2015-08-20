@@ -39,3 +39,11 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
+
+class Application < Rails::Application
+  config.web_console.whitelisted_ips = '187.144.91.156'
+end
+
+#class Application < Rails::Application
+ # config.rvt.whitelisted_ips = %w( 127.0.0.1 '187.144.91.156')
+#end
