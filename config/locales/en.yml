@@ -1,62 +1,13 @@
-<<<<<<< HEAD
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
-I18n.locale = :es
-
-=======
->>>>>>> dc4ef25e723dfa587ef8f081971c3e110eb6dfa5
 en:
-  catalogs:
-    suppliers:
-      index:
-        title_supplier: Suppliers
-        business: Bussines Name
-        contact: Contact
-        phone: Phone
-        email: Email
-        add_supplier: Add supplier
-      show:
-        title_info_supplier: Supplier's information
-        business: Bussines name
-        contact: Contact
-        phone: Phone
-        email: Email
-      edit:
-        title_edit_supplier: Edit Supplier
-      new:
-        title_new_supplier: New Supplier
-
-  layouts:
-    application:
-      title_system: Contracts
-      title_footer: Instituto de Neurobiologia UNAM
-    search:
-      search: Search
-      show_all: Show all
-      menu: Menu
-      menu_1: Suppliers
-      menu_2: Devices
-      menu_3: Locations
-      menu_4: A
+  title: Contracts
+  footer: Instituto de Neurobiologia UNAM
+  brand: INB
+  value: Value
+  menu: Menu
+  menu_1: Suppliers
+  menu_2: Devices
+  menu_3: Locations
+  menu_4: Separated link
 
   search: Search
   show_all: Show all
@@ -64,21 +15,20 @@ en:
   edit: Edit
   delete: Delete
   save: Save
+ 
+  will_paginate:
+    next_label: Siguiente
+    previous_label: Anterior
   previous: Previous
   next: Next
   back: Back
 
-  will_paginate:
-    next_label: Next
-    previous_label: Previous
+  business: Business name
+  contact: Contact
+  phone: Phone
+  email: Email
 
-  msgs:
-    succesful: Proveedor fue creado exitosamente_ingles.
-
-  activerecord:
-    attributes:
-      catalogs/supplier:
-        business_name: Bussines name
-        contact: Contact
-        phone: Phone
-        email: Email
+  title_cat_suppliers: Suppliers Catalog
+  title_edit_suppliers: Edit Supplier
+  title_new_suppliers: New Supplier
+  add_supplier: Add Supplier

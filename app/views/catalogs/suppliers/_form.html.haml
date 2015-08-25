@@ -8,19 +8,19 @@
             %li= msg
     %form.form-horizontal
       .form-group#rows
-        = f.label :business_name, class:"col-xs-3 control-label"
+        = f.label :business_name, t('business'), class:"col-xs-3 control-label"
         .col-xs-9
           = f.text_field :business_name, class:"form-control"
       .form-group#rows
-        = f.label :contact, class:"col-xs-3 control-label"
+        = f.label :contact, t('contact'), class:"col-xs-3 control-label"
         .col-xs-9
           = f.text_field :contact, class:"form-control"
       .form-group#rows
-        = f.label :phone, class:"col-xs-3 control-label"
+        = f.label :phone, t('phone'), class:"col-xs-3 control-label"
         .col-xs-9
           = f.text_field :phone, class:"form-control"
       .form-group#rows
-        = f.label :email, class:"col-xs-3 control-label"
+        = f.label :email, t('email'), class:"col-xs-3 control-label"
         .col-xs-9
           = f.text_field :email, class:"form-control"
       .form-group#rows

@@ -15,5 +15,10 @@
   .field
     = f.label :completed
     = f.check_box :completed
+  .field  
+    =  label_tag "Recordarme el dia:"
+    =  datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('search')
+  
+ 
   .actions
     = f.submit 'Save'

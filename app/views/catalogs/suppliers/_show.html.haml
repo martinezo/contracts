@@ -1,25 +1,25 @@
 .modal-header
   %h3.modal-title
-    = t('.title_info_supplier')
+    = t('information')
 
 .modal-body
   %p#notice= notice
 
   %p
     %b
-      = t('.business')
+      = t('business')
     = @catalogs_supplier.business_name
   %p
     %b
-      = t('.contact')
+      = t('contact')
     = @catalogs_supplier.contact
   %p
     %b 
-      = t('.phone')
+      = t('phone')
     = @catalogs_supplier.phone
   %p
     %b 
-      = t('.email')
+      = t('email')
     = @catalogs_supplier.email
 
 .modal-footer

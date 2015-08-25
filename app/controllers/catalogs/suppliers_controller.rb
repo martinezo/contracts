@@ -4,28 +4,15 @@ class Catalogs::SuppliersController < ApplicationController
   # GET /catalogs/suppliers
   # GET /catalogs/suppliers.json
  def index
-<<<<<<< HEAD
-   
-   # if params[:codigo].nil? || params[:codigo].empty?
-	#@catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],'').paginate(page: params[:page], per_page: 2)
-   #   @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 2)
-   	#else
-	@catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],params[:codigo]).paginate(page: params[:page],per_page: 2)
-   #   #@catalogs_suppliers.where(business_name: params[:codido])
-   #   @catalogs_suppliers= Catalogs::Supplier.where("business_name LIKE :codigo or contact LIKE :codigo or phone LIKE :codigo or email LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 2) 
-   #end
- end
-
-=======
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
       @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 5)
     else
       #@catalogs_suppliers.where(business_name: params[:codido])
-      @catalogs_suppliers= Catalogs::Supplier.where("business_name LIKE :codigo or contact LIKE :codigo or phone LIKE :codigo or email LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 5)
+	  @catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],params[:codigo]).paginate(page: params[:page],per_page: 2)
     end
   end
->>>>>>> dc4ef25e723dfa587ef8f081971c3e110eb6dfa5
+
 
 
   # GET /catalogs/suppliers/1

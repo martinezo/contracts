@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -38,12 +38,14 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address:              'smtp.live.com',
+  port:                 587,
+  domain:               'live.com',
+  user_name:            'genomma@live.com',
+  password:             'root-12345',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 end
-
-class Application < Rails::Application
-  config.web_console.whitelisted_ips = '187.144.91.156'
-end
-
-#class Application < Rails::Application
- # config.rvt.whitelisted_ips = %w( 127.0.0.1 '187.144.91.156')
-#end

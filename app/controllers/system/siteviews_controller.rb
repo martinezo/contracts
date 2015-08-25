@@ -32,9 +32,22 @@ class System::SiteviewsController < ApplicationController
   # POST /system/siteviews.json
   def create
     @system_siteview = System::Siteview.new(system_siteview_params)
-
+	@recordar=params[:recordar]
+	@contract_id=system_siteview_params[:contract_id]
+	@contrato=System::Contract.find(@contract_id)
+	@supplier_id=@contrato.supplier_id
+	@proveedor=Catalogs::Supplier.find(@supplier_id)
+	@email=@proveedor.email
+	#Notifier.delay(run_at: 5.minutes.from_now).signup(@user)
+	puts 'AKI DEBE IR EL PARAMETRO RECORDAR ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
+	puts @recordar
+	puts 'AKI TERMINA IR EL PARAMETRO RECORDAR ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
+	puts @email
+	puts 'AKI TERMINA IR EL PARAMETRO EMAIL ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
     respond_to do |format|
       if @system_siteview.save
+	    #ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
+		ApplicationMailer.send_mail(@email).deliver
         format.html { redirect_to @system_siteview, notice: 'Siteview was successfully created.' }
         format.json { render :show, status: :created, location: @system_siteview }
       else
