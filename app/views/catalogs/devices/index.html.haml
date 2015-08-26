@@ -1,25 +1,36 @@
-%h1 Listing catalogs_devices
-= render partial: 'layouts/search',locals: { viewer: 'devices' }
-%table
-  %thead
-    %tr
-      %th Name
-      %th Unam stock number
-      %th Location
-      %th
-      %th
-      %th
+.title_devices
+  %h1 Listing catalogs_devices
+.barra_busqueda
+  = render partial: 'layouts/search',locals: { viewer: 'devices' }
+.cuerpo_devices
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th
+            = t ('.name')
+          %th 
+            = t ('.unam stock number')
+          %th 
+            = t ('.location')
+          %th
+          %th
+          %th
+      %tbody
+        - @catalogs_devices.each do |catalogs_device|
+          %tr
+            %td= catalogs_device.name
+            %td= catalogs_device.unam_stock_number
+            %td= catalogs_device.location_id
+            %td
+              = link_to '', catalogs_device, class:"btn btn-tss fa fa-eye", title: "Ver", remote: true
+            %td
+              = link_to '', edit_catalogs_device_path(catalogs_device), class:"btn btn-tss fa fa-pencil-square-o", title:"Editar", remote: true
+            %td
+              = link_to '', catalogs_device, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar"
+.paginacion
+  .apple_pagination 
+    = will_paginate @catalogs_devices, :container => false
+  %br
+  = link_to t('.new_device'), new_catalogs_device_path, class:"btn btn-tss", remote: true
 
-  %tbody
-    - @catalogs_devices.each do |catalogs_device|
-      %tr
-        %td= catalogs_device.name
-        %td= catalogs_device.unam_stock_number
-        %td= catalogs_device.location_id
-        %td= link_to 'Show', catalogs_device
-        %td= link_to 'Edit', edit_catalogs_device_path(catalogs_device)
-        %td= link_to 'Destroy', catalogs_device, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-= will_paginate @catalogs_devices
-= link_to 'New Device', new_catalogs_device_path

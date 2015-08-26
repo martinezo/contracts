@@ -1,26 +1,35 @@
-%h1 Listing catalogs_locations
-= render partial: 'layouts/search',locals: { viewer: 'locations' }
-
-%table
-  %thead
-    %tr
-      %th Department
-      %th Responsible
-      %th Email
-      %th
-      %th
-      %th
-
-  %tbody
-    - @catalogs_locations.each do |catalogs_location|
-      %tr
-        %td= catalogs_location.department
-        %td= catalogs_location.responsible
-        %td= catalogs_location.email
-        %td= link_to 'Show', catalogs_location
-        %td= link_to 'Edit', edit_catalogs_location_path(catalogs_location)
-        %td= link_to 'Destroy', catalogs_location, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-= will_paginate @catalogs_locations
-= link_to 'New Location', new_catalogs_location_path
+.title_locations
+  %h1 Listing catalogs_locations
+.barra_busqueda
+  = render partial: 'layouts/search',locals: { viewer: 'locations' }
+.cuerpo_locations
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th 
+            = t('.department')
+          %th 
+            = t('.responsible')
+          %th 
+            = t('.email')
+          %th
+          %th
+          %th
+      %tbody
+        - @catalogs_locations.each do |catalogs_location|
+          %tr
+            %td= catalogs_location.department
+            %td= catalogs_location.responsible
+            %td= catalogs_location.email
+            %td
+              = link_to '', catalogs_location, class: "btn btn-tss fa fa-eye", title: "Ver", remote: true
+            %td
+              = link_to '', edit_catalogs_location_path(catalogs_location), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar", remote: true 
+            %td
+              = link_to '', catalogs_location, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar"
+.paginacion
+  .apple_pagination
+    = will_paginate @catalogs_locations, :container => false 
+  %br
+  = link_to 'New Location', new_catalogs_location_path, class: "btn btn-tss", remote:true
