@@ -1,34 +1,134 @@
 es:
-  title: Contratos
-  footer: Instituto de Neurobiologia UNAM
-  brand: INB
-  value: Valor
-  menu: Menu
-  menu_1: Proveedores
-  menu_2: Equipos
-  menu_3: Localizacion
-  menu_4: LINK SEPARADO
+  catalogs:
+    suppliers:
+      create:
+        created: Proveedor fue agregado exitosamente.
+      update:
+        updated: Proveedor fue actualizado exitosamente.
+      destroy:
+        destroyed: Proveedor fue eliminado exitosamente.
+      index:
+        title_supplier: Proveedores
+        business: Nombre de Compania
+        contact: Contacto
+        phone: Telefono
+        email: Correo electronico
+        add_supplier: Agregar proveedor
+      show:
+        title_info_supplier: Informacion de Proveedor
+        business: Nombre de Compañía
+        contact: Contacto
+        phone: Teléfono
+        email: Correo electrónico
+      edit:
+        title_edit_supplier: Editar Proveedor
+      new:
+        title_new_supplier: Nuevo Proveedor
 
+  layouts:
+    application:
+      title_system: Contratos
+      title_footer: Instituto de Neurobiologia UNAM
+    search:
+      menu: Menu
+      menu_1: Proveedores
+      menu_2: Dispositivo
+      menu_3: Locaciones
+      menu_4: A
+
+  title:
+    title_system: Contratos
+    title_footer: Instituto de Neurobiologia UNAM
+    title_supplier: Proveedores
+    title_info_supplier: Informacion de Proveedor
+    title_edit_supplier: Editar Proveedor
+    title_new_supplier: Nuevo Proveedor
+  
   search: Buscar
   show_all: Mostrar todo
   show: Mostrar
   edit: Editar
   delete: Eliminar
   save: Guardar
-
-  will_paginate:
-    next_label: Siguiente
-    previous_label: Anterior
+  add_supplier: Agregar Proveedor
   previous: Anterior
   next: Siguiente
   back: Regresar
 
-  business: Nombre de Compania
-  contact: Contacto
-  phone: Telefono
-  email: Correo electronico
+  will_paginate:
+    next_label: Siguiente
+    previous_label: Anterior
 
-  title_cat_suppliers: Proveedores
-  title_edit_suppliers: Editar Proveedor
-  title_new_suppliers: Nuevo Proveedor
-  add_supplier: Agregar Proveedor
+  activerecord:
+    attributes:
+      catalogs/supplier:
+        business_name: Nombre de Compañía
+        contact: Contacto
+        phone: Teléfono
+        email: Correo electrónico
+    errors:
+      models:
+        catalogs/supplier:
+          attributes:
+            business_name:
+              blank: Introduce el nombre de la Compañía
+            contact:
+              blank: Introduce el nombre del Contacto
+            phone:
+              blank: Introduce el número telefónico del Contacto
+            email:
+              blank: Introduce el correo electrónico del Contacto
+
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    - 
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+    month_names:
+    - 
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year

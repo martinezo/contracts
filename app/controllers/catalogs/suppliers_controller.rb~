@@ -36,9 +36,9 @@ class Catalogs::SuppliersController < ApplicationController
 
     respond_to do |format|
       if @catalogs_supplier.save
-        format.html { redirect_to @catalogs_supplier, notice: t('.created') }
+        format.html { redirect_to @catalogs_supplier, notice: t('msj.succesful') }
         format.json { render :show, status: :created, location: @catalogs_supplier }
-        format.js   { redirect_to @catalogs_supplier, notice: t('.created') }
+        format.js   { redirect_to @catalogs_supplier, notice: t('msj.succesful') }
       else
         format.html { render :new }
         format.json { render json: @catalogs_supplier.errors, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class Catalogs::SuppliersController < ApplicationController
   def update
     respond_to do |format|
       if @catalogs_supplier.update(catalogs_supplier_params)
-        format.html { redirect_to @catalogs_supplier, notice: t('.updated') }
+        format.html { redirect_to @catalogs_supplier, notice: 'Supplier was successfully updated.' }
         format.json { render :show, status: :ok, location: @catalogs_supplier }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class Catalogs::SuppliersController < ApplicationController
   def destroy
     @catalogs_supplier.destroy
     respond_to do |format|
-      format.html { redirect_to catalogs_suppliers_url, notice: t('.destroyed') }
+      format.html { redirect_to catalogs_suppliers_url, notice: 'Supplier was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

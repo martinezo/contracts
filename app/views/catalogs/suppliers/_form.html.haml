@@ -1,29 +1,9 @@
 .container-fluid
-  = form_for @catalogs_supplier, remote: true do |f|
-    - if @catalogs_supplier.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@catalogs_supplier.errors.count, "error")} prohibited this catalogs_supplier from being saved:"
-        %ul
-          - @catalogs_supplier.errors.full_messages.each do |msg|
-            %li= msg
-    %form.form-horizontal
-      .form-group#rows
-        = f.label :business_name, t('business'), class:"col-xs-3 control-label"
-        .col-xs-9
-          = f.text_field :business_name, class:"form-control"
-      .form-group#rows
-        = f.label :contact, t('contact'), class:"col-xs-3 control-label"
-        .col-xs-9
-          = f.text_field :contact, class:"form-control"
-      .form-group#rows
-        = f.label :phone, t('phone'), class:"col-xs-3 control-label"
-        .col-xs-9
-          = f.text_field :phone, class:"form-control"
-      .form-group#rows
-        = f.label :email, t('email'), class:"col-xs-3 control-label"
-        .col-xs-9
-          = f.text_field :email, class:"form-control"
-      .form-group#rows
-        .col-xs-offset-3.col-xs-9
-          .actions
-            = f.submit t('save'), class:"btn btn-tss"
+  = simple_form_for @catalogs_supplier, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
+    
+    = f.error_notification
+    = f.input :business_name, required: true
+    = f.input :contact, required: true
+    = f.input :phone, required: true
+    = f.input :email, required: true    
+    = f.button :submit, t('save'), class:"btn btn-tss col-md-3 col-md-offset-3"

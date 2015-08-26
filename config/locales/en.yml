@@ -1,13 +1,63 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
 en:
-  title: Contracts
-  footer: Instituto de Neurobiologia UNAM
-  brand: INB
-  value: Value
-  menu: Menu
-  menu_1: Suppliers
-  menu_2: Devices
-  menu_3: Locations
-  menu_4: Separated link
+  catalogs:
+    suppliers:
+      create:
+        created: Supplier was added succesfully.
+      update:
+        updated: Proveedor fue actualizado exitosamente.
+      destroy:
+        destroyed: Proveedor fue eliminado exitosamente.
+      index:
+        title_supplier: Suppliers
+        business: Bussines Name
+        contact: Contact
+        phone: Phone
+        email: Email
+        add_supplier: Add supplier
+      show:
+        title_info_supplier: Supplier's information
+        business: Bussines name
+        contact: Contact
+        phone: Phone
+        email: Email
+      edit:
+        title_edit_supplier: Edit Supplier
+      new:
+        title_new_supplier: New Supplier
+
+  layouts:
+    application:
+      title_system: Contracts
+      title_footer: Instituto de Neurobiologia UNAM
+    search:
+      search: Search
+      show_all: Show all
+      menu: Menu
+      menu_1: Suppliers
+      menu_2: Devices
+      menu_3: Locations
+      menu_4: A
 
   search: Search
   show_all: Show all
@@ -15,20 +65,83 @@ en:
   edit: Edit
   delete: Delete
   save: Save
- 
-  will_paginate:
-    next_label: Siguiente
-    previous_label: Anterior
   previous: Previous
   next: Next
   back: Back
 
-  business: Business name
-  contact: Contact
-  phone: Phone
-  email: Email
+  will_paginate:
+    next_label: Next
+    previous_label: Previous
 
-  title_cat_suppliers: Suppliers Catalog
-  title_edit_suppliers: Edit Supplier
-  title_new_suppliers: New Supplier
-  add_supplier: Add Supplier
+  activerecord:
+    attributes:
+      catalogs/supplier:
+        business_name: Bussines name
+        contact: Contact
+        phone: Phone
+        email: Email
+    errors:
+      models:
+        catalogs/supplier:
+          attributes:
+            business_name:
+              blank: is empty , please enter the information.
+            contact:
+              blanck: is empty , please enter the information.
+            phone:
+              blank: is empty , please enter the information.
+            email:
+              blank: is empty , please enter the information.
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names:
+    - 
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :year
+    - :month
+    - :day
