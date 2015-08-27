@@ -57,7 +57,8 @@ en:
       menu_1: Suppliers
       menu_2: Devices
       menu_3: Locations
-      menu_4: A
+      menu_4: Contracts
+      menu_logut: Log out
 
   search: Search
   show_all: Show all

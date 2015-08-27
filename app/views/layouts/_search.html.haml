@@ -23,16 +23,15 @@
             %span.caret
           %ul.dropdown-menu
             %li
-              %a{:href => "#"}
-                = t('.menu_1')
+              = link_to t('.menu_1'), catalogs_suppliers_path
             %li
-              %a{:href => "#"}
-                = t('.menu_2')
+              = link_to t('.menu_2'), catalogs_devices_path
             %li
-              %a{:href => "#"}
-                = t('.menu_3')
+              = link_to t('.menu_3'), catalogs_locations_path
+            %li
+              = link_to t('.menu_4'), system_contracts_path           
             %li.divider{:role => "separator"}
             %li
               %a{:href => "#"}
-                = t('.menu_4')
+                = t('.menu_logut')
     

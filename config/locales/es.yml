@@ -25,6 +25,32 @@ es:
       new:
         title_new_supplier: Nuevo Proveedor
 
+    locations:
+      create:
+        created: Sitio fue agregado exitosamente.
+      update:
+        updated: Sitio fue actualizado exitosamente.
+      destroy:
+        destroyed: Sitio fue eliminado exitosamente.
+      index:
+        title_location: Sitios
+        department: Departamento
+        responsible: Responsable
+        email: Correo electrónico
+        add_location: Agregar sitio
+      show:
+        title_info_location: Informacion de Sitio
+        department: Departamento
+        responsible: Responsable
+        email: Correo electrónico
+        add_location: Agregar sitio
+      edit:
+        title_edit_location: Editar Sitio
+      new:
+        title_new_location: Nuevo Sitio
+    devices:
+      index:
+        title_device: Equipos
   layouts:
     application:
       title_system: Contratos
@@ -32,9 +58,10 @@ es:
     search:
       menu: Menu
       menu_1: Proveedores
-      menu_2: Dispositivo
-      menu_3: Locaciones
-      menu_4: A
+      menu_2: Equipos
+      menu_3: Sitios
+      menu_4: Contratos
+      menu_logut: Cerrar sesión
 
   title:
     title_system: Contratos

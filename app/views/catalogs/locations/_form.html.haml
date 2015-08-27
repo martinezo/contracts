@@ -1,19 +1,8 @@
-= form_for @catalogs_location do |f|
-  - if @catalogs_location.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@catalogs_location.errors.count, "error")} prohibited this catalogs_location from being saved:"
-      %ul
-        - @catalogs_location.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :department
-    = f.text_field :department
-  .field
-    = f.label :responsible
-    = f.text_field :responsible
-  .field
-    = f.label :email
-    = f.text_field :email
-  .actions
-    = f.submit 'Save'
+.container-fluid
+  = simple_form_for @catalogs_location, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
+    
+    /= f.error_notification
+    = f.input :department, required: true
+    = f.input :responsible, required: true
+    = f.input :email, required: true    
+    = f.button :submit, t('save'), class:"btn btn-tss col-md-3 col-md-offset-3"

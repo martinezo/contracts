@@ -1,7 +1,8 @@
-%h1 Editing catalogs_location
+%h1
+  = t('.title_edit_location')
 
 = render 'form'
 
-= link_to 'Show', @catalogs_location
+= link_to t('show'), @catalogs_location
 \|
-= link_to 'Back', catalogs_locations_path
+= link_to t('back'), catalogs_locations_path
