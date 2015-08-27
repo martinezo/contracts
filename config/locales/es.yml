@@ -9,7 +9,7 @@ es:
         destroyed: Proveedor fue eliminado exitosamente.
       index:
         title_supplier: Proveedores
-        business: Nombre de Compania
+        business: Nombre de Compañía
         contact: Contacto
         phone: Telefono
         email: Correo electronico
@@ -23,34 +23,103 @@ es:
       edit:
         title_edit_supplier: Editar Proveedor
       new:
-        title_new_supplier: Nuevo Proveedor
-
+        title_new_supplier: Proveedor nuevo
     locations:
       create:
-        created: Sitio fue agregado exitosamente.
+        created: Ubicación fue agregada exitosamente.
       update:
-        updated: Sitio fue actualizado exitosamente.
+        updated: Ubicación fue actualizada exitosamente.
       destroy:
-        destroyed: Sitio fue eliminado exitosamente.
+        destroyed: Ubicación fue eliminada exitosamente.
       index:
-        title_location: Sitios
+        title_location: Ubicaciones
         department: Departamento
         responsible: Responsable
         email: Correo electrónico
         add_location: Agregar sitio
       show:
-        title_info_location: Informacion de Sitio
+        title_info_location: Informacion de Ubitación
         department: Departamento
         responsible: Responsable
         email: Correo electrónico
         add_location: Agregar sitio
       edit:
-        title_edit_location: Editar Sitio
+        title_edit_location: Editar ubicación
       new:
-        title_new_location: Nuevo Sitio
+        title_new_location: Ubicación nueva
     devices:
+      create: 
+        created: Equipo fue agregado exitosamente.
+      update:
+        updated: Equipo fue actualizado exitosamente.
+      destroy:
+        destroyed: Equipo fue eliminado exitosamente.
       index:
         title_device: Equipos
+        name: Nombre de Equipo
+        unam_stock_number: No. de inventario
+        location_id: Ubicación
+        add_device: Agregar Equipo
+      show:
+        title_info_device: Información de Equipo
+        name: Nombre de Equipo
+        unam_stock_number: No. de inventario
+        location_id: Ubicación
+      edit:
+        title_edit_device: Editar Equipo
+      new:
+        title_new_device: Equipo nuevo
+
+  system:
+    contracts:
+      create: 
+        created: Contrato fue agregado exitosamente.
+      update:
+        updated: Contrato fue actualizado exitosamente.
+      destroy:
+        destroyed: Contrato fue eliminado exitosamente.
+      index:
+        title_contract: Lista de Contratos
+        device: Equipo
+        supplier: Proveedor
+        start_date: Fecha inicio
+        end_date: Fecha final
+        contract_no: No. de Contrato
+        add_contract: Agregar Contrato
+      show:
+        title_info_contract: Información de Contrato
+        device: Equipo
+        supplier: Proveedor
+        start_date: Fecha inicio
+        end_date: Fecha final
+        contract_no: No. de Contrato
+      edit:
+        title_edit_contract: Editar Contrato
+      new:
+        title_new_contract: Contrato nuevo
+    siteviews:
+      create: 
+        created: Visita fue agregado exitosamente.
+      update:
+        updated: Visita fue actualizado exitosamente.
+      destroy:
+        destroyed: Visita fue eliminado exitosamente.
+      index:
+        title_siteview: Visitas
+        contract_id: Contrato
+        visit_date: Fecha de Visita
+        completed: Completa
+        add_siteview: Agregar visita
+      show:
+        title_info_siteview: Información de Visita
+        contract_id: Contrato
+        visit_date: Fecha de Visita
+        completed: Completa        
+      edit:
+        title_edit_siteview: Editar visita
+      new:
+        title_new_siteview: Visita nueva
+
   layouts:
     application:
       title_system: Contratos
@@ -61,23 +130,15 @@ es:
       menu_2: Equipos
       menu_3: Sitios
       menu_4: Contratos
+      menu_5: Visitas
       menu_logut: Cerrar sesión
 
-  title:
-    title_system: Contratos
-    title_footer: Instituto de Neurobiologia UNAM
-    title_supplier: Proveedores
-    title_info_supplier: Informacion de Proveedor
-    title_edit_supplier: Editar Proveedor
-    title_new_supplier: Nuevo Proveedor
-  
   search: Buscar
   show_all: Mostrar todo
   show: Mostrar
   edit: Editar
   delete: Eliminar
   save: Guardar
-  add_supplier: Agregar Proveedor
   previous: Anterior
   next: Siguiente
   back: Regresar
@@ -93,6 +154,25 @@ es:
         contact: Contacto
         phone: Teléfono
         email: Correo electrónico
+      catalogs/location:
+        department: Departamento
+        responsible: Responsable
+        email: Correo electrónico
+      catalogs/device:
+        name: Nombre de Equipo
+        unam_stock_number: No. de inventario
+        location_id: Ubicación
+      system/contract:
+        device_id: Equipo
+        supplier_id: Proveedor
+        start_date: Fecha inicio
+        end_date: Fecha final
+        contract_no: No. de Contrato
+      system/siteview:
+        contract_id: Contrato
+        visit_date: Fecha de visita
+        completed: Completa
+
     errors:
       models:
         catalogs/supplier:

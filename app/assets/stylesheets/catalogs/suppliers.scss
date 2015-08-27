@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// HOJA DE ESTILO PARA POPSIP SUPPLIER
-
 @import "bootstrap";
 
 .title_supplier {
@@ -21,17 +19,11 @@
   background-color: rgb(191,85,38);
 }
 
-#rows {
-  padding: 20px;
-  vertical-align: middle;
-}
-
 .modal-header {
   background-color: rgb(238,150,40);
   color: white;
 }
 
-  
 .apple_pagination {
   background: #f1f1f1;
   border: 1px solid #e5e5e5;

@@ -1,7 +1,8 @@
-%h1 Editing catalogs_device
+%h1 
+  = t('.title_edit_device')
 
 = render 'form'
 
-= link_to 'Show', @catalogs_device
+= link_to t('show'), @catalogs_device
 \|
-= link_to 'Back', catalogs_devices_path
+= link_to t('back'), catalogs_devices_path

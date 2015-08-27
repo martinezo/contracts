@@ -1,21 +1,26 @@
 %p#notice= notice
 
 %p
-  %b Device:
+  %b
+    = t('.device')
   = @system_contract.device_id
 %p
-  %b Supplier:
+  %b
+    = t('.supplier')
   = @system_contract.supplier_id
 %p
-  %b Start date:
+  %b
+    = t('.start_date')
   = @system_contract.start_date
 %p
-  %b End date:
+  %b
+    = t('.end_date')
   = @system_contract.end_date
 %p
-  %b Contract no:
+  %b
+    = t('.contract_no')
   = @system_contract.contract_no
 
-= link_to 'Edit', edit_system_contract_path(@system_contract)
+= link_to t('edit'), edit_system_contract_path(@system_contract)
 \|
-= link_to 'Back', system_contracts_path
+= link_to t('back'), system_contracts_path

@@ -1,30 +1,42 @@
-%h1 Listing system_contracts
-= render partial: 'layouts/search',locals: { viewer: 'contracts' }
+.title_contract
+  %h1
+    = t('.title_contract')
+.barra_busqueda
+  = render partial: 'layouts/search',locals: { viewer: 'contracts' }
+.cuerpo_comtract
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th 
+            =t ('.device')
+          %th
+            = t('.supplier')
+          %th
+            = t('.start_date')
+          %th
+            = t('.end_date')        
+          %th
+            = t('.contract_no')
+          %th
+          %th
+          %th
 
-%table
-  %thead
-    %tr
-      %th Device
-      %th Supplier
-      %th Start date
-      %th End date
-      %th Contract no
-      %th
-      %th
-      %th
+      %tbody
+        - @system_contracts.each do |system_contract|
+          %tr
+            %td= system_contract.device_id
+            %td= system_contract.supplier_id
+            %td= system_contract.start_date
+            %td= system_contract.end_date
+            %td= system_contract.contract_no
+            %td= link_to '', system_contract, class:"btn btn-tss fa fa-eye", title: "Ver" 
+            %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar"
+            %td= link_to '', system_contract, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar"
 
-  %tbody
-    - @system_contracts.each do |system_contract|
-      %tr
-        %td= system_contract.device_id
-        %td= system_contract.supplier_id
-        %td= system_contract.start_date
-        %td= system_contract.end_date
-        %td= system_contract.contract_no
-        %td= link_to 'Show', system_contract
-        %td= link_to 'Edit', edit_system_contract_path(system_contract)
-        %td= link_to 'Destroy', system_contract, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.paginacion  
+  .apple_pagination
+    = will_paginate @system_contracts
 
-%br
-= will_paginate @system_contracts
-= link_to 'New Contract', new_system_contract_path
+  %br
+  = link_to t('.add_contract'), new_system_contract_path, class:"btn btn-tss"

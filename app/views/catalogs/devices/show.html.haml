@@ -1,15 +1,18 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b 
+    = t('.name')
   = @catalogs_device.name
 %p
-  %b Unam stock number:
+  %b 
+    = t('.unam_stock_number')
   = @catalogs_device.unam_stock_number
 %p
-  %b Location:
+  %b 
+    = t('.location_id')
   = @catalogs_device.location_id
 
-= link_to 'Edit', edit_catalogs_device_path(@catalogs_device)
+= link_to t('edit'), edit_catalogs_device_path(@catalogs_device)
 \|
-= link_to 'Back', catalogs_devices_path
+= link_to t('back'), catalogs_devices_path

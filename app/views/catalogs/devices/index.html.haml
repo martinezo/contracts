@@ -9,11 +9,11 @@
       %thead
         %tr
           %th
-            = t ('.name')
+            = t('.name')
           %th 
-            = t ('.unam_stock_number')
+            = t('.unam_stock_number')
           %th 
-            = t ('.location')
+            = t('.location_id')
           %th
           %th
           %th
@@ -24,14 +24,14 @@
             %td= catalogs_device.unam_stock_number
             %td= catalogs_device.location_id
             %td
-              = link_to '', catalogs_device, class:"btn btn-tss fa fa-eye", title: "Ver", remote: true
+              = link_to '', catalogs_device, class:"btn btn-tss fa fa-eye", title: "Ver"
             %td
-              = link_to '', edit_catalogs_device_path(catalogs_device), class:"btn btn-tss fa fa-pencil-square-o", title:"Editar", remote: true
+              = link_to '', edit_catalogs_device_path(catalogs_device), class:"btn btn-tss fa fa-pencil-square-o", title:"Editar"
             %td
               = link_to '', catalogs_device, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar"
 .paginacion
   .apple_pagination 
     = will_paginate @catalogs_devices, :container => false
   %br
-  = link_to t('.add_device'), new_catalogs_device_path, class:"btn btn-tss", remote: true
+  = link_to t('.add_device'), new_catalogs_device_path, class:"btn btn-tss"
 

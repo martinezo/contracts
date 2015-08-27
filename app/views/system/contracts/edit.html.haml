@@ -1,7 +1,8 @@
-%h1 Editing system_contract
+%h1 
+  = t('.title_edit_contract')
 
 = render 'form'
 
-= link_to 'Show', @system_contract
+= link_to t('show'), @system_contract
 \|
-= link_to 'Back', system_contracts_path
+= link_to t('back'), system_contracts_path

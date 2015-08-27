@@ -1,25 +1,36 @@
-%h1 Listing system_siteviews
-= render partial: 'layouts/search',locals: { viewer: 'siteviews' }
-%table
-  %thead
-    %tr
-      %th Contract
-      %th Visit date
-      %th Completed
-      %th
-      %th
-      %th
+.title_siteview
+  %h1
+    = t('.title_siteview')
+.barra_busqueda
+  = render partial: 'layouts/search',locals: { viewer: 'siteviews' }
+.cuerpo_siteview
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th 
+            = t('.contract_id')
+          %th 
+            = t('.visit_date')
+          %th 
+            = t('.completed')
+          %th
+          %th
+          %th
 
-  %tbody
-    - @system_siteviews.each do |system_siteview|
-      %tr
-        %td= system_siteview.contract_id
-        %td= system_siteview.visit_date
-        %td= system_siteview.completed
-        %td= link_to 'Show', system_siteview
-        %td= link_to 'Edit', edit_system_siteview_path(system_siteview)
-        %td= link_to 'Destroy', system_siteview, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %tbody
+        - @system_siteviews.each do |system_siteview|
+          %tr
+            %td= system_siteview.contract_id
+            %td= system_siteview.visit_date
+            %td= system_siteview.completed
+            %td= link_to '', system_siteview, class:"btn btn-tss fa fa-eye", title: "Ver"
+            %td= link_to '', edit_system_siteview_path(system_siteview), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar"
+            %td= link_to '', system_siteview, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o"
 
-%br
-= will_paginate @system_siteviews
-= link_to 'New Siteview', new_system_siteview_path
+.paginacion  
+  .apple_pagination
+    = will_paginate @system_siteviews
+
+  %br
+  = link_to t('.add_siteview'), new_system_siteview_path, class:"btn btn-tss"

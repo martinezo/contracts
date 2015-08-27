@@ -1,7 +1,9 @@
 // Place all the styles related to the Catalogs/Locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 @import "bootstrap";
+
 .title_locations{
   background-color: rgb(238,150,40);
   color: white;
@@ -15,11 +17,6 @@
 .btn-tss:active {
   color:white;
   background-color: rgb(191,85,38);
-}
-
-#rows {
-  padding: 20px;
-  vertical-align: middle;
 }
 
 .modal-header {
