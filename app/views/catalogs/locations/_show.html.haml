@@ -13,6 +13,6 @@
     = t('.email')
   = @catalogs_location.email
 
-= link_to t('edit'), edit_catalogs_location_path(@catalogs_location)
+= link_to t('edit'), edit_catalogs_location_path(@catalogs_location), remote: true
 \|
 = link_to t('back'), catalogs_locations_path

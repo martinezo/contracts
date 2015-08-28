@@ -24,14 +24,17 @@
             %td= catalogs_device.unam_stock_number
             %td= catalogs_device.location_id
             %td
-              = link_to '', catalogs_device, class:"btn btn-tss fa fa-eye", title: "Ver"
+              = link_to '', catalogs_device, class:"btn btn-tss fa fa-eye", title: "Ver", remote: true
             %td
-              = link_to '', edit_catalogs_device_path(catalogs_device), class:"btn btn-tss fa fa-pencil-square-o", title:"Editar"
+              = link_to '', edit_catalogs_device_path(catalogs_device), class:"btn btn-tss fa fa-pencil-square-o", title:"Editar", remote: true
             %td
-              = link_to '', catalogs_device, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar"
+              = link_to '', catalogs_device, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar", remote: true
 .paginacion
   .apple_pagination 
     = will_paginate @catalogs_devices, :container => false
   %br
-  = link_to t('.add_device'), new_catalogs_device_path, class:"btn btn-tss"
+  = link_to t('.add_device'), new_catalogs_device_path, class:"btn btn-tss", remote: true
 
+#device-modal.modal.fade
+  .modal-dialog
+    #inner-device-modal.modal-content

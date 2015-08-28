@@ -13,6 +13,6 @@
     = t('.completed')
   = @system_siteview.completed
 
-= link_to t('edit'), edit_system_siteview_path(@system_siteview)
+= link_to t('edit'), edit_system_siteview_path(@system_siteview), remote: true
 \|
 = link_to t('back'), system_siteviews_path

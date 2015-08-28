@@ -24,13 +24,17 @@
             %td= system_siteview.contract_id
             %td= system_siteview.visit_date
             %td= system_siteview.completed
-            %td= link_to '', system_siteview, class:"btn btn-tss fa fa-eye", title: "Ver"
-            %td= link_to '', edit_system_siteview_path(system_siteview), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar"
-            %td= link_to '', system_siteview, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o"
+            %td= link_to '', system_siteview, class:"btn btn-tss fa fa-eye", title: "Ver", remote: true
+            %td= link_to '', edit_system_siteview_path(system_siteview), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar", remote: true
+            %td= link_to '', system_siteview, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", remote: true
 
 .paginacion  
   .apple_pagination
-    = will_paginate @system_siteviews
+    = will_paginate @system_siteviews, :container => false
 
   %br
-  = link_to t('.add_siteview'), new_system_siteview_path, class:"btn btn-tss"
+  = link_to t('.add_siteview'), new_system_siteview_path, class:"btn btn-tss", remote: true
+
+#siteview-modal.modal.fade
+  .modal-dialog
+    #inner-siteview-modal.modal-content

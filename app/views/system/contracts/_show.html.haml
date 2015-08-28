@@ -21,6 +21,6 @@
     = t('.contract_no')
   = @system_contract.contract_no
 
-= link_to t('edit'), edit_system_contract_path(@system_contract)
+= link_to t('edit'), edit_system_contract_path(@system_contract), remote: true
 \|
 = link_to t('back'), system_contracts_path

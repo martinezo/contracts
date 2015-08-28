@@ -30,13 +30,17 @@
             %td= system_contract.start_date
             %td= system_contract.end_date
             %td= system_contract.contract_no
-            %td= link_to '', system_contract, class:"btn btn-tss fa fa-eye", title: "Ver" 
-            %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar"
-            %td= link_to '', system_contract, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar"
+            %td= link_to '', system_contract, class:"btn btn-tss fa fa-eye", title: "Ver", remote: true 
+            %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar", remote: true
+            %td= link_to '', system_contract, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar", remote: true
 
 .paginacion  
   .apple_pagination
-    = will_paginate @system_contracts
+    = will_paginate @system_contracts, :container => false
 
   %br
-  = link_to t('.add_contract'), new_system_contract_path, class:"btn btn-tss"
+  = link_to t('.add_contract'), new_system_contract_path, class:"btn btn-tss", remote: true
+
+#contract-modal.modal.fade
+  .modal-dialog
+    #inner-contract-modal.modal-content
