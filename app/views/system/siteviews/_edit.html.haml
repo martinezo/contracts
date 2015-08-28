@@ -1,8 +1,9 @@
-%h1
-  = t('.title_edit_siteview')
-
-= render 'form'
-
-= link_to t('show'), @system_siteview, remote: true
-\|
-= link_to t('back'), system_siteviews_path
+.modal-header
+  %h3.modal-title
+    = t('.title_edit_siteview')
+.modal-body
+  = render 'form'
+.modal-footer
+  = link_to t('show'), @system_siteview, remote: true
+  \|
+  = link_to t('back'), system_siteviews_path

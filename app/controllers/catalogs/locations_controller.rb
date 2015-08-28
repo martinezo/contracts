@@ -34,11 +34,13 @@ class Catalogs::LocationsController < ApplicationController
 
     respond_to do |format|
       if @catalogs_location.save
-        format.html { redirect_to @catalogs_location, notice: 'Location was successfully created.' }
+        format.html { redirect_to @catalogs_location, notice: t('.created') }
         format.json { render :show, status: :created, location: @catalogs_location }
+        format.js   { redirect_to @catalogs_supplier, notice: t('.created') }
       else
         format.html { render :new }
         format.json { render json: @catalogs_location.errors, status: :unprocessable_entity }
+        format.js   { render :new }
       end
     end
   end
@@ -48,7 +50,7 @@ class Catalogs::LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @catalogs_location.update(catalogs_location_params)
-        format.html { redirect_to @catalogs_location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to @catalogs_location, notice: t('.updated') }
         format.json { render :show, status: :ok, location: @catalogs_location }
       else
         format.html { render :edit }
@@ -62,7 +64,7 @@ class Catalogs::LocationsController < ApplicationController
   def destroy
     @catalogs_location.destroy
     respond_to do |format|
-      format.html { redirect_to catalogs_locations_url, notice: 'Location was successfully destroyed.' }
+      format.html { redirect_to catalogs_locations_url, notice: t('.destroyed') }
       format.json { head :no_content }
     end
   end

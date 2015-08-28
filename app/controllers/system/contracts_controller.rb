@@ -35,11 +35,13 @@ class System::ContractsController < ApplicationController
 
     respond_to do |format|
       if @system_contract.save
-        format.html { redirect_to @system_contract, notice: 'Contract was successfully created.' }
+        format.html { redirect_to @system_contract, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_contract }
+        format.js   { redirect_to @system_contract, notice: t('.created') }        
       else
         format.html { render :new }
         format.json { render json: @system_contract.errors, status: :unprocessable_entity }
+        format.js   { render :new }
       end
     end
   end
@@ -49,7 +51,7 @@ class System::ContractsController < ApplicationController
   def update
     respond_to do |format|
       if @system_contract.update(system_contract_params)
-        format.html { redirect_to @system_contract, notice: 'Contract was successfully updated.' }
+        format.html { redirect_to @system_contract, notice: t('.updated') }
         format.json { render :show, status: :ok, location: @system_contract }
       else
         format.html { render :edit }
@@ -63,7 +65,7 @@ class System::ContractsController < ApplicationController
   def destroy
     @system_contract.destroy
     respond_to do |format|
-      format.html { redirect_to system_contracts_url, notice: 'Contract was successfully destroyed.' }
+      format.html { redirect_to system_contracts_url, notice: t('.destroyed') }
       format.json { head :no_content }
     end
   end

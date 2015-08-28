@@ -1,26 +1,32 @@
-%p#notice= notice
+.modal-header
+  %h3.modal-title
+    = t('.title_info_contract')
 
-%p
-  %b
-    = t('.device')
-  = @system_contract.device_id
-%p
-  %b
-    = t('.supplier')
-  = @system_contract.supplier_id
-%p
-  %b
-    = t('.start_date')
-  = @system_contract.start_date
-%p
-  %b
-    = t('.end_date')
-  = @system_contract.end_date
-%p
-  %b
-    = t('.contract_no')
-  = @system_contract.contract_no
+.modal-body
+  %p#notice= notice
 
-= link_to t('edit'), edit_system_contract_path(@system_contract), remote: true
-\|
-= link_to t('back'), system_contracts_path
+  %p
+    %b
+      = t('.device')
+    = @system_contract.device_id
+  %p
+    %b
+      = t('.supplier')
+    = @system_contract.supplier_id
+  %p
+    %b
+      = t('.start_date')
+    = @system_contract.start_date
+  %p
+    %b
+      = t('.end_date')
+    = @system_contract.end_date
+  %p
+    %b
+      = t('.contract_no')
+    = @system_contract.contract_no
+
+.modal-footer
+  = link_to t('edit'), edit_system_contract_path(@system_contract), remote: true
+  \|
+  = link_to t('back'), system_contracts_path

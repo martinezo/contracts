@@ -1,18 +1,24 @@
-%p#notice= notice
+.modal-header
+  %h3.modal-title
+    = t('.title_info_siteview')
 
-%p
-  %b
-    = t('.contract_id')
-  = @system_siteview.contract_id
-%p
-  %b 
-    = t('.visit_date')
-  = @system_siteview.visit_date
-%p
-  %b 
-    = t('.completed')
-  = @system_siteview.completed
+.modal-body
+  %p#notice= notice
 
-= link_to t('edit'), edit_system_siteview_path(@system_siteview), remote: true
-\|
-= link_to t('back'), system_siteviews_path
+  %p
+    %b
+      = t('.contract_id')
+    = @system_siteview.contract_id
+  %p
+    %b 
+      = t('.visit_date')
+    = @system_siteview.visit_date
+  %p
+    %b 
+      = t('.completed')
+    = @system_siteview.completed
+    
+.modal-footer
+  = link_to t('edit'), edit_system_siteview_path(@system_siteview), remote: true
+  \|
+  = link_to t('back'), system_siteviews_path

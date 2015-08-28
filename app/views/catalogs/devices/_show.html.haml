@@ -1,18 +1,24 @@
-%p#notice= notice
+.modal-header
+  %h3.modal-title
+    = t('.title_info_device')
 
-%p
-  %b 
-    = t('.name')
-  = @catalogs_device.name
-%p
-  %b 
-    = t('.unam_stock_number')
-  = @catalogs_device.unam_stock_number
-%p
-  %b 
-    = t('.location_id')
-  = @catalogs_device.location_id
+.modal-body    
+  %p#notice= notice
 
-= link_to t('edit'), edit_catalogs_device_path(@catalogs_device), remote: true
-\|
-= link_to t('back'), catalogs_devices_path
+  %p
+    %b 
+      = t('.name')
+    = @catalogs_device.name
+  %p
+    %b 
+      = t('.unam_stock_number')
+    = @catalogs_device.unam_stock_number
+  %p
+    %b 
+      = t('.location_id')
+    = @catalogs_device.location_id
+
+.modal-footer
+  = link_to t('edit'), edit_catalogs_device_path(@catalogs_device), remote: true
+  \|
+  = link_to t('back'), catalogs_devices_path

@@ -34,11 +34,13 @@ class Catalogs::DevicesController < ApplicationController
 
     respond_to do |format|
       if @catalogs_device.save
-        format.html { redirect_to @catalogs_device, notice: 'Device was successfully created.' }
+        format.html { redirect_to @catalogs_device, notice: t('.created') }
         format.json { render :show, status: :created, location: @catalogs_device }
+        format.js   { redirect_to @catalogs_device, notice: t('.created') }
       else
         format.html { render :new }
         format.json { render json: @catalogs_device.errors, status: :unprocessable_entity }
+        format.js   { render :new }
       end
     end
   end
@@ -48,7 +50,7 @@ class Catalogs::DevicesController < ApplicationController
   def update
     respond_to do |format|
       if @catalogs_device.update(catalogs_device_params)
-        format.html { redirect_to @catalogs_device, notice: 'Device was successfully updated.' }
+        format.html { redirect_to @catalogs_device, notice: t('.updated') }
         format.json { render :show, status: :ok, location: @catalogs_device }
       else
         format.html { render :edit }
@@ -62,7 +64,7 @@ class Catalogs::DevicesController < ApplicationController
   def destroy
     @catalogs_device.destroy
     respond_to do |format|
-      format.html { redirect_to catalogs_devices_url, notice: 'Device was successfully destroyed.' }
+      format.html { redirect_to catalogs_devices_url, notice: t('.destroyed') }
       format.json { head :no_content }
     end
   end

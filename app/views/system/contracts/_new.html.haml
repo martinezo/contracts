@@ -1,6 +1,7 @@
-%h1
-  = t('.title_new_contract')
-
-= render 'form'
-
-= link_to t('back'), system_contracts_path
+.modal-header
+  %h3.modal-title
+    = t('.title_new_contract')
+.modal-body
+  = render 'form'
+.modal-footer
+  = link_to t('back'), system_contracts_path
