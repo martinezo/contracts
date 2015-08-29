@@ -1,34 +1,35 @@
-/ .container-fluid
-/   = simple_form_for @system_siteview, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
+.container-fluid
+  = simple_form_for @system_siteview, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
     
-/     /= f.error_notification
-/     = f.input :contract_id, required: true
-/     = f.input :visit_date, required: true
-/     = f.input :completed, required: true   
-/     = f.input :
-/     = f.button :submit, t('save'), class:"btn btn-tss col-md-3 col-md-offset-3"
+    /= f.error_notification
+    = f.input :contract_id, required: true
+    = f.input :visit_date, required: true, wrapper_html: { class: 'form-inline' }
+    = f.input :completed, required: true   
+    = f.label "Recordarme el dia:"
+    = datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('search')    
+    = f.button :submit, t('save'), class:"btn btn-tss col-md-3 col-md-offset-3"
 
-= form_for @system_siteview do |f|
-  - if @system_siteview.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@system_siteview.errors.count, "error")} prohibited this system_siteview from being saved:"
-      %ul
-        - @system_siteview.errors.full_messages.each do |msg|
-          %li= msg
+/ = form_for @system_siteview do |f|
+/   - if @system_siteview.errors.any?
+/     #error_explanation
+/       %h2= "#{pluralize(@system_siteview.errors.count, "error")} prohibited this system_siteview from being saved:"
+/       %ul
+/         - @system_siteview.errors.full_messages.each do |msg|
+/           %li= msg
 
-  .field
-    = f.label :contract_id
-    = f.number_field :contract_id
-  .field
-    = f.label :visit_date
-    = f.datetime_select :visit_date
-  .field
-    = f.label :completed
-    = f.check_box :completed
-  .field  
-    =  label_tag "Recordarme el dia:"
-    =  datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('search')
+/   .field
+/     = f.label :contract_id
+/     = f.number_field :contract_id
+/   .field
+/     = f.label :visit_date
+/     = f.datetime_select :visit_date
+/   .field
+/     = f.label :completed
+/     = f.check_box :completed
+/   .field  
+/     =  label_tag "Recordarme el dia:"
+/     =  datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('search')
   
  
-  .actions
-    = f.submit 'Save'
+/   .actions
+/     = f.submit 'Save'
