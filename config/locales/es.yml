@@ -1,3 +1,5 @@
+#  es.devise.sessions.admin.signed_out
+#  es.devise.sessions.admin.already_signed_out
 
 es:
   catalogs:
@@ -173,18 +175,6 @@ es:
         contract_id: Contrato
         visit_date: Fecha de visita
         completed: Completa
-
-# es.activerecord.errors.models.catalogs/device.attributes.unam_stock_number.blank
-# es.activerecord.errors.models.catalogs/device.attributes.name.blank
-# es.activerecord.errors.models.catalogs/device.attributes.location_id.blank
-
-# es.activerecord.errors.models.catalogs/location.attributes.department.blank
-# es.activerecord.errors.models.catalogs/location.attributes.responsible.blank
-# es.activerecord.errors.models.catalogs/location.attributes.email.blank
-
-# es.activerecord.errors.models.system/contract.attributes.device_id.blank
-# es.activerecord.errors.models.system/contract.attributes.supplier_id.blank
-# es.activerecord.errors.models.system/contract.attributes.contract_no.blank
 
     errors:
       models:
