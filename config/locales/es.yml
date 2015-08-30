@@ -38,7 +38,7 @@ es:
         email: Correo electrónico
         add_location: Agregar sitio
       show:
-        title_info_location: Informacion de Ubitación
+        title_info_location: Informacion de Ubicación
         department: Departamento
         responsible: Responsable
         email: Correo electrónico
@@ -128,7 +128,7 @@ es:
       menu: Menu
       menu_1: Proveedores
       menu_2: Equipos
-      menu_3: Sitios
+      menu_3: Ubicaciones
       menu_4: Contratos
       menu_5: Visitas
       menu_logut: Cerrar sesión

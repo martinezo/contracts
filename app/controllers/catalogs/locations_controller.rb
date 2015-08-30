@@ -6,10 +6,10 @@ class Catalogs::LocationsController < ApplicationController
   def index
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
-      @catalogs_locations = Catalogs::Location.all.paginate(page: params[:page], per_page: 2)
+      @catalogs_locations = Catalogs::Location.all.paginate(page: params[:page], per_page: 5)
     else
       #@catalogs_suppliers.where(business_name: params[:codido])
-      @catalogs_locations= Catalogs::Location.where("department LIKE :codigo or responsible LIKE :codigo or email LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 2)
+      @catalogs_locations= Catalogs::Location.where("department LIKE :codigo or responsible LIKE :codigo or email LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 5)
     end
   end
 
@@ -36,7 +36,7 @@ class Catalogs::LocationsController < ApplicationController
       if @catalogs_location.save
         format.html { redirect_to @catalogs_location, notice: t('.created') }
         format.json { render :show, status: :created, location: @catalogs_location }
-        format.js   { redirect_to @catalogs_supplier, notice: t('.created') }
+        format.js   { redirect_to @catalogs_location, notice: t('.created') }
       else
         format.html { render :new }
         format.json { render json: @catalogs_location.errors, status: :unprocessable_entity }

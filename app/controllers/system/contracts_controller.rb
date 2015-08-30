@@ -6,10 +6,10 @@ class System::ContractsController < ApplicationController
  def index
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
-      @system_contracts = System::Contract.all.paginate(page: params[:page], per_page: 2)
+      @system_contracts = System::Contract.all.paginate(page: params[:page], per_page: 5)
     else
       #@catalogs_suppliers.where(business_name: params[:codido])
-      @system_contracts= System::Contract.where("contract_no LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 2)
+      @system_contracts= System::Contract.where("contract_no LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 5)
     end
   end
 
