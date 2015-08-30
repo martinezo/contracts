@@ -20,7 +20,8 @@
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             = t('.menu')
-            %span.caret
+            / = current_admin.login  *Comentada hasta que se pueda uno loguear sin problemas de LDAP
+            %span.caret             
           %ul.dropdown-menu
             %li
               = link_to t('.menu_1'), catalogs_suppliers_path
@@ -34,6 +35,5 @@
               = link_to t('.menu_5'), system_siteviews_path         
             %li.divider{:role => "separator"}
             %li
-              %a{:href => "#"}
-                = t('.menu_logut')
+              = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')
     

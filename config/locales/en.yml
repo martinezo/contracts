@@ -184,6 +184,31 @@ en:
               blank: Please enter the information.
             email:
               blank: Please enter the information.
+        catalogs/device:
+          attributes:
+            unam_stock_number:
+              blank: Introduce el número de inventario
+            name:
+              blank: Introduce el nombre
+            location_id:
+              blank: Introduce la ubicación
+        catalogs/location:
+          attributes:
+            department:
+              blank: Introduce el Departamento
+            responsible:
+              blank: Introduce el nombre del Responsable
+            email:
+              blank: Introduce el correo electrónico
+        system/contract:
+          attributes:
+            device_id:
+              blank: Introduce el nombre del Equipo
+            supplier_id:
+              blank: Introduce el nombre de proveedor
+            contract_no:
+              blank: Introduce el numero de contrato
+              
   date:
     abbr_day_names:
     - Sun

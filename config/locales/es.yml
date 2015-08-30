@@ -1,3 +1,4 @@
+
 es:
   catalogs:
     suppliers:
@@ -173,6 +174,18 @@ es:
         visit_date: Fecha de visita
         completed: Completa
 
+# es.activerecord.errors.models.catalogs/device.attributes.unam_stock_number.blank
+# es.activerecord.errors.models.catalogs/device.attributes.name.blank
+# es.activerecord.errors.models.catalogs/device.attributes.location_id.blank
+
+# es.activerecord.errors.models.catalogs/location.attributes.department.blank
+# es.activerecord.errors.models.catalogs/location.attributes.responsible.blank
+# es.activerecord.errors.models.catalogs/location.attributes.email.blank
+
+# es.activerecord.errors.models.system/contract.attributes.device_id.blank
+# es.activerecord.errors.models.system/contract.attributes.supplier_id.blank
+# es.activerecord.errors.models.system/contract.attributes.contract_no.blank
+
     errors:
       models:
         catalogs/supplier:
@@ -185,6 +198,31 @@ es:
               blank: Introduce el número telefónico del Contacto
             email:
               blank: Introduce el correo electrónico del Contacto
+        catalogs/device:
+          attributes:
+            unam_stock_number:
+              blank: Introduce el número de inventario
+            name:
+              blank: Introduce el nombre
+            location_id:
+              blank: Introduce la ubicación
+        catalogs/location:
+          attributes:
+            department:
+              blank: Introduce el Departamento
+            responsible:
+              blank: Introduce el nombre del Responsable
+            email:
+              blank: Introduce el correo electrónico
+        system/contract:
+          attributes:
+            device_id:
+              blank: Introduce el nombre del Equipo
+            supplier_id:
+              blank: Introduce el nombre de proveedor
+            contract_no:
+              blank: Introduce el numero de contrato
+
 
   date:
     abbr_day_names:
