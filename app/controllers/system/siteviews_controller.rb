@@ -32,22 +32,23 @@ class System::SiteviewsController < ApplicationController
   # POST /system/siteviews.json
   def create
     @system_siteview = System::Siteview.new(system_siteview_params)
-      visit=System::Siteview.find(system_siteview_params[:contract_id])
-	    @recordar=Time.new(*params["recordar"].values.map(&:to_i))
-
-	    @email=visit.contract.supplier.email
+      visit=System::Contract.find(system_siteview_params[:contract_id])
+	    format=*params["recordar"].values.map(&:to_i)
+	    @recordar=Time.new(format[2],format[1],format[0],format[3],format[4])
+	    @email=visit.supplier.email
 	    #Notifier.delay(run_at: 5.minutes.from_now).signup(@user)
 	    puts 'AKI DEBE IR EL PARAMETRO RECORDAR ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
 	    puts @recordar
 	    puts 'AKI VA EL CAMPO NOW TIME ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
 	    puts Time.now
 	    puts 'AKI TERMINA IR EL PARAMETRO EMAIL ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
-  respond_to do |format|
+	    puts @email  
+respond_to do |format|
     if @system_siteview.save
 	    ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
-        format.html { redirect_to @system_siteview, notice: 'Siteview was successfully created.' }
+        format.js { redirect_to @system_siteview, notice: 'Siteview was successfully created.' }
         format.json { render :show, status: :created, location: @system_siteview }
-        format.js   { render :new }
+        #format.js   { render :new }
       else
         format.html { render :new }
         format.json { render json: @system_siteview.errors, status: :unprocessable_entity }
