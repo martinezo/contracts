@@ -28,6 +28,10 @@ class Catalogs::SuppliersController < ApplicationController
   # GET /catalogs/suppliers/1/edit
   def edit
   end
+  
+  def delete
+   @id=params[:id]
+  end
 
   # POST /catalogs/suppliers
   # POST /catalogs/suppliers.json
