@@ -46,7 +46,7 @@ class System::SiteviewsController < ApplicationController
 respond_to do |format|
     if @system_siteview.save
 	    ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
-        format.js { redirect_to @system_siteview, notice: 'Siteview was successfully created.' }
+        format.js { redirect_to @system_siteview, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_siteview }
         #format.js   { render :new }
       else
@@ -62,7 +62,7 @@ respond_to do |format|
   def update
     respond_to do |format|
       if @system_siteview.update(system_siteview_params)
-        format.html { redirect_to @system_siteview, notice: 'Siteview was successfully updated.' }
+        format.html { redirect_to @system_siteview, notice: t('.updated') }
         format.json { render :show, status: :ok, location: @system_siteview }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ respond_to do |format|
   def destroy
     @system_siteview.destroy
     respond_to do |format|
-      format.html { redirect_to system_siteviews_url, notice: 'Siteview was successfully destroyed.' }
+      format.html { redirect_to system_siteviews_url, notice: t('.destroyed') }
       format.json { head :no_content }
     end
   end
