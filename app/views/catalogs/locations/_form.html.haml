@@ -1,7 +1,7 @@
 .container-fluid
   = simple_form_for @catalogs_location, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
     
-    /= f.error_notification
+    = f.error_notification
     = f.input :department, required: true
     = f.input :responsible, required: true
     = f.input :email, required: true    

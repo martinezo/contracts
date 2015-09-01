@@ -70,6 +70,7 @@ class System::ContractsController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @system_contract.errors, status: :unprocessable_entity }
+        format.js   { render :edit }
       end
     end
   end

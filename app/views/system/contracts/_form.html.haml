@@ -1,17 +1,17 @@
 .container-fluid
   = simple_form_for @system_contract, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
     
-    /= f.error_notification
     / = f.input :device_id, required: true
     / = f.input :supplier_id, required: true
     / = f.input :start_date, required: true
     / = f.input :end_date, required: true    
     / = f.input :contract_no, required: true    
-
+    
+    = f.error_notification
     = f.association :device, required: true
     = f.association :supplier, label_method: :business_name, value_method: :id, requiered: true
     = f.input :start_date, required: true, wrapper_html: { class: 'form-inline' } 
     = f.input :end_date, required: true   , wrapper_html: { class: 'form-inline' } 
     = f.input :contract_no, requires: true
 
-    = f.button :submit, t('save'), class:"btn btn-tss col-md-3 col-md-offset-3"
+    = f.button :submit, t('save'), class: "btn btn-tss col-md-3 col-md-offset-3"

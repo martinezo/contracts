@@ -46,9 +46,9 @@ class System::SiteviewsController < ApplicationController
 respond_to do |format|
     if @system_siteview.save
 	    ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
-        format.js { redirect_to @system_siteview, notice: t('.created') }
+        format.html { redirect_to @system_siteview, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_siteview }
-        #format.js   { render :new }
+        format.js   { redirect_to @system_siteview, notice: t('.created') }
       else
         format.html { render :new }
         format.json { render json: @system_siteview.errors, status: :unprocessable_entity }
@@ -67,6 +67,7 @@ respond_to do |format|
       else
         format.html { render :edit }
         format.json { render json: @system_siteview.errors, status: :unprocessable_entity }
+        format.js   { render :edit }
       end
     end
   end

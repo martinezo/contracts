@@ -55,6 +55,7 @@ class Catalogs::LocationsController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @catalogs_location.errors, status: :unprocessable_entity }
+        format.js   { render :edit }
       end
     end
   end
