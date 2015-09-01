@@ -6,9 +6,9 @@ class System::SiteviewsController < ApplicationController
  def index
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
-      @system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 5)
+      @system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 10)
     else
-            @system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 5)
+            @system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 10)
 
       #@catalogs_siteviews = Catalogs::Siteview.where("visit_date LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 2)
     end

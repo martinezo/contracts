@@ -6,10 +6,10 @@ class Catalogs::DevicesController < ApplicationController
   def index
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
-      @catalogs_devices = Catalogs::Device.all.paginate(page: params[:page], per_page: 5)
+      @catalogs_devices = Catalogs::Device.all.paginate(page: params[:page], per_page: 10)
     else
       #@catalogs_suppliers.where(business_name: params[:codido])
-      @catalogs_devices= Catalogs::Device.where("name LIKE :codigo or unam_stock_number LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 5)
+      @catalogs_devices= Catalogs::Device.where("name LIKE :codigo or unam_stock_number LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 10)
     end
   end
 

@@ -5,7 +5,7 @@
   = render partial: 'layouts/search',locals: { viewer: 'siteviews', name: 'add_siteview', helper: new_system_siteview_path }
 .cuerpo_siteview
   .table-responsive
-    %table.table.table-striped
+    %table.table.table-striped.table-condensed
       %thead
         %tr
           %th 
@@ -24,9 +24,9 @@
             %td= system_siteview.contract_id
             %td= system_siteview.visit_date
             %td= system_siteview.completed
-            %td= link_to '', system_siteview, class:"btn btn-tss fa fa-eye", title: "Ver", remote: true
-            %td= link_to '', edit_system_siteview_path(system_siteview), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar", remote: true
-            %td= link_to '', system_siteview, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", remote: true
+            %td= link_to '', system_siteview, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true
+            %td= link_to '', edit_system_siteview_path(system_siteview), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
+            %td= link_to '', system_siteview, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'),  remote: true
 
 .paginacion  
   .apple_pagination

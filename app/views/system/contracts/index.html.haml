@@ -5,7 +5,7 @@
   = render partial: 'layouts/search',locals: { viewer: 'contracts', name: 'add_contract', helper: new_system_contract_path }
 .cuerpo_comtract
   .table-responsive
-    %table.table.table-striped
+    %table.table.table-striped.table-condensed
       %thead
         %tr
           %th 
@@ -30,9 +30,9 @@
             %td= system_contract.start_date
             %td= system_contract.end_date
             %td= system_contract.contract_no
-            %td= link_to '', system_contract, class:"btn btn-tss fa fa-eye", title: "Ver", remote: true 
-            %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar", remote: true
-            %td= link_to '', system_contract, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar", remote: true
+            %td= link_to '', system_contract, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true 
+            %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
+            %td= link_to '', system_contract, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
 
 .paginacion  
   .apple_pagination

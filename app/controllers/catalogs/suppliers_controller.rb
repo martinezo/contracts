@@ -6,10 +6,10 @@ class Catalogs::SuppliersController < ApplicationController
  def index
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
-      @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 5)
+      @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 10)
     else
       #@catalogs_suppliers.where(business_name: params[:codido])
-	  @catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],params[:codigo]).paginate(page: params[:page],per_page: 2)
+	  @catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],params[:codigo]).paginate(page: params[:page],per_page: 10)
     end
   end
 

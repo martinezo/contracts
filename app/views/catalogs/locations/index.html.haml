@@ -5,7 +5,7 @@
   = render partial: 'layouts/search',locals: { viewer: 'locations', name: 'add_location', helper: new_catalogs_location_path }
 .cuerpo_locations
   .table-responsive
-    %table.table.table-striped
+    %table.table.table-striped.table-condensed
       %thead
         %tr
           %th 
@@ -24,11 +24,11 @@
             %td= catalogs_location.responsible
             %td= catalogs_location.email
             %td
-              = link_to '', catalogs_location, class: "btn btn-tss fa fa-eye", title: "Ver", remote: true
+              = link_to '', catalogs_location, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true
             %td
-              = link_to '', edit_catalogs_location_path(catalogs_location), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar", remote: true
+              = link_to '', edit_catalogs_location_path(catalogs_location), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
             %td
-              = link_to '', catalogs_location, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-tss fa fa-trash-o", title: "Eliminar", remote: true
+              = link_to '', catalogs_location, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
 .paginacion
   .apple_pagination
     = will_paginate @catalogs_locations, :container => false 

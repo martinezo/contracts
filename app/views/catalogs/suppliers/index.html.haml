@@ -5,7 +5,7 @@
   = render partial: 'layouts/search',locals: { viewer: 'suppliers', name: 'add_supplier', helper: new_catalogs_supplier_path}
 .cuerpo_suppliers
   .table-responsive
-    %table.table.table-striped
+    %table.table.table-striped.table-condensed
       %thead
         %tr
           %th
@@ -27,11 +27,11 @@
             %td= catalogs_supplier.phone
             %td= catalogs_supplier.email
             %td
-              = link_to '', catalogs_supplier, class:"btn btn-tss fa fa-eye", title: "Ver"  , remote: true
+              = link_to '', catalogs_supplier, class: "btn btn-sm btn-tss fa fa-eye", title: t('see')  , remote: true
             %td
-              = link_to '', edit_catalogs_supplier_path(catalogs_supplier), class: "btn btn-tss fa fa-pencil-square-o", title: "Editar", remote: true
+              = link_to '', edit_catalogs_supplier_path(catalogs_supplier), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
             %td
-              = link_to '', catalogs_supplier_delete_path(id: catalogs_supplier), class: "btn btn-tss fa fa-trash-o", title: "Eliminar", remote: true
+              = link_to '', catalogs_supplier_delete_path(id: catalogs_supplier), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
 
 
 .paginacion  
