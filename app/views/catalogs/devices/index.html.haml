@@ -2,7 +2,7 @@
   %h1
     = t('.title_device')
 .barra_busqueda
-  = render partial: 'layouts/search',locals: { viewer: 'devices' }
+  = render partial: 'layouts/search',locals: { viewer: 'devices', name: 'add_device', helper: new_catalogs_device_path }
 .cuerpo_devices
   .table-responsive
     %table.table.table-striped
@@ -33,7 +33,7 @@
   .apple_pagination 
     = will_paginate @catalogs_devices, :container => false
   %br
-  = link_to t('.add_device'), new_catalogs_device_path, class:"btn btn-tss", remote: true
+  /= link_to t('.add_device'), new_catalogs_device_path, class:"btn btn-tss", remote: true
 
 #device-modal.modal.fade
   .modal-dialog

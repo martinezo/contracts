@@ -2,7 +2,7 @@
   %h1
     = t('.title_location')
 .barra_busqueda
-  = render partial: 'layouts/search',locals: { viewer: 'locations' }
+  = render partial: 'layouts/search',locals: { viewer: 'locations', name: 'add_location', helper: new_catalogs_location_path }
 .cuerpo_locations
   .table-responsive
     %table.table.table-striped
@@ -33,7 +33,7 @@
   .apple_pagination
     = will_paginate @catalogs_locations, :container => false 
   %br
-  = link_to t('.add_location'), new_catalogs_location_path, class: "btn btn-tss", remote: true
+  /= link_to t('.add_location'), new_catalogs_location_path, class: "btn btn-tss", remote: true
 #location-modal.modal.fade
   .modal-dialog
     #inner-location-modal.modal-content

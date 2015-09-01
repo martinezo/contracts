@@ -2,7 +2,7 @@
   %h1#supplier
     = t('.title_supplier')
 .barra_busqueda    
-  = render partial: 'layouts/search',locals: { viewer: 'suppliers' }
+  = render partial: 'layouts/search',locals: { viewer: 'suppliers', name: 'add_supplier', helper: new_catalogs_supplier_path}
 .cuerpo_suppliers
   .table-responsive
     %table.table.table-striped
@@ -38,7 +38,7 @@
   .apple_pagination
     = will_paginate @catalogs_suppliers, :container => false
   %br
-  = link_to t('add_supplier'), new_catalogs_supplier_path, class:"btn btn-tss", remote: true
+  /= link_to t('add_supplier'), new_catalogs_supplier_path, class:"btn btn-tss", remote: true
 #supplier-modal.modal.fade
   .modal-dialog
     #inner-supplier-modal.modal-content

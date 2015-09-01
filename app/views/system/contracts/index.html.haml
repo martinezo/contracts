@@ -2,7 +2,7 @@
   %h1
     = t('.title_contract')
 .barra_busqueda
-  = render partial: 'layouts/search',locals: { viewer: 'contracts' }
+  = render partial: 'layouts/search',locals: { viewer: 'contracts', name: 'add_contract', helper: new_system_contract_path }
 .cuerpo_comtract
   .table-responsive
     %table.table.table-striped
@@ -39,7 +39,7 @@
     = will_paginate @system_contracts, :container => false
 
   %br
-  = link_to t('.add_contract'), new_system_contract_path, class:"btn btn-tss", remote: true
+  /= link_to t('.add_contract'), new_system_contract_path, class:"btn btn-tss", remote: true
 
 #contract-modal.modal.fade
   .modal-dialog

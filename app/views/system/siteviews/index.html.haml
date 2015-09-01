@@ -2,7 +2,7 @@
   %h1
     = t('.title_siteview')
 .barra_busqueda
-  = render partial: 'layouts/search',locals: { viewer: 'siteviews' }
+  = render partial: 'layouts/search',locals: { viewer: 'siteviews', name: 'add_siteview', helper: new_system_siteview_path }
 .cuerpo_siteview
   .table-responsive
     %table.table.table-striped
@@ -33,7 +33,7 @@
     = will_paginate @system_siteviews, :container => false
 
   %br
-  = link_to t('.add_siteview'), new_system_siteview_path, class:"btn btn-tss", remote: true
+  /= link_to t('.add_siteview'), new_system_siteview_path, class:"btn btn-tss", remote: true
 
 #siteview-modal.modal.fade
   .modal-dialog
