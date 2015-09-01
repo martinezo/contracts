@@ -12,8 +12,7 @@ en:
         business: Bussines Name
         contact: Contact
         phone: Phone
-        email: Email
-        add_supplier: Add supplier
+        email: Email        
       show:
         title_info_supplier: Supplier's information
         business: Bussines name
@@ -36,7 +35,6 @@ en:
         department: Departament
         responsible: Responsible 
         email: Email
-        add_location: Add location
       show:
         title_info_location: Location's Information
         department: Departament
@@ -57,8 +55,7 @@ en:
         title_device: Devices
         name: Device
         unam_stock_number: Stock Number
-        location_id: Location
-        add_device: Add device
+        location_id: Location        
       show:
         title_info_device: Device's information
         name: Device
@@ -84,7 +81,6 @@ en:
         start_date: Start date
         end_date: End date
         contract_no: COntract Number
-        add_contract: Add contract
       show:
         title_info_contract: Contract's information
         device: Device
@@ -107,8 +103,7 @@ en:
         title_siteview: Siteviews
         contract_id: Contract
         visit_date: Visit date
-        completed: Completed
-        add_siteview: Add Siteview
+        completed: Completed    
       show:
         title_info_siteview: Siteview's information
         contract_id: Contract
@@ -132,6 +127,13 @@ en:
       menu_3: Locations
       menu_4: Contracts
       menu_logut: Log out
+  add_supplier: Add Supplier
+  add_location: Add Location
+  add_device: Add Device
+  add_contract: Add Contract
+  add_siteview: Add Siteview
+
+
 
   search: Search
   show_all: Show all
@@ -188,28 +190,31 @@ en:
         catalogs/device:
           attributes:
             unam_stock_number:
-              blank: Introduce el número de inventario
+              blank: Please enter the information.
             name:
-              blank: Introduce el nombre
+              blank: Please enter the information.
             location_id:
-              blank: Introduce la ubicación
+              blank: Please enter the information.
         catalogs/location:
           attributes:
             department:
-              blank: Introduce el Departamento
+              blank: Please enter the information.
             responsible:
-              blank: Introduce el nombre del Responsable
+              blank: Please enter the information.
             email:
-              blank: Introduce el correo electrónico
+              blank: Please enter the information.
         system/contract:
           attributes:
             device_id:
-              blank: Introduce el nombre del Equipo
+              blank: Please enter the information.
             supplier_id:
-              blank: Introduce el nombre de proveedor
+              blank: Please enter the information.
             contract_no:
-              blank: Introduce el numero de contrato
-              
+              blank: Please enter the information.
+        system/siteview:
+          attributes:
+            contract_id:
+              blank: Please enter the information. 
   date:
     abbr_day_names:
     - Sun

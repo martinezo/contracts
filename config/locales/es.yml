@@ -1,6 +1,3 @@
-#  es.devise.sessions.admin.signed_out
-#  es.devise.sessions.admin.already_signed_out
-
 es:
   catalogs:
     suppliers:
@@ -16,7 +13,6 @@ es:
         contact: Contacto
         phone: Telefono
         email: Correo electronico
-        add_supplier: Agregar proveedor
       show:
         title_info_supplier: Informacion de Proveedor
         business: Nombre de Compañía
@@ -38,8 +34,7 @@ es:
         title_location: Ubicaciones
         department: Departamento
         responsible: Responsable
-        email: Correo electrónico
-        add_location: Agregar sitio
+        email: Correo electrónico        
       show:
         title_info_location: Informacion de Ubicación
         department: Departamento
@@ -61,8 +56,7 @@ es:
         title_device: Equipos
         name: Nombre de Equipo
         unam_stock_number: No. de inventario
-        location_id: Ubicación
-        add_device: Agregar Equipo
+        location_id: Ubicación        
       show:
         title_info_device: Información de Equipo
         name: Nombre de Equipo
@@ -87,8 +81,7 @@ es:
         supplier: Proveedor
         start_date: Fecha inicio
         end_date: Fecha final
-        contract_no: No. de Contrato
-        add_contract: Agregar Contrato
+        contract_no: No. de Contrato        
       show:
         title_info_contract: Información de Contrato
         device: Equipo
@@ -111,8 +104,7 @@ es:
         title_siteview: Visitas
         contract_id: Contrato
         visit_date: Fecha de Visita
-        completed: Completa
-        add_siteview: Agregar visita
+        completed: Completa        
       show:
         title_info_siteview: Información de Visita
         contract_id: Contrato
@@ -135,6 +127,11 @@ es:
       menu_4: Contratos
       menu_5: Visitas
       menu_logut: Cerrar sesión
+  add_supplier: Agregar proveedor
+  add_location: Agregar sitio
+  add_device: Agregar Equipo
+  add_contract: Agregar Contrato
+  add_siteview: Agregar visita
 
   search: Buscar
   show_all: Mostrar todo
@@ -213,7 +210,10 @@ es:
               blank: Introduce el nombre de proveedor
             contract_no:
               blank: Introduce el numero de contrato
-
+        system/siteview:
+          attributes:
+            contract_id:
+              blank: Introduce el nombre del Equipo            
 
   date:
     abbr_day_names:
