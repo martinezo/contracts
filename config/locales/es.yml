@@ -114,6 +114,21 @@ es:
         title_edit_siteview: Editar visita
       new:
         title_new_siteview: Visita nueva
+  devise:
+    sessions:
+      new:
+        title_login: Iniciar sesión
+        login: Usuario
+        password: Contraseña
+        remember_me: Recuérdame
+        btn_login: Iniciar sesión
+    registrations:
+      new:
+        title_signin: Registrarse
+        login: Usuario
+        name: Nombre
+        email: Correo electrónico
+        btn_signin: Registrarse        
 
   layouts:
     application:

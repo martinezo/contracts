@@ -1,12 +1,13 @@
-%h2 Log in - Hola ¿Funciona?
+%h2
+  = t('.title_login')
 = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
-  = f.input :login, autofocus: true
-  = f.input :password, autocomplete: :off
+  = f.input :login, label: t('.login'),autofocus: true
+  = f.input :password, label: t('.password'),autocomplete: :off
   - if devise_mapping.rememberable?
-    = f.input :remember_me
+    = f.input :remember_me, label: t('.remember_me')
   
-  =f.button :submit, "Log in", class:"btn btn-default"
-= render "devise/shared/links"
+  =f.button :submit, t('.btn_login'), class:"btn btn-default"
+/= render "devise/shared/links"
 
 / = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 /   .field
