@@ -15,9 +15,8 @@
             = label_tag "codigo", t('search'), class: "sr-only"
             = text_field_tag "codigo", "", :size => 30, :maxlenght => 50, :placeholder => t('search')
             = submit_tag t('search'), class:"btn btn-ttc"
-            = submit_tag t('show_all'), class:"btn btn-ttc"
-        %li
-          = link_to t(name), helper, class:"btn btn-tss", remote: true
+            = submit_tag t('show_all'), class:"btn btn-ttc"        
+            = link_to t(name), helper, class:"btn btn-ttc", remote: true
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -38,4 +37,3 @@
             %li.divider{:role => "separator"}
             %li
               = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')
-    

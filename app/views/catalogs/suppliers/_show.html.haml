@@ -23,6 +23,6 @@
     = @catalogs_supplier.email
 
 .modal-footer
-  = link_to t('edit'), edit_catalogs_supplier_path(@catalogs_supplier), remote: true
+  = link_to t('edit'), edit_catalogs_supplier_path(@catalogs_supplier), class: "btn btn-sm btn-tss", remote: true
   \|
-  = link_to t('back'), catalogs_suppliers_path
+  = link_to t('back'), catalogs_suppliers_path, class: "btn btn-sm btn-tss"
