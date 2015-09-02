@@ -158,6 +158,9 @@ es:
   previous: Anterior
   next: Siguiente
   back: Regresar
+  are_you_sure: ¿Está seguro de eliminar el registro?
+  si: Si
+  cancel: Cancelar
 
   will_paginate:
     next_label: Siguiente
