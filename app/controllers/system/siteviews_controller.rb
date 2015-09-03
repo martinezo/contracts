@@ -4,6 +4,7 @@ class System::SiteviewsController < ApplicationController
   # GET /system/siteviews
   # GET /system/siteviews.json
  def index
+ if admin_signed_in?
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
       @system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 10)
@@ -12,6 +13,9 @@ class System::SiteviewsController < ApplicationController
 
       #@catalogs_siteviews = Catalogs::Siteview.where("visit_date LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 2)
     end
+	else
+	redirect_to new_admin_session_path
+  end
   end
 
   # GET /system/siteviews/1

@@ -31,7 +31,7 @@
             %td
               = link_to '', edit_catalogs_supplier_path(catalogs_supplier), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
             %td
-              = link_to '', catalogs_supplier_delete_path(id: catalogs_supplier), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
+              = link_to '', catalogs_supplier_delete_path(id: catalogs_supplier, viewer: 'suppliers'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
 
 
 .paginacion  
@@ -42,3 +42,6 @@
 #supplier-modal.modal.fade
   .modal-dialog
     #inner-supplier-modal.modal-content
+#delete-modal.modal.fade
+  .modal-dialog
+    #inner-delete-modal.modal-content

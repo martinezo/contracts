@@ -1,2 +1,2 @@
-$("#inner-supplier-modal").html("#{escape_javascript(render 'delete')}")
-$("#supplier-modal").modal("show")
+$("#inner-delete-modal").html("#{escape_javascript(render 'layouts/delete', locals: {viewer: @viewer, id: @id})}")
+$("#delete-modal").modal("show")
