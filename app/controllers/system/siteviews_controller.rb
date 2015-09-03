@@ -32,6 +32,11 @@ class System::SiteviewsController < ApplicationController
   def edit
   end
 
+  def delete
+   @id=params[:id]
+   @viewer=params[:viewer]
+  end
+
   # POST /system/siteviews
   # POST /system/siteviews.json
   def create

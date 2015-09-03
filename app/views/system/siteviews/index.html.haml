@@ -26,7 +26,9 @@
             %td= system_siteview.completed
             %td= link_to '', system_siteview, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true
             %td= link_to '', edit_system_siteview_path(system_siteview), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
-            %td= link_to '', system_siteview, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'),  remote: true
+            %td= link_to '', system_siteview_delete_path(id: system_siteview, viewer: 'siteviews'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
+
+
 
 .paginacion  
   .apple_pagination
@@ -38,3 +40,6 @@
 #siteview-modal.modal.fade
   .modal-dialog
     #inner-siteview-modal.modal-content
+#delete-modal.modal.fade
+  .modal-dialog
+    #inner-delete-modal.modal-content

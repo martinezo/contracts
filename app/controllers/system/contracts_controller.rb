@@ -32,6 +32,11 @@ class System::ContractsController < ApplicationController
   def edit
   end
 
+  def delete
+   @id=params[:id]
+   @viewer=params[:viewer]
+  end
+
   # POST /system/contracts
   # POST /system/contracts.json
   def create

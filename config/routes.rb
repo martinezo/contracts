@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   get 'admin/mailer' => 'admin/mailerx#sendx'
   get 'catalogs/supplier/delete' => 'catalogs/suppliers#delete'
   get 'catalogs/location/delete' => 'catalogs/locations#delete'
+  get 'catalogs/device/delete' => 'catalogs/devices#delete'
+  get 'system/contract/delete' => 'system/contracts#delete'
+  get 'system/siteview/delete' => 'system/siteviews#delete'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

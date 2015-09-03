@@ -28,7 +28,7 @@
             %td
               = link_to '', edit_catalogs_device_path(catalogs_device), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
             %td
-              = link_to '', catalogs_device, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
+              = link_to '', catalogs_device_delete_path(id: catalogs_device, viewer: 'devices'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
 .paginacion
   .apple_pagination 
     = will_paginate @catalogs_devices, :container => false
@@ -38,3 +38,6 @@
 #device-modal.modal.fade
   .modal-dialog
     #inner-device-modal.modal-content
+#delete-modal.modal.fade
+  .modal-dialog
+    #inner-delete-modal.modal-content

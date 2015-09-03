@@ -35,6 +35,11 @@ class Catalogs::DevicesController < ApplicationController
   def edit
   end
 
+  def delete
+   @id=params[:id]
+   @viewer=params[:viewer]
+  end
+
   # POST /catalogs/devices
   # POST /catalogs/devices.json
   def create
