@@ -9,7 +9,7 @@
       %thead
         %tr
           %th 
-            = t('.contract_id')
+            = t('.renewal_id')
           %th 
             = t('.visit_date')
           %th 
@@ -21,7 +21,7 @@
       %tbody
         - @system_siteviews.each do |system_siteview|
           %tr
-            %td= system_siteview.contract_id
+            %td= system_siteview.renewal_id
             %td= system_siteview.visit_date
             %td= system_siteview.completed
             %td= link_to '', system_siteview, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true

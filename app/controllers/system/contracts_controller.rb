@@ -41,23 +41,20 @@ class System::ContractsController < ApplicationController
   # POST /system/contracts.json
   def create
     @system_contract = System::Contract.new(system_contract_params)	
-	#t0=Time.new(system_contract_params["end_date(1i)"].to_i,system_contract_params["end_date(2i)".to_i,system_contract_params["end_date(3i)"].to_i])
-	#t0=Time.new(format[2],format[1],format[0],format[3],format[4])
-	supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
-	@email = supplier.email
-	t0=Time.new(system_contract_params["end_date(1i)"].to_i,system_contract_params["end_date(2i)"].to_i,system_contract_params["end_date(3i)"].to_i)
-	
-	puts 'Aki va el parametro :end date sssssssssssssssssssssssssssssssssss'
-	puts t0
-	#puts system_contract_params[:device_id]
-	@recordar = t0 - 604800 # resta 1 semana
-	puts 'aki va el recordatorio al finaliza el contrato'
-	puts @recordar
-	puts 'aki terminaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-	puts @email
+	#ESTO SE VA DESCOMENTAR CUANDO SE INSERTE EL START_DATE Y EL END_DATE DEL FORMULARIO DE RENEWAL
+	#supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
+	#@email = supplier.email
+	#t0=Time.new(system_contract_params["end_date(1i)"].to_i,system_contract_params["end_date(2i)"].to_i,system_contract_params["end_date(3i)"].to_i)
+	#puts 'Aki va el parametro :end date sssssssssssssssssssssssssssssssssss'
+	#puts t0
+	#@recordar = t0 - 604800 # resta 1 semana
+	#puts 'aki va el recordatorio al finaliza el contrato'
+	#puts @recordar
+	#puts 'aki terminaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+	#puts @email
     respond_to do |format|
       if @system_contract.save
-	ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
+	#ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
         format.html { redirect_to @system_contract, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_contract }
         format.js   { redirect_to @system_contract, notice: t('.created') }        

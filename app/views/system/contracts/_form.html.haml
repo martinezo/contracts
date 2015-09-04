@@ -9,9 +9,8 @@
     
     = f.error_notification
     = f.association :device, required: true
-    = f.association :supplier, label_method: :business_name, value_method: :id, requiered: true
-    = f.input :start_date, required: true, wrapper_html: { class: 'form-inline' } 
-    = f.input :end_date, required: true   , wrapper_html: { class: 'form-inline' } 
+    = f.association :supplier, label_method: :business_name, value_method: :id, requiered: true 
     = f.input :contract_no, requires: true
+    = f.input :description, requires: true
 
     = f.button :submit, t('save'), class: "btn btn-tss col-md-3 col-md-offset-3"

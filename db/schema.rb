@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150904061353) do
     t.integer  "device_id",   null: false
     t.integer  "supplier_id", null: false
     t.string   "contract_no", null: false
+    t.string   "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -4,6 +4,7 @@ class CreateSystemContracts < ActiveRecord::Migration
       t.integer :device_id, null: false
       t.integer :supplier_id, null: false
       t.string :contract_no, null: false
+      t.string :description, null: false      
 
       t.timestamps null: false
     end

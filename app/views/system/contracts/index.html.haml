@@ -13,12 +13,9 @@
           %th
             = t('.supplier')
           %th
-            = t('.start_date')
-          %th
-            = t('.end_date')        
-          %th
             = t('.contract_no')
           %th
+            = t('.description')
           %th
           %th
 
@@ -27,9 +24,8 @@
           %tr
             %td= system_contract.device_id
             %td= system_contract.supplier_id
-            %td= system_contract.start_date
-            %td= system_contract.end_date
             %td= system_contract.contract_no
+            %td= system_contract.description
             %td= link_to '', system_contract, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true 
             %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
             %td= link_to '', system_contract_delete_path(id: system_contract, viewer: 'contracts'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
