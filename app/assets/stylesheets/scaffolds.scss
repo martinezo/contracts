@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  color: #fff;
+  color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -19,7 +19,7 @@ pre {
 }
 
 a {
-  color: white;
+  color: #000;
 
   &:visited {
     color: #666;
@@ -27,7 +27,7 @@ a {
 
   &:hover {
     color: #fff;
-    background-color: #e0e0e0;
+    background-color: #000;
   }
 }
 
@@ -48,7 +48,7 @@ div {
 }
 
 #error_explanation {
-  width: 650px;
+  width: 450px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;

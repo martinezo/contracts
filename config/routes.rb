@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :system do
+    resources :renewals
+  end
+  namespace :system do
     resources :siteviews
   end
   devise_for :admin, class_name: "Admin::User"

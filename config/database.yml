@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: contracts_development
+  database: contracts_development11
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,9 +57,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: contracts_test
+  database: contracts_test11
   username: rails
-  password: faicl1234R
+  password: facil1234R
   host: localhost
   port: 5432
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -83,7 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: contracts_production
+  database: contracts_production11
   username: contracts
   password: <%= ENV['CONTROL-SYSTEM-FOR-MAINTENANCE-CONTRACTS_DATABASE_PASSWORD'] %>
 

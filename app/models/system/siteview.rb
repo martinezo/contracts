@@ -1,4 +1,4 @@
 class System::Siteview < ActiveRecord::Base
-belongs_to :contract, :class_name => 'System::Contract', :foreign_key => 'contract_id'
-validates :contract_id, :visit_date, presence: true
+belongs_to :renewal, :class_name => 'System::Renewal', :foreign_key => 'renewal_id'
+validates :renewal_id, :visit_date, presence: true
 end

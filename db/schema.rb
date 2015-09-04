@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823175528) do
+ActiveRecord::Schema.define(version: 20150904061353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,14 +36,6 @@ ActiveRecord::Schema.define(version: 20150823175528) do
     t.string   "department",  null: false
     t.string   "responsible", null: false
     t.string   "email",       null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "catalogs_siteviews", force: :cascade do |t|
-    t.integer  "contract_id", null: false
-    t.datetime "visit_date",  null: false
-    t.boolean  "completed"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -76,23 +68,28 @@ ActiveRecord::Schema.define(version: 20150823175528) do
   create_table "system_contracts", force: :cascade do |t|
     t.integer  "device_id",   null: false
     t.integer  "supplier_id", null: false
-    t.date     "start_date",  null: false
-    t.date     "end_date",    null: false
     t.string   "contract_no", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "system_siteviews", force: :cascade do |t|
-    t.integer  "contract_id", null: false
-    t.datetime "visit_date",  null: false
-    t.boolean  "completed"
+  create_table "system_renewals", force: :cascade do |t|
+    t.integer  "contract_id"
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "system_siteviews", force: :cascade do |t|
+    t.integer  "renewal_id", null: false
+    t.datetime "visit_date", null: false
+    t.boolean  "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "catalogs_devices", "catalogs_locations", column: "location_id"
   add_foreign_key "system_contracts", "catalogs_devices", column: "device_id"
   add_foreign_key "system_contracts", "catalogs_suppliers", column: "supplier_id"
-  add_foreign_key "system_siteviews", "system_contracts", column: "contract_id"
 end
