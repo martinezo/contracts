@@ -40,7 +40,7 @@ class System::ContractsController < ApplicationController
   # POST /system/contracts
   # POST /system/contracts.json
   def create
-    @system_contract = System::Contract.new(system_contract_params)	
+    	@system_contract = System::Contract.new(system_contract_params)
 	#ESTO SE VA DESCOMENTAR CUANDO SE INSERTE EL START_DATE Y EL END_DATE DEL FORMULARIO DE RENEWAL
 	#supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
 	#@email = supplier.email
@@ -99,6 +99,6 @@ class System::ContractsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def system_contract_params
-      params.require(:system_contract).permit(:device_id, :supplier_id, :start_date, :end_date, :contract_no)
+      params.require(:system_contract).permit(:device_id, :supplier_id, :start_date, :end_date, :contract_no, :description)
     end
 end

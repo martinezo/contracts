@@ -15,16 +15,12 @@
     = @system_contract.supplier_id
   %p
     %b
-      = t('.start_date')
-    = @system_contract.start_date
-  %p
-    %b
-      = t('.end_date')
-    = @system_contract.end_date
-  %p
-    %b
       = t('.contract_no')
     = @system_contract.contract_no
+  %p
+    %b
+      = t('.description')
+    = @system_contract.description
 
 .modal-footer
   = link_to t('edit'), edit_system_contract_path(@system_contract), remote: true, class: "btn btn-sm btn-tss"

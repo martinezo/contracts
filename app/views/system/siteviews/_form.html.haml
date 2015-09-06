@@ -3,7 +3,7 @@
     
     = f.error_notification
     /= f.input :contract_id, required: true
-    = f.association :renewal, label_method: :contract_no, value_method: :id
+    = f.association :renewal, label_method: :id, value_method: :id
     = f.input :visit_date, required: true, wrapper_html: { class: 'form-inline' }
     = f.input :completed, required: true   
     = f.label "Recordarme el dia:"
