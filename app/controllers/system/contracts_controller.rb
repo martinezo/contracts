@@ -41,6 +41,13 @@ class System::ContractsController < ApplicationController
   # POST /system/contracts.json
   def create
     	@system_contract = System::Contract.new(system_contract_params)
+	# INERTAR UN NUEVO RENEWAL DE FORMA AUTOMATICA
+        format1=*params["start_date"].values.map(&:to_i)
+	@start_date=Time.new(format1[2],format1[1],format1[0],format1[3],format1[4])
+
+        format2=*params["end_date"].values.map(&:to_i)
+	@end_date=Time.new(format2[2],format2[1],format2[0],format2[3],format2[4])
+
 	#ESTO SE VA DESCOMENTAR CUANDO SE INSERTE EL START_DATE Y EL END_DATE DEL FORMULARIO DE RENEWAL
 	#supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
 	#@email = supplier.email
@@ -54,10 +61,16 @@ class System::ContractsController < ApplicationController
 	#puts @email
     respond_to do |format|
       if @system_contract.save
+        
+        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date)
+       if  @system_renewal.save
 	#ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
         format.html { redirect_to @system_contract, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_contract }
-        format.js   { redirect_to @system_contract, notice: t('.created') }        
+        format.js   { redirect_to @system_contract, notice: t('.created') }
+       else
+	System::Contract.find(@system_contract.id).destroy
+	end        
       else
         format.html { render :new }
         format.json { render json: @system_contract.errors, status: :unprocessable_entity }

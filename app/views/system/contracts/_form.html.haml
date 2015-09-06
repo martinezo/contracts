@@ -9,7 +9,12 @@
     
     = f.error_notification
     = f.association :device, required: true
-    = f.association :supplier, label_method: :business_name, value_method: :id, requiered: true 
+    = f.association :supplier, label_method: :business_name, value_method: :id, requiered: true
+    = f.label 'start_date' 
+    = datetime_select "start_date", "" 
+    %br/
+    = f.label 'end_date'
+    = datetime_select "end_date", ""
     = f.input :contract_no, requires: true
     = f.input :description, requires: true
 
