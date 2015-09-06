@@ -61,7 +61,7 @@ es:
         title_info_device: Información de Equipo
         name: Nombre de Equipo
         unam_stock_number: No. de inventario
-        location_id: Ubicación
+        location_id: ID de Ubicación
       edit:
         title_edit_device: Editar Equipo
       new:
@@ -79,9 +79,8 @@ es:
         title_contract: Lista de Contratos
         device: Equipo
         supplier: Proveedor
-        start_date: Fecha inicio
-        end_date: Fecha final
-        contract_no: No. de Contrato        
+        contract_no: No. de Contrato
+        description: Descripción
       show:
         title_info_contract: Información de Contrato
         device: Equipo
@@ -102,7 +101,7 @@ es:
         destroyed: Visita fue eliminado exitosamente.
       index:
         title_siteview: Visitas
-        contract_id: Contrato
+        renewal_id: Contrato
         visit_date: Fecha de Visita
         completed: Completa        
       show:
@@ -114,6 +113,11 @@ es:
         title_edit_siteview: Editar visita
       new:
         title_new_siteview: Visita nueva
+    renewals:
+      index:
+        contract: Contrato
+        start_date: Fecha de inicio
+        end_date: Fecha de fin
   devise:
     sessions:
       new:
@@ -141,13 +145,14 @@ es:
       menu_3: Ubicaciones
       menu_4: Contratos
       menu_5: Visitas
+      menu_6: Renovaciones
       menu_logut: Cerrar sesión
   add_supplier: Agregar proveedor
   add_location: Agregar sitio
   add_device: Agregar Equipo
   add_contract: Agregar Contrato
   add_siteview: Agregar visita
-
+  add_renewal: Agregar Renovación
   search: Buscar
   show_all: Mostrar todo
   show: Mostrar
@@ -180,17 +185,20 @@ es:
       catalogs/device:
         name: Nombre de Equipo
         unam_stock_number: No. de inventario
-        location_id: Ubicación
+        location_id: ID de Ubicación
       system/contract:
-        device_id: Equipo
+        device_id: Nombre de Equipo
         supplier_id: Proveedor
-        start_date: Fecha inicio
-        end_date: Fecha final
         contract_no: No. de Contrato
+        description: Descripción
       system/siteview:
-        contract_id: Contrato
+        renewal_id: ID de Renovaciones
         visit_date: Fecha de visita
         completed: Completa
+      system/renewal:
+        contract_id: ID de Contrato
+        start_date: Fecha de inicio
+        end_date: Fecha final
 
     errors:
       models:
@@ -228,10 +236,21 @@ es:
               blank: Introduce el nombre de proveedor
             contract_no:
               blank: Introduce el numero de contrato
+            description:
+              blank: Introduce la descripción del contrato
         system/siteview:
           attributes:
+            renewal_id:
+              blank: Introduce el ID de contrato
+            visit_date:
+              blank: Introduce fecha válida
+        system/renewal:
+          attributes:
             contract_id:
-              blank: Introduce el nombre del Equipo            
+              blank: Introduce el ID de contrato
+
+#es.activerecord.errors.models.system/renewal.attributes.contract_id.blank
+
 
   date:
     abbr_day_names:

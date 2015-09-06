@@ -21,7 +21,9 @@
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             = t('.menu')
-            = current_admin.login  
+            (
+            = current_admin.login
+            )         
             %span.caret             
           %ul.dropdown-menu
             %li
@@ -30,10 +32,13 @@
               = link_to t('.menu_2'), catalogs_devices_path
             %li
               = link_to t('.menu_3'), catalogs_locations_path
+            %li.divider{:role => "separator"}
             %li
               = link_to t('.menu_4'), system_contracts_path  
             %li
-              = link_to t('.menu_5'), system_siteviews_path         
+              = link_to t('.menu_5'), system_siteviews_path
+            %li
+              = link_to t('.menu_6'), system_renewals_path        
             %li.divider{:role => "separator"}
             %li
               = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')
