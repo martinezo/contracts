@@ -1,27 +1,14 @@
-%h2
-  = t('.title_login')
-= simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
-  = f.input :login, label: t('.login'),autofocus: true
-  = f.input :password, label: t('.password'),autocomplete: :off
-  - if devise_mapping.rememberable?
-    = f.input :remember_me, label: t('.remember_me')
-  
-  =f.button :submit, t('.btn_login'), class:"btn btn-default"
-/= render "devise/shared/links"
-
-/ = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-/   .field
-/     = f.label :login
-/     %br/
-/     = f.text_field :login, autofocus: true
-/   .field
-/     = f.label :password
-/     %br/
-/     = f.password_field :password, autocomplete: "off"
-/   - if devise_mapping.rememberable?
-/     .field
-/       = f.check_box :remember_me
-/       = f.label :remember_me
-/   .actions
-/     = f.submit "Log in"
-/ = render "devise/shared/links"
+.container_login
+  .tittle_session
+    %h2
+      %i.fa.fa-sign-in
+      = t('.title_login')
+  .login
+    = simple_form_for resource, as: resource_name, html: {class: 'form-horizontal'}, wrapper: :horizontal_form, url: session_path(resource_name) do |f|
+      = f.error_notification
+      = f.input :login, label: t('.login'),autofocus: true
+      = f.input :password, label: t('.password'),autocomplete: :off
+      - if devise_mapping.rememberable?
+        = f.input :remember_me, label: t('.remember_me')
+      =f.button :submit, t('.btn_login'), class:"btn btn-default"
+    /= render "devise/shared/links"

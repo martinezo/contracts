@@ -1,25 +1,26 @@
-%h1 Listing system_renewals
+.container_general
+  %h1 Listing system_renewals
 
-%table
-  %thead
-    %tr
-      %th Contract
-      %th Start date
-      %th End date
-      %th
-      %th
-      %th
-
-  %tbody
-    - @system_renewals.each do |system_renewal|
+  %table
+    %thead
       %tr
-        %td= system_renewal.contract_id
-        %td= system_renewal.start_date
-        %td= system_renewal.end_date
-        %td= link_to 'Show', system_renewal
-        %td= link_to 'Edit', edit_system_renewal_path(system_renewal)
-        %td= link_to 'Destroy', system_renewal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Contract
+        %th Start date
+        %th End date
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @system_renewals.each do |system_renewal|
+        %tr
+          %td= system_renewal.contract_id
+          %td= system_renewal.start_date
+          %td= system_renewal.end_date
+          %td= link_to 'Show', system_renewal
+          %td= link_to 'Edit', edit_system_renewal_path(system_renewal)
+          %td= link_to 'Destroy', system_renewal, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Renewal', new_system_renewal_path
+  %br
+
+  = link_to 'New Renewal', new_system_renewal_path
