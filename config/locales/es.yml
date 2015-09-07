@@ -125,21 +125,7 @@ es:
         title_edit_renewal: Editar Contrato Renovado
       new:
         title_new_renewal: Agregar Renovación de Contrato
-  devise:
-    sessions:
-      new:
-        title_login: Iniciar sesión
-        login: Usuario
-        password: Contraseña
-        remember_me: Recuérdame
-        btn_login: Iniciar sesión
-    registrations:
-      new:
-        title_signin: Registrarse
-        login: Usuario
-        name: Nombre
-        email: Correo electrónico
-        btn_signin: Registrarse        
+
 
   layouts:
     application:
@@ -257,7 +243,66 @@ es:
               blank: Introduce el ID de contrato
 
 #es.activerecord.errors.models.system/renewal.attributes.contract_id.blank
+  devise:
+    failure:
+      already_authenticated: 'Ya iniciaste sesión.'
+      unauthenticated: 'Tienes que registrarte o iniciar sesión antes de continuar.'
+      unconfirmed: 'Tienes que confirmar tu cuenta antes de continuar.'
+      locked: 'Tu cuente está bloqueada.'
+      invalid: 'Email o contraseña inválidos.'
+      invalid_token: 'Token de autentificación inválido.'
+      timeout: 'Tu sesión ha expirado. Inicia sesión nuevamente.'
+      inactive: 'Tu cuenta aun no ha sido activada.'
+    sessions:
+      signed_in: 'Iniciaste sesión correctamente.'
+      signed_out: 'Cerraste sesión correctamente.'
 
+      new:
+        title_login: Iniciar sesión
+        login: Usuario
+        password: Contraseña
+        remember_me: Recuérdame
+        btn_login: Iniciar sesión
+
+    passwords:
+      send_instructions: 'Recibirás un email con instrucciones para reiniciar tu contraseña en unos minutos.'
+      updated: 'Tu contraseña fue cambiada correctamente. Has iniciado sesión.'
+      updated_not_active: 'Tu contraseña fue cambiada correctamente.'
+      send_paranoid_instructions: "Si tu email existe en el sistema, recibirás instrucciones para recuperar tu contraseña en él"
+    confirmations:
+      send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+      send_paranoid_instructions: 'Si tu email existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+      confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
+    registrations:
+      signed_up: 'Bienvenido! Te has registrado correctamente.'
+      signed_up_but_unconfirmed: 'Te hemos enviado un email con instrucciones para que confirmes tu cuenta.'
+      signed_up_but_inactive: 'Te has registrado correctamente, pero tu cuenta aun no ha sido activada.'
+      signed_up_but_locked: 'Te has registrado correctamente, pero tu cuenta está bloqueada.'
+      updated: 'Actualizaste tu cuenta correctamente.'
+      update_needs_confirmation: "Actualizaste tu cuenta correctamente, pero tenemos que revalidar tu email. Revisa tu correo para confirmar la dirección."
+      destroyed: 'Adiós, tu cuenta ha sido eliminada. Esperamos verte de vuelta pronto!'
+
+      new:
+        title_signin: Registrarse
+        login: Usuario
+        name: Nombre
+        email: Correo electrónico
+        btn_signin: Registrarse 
+
+    unlocks:
+      send_instructions: 'Recibirás un email con instrucciones para desbloquear tu cuenta en unos minutos'
+      unlocked: 'Tu cuenta ha sido desbloqueada. Inicia sesión para continuar.'
+      send_paranoid_instructions: 'Si tu cuenta existe, recibirás instrucciones para desbloquear tu cuenta en unos minutos'
+    omniauth_callbacks:
+      success: 'Te autentificaste correctamente con tu cuenta de %{kind}.'
+      failure: 'No pudimos autentificar tu cuenta de %{kind} por la siguiente razón: %{reason}.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones de confirmación'
+      reset_password_instructions:
+        subject: 'Instrucciones de cambio de contraseña'
+      unlock_instructions:
+        subject: 'Instrucciones de desbloqueo'
 
   date:
     abbr_day_names:
