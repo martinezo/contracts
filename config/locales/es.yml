@@ -115,9 +115,16 @@ es:
         title_new_siteview: Visita nueva
     renewals:
       index:
+        title_renewals: Renovaciones de Contrato
         contract: Contrato
         start_date: Fecha de inicio
         end_date: Fecha de fin
+      show:
+        title_info_renewal: Información de Contrato Renovado
+      edit:
+        title_edit_renewal: Editar Contrato Renovado
+      new:
+        title_new_renewal: Agregar Renovación de Contrato
   devise:
     sessions:
       new:

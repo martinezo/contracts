@@ -4,7 +4,16 @@ class System::RenewalsController < ApplicationController
   # GET /system/renewals
   # GET /system/renewals.json
   def index
-    @system_renewals = System::Renewal.all
+    if admin_signed_in?
+      puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
+      if params[:codigo].nil? || params[:codigo].empty?
+        @system_renewals = System::Renewal.all.paginate(page: params[:page], per_page: 10)
+      else
+        @system_renewals = System::Renewal.all.paginate(page: params[:page], per_page: 10)
+      end
+    else
+      redirect_to new_admin_session_path
+    end
   end
 
   # GET /system/renewals/1
@@ -30,9 +39,11 @@ class System::RenewalsController < ApplicationController
       if @system_renewal.save
         format.html { redirect_to @system_renewal, notice: 'Renewal was successfully created.' }
         format.json { render :show, status: :created, location: @system_renewal }
+        format.js { redirect_to @system_renewal, notice: 'Renewal was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @system_renewal.errors, status: :unprocessable_entity }
+        format.js   { render :new }
       end
     end
   end
@@ -44,9 +55,11 @@ class System::RenewalsController < ApplicationController
       if @system_renewal.update(system_renewal_params)
         format.html { redirect_to @system_renewal, notice: 'Renewal was successfully updated.' }
         format.json { render :show, status: :ok, location: @system_renewal }
+        format.js   { redirect_to @system_renewal, notice: 'Renewal was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @system_renewal.errors, status: :unprocessable_entity }
+        format.js   { render :edit }
       end
     end
   end

@@ -1,10 +1,19 @@
-= simple_form_for(@system_renewal) do |f|
-  = f.error_notification
+.container-fluid
+  = simple_form_for @system_renewal, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
 
-  .form-inputs
+    = f.error_notification
     = f.input :contract_id
-    = f.input :start_date
-    = f.input :end_date
+    = f.input :start_date, wrapper_html: { class: 'form-inline' }
+    = f.input :end_date, wrapper_html: { class: 'form-inline' }
+    = f.button :submit, t('save'), class: "btn btn-tss col-md-3 col-md-offset-3"
+    
+/ = simple_form_for(@system_renewal) do |f|
+/   = f.error_notification
 
-  .form-actions
-    = f.button :submit
+/   .form-inputs
+/     = f.input :contract_id
+/     = f.input :start_date
+/     = f.input :end_date
+
+/   .form-actions
+/     = f.button :submit

@@ -1,26 +1,41 @@
 .container_general
-  %h1 Listing system_renewals
+  .title_renewal
+    %h1 
+      = t('.title_renewals')
+  .barra_busqueda
+    = render partial: 'layouts/search',locals: { viewer: 'renewals', name: 'add_renewal', helper: new_system_renewal_path }
+  .cuerpo_renewal
+    .table-responsive
+      %table.table.table-striped.table-condensed
+        %thead
+          %tr
+            %th= t('.contract')
+            %th= t('.start_date')
+            %th= t('.end_date')
+            %th
+            %th
+            %th
 
-  %table
-    %thead
-      %tr
-        %th Contract
-        %th Start date
-        %th End date
-        %th
-        %th
-        %th
+        %tbody
+          - @system_renewals.each do |system_renewal|
+            %tr
+              %td= system_renewal.contract_id
+              %td= system_renewal.start_date
+              %td= system_renewal.end_date
+              %td= link_to '', system_renewal, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true
+              %td= link_to '', edit_system_renewal_path(system_renewal), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
+              %td= link_to '', system_renewal, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete')
+              /%td= link_to '', system_renewal_delete_path(id: system_renewal, viewer: 'renewals'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
 
-    %tbody
-      - @system_renewals.each do |system_renewal|
-        %tr
-          %td= system_renewal.contract_id
-          %td= system_renewal.start_date
-          %td= system_renewal.end_date
-          %td= link_to 'Show', system_renewal
-          %td= link_to 'Edit', edit_system_renewal_path(system_renewal)
-          %td= link_to 'Destroy', system_renewal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  .paginacion
+    .apple_pagination
+      = will_paginate @system_renewals, :container => false                        
 
-  %br
+    %br
 
-  = link_to 'New Renewal', new_system_renewal_path
+  #renewal-modal.modal.fade
+    .modal-dialog
+      #inner-renewal-modal.modal-content
+  #delete-modal.modal.fade
+    .modal-dialog
+      #inner-delete-modal.modal-content
