@@ -21,6 +21,8 @@ class System::ContractsController < ApplicationController
   # GET /system/contracts/1
   # GET /system/contracts/1.json
   def show
+   contract=System::Contract.find(@system_contract.id)
+   @renewals=contract.Renewals
   end
 
   # GET /system/contracts/new

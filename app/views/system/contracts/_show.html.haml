@@ -22,6 +22,27 @@
       = t('.description')
     = @system_contract.description
 
+.cuerpo_comtract
+  .table-responsive
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Status
+          %th 
+            =t ('.contract_id')
+          %th
+            = t('.start_date')
+          %th
+            = t('.end_date')
+          %th
+
+      %tbody
+        - @renewals.each do |renewal|
+          %tr
+            %td
+            %td= renewal.contract_id
+            %td= renewal.start_date
+            %td= renewal.end_date
 .modal-footer
   = link_to t('edit'), edit_system_contract_path(@system_contract), remote: true, class: "btn btn-sm btn-tss"
   = link_to t('back'), system_contracts_path, class: "btn btn-sm btn-tss"
