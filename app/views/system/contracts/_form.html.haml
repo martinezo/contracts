@@ -8,12 +8,14 @@
     / = f.input :contract_no, required: true    
     
     = f.error_notification
-    = f.association :device, required: true
-    = f.association :supplier, label_method: :business_name, value_method: :id, requiered: true
-    = f.label 'start_date' 
+    = f.association :device, label: 'Equipo', required: true
+    = f.association :supplier, label: 'Proveedor' ,label_method: :business_name, value_method: :id, requiered: true
+    = f.label 'Fecha de inicio'
+    /t('start_date')
     = datetime_select "start_date", "" 
     %br/
-    = f.label 'end_date'
+    = f.label 'Fecha final'
+    /t('end_date')
     = datetime_select "end_date", ""
     = f.input :contract_no, requires: true
     = f.input :description, requires: true

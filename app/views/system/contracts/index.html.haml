@@ -9,6 +9,7 @@
       %table.table.table-striped.table-condensed
         %thead
           %tr
+            %th Status
             %th 
               =t ('.device')
             %th
@@ -19,14 +20,19 @@
               = t('.description')
             %th
             %th
+            %th
 
         %tbody
           - @system_contracts.each do |system_contract|
             %tr
+              %td
               %td= system_contract.device_id
               %td= system_contract.supplier_id
               %td= system_contract.contract_no
               %td= system_contract.description
+              %td
+                %a.btn.btn-sm.btn-tss.fa.fa-refresh
+                /Sustituir con link_to
               %td= link_to '', system_contract, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true 
               %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
               %td= link_to '', system_contract_delete_path(id: system_contract, viewer: 'contracts'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
