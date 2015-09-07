@@ -30,6 +30,11 @@ class System::RenewalsController < ApplicationController
   def edit
   end
 
+  def delete
+   @id=params[:id]
+   @viewer=params[:viewer]
+  end
+
   # POST /system/renewals
   # POST /system/renewals.json
   def create
