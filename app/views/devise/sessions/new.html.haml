@@ -4,6 +4,15 @@
       %i.fa.fa-sign-in
       = t('.title_login')
   .login
+    - if flash[:notice]
+      %p.alert.alert-success
+        %i.fa.fa-check
+        = flash[:notice]
+    - if flash[:alert]
+      %p.alert.alert-danger
+        %i.fa.fa-exclamation-triangle
+        = flash[:alert] 
+
     = simple_form_for resource, as: resource_name, html: {class: 'form-horizontal'}, wrapper: :horizontal_form, url: session_path(resource_name) do |f|
       = f.error_notification
       = f.input :login, label: t('.login'),autofocus: true
