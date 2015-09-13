@@ -23,7 +23,7 @@
             %tr
               %td= catalogs_device.name
               %td= catalogs_device.unam_stock_number
-              %td= catalogs_device.location_id
+              %td= catalogs_device.location.department 
               %td
                 = link_to '', catalogs_device, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true
               %td

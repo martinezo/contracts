@@ -4,15 +4,6 @@
 
 .modal-body
   /%p#notice= notice
-
-  %p
-    %b
-      = t('.device')
-    = @system_contract.device_id
-  %p
-    %b
-      = t('.supplier')
-    = @system_contract.supplier_id
   %p
     %b
       = t('.contract_no')
@@ -21,6 +12,14 @@
     %b
       = t('.description')
     = @system_contract.description
+  %p
+    %b
+      = t('.device')
+    = @system_contract.device.name
+  %p
+    %b
+      = t('.supplier')
+    = @system_contract.supplier.business_name
 
 .cuerpo_comtract
   .table-responsive
@@ -40,9 +39,10 @@
         - @renewals.each do |renewal|
           %tr
             %td
-            %td= renewal.contract_id
+            %td= renewal.contract.contract_no
             %td= renewal.start_date
             %td= renewal.end_date
+
 .modal-footer
   = link_to t('edit'), edit_system_contract_path(@system_contract), remote: true, class: "btn btn-sm btn-tss"
   = link_to t('back'), system_contracts_path, class: "btn btn-sm btn-tss"

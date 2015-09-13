@@ -16,7 +16,7 @@
   %p
     %b 
       = t('.location_id')
-    = @catalogs_device.location_id
+    = @catalogs_device.location.department
 
 .modal-footer
   = link_to t('edit'), edit_catalogs_device_path(@catalogs_device), class: "btn btn-sm btn-tss", remote: true

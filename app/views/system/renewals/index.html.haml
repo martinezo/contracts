@@ -19,7 +19,7 @@
         %tbody
           - @system_renewals.each do |system_renewal|
             %tr
-              %td= system_renewal.contract_id
+              %td= system_renewal.contract.contract_no
               %td= system_renewal.start_date
               %td= system_renewal.end_date
               %td= link_to '', system_renewal, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true

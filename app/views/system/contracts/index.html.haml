@@ -26,8 +26,8 @@
           - @system_contracts.each do |system_contract|
             %tr
               %td
-              %td= system_contract.device_id
-              %td= system_contract.supplier_id
+              %td= system_contract.device.name
+              %td= system_contract.supplier.business_name
               %td= system_contract.contract_no
               %td= system_contract.description
               %td
