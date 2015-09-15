@@ -18,11 +18,16 @@ class System::ContractsController < ApplicationController
   end
 
 
+
   # GET /system/contracts/1
   # GET /system/contracts/1.json
   def show
-   contract=System::Contract.find(@system_contract.id)
-   @renewals=contract.Renewals
+   @contract=System::Contract.find(@system_contract.id)
+      @contract.Renewals.each do |renewal|
+           if  renewal.stat == :active
+           @active_renewal = renewal           
+           end
+      end
   end
 
   # GET /system/contracts/new
