@@ -13,11 +13,14 @@
             %th 
               =t ('.device')
             %th
-              = t('.supplier')
+              = t('.supplier')            
             %th
-              = t('.contract_no')
+              = t('.start_date')
             %th
-              = t('.description')
+              = t('.end_date')
+            %th
+            %th
+            %th
             %th
             %th
             %th
@@ -26,12 +29,14 @@
           - @system_contracts.each do |system_contract|
             %tr
               %td
-              %td= system_contract.device.name
-              %td= system_contract.supplier.business_name
-              %td= system_contract.contract_no.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)
-              %td= system_contract.description
+              %td= system_contract.device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)                
+              %td= system_contract.supplier.business_name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)              
+              %td START DATE
+              %td END DATE
               %td
-              %td= link_to t('add_renewal'), new_system_renewal_path, class:"btn btn-ttc", remote: true
+              %td
+                %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o
+              %td= link_to '', new_system_renewal_path, class:"btn btn-sm btn-tss fa fa-refresh", title: "Renovar contrato", remote: true
               %td= link_to '', system_contract, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true 
               %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
               %td= link_to '', system_contract_delete_path(id: system_contract, viewer: 'contracts'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true

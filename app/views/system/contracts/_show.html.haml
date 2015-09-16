@@ -41,7 +41,16 @@
           %td= @active_renewal.contract.contract_no
           %td= @active_renewal.start_date
           %td= @active_renewal.end_date
- 
+
+  .table-responsive
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Status
+          %th 
+            =t ('.contract_no')
+          %th
+            = t('.visit_date')
       %tbody
         - @active_renewal.Siteviews.each do |visit|
           %tr
