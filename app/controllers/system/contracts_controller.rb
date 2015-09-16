@@ -28,6 +28,16 @@ class System::ContractsController < ApplicationController
            @active_renewal = renewal           
            end
       end
+   respond_to do |format|
+      format.html
+      format.js
+      format.pdf do
+        pdf = ReportPDF.new(@system_contract)
+        send_data pdf.render, filename: "PDF Test.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /system/contracts/new

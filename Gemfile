@@ -48,6 +48,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise_ldap_authenticatable'
 gem 'mailboxer'
+gem 'prawn'
+gem 'prawn-table'
 gem 'bootstrap-sass'
 gem 'haml'
 gem 'haml-rails'

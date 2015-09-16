@@ -1,12 +1,4 @@
-development: &non_production_settings
-  :technical_secretary:
-    :name: "César Alamilla"
-    :e_mail: "czarts.5@gmail.com"
-
-test:
-  <<: *non_production_settings
-
 production:
-  :technical_secretary:
     :name: "Anaid Antaramián Salas"
     :e_mail: "[Address]"
+    :truncate_length: "18"

@@ -28,11 +28,10 @@
               %td
               %td= system_contract.device.name
               %td= system_contract.supplier.business_name
-              %td= system_contract.contract_no
+              %td= system_contract.contract_no.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)
               %td= system_contract.description
               %td
-                %a.btn.btn-sm.btn-tss.fa.fa-refresh
-                /Sustituir con link_to
+              %td= link_to t('add_renewal'), new_system_renewal_path, class:"btn btn-ttc", remote: true
               %td= link_to '', system_contract, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true 
               %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
               %td= link_to '', system_contract_delete_path(id: system_contract, viewer: 'contracts'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
@@ -51,3 +50,6 @@
   #delete-modal.modal.fade
     .modal-dialog
       #inner-delete-modal.modal-content
+  #renewal-modal.modal.fade
+    .modal-dialog
+      #inner-renewal-modal.modal-content
