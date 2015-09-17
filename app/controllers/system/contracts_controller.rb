@@ -19,13 +19,13 @@ class System::ContractsController < ApplicationController
   # GET /system/contracts/1
   # GET /system/contracts/1.json
   def show
-   @contract=System::Contract.find(@system_contract.id)
-      @contract.Renewals.each do |renewal|
-           if  renewal.stat == :active
-           @active_renewal = renewal           
-           end
+    @contract=System::Contract.find(@system_contract.id)
+    @contract.Renewals.each do |renewal|
+      if renewal.vigencia == :active or renewal.vigencia == :to_expire
+        @active_renewal = renewal           
       end
-   respond_to do |format|
+    end
+    respond_to do |format|
       format.html
       format.js
       format.pdf do

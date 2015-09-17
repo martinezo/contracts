@@ -11,5 +11,15 @@ validates :contract_id, :start_date, :end_date, presence: true
         end
   end
 
+  def vigencia
+  	if end_date.between?(Time.now,Time.now+30.days)
+  		:to_expire
+  	elsif end_date > Time.now+31.days
+  		:active
+  	elsif end_date < Time.now
+  		:finished
+  	end
+  end
+
 
 end

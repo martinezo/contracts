@@ -4,12 +4,4 @@ belongs_to :supplier, :class_name => 'Catalogs::Supplier', :foreign_key => 'supp
 has_many :Renewals
 validates :device_id, :supplier_id, :contract_no, :description ,presence: true
 
-  def stat
-	if Time.now >= start_date and Time.now <= end_date
-	  :active
-	else
-	  :finished
-	end
-  end
-
 end

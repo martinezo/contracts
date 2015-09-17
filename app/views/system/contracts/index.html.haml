@@ -9,15 +9,11 @@
       %table.table.table-striped.table-condensed
         %thead
           %tr
-            %th Status
-            %th 
-              =t ('.device')
             %th
-              = t('.supplier')            
-            %th
-              = t('.start_date')
-            %th
-              = t('.end_date')
+            %th= t ('.device')
+            %th= t('.supplier')            
+            %th= t('.start_date')
+            %th= t('.end_date')
             %th
             %th
             %th
@@ -28,12 +24,18 @@
         %tbody
           - @system_contracts.each do |system_contract|
             %tr
-              %td
+              %td{:align => "center"}
+                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :active
+                  %i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: "Vigente"}
+                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :finished
+                  %i.fa.fa-exclamation{class: "btn btn-xs btn-warning", title: "Expirado"}
+                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :to_expire
+                  %i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: "Pronto a expirar"}  
+                  /= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia
               %td= system_contract.device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)                
               %td= system_contract.supplier.business_name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)              
               %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.start_date
-              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.end_date
-              %td
+              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.end_date            
               %td
                 %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o
               %td= link_to '', new_system_renewal_path, class:"btn btn-sm btn-tss fa fa-refresh", title: "Renovar contrato", remote: true

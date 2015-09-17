@@ -22,43 +22,51 @@
     = @system_contract.supplier.business_name
 
 .cuerpo_comtract
-  .table-responsive
-    %table.table.table-striped.table-condensed
-      %thead
-        %tr
-          %th Status
-          %th 
-            =t ('.contract_id')
-          %th
-            = t('.start_date')
-          %th
-            = t('.end_date')
-          %th
 
-      %tbody
-        %tr
-          %td
-          %td= @active_renewal.contract.contract_no
-          %td= @active_renewal.start_date
-          %td= @active_renewal.end_date
-
-  .table-responsive
-    %table.table.table-striped.table-condensed
-      %thead
-        %tr
-          %th Status
-          %th 
-            =t ('.contract_no')
-          %th
-            = t('.visit_date')
-      %tbody
-        - @active_renewal.Siteviews.each do |visit|
+  - if @active_renewal.nil?
+    El contrato ha expirado
+  - else
+    .table-responsive
+      %table.table.table-striped.table-condensed
+        %thead
+          %tr
+            %th
+            %th= t('.contract_id')
+            %th= t('.start_date')
+            %th= t('.end_date')
+            %th
+        %tbody
           %tr
             %td
-            %td= visit.renewal.contract.contract_no
-            %td= visit.visit_date
-            %td= visit.completed
-            %td
+              - if @active_renewal.vigencia == :active
+                %i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: "Vigente"}
+              - if @active_renewal.vigencia == :finished
+                %i.fa.fa-exclamation{class: "btn btn-xs btn-warning", title: "Expirado"}
+              - if @active_renewal.vigencia == :to_expire
+                %i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: "Pronto a expirar"}  
+            %td= @active_renewal.contract.contract_no
+            %td= @active_renewal.start_date
+            %td= @active_renewal.end_date
+
+    .table-responsive
+      %table.table.table-striped.table-condensed
+        %thead
+          %tr
+            %th
+            %th= t('.contract_no')
+            %th= t('.visit_date')
+            %th
+        %tbody
+          - @active_renewal.Siteviews.each do |visit|
+            %tr
+              %td
+                - if visit.status_visit == :visited
+                  %i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: "Realizada"}
+                - if visit.status_visit == :not_visited
+                  %i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: "No realizada"}
+              %td= visit.renewal.contract.contract_no
+              %td= visit.visit_date
+              %td
 
 
 .modal-footer
