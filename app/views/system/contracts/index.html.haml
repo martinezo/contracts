@@ -31,8 +31,8 @@
               %td
               %td= system_contract.device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)                
               %td= system_contract.supplier.business_name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)              
-              %td START DATE
-              %td END DATE
+              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.start_date
+              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.end_date
               %td
               %td
                 %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o
