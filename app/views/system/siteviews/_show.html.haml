@@ -4,20 +4,30 @@
 
 .modal-body
   /%p#notice= notice
-
-  %p
-    %b
-      = t('.renewal_id')
-    = @system_siteview.renewal.contract.contract_no
-  %p
-    %b 
-      = t('.visit_date')
-    = @system_siteview.visit_date
-  %p
-    %b 
-      = t('.completed')
-    = @system_siteview.completed
+  .row
+    .col-xs-6.col-md-4
+      %p
+        %b
+          = t('.renewal_id')
+    .col-xs-12.col-md-8
+      %p       
+        = @system_siteview.renewal.contract.contract_no
+    .col-xs-6.col-md-4
+      %p
+        %b 
+          = t('.visit_date')
+    .col-xs-12.col-md-8
+      %p 
+        = @system_siteview.visit_date
+    .col-xs-6.col-md-4
+      %p
+        %b 
+          = t('.completed')
+    .col-xs-12.col-md-8
+      %p 
+        = @system_siteview.completed
     
 .modal-footer
   = link_to t('edit'), edit_system_siteview_path(@system_siteview), remote: true, class: "btn btn-sm btn-tss"
   = link_to t('back'), system_siteviews_path, class: "btn btn-sm btn-tss"
+

@@ -4,16 +4,25 @@
 
 .modal-body
   /%p#notice= notice
-
-  %p
-    %b Contract:
-    = @system_renewal.contract.contract_no
-  %p
-    %b Start date:
-    = @system_renewal.start_date
-  %p
-    %b End date:
-    = @system_renewal.end_date
+  .row
+    .col-xs-6.col-md-4
+      %p
+        %b Contract:
+    .col-xs-12.col-md-8
+      %p    
+        = @system_renewal.contract.contract_no 
+    .col-xs-6.col-md-4
+      %p
+        %b Start date:
+    .col-xs-12.col-md-8
+      %p    
+        = @system_renewal.start_date
+    .col-xs-6.col-md-4  
+      %p
+        %b End date:
+    .col-xs-12.col-md-8
+      %p    
+        = @system_renewal.end_date
 
 .modal-footer
 
@@ -21,3 +30,4 @@
   
   = link_to t('edit'), edit_system_renewal_path(@system_renewal), class: "btn btn-sm btn-tss", remote: true
   = link_to t('back'), system_renewals_path, class: "btn btn-sm btn-tss"
+

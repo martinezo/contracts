@@ -4,20 +4,30 @@
 
 .modal-body
   /%p#notice= notice
-
-  %p
-    %b 
-      = t('.department')
-    = @catalogs_location.department
-  %p
-    %b 
-      = t('.responsible')
-    = @catalogs_location.responsible
-  %p
-    %b 
-      = t('.email')
-    = @catalogs_location.email
+  .row
+    .col-xs-6.col-md-4
+      %p
+        %b 
+          = t('.department')
+    .col-xs-12.col-md-8
+      %p       
+        = @catalogs_location.department
+    .col-xs-6.col-md-4    
+      %p
+        %b 
+          = t('.responsible')
+    .col-xs-12.col-md-8
+      %p       
+        = @catalogs_location.responsible
+    .col-xs-6.col-md-4
+      %p
+        %b 
+          = t('.email')
+    .col-xs-12.col-md-8
+      %p       
+        = @catalogs_location.email
 
 .modal-footer
   = link_to t('edit'), edit_catalogs_location_path(@catalogs_location), remote: true, class: "btn btn-sm btn-tss"
   = link_to t('back'), catalogs_locations_path, class: "btn btn-sm btn-tss"
+

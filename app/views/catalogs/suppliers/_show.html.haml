@@ -4,24 +4,37 @@
 
 .modal-body
   /%p#notice= notice
-
-  %p
-    %b
-      = t('.business')
-    = @catalogs_supplier.business_name
-  %p
-    %b
-      = t('.contact')
-    = @catalogs_supplier.contact
-  %p
-    %b 
-      = t('.phone')
-    = @catalogs_supplier.phone
-  %p
-    %b 
-      = t('.email')
-    = @catalogs_supplier.email
+  .row
+    .col-xs-6.col-md-4
+      %p
+        %b
+          = t('.business')
+    .col-xs-12.col-md-8
+      %p       
+        = @catalogs_supplier.business_name
+    .col-xs-6.col-md-4    
+      %p
+        %b
+          = t('.contact')
+    .col-xs-12.col-md-8
+      %p       
+        = @catalogs_supplier.contact
+    .col-xs-6.col-md-4    
+      %p
+        %b 
+          = t('.phone')
+    .col-xs-12.col-md-8
+      %p       
+        = @catalogs_supplier.phone
+    .col-xs-6.col-md-4    
+      %p
+        %b 
+          = t('.email')
+    .col-xs-12.col-md-8
+      %p             
+        = @catalogs_supplier.email
 
 .modal-footer
   = link_to t('edit'), edit_catalogs_supplier_path(@catalogs_supplier), class: "btn btn-sm btn-tss", remote: true
   = link_to t('back'), catalogs_suppliers_path, class: "btn btn-sm btn-tss"
+
