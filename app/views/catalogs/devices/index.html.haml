@@ -21,7 +21,7 @@
         %tbody
           - @catalogs_devices.each do |catalogs_device|
             %tr
-              %td= catalogs_device.name
+              %td{title: catalogs_device.name}= catalogs_device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)
               %td= catalogs_device.unam_stock_number
               %td= catalogs_device.location.department 
               %td

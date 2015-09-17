@@ -32,12 +32,13 @@
                 - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :to_expire
                   %i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: "Pronto a expirar"}  
                   /= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia
-              %td= system_contract.device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)                
-              %td= system_contract.supplier.business_name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)              
+              %td{title: system_contract.device.name}= system_contract.device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)                
+              %td{title: system_contract.supplier.business_name}= system_contract.supplier.business_name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)              
               %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.start_date
-              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.end_date            
-              %td
-                %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o
+              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.end_date              
+              %td= link_to ' Visita', new_system_siteview_path, class:"btn btn-sm btn-tss fa fa-plus", title: "Visita nueva", remote: true
+              %td  
+                %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o{title: t('.descargar_pdf')}
               %td= link_to '', new_system_renewal_path, class:"btn btn-sm btn-tss fa fa-refresh", title: "Renovar contrato", remote: true
               %td= link_to '', system_contract, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true 
               %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
@@ -60,3 +61,6 @@
   #renewal-modal.modal.fade
     .modal-dialog
       #inner-renewal-modal.modal-content
+  #siteview-modal.modal.fade
+    .modal-dialog
+      #inner-siteview-modal.modal-content
