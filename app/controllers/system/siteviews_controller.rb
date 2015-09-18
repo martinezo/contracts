@@ -40,20 +40,21 @@ class System::SiteviewsController < ApplicationController
   # POST /system/siteviews
   # POST /system/siteviews.json
   def create
-    @system_siteview = System::Siteview.new(system_siteview_params)
-      #visit=System::Contract.find(system_siteview_params[:contract_id])
-	    #format=*params["recordar"].values.map(&:to_i)
-	    #@recordar=Time.new(format[2],format[1],format[0],format[3],format[4])
-	    #@email=visit.supplier.email
-	    #puts 'AKI DEBE IR EL PARAMETRO RECORDAR ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
-	    #puts @recordar
-	    #puts 'AKI VA EL CAMPO NOW TIME ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
-	    #puts Time.now
-	    #puts 'AKI TERMINA IR EL PARAMETRO EMAIL ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
-	    #puts @email  
+	    @system_siteview = System::Siteview.new(system_siteview_params)
+            renewal=System::Renewal.find(system_siteview_params[:renewal_id])
+            format=*params["recordar"].values.map(&:to_i)
+            @recordar=Time.new(format[2],format[1],format[0],format[3],format[4])
+            @email=renewal.contract.supplier.email
+            puts 'AKI DEBE IR EL PARAMETRO RECORDAR ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
+            puts @recordar
+            puts 'AKI VA EL CAMPO NOW TIME ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
+            puts Time.now
+            puts 'AKI TERMINA IR EL PARAMETRO EMAIL ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
+            puts @email
+
 respond_to do |format|
     if @system_siteview.save
-	    #ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
+	ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
         format.html { redirect_to @system_siteview, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_siteview }
         format.js   { redirect_to @system_siteview, notice: t('.created') }
