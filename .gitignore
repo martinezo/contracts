@@ -2,3 +2,10 @@
 /tmp
 
 config/database.yml
+*.cache
+Gemfile.lock
+Gemfile
+*.cache
+Gemfile.lock
+Gemfile
+config/database.yml

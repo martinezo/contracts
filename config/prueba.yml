@@ -1,5 +1,5 @@
 ---
 production:
   :name_technical_secretary: cesar
-  :e_mail_technical_secretary: czar.5@hotmail.com
+  :e_mail_technical_secretary: cz
   :truncate_length: '18'

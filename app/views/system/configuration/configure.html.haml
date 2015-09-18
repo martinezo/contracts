@@ -1,0 +1,13 @@
+%h1 System::Configuration#configure
+= form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
+  .form-group
+  %p
+  Nombre:
+  %br/
+  = text_field_tag("name", @mailers[:name_technical_secretary])
+  %p
+  Correo:
+  %br/
+  = text_field_tag("e_mail", @mailers[:e_mail_technical_secretary])
+  %p
+  = submit_tag "Submit", class:"btn btn-ttc"

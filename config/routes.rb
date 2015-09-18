@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   namespace :system do
+  get 'configuration/configure'
+  end
+
+  namespace :system do
+  get 'configuration/edit'
+  end
+
+  namespace :system do
+  get 'configuration/save'
+  end
+  namespace :system do
     resources :renewals
   end
   namespace :system do
@@ -33,6 +44,8 @@ Rails.application.routes.draw do
   get 'system/contract/delete' => 'system/contracts#delete'
   get 'system/siteview/delete' => 'system/siteviews#delete'
   get 'system/renewal/delete' => 'system/renewals#delete'
+  get 'system/configuration/save' => 'system/configuration#save'
+
  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
