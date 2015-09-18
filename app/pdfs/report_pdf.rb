@@ -22,7 +22,7 @@ class ReportPDF < Prawn::Document
 	def line_item_rows
 		[["Device ID","Supplier ID", "Contract No", "Start Date", "End Date"], #] +
 		#@report.line_items.map do |item|
-			[@report.device_id, @report.supplier_id, @report.contract_no, @report.start_date, @report.end_date]]
+			[@report.device_id, @report.supplier_id, @report.contract_no, @report.created_at.to_s, @report.updated_at.to_s]]
 		#end
 	end
 end
