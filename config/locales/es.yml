@@ -94,6 +94,7 @@ es:
       show:
         title_info_contract: Información de Contrato
         device: 'Equipo:'
+        description: 'Descripción:'
         supplier: 'Proveedor:'
         start_date: 'Fecha inicio:'
         end_date: 'Fecha final:'
