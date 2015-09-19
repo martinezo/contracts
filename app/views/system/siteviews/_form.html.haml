@@ -3,11 +3,11 @@
     
     = f.error_notification
     /= f.input :contract_id, required: true
-    = f.association :renewal, label_method: :id, value_method: :id
+    = f.association :renewal, label_method: :id, value_method: :id, label: t('.renewal')
     = f.input :visit_date, required: true, wrapper_html: { class: 'form-inline' }
     = f.input :completed, required: true   
-    = f.label "Recordarme el dia:"
-    = datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('search')    
+    = f.label t('.remember_day')
+    = datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')    
     = f.button :submit, t('save'), class: "btn btn-tss col-md-3 col-md-offset-3"
 
 / = form_for @system_siteview do |f|

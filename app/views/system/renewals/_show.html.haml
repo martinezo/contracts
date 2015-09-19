@@ -7,19 +7,19 @@
   .row
     .col-xs-6.col-md-4
       %p
-        %b Contract:
+        %b= t('.contract_no')
     .col-xs-12.col-md-8
       %p    
         = @system_renewal.contract.contract_no 
     .col-xs-6.col-md-4
       %p
-        %b Start date:
+        %b= t('.start_date')
     .col-xs-12.col-md-8
       %p    
         = @system_renewal.start_date
     .col-xs-6.col-md-4  
       %p
-        %b End date:
+        %b= t('.end_date')
     .col-xs-12.col-md-8
       %p    
         = @system_renewal.end_date

@@ -2,13 +2,13 @@
   = simple_form_for @system_contract, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
        
     = f.error_notification
-    = f.association :device, label: 'Equipo', required: true
-    = f.association :supplier, label: 'Proveedor' ,label_method: :business_name, value_method: :id, requiered: true
-    = f.label 'Fecha de inicio'
+    = f.association :device, label: t('.device'), required: true
+    = f.association :supplier, label: t('.supplier') ,label_method: :business_name, value_method: :id, requiered: true
+    = f.label t('.start_date')
     /t('start_date')
     = datetime_select "start_date", "" 
     %br/
-    = f.label 'Fecha final'
+    = f.label t('.end_date')
     /t('end_date')
     = datetime_select "end_date", ""
     = f.input :contract_no, requires: true

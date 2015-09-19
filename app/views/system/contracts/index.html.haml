@@ -26,20 +26,21 @@
             %tr
               %td{:align => "center"}
                 - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :active
-                  %i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: "Vigente"}
+                  /%a.fa.fa-exclamation{ class: "btn btn-xs btn-success ", title: "Vigente"}
+                  %i.fa.fa-exclamation{class: "a btn btn-xs btn-success disabled", title: t('.active')}
                 - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :finished
-                  %i.fa.fa-exclamation{class: "btn btn-xs btn-warning", title: "Expirado"}
+                  %i.fa.fa-exclamation{class: "btn btn-xs btn-warning disabled", title: t('.finished')}
                 - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :to_expire
-                  %i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: "Pronto a expirar"}  
+                  %i.fa.fa-exclamation{class: "btn btn-xs btn-danger disabled", title: t('.to_expire')}  
                   /= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia
               %td{title: system_contract.device.name}= system_contract.device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)                
               %td{title: system_contract.supplier.business_name}= system_contract.supplier.business_name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)              
               %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.start_date
               %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.end_date              
-              %td= link_to ' Visita', new_system_siteview_path, class:"btn btn-sm btn-tss fa fa-plus", title: "Visita nueva", remote: true
+              %td= link_to '', new_system_siteview_path, class:"btn btn-sm btn-tss fa fa-plus", title: t('.add_visit'), remote: true
               %td  
-                %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o{title: t('.descargar_pdf')}
-              %td= link_to '', new_system_renewal_path, class:"btn btn-sm btn-tss fa fa-refresh", title: "Renovar contrato", remote: true
+                %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o{title: t('.download_pdf')}
+              %td= link_to '', new_system_renewal_path, class:"btn btn-sm btn-tss fa fa-refresh", title: t('.renew_contract'), remote: true
               %td= link_to '', system_contract, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true 
               %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
               %td= link_to '', system_contract_delete_path(id: system_contract, viewer: 'contracts'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true

@@ -15,10 +15,10 @@ es:
         email: Correo electronico
       show:
         title_info_supplier: Informacion de Proveedor
-        business: Nombre de Compañía
-        contact: Contacto
-        phone: Teléfono
-        email: Correo electrónico
+        business: 'Nombre de Compañía:'
+        contact: 'Contacto:'
+        phone: 'Teléfono:'
+        email: 'Correo electrónico:'
       edit:
         title_edit_supplier: Editar Proveedor
       new:
@@ -31,15 +31,15 @@ es:
       destroy:
         destroyed: Ubicación fue eliminada exitosamente.
       index:
-        title_location: Ubicaciones
+        title_location: Departamentos
         department: Departamento
         responsible: Responsable
         email: Correo electrónico        
       show:
         title_info_location: Informacion de Ubicación
-        department: Departamento
-        responsible: Responsable
-        email: Correo electrónico
+        department: 'Departamento:'
+        responsible: 'Responsable:'
+        email: 'Correo electrónico:'
         add_location: Agregar sitio
       edit:
         title_edit_location: Editar ubicación
@@ -52,6 +52,8 @@ es:
         updated: Equipo fue actualizado exitosamente.
       destroy:
         destroyed: Equipo fue eliminado exitosamente.
+      form:
+        department: 'Departamento:'
       index:
         title_device: Equipos
         name: Nombre de Equipo
@@ -59,9 +61,9 @@ es:
         location_id: Ubicación        
       show:
         title_info_device: Información de Equipo
-        name: Nombre de Equipo
-        unam_stock_number: No. de inventario
-        location_id: ID de Ubicación
+        name: 'Nombre de Equipo:'
+        unam_stock_number: 'No. de inventario:'
+        location_id: 'Departamento:'
       edit:
         title_edit_device: Editar Equipo
       new:
@@ -81,17 +83,28 @@ es:
         supplier: Proveedor
         contract_no: No. de Contrato
         description: Descripción
+        add_visit: Agregar visita
+        renew_contract: Renovar contrato
+        download_pdf: Descargar PDF
+        start_date: Fecha inicial
+        end_date: Fecha final
+        to_expire: Pronto a expirar
+        active: Vigente
+        finished: Expirado
       show:
         title_info_contract: Información de Contrato
-        device: Equipo
-        supplier: Proveedor
-        start_date: Fecha inicio
-        end_date: Fecha final
-        contract_no: No. de Contrato
+        device: 'Equipo:'
+        supplier: 'Proveedor:'
+        start_date: 'Fecha inicio:'
+        end_date: 'Fecha final:'
+        contract_no: 'No. de Contrato:'
       edit:
         title_edit_contract: Editar Contrato
       new:
         title_new_contract: Contrato nuevo
+      form:
+        start_date: 'Fecha de inicio:'
+        end_date: 'Fecha final:'
     siteviews:
       create: 
         created: Visita fue agregado exitosamente.
@@ -103,16 +116,19 @@ es:
         title_siteview: Visitas
         renewal_id: Contrato
         visit_date: Fecha de Visita
-        completed: Completa        
+        completed: Visita efectuada        
       show:
         title_info_siteview: Información de Visita
-        contract_id: Contrato
-        visit_date: Fecha de Visita
-        completed: Completa        
+        renewal_id: 'Contrato:'
+        visit_date: 'Fecha de Visita:'
+        completed: 'Visita efectuada:'        
       edit:
         title_edit_siteview: Editar visita
       new:
         title_new_siteview: Visita nueva
+      form:
+        renewal: Renovación
+        remember_day: 'Recordarme el día:'
     renewals:
       index:
         title_renewals: Renovaciones de Contrato
@@ -126,7 +142,6 @@ es:
       new:
         title_new_renewal: Agregar Renovación de Contrato
 
-
   layouts:
     application:
       title_system: Contratos
@@ -135,16 +150,18 @@ es:
       menu: Menu
       menu_1: Proveedores
       menu_2: Equipos
-      menu_3: Ubicaciones
+      menu_3: Departamentos
       menu_4: Contratos
       menu_5: Visitas
       menu_6: Renovaciones
+      menu_7: Configuración
       menu_logut: Cerrar sesión
-  add_supplier: Agregar proveedor
-  add_location: Agregar sitio
+  
+  add_supplier: Agregar Proveedor
+  add_location: Agregar Departamento
   add_device: Agregar Equipo
   add_contract: Agregar Contrato
-  add_siteview: Agregar visita
+  add_siteview: Agregar Visita
   add_renewal: Agregar Renovación
   search: Buscar
   show_all: Mostrar todo
@@ -159,7 +176,8 @@ es:
   are_you_sure: ¿Está seguro de eliminar el registro?
   si: Si
   cancel: Cancelar
-
+  pdf: PDF
+  xlsx: Excel
   will_paginate:
     next_label: Siguiente
     previous_label: Anterior
@@ -187,7 +205,7 @@ es:
       system/siteview:
         renewal_id: ID de Renovaciones
         visit_date: Fecha de visita
-        completed: Completa
+        completed: Visita efectuada
       system/renewal:
         contract_id: ID de Contrato
         start_date: Fecha de inicio
