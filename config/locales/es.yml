@@ -58,7 +58,7 @@ es:
         title_device: Equipos
         name: Nombre de Equipo
         unam_stock_number: No. de inventario
-        location_id: Ubicación        
+        location_id: Departamento        
       show:
         title_info_device: Información de Equipo
         name: 'Nombre de Equipo:'
@@ -98,13 +98,20 @@ es:
         start_date: 'Fecha inicio:'
         end_date: 'Fecha final:'
         contract_no: 'No. de Contrato:'
+        to_expire: Pronto a expirar
+        active: Vigente
+        finished: Expirado
+        visited: Visita realizada
+        not_visited: Visita no realizada
       edit:
         title_edit_contract: Editar Contrato
       new:
         title_new_contract: Contrato nuevo
       form:
-        start_date: 'Fecha de inicio:'
+        start_date: 'Fecha inicial:'
         end_date: 'Fecha final:'
+        device: 'Nombre del Equipo:'
+        supplier: 'Proveedor:'
     siteviews:
       create: 
         created: Visita fue agregado exitosamente.
@@ -133,14 +140,18 @@ es:
       index:
         title_renewals: Renovaciones de Contrato
         contract: Contrato
-        start_date: Fecha de inicio
-        end_date: Fecha de fin
+        start_date: Fecha inicial
+        end_date: Fecha final
+        device: Nombre de Equipo
+        supplier: Proveedor
       show:
         title_info_renewal: Información de Contrato Renovado
       edit:
         title_edit_renewal: Editar Contrato Renovado
       new:
         title_new_renewal: Agregar Renovación de Contrato
+      form:
+        contract_no: 'No. de Contrato:'
 
   layouts:
     application:
@@ -185,31 +196,31 @@ es:
   activerecord:
     attributes:
       catalogs/supplier:
-        business_name: Nombre de Compañía
-        contact: Contacto
-        phone: Teléfono
-        email: Correo electrónico
+        business_name: 'Nombre de Compañía:'
+        contact: 'Contacto:'
+        phone: 'Teléfono:'
+        email: 'Correo electrónico:'
       catalogs/location:
-        department: Departamento
-        responsible: Responsable
-        email: Correo electrónico
+        department: 'Departamento:'
+        responsible: 'Responsable:'
+        email: 'Correo electrónico:'
       catalogs/device:
-        name: Nombre de Equipo
-        unam_stock_number: No. de inventario
-        location_id: ID de Ubicación
+        name: 'Nombre de Equipo:'
+        unam_stock_number: 'No. de Inventario:'
+        location_id: 'Departamento:'
       system/contract:
-        device_id: Nombre de Equipo
-        supplier_id: Proveedor
-        contract_no: No. de Contrato
-        description: Descripción
+        device_id: 'Nombre de Equipo:'
+        supplier_id: 'Proveedor:'
+        contract_no: 'No. de Contrato:'
+        description: 'Descripción:'
       system/siteview:
-        renewal_id: ID de Renovaciones
-        visit_date: Fecha de visita
-        completed: Visita efectuada
+        renewal_id: 'ID de Renovación:'
+        visit_date: 'Fecha de visita:'
+        completed: 'Visita efectuada:'
       system/renewal:
-        contract_id: ID de Contrato
-        start_date: Fecha de inicio
-        end_date: Fecha final
+        contract_id: 'ID de Contrato:'
+        start_date: 'Fecha inicial:'
+        end_date: 'Fecha final:'
 
     errors:
       models:
