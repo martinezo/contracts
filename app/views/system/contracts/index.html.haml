@@ -26,12 +26,14 @@
             %tr
               %td{:align => "center"}
                 - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :active
-                  /%a.fa.fa-exclamation{ class: "btn btn-xs btn-success ", title: "Vigente"}
-                  %i.fa.fa-exclamation{class: "a btn btn-xs btn-success disabled", title: t('.active')}
+                  %i.fa.fa-exclamation-circle.fa-lg{ :style => "color:yellowgreen", :title => t('.active')}
+                  /%i.fa.fa-exclamation{class: "a btn btn-xs btn-success disabled", title: t('.active')}
                 - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :finished
-                  %i.fa.fa-exclamation{class: "btn btn-xs btn-warning disabled", title: t('.finished')}
+                  %i.fa.fa-exclamation-circle.fa-lg{:style => "color:orange", :title => t('.finished')}
+                  /%i.fa.fa-exclamation{class: "btn btn-xs btn-warning disabled", title: t('.finished')}
                 - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :to_expire
-                  %i.fa.fa-exclamation{class: "btn btn-xs btn-danger disabled", title: t('.to_expire')}  
+                  %i.fa.fa-exclamation-circle.fa-lg{:style => "color:red", :title => t('.to_expire')}
+                  /%i.fa.fa-exclamation{class: "btn btn-xs btn-danger disabled", title: t('.to_expire')}  
                   /= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia
               %td{title: system_contract.device.name}= system_contract.device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)                
               %td{title: system_contract.supplier.business_name}= system_contract.supplier.business_name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)              

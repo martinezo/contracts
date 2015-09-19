@@ -52,11 +52,14 @@
           %tr
             %td
               - if @active_renewal.vigencia == :active
-                %i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: t('.active')}
+                %i.fa.fa-exclamation-circle.fa-lg{ :style => "color:yellowgreen", :title => t('.active')}
+                /%i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: t('.active')}
               - if @active_renewal.vigencia == :finished
-                %i.fa.fa-exclamation{class: "btn btn-xs btn-warning", title: t('.finished')}
+                %i.fa.fa-exclamation-circle.fa-lg{:style => "color:orange", :title => t('.finished')}
+                /%i.fa.fa-exclamation{class: "btn btn-xs btn-warning", title: t('.finished')}
               - if @active_renewal.vigencia == :to_expire
-                %i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: t('.to_expire')}  
+                %i.fa.fa-exclamation-circle.fa-lg{:style => "color:red", :title => t('.to_expire')}
+                /%i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: t('.to_expire')}  
             %td= @active_renewal.contract.contract_no
             %td= @active_renewal.start_date
             %td= @active_renewal.end_date
@@ -74,9 +77,11 @@
             %tr
               %td
                 - if visit.status_visit == :visited
-                  %i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: t('.visited')}
+                  %i.fa.fa-exclamation-circle.fa-lg{:style => "color:yellowgreen", :title => t('.visited')}
+                  /%i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: t('.visited')}
                 - if visit.status_visit == :not_visited
-                  %i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: t('.not_visited')}
+                  %i.fa.fa-exclamation-circle.fa-lg{:style => "color:red", :title => t('.not_visited')}
+                  /%i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: t('.not_visited')}
               %td= visit.renewal.contract.contract_no
               %td= visit.visit_date
               %td
