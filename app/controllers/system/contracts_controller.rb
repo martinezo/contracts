@@ -57,10 +57,10 @@ class System::ContractsController < ApplicationController
     	@system_contract = System::Contract.new(system_contract_params)
 	# INERTAR UN NUEVO RENEWAL DE FORMA AUTOMATICA
         format1=*params["start_date"].values.map(&:to_i)
-	@start_date=Time.new(format1[2],format1[1],format1[0])
+	@start_date=Date.new(format1[2],format1[1],format1[0])
 
         format2=*params["end_date"].values.map(&:to_i)
-	@end_date=Time.new(format2[2],format2[1],format2[0])
+	@end_date=Date.new(format2[2],format2[1],format2[0])
 
 	#ESTO SE VA DESCOMENTAR CUANDO SE INSERTE EL START_DATE Y EL END_DATE DEL FORMULARIO DE RENEWAL
 	#supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
