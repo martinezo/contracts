@@ -5,10 +5,10 @@
     = f.association :device, label: t('.device'), required: true
     = f.association :supplier, label: t('.supplier') ,label_method: :business_name, value_method: :id, requiered: true
     = f.label t('.start_date')
-    = datetime_select "start_date", "" 
+    = date_select "start_date", "" 
     %br/
     = f.label t('.end_date')
-    = datetime_select "end_date", ""
+    = date_select "end_date", ""
     = f.input :contract_no, requires: true
     = f.input :description, requires: true, as: :text    
 

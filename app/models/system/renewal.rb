@@ -21,5 +21,15 @@ validates :contract_id, :start_date, :end_date, presence: true
   	end
   end
 
+  def date_filter(start_date_param,end_date_param)
+	puts 'aki entra la funcion XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+	puts start_date_param
+	puts end_date_param
+	if start_date >= start_date_param and end_date <= end_date_param
+		:active
+	else
+		:inactive
+	end
+  end
 
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   namespace :system do
+  get 'reporter/index'
+  end
+
+  namespace :system do
   get 'configuration/configure'
   end
 

@@ -1,0 +1,28 @@
+%h1 System::Reporter#index
+%p Find me in app/views/system/reporter/index.html.haml
+= form_tag({:controller => "reporter", :action => "index"}, :method => "GET", class: "form-inline") do
+  = date_select "start_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')   
+  = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')   
+  = submit_tag t('search'), class:"btn btn-ttc"
+.table-responsive
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %th= t('.device')
+        %th= t('.supplier')          
+        %th= t('.contract')
+        %th= t('.start_date')
+        %th= t('.end_date')
+        %th
+        %th
+        %th
+
+    %tbody
+      - @system_renewals.each do |system_renewal|
+        %tr
+          %td{title: system_renewal.contract.device.name}= system_renewal.contract.device.name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)      
+          %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.business_name.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)      
+          %td{title: system_renewal.contract.contract_no}= system_renewal.contract.contract_no.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)      
+          %td= system_renewal.start_date
+          %td= system_renewal.end_date
+
