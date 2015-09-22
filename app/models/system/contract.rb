@@ -4,4 +4,8 @@ belongs_to :supplier, :class_name => 'Catalogs::Supplier', :foreign_key => 'supp
 has_many :Renewals
 validates :device_id, :supplier_id, :contract_no, :description ,presence: true
 
+#def short_name(length=18)
+#	name.truncate(length)
+#end
+
 end
