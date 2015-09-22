@@ -4,6 +4,9 @@
   = date_select "start_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')   
   = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')   
   = submit_tag t('search'), class:"btn btn-ttc"
+
+
+	
 .table-responsive
   %table.table.table-striped.table-condensed
     %thead
@@ -25,4 +28,5 @@
           %td{title: system_renewal.contract.contract_no}= system_renewal.contract.contract_no.truncate("#{APP_CONFIG["production"][:truncate_length]}".to_i)      
           %td= system_renewal.start_date
           %td= system_renewal.end_date
-
+= link_to t('back'), system_reporter_index_path, class: "btn btn-sm btn-tss"
+= link_to t('pdf'), "index.pdf", class: "btn btn-sm btn-tss" 
