@@ -2,6 +2,9 @@ class System::ReporterController < ApplicationController
   def index
 	@renewals=System::Renewal.all
 	@system_renewals = Array.new()
+
+  	respond_to do |format|
+      format.html do
 	if params[:start_date].nil? or params[:end_date].nil?
 	@system_renewals = @renewals
 	else
@@ -16,6 +19,14 @@ class System::ReporterController < ApplicationController
 			end
 		end
 	end
-	
+      end
+      format.js
+      format.pdf do
+        pdf = ReportPDF.new(@renewals)
+        send_data pdf.render, filename: "PDF Test.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 end

@@ -7,7 +7,7 @@ class ReportPDF < Prawn::Document
 	end
 
 	def report_number
-		text "Report \# #{@report.id}", size: 30, :styles => [:bold]
+		text "Report \# #{@report.first.contract.contract_no}", size: 30, :styles => [:bold]
 	end
 
 	def line_items
@@ -20,9 +20,11 @@ class ReportPDF < Prawn::Document
 	end
 
 	def line_item_rows
-		[["Device ID","Supplier ID", "Contract No", "Start Date", "End Date"], #] +
+		[["Device ID","Supplier ID", "Contract No", "Start Date", "End Date"]] +
+		@report.map do |rep|
 		#@report.line_items.map do |item|
-			[@report.device_id, @report.supplier_id, @report.contract_no, @report.created_at.to_s, @report.updated_at.to_s]]
-		#end
+			[rep.contract.device.name, rep.contract.supplier.business_name, rep.contract.contract_no, rep.start_date.to_s, rep.end_date.to_s]
+		end
 	end
+	#end
 end
