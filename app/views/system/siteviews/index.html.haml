@@ -24,7 +24,11 @@
             %tr
               %td= system_siteview.renewal.contract.contract_no
               %td= system_siteview.visit_date
-              %td= system_siteview.completed
+              /%td= system_siteview.completed
+              - if system_siteview.completed == true
+                %td Efectuada
+              - else
+                %td No efectuada          
               %td= link_to '', system_siteview, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true
               %td= link_to '', edit_system_siteview_path(system_siteview), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
               %td= link_to '', system_siteview_delete_path(id: system_siteview, viewer: 'siteviews'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true

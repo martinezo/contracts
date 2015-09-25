@@ -124,12 +124,12 @@ es:
         title_siteview: Visitas
         renewal_id: Contrato
         visit_date: Fecha de Visita
-        completed: Visita efectuada        
+        completed: Status de Visita        
       show:
         title_info_siteview: Información de Visita
         renewal_id: 'Contrato:'
         visit_date: 'Fecha de Visita:'
-        completed: 'Visita efectuada:'        
+        completed: 'Status de Visita:'        
       edit:
         title_edit_siteview: Editar visita
       new:
