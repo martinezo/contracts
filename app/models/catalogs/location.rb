@@ -5,4 +5,3 @@ validates :department, :responsible, :email, presence: true
 def short_name(length=18)
 	department.truncate(length)
 end
-end

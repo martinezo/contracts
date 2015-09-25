@@ -23,6 +23,7 @@ class System::RenewalsController < ApplicationController
 
   # GET /system/renewals/new
   def new
+    @contract_id = params[:contract_id]
     @system_renewal = System::Renewal.new
   end
 

@@ -5,8 +5,8 @@ has_many :Renewals
 validates :device_id, :supplier_id, :description ,presence: true
 validates :contract_no, uniqueness: true
 
-#def short_name(length=18)
-#	name.truncate(length)
-#end
+def short_name(length=18)
+	contract_no.truncate(length)
+end
 
 end

@@ -9,5 +9,4 @@ validates :renewal_id, :visit_date, presence: true
 			:not_visited
 		end
 	end
-	
 end
