@@ -21,7 +21,7 @@
         %tbody
           - @catalogs_locations.each do |catalogs_location|
             %tr
-              %td= catalogs_location.department
+              %td{title: catalogs_location.department}= catalogs_location.short_name
               %td= catalogs_location.responsible
               %td= catalogs_location.email
               %td

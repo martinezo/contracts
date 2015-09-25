@@ -23,7 +23,7 @@
         %tbody
           - @catalogs_suppliers.each do |catalogs_supplier|
             %tr
-              %td= catalogs_supplier.business_name
+              %td{title: catalogs_supplier.business_name}= catalogs_supplier.short_name
               %td= catalogs_supplier.contact
               %td= catalogs_supplier.phone
               %td= catalogs_supplier.email

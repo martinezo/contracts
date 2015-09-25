@@ -29,8 +29,6 @@
               %td= link_to '', edit_system_siteview_path(system_siteview), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
               %td= link_to '', system_siteview_delete_path(id: system_siteview, viewer: 'siteviews'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
 
-
-
   .paginacion  
     .apple_pagination
       = will_paginate @system_siteviews, :container => false
