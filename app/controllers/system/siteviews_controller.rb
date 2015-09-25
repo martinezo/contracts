@@ -14,7 +14,7 @@ class System::SiteviewsController < ApplicationController
       @catalogs_siteviews = Catalogs::Siteview.where("visit_date LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 2)
     end
 	else
-	redirect_to new_admin_session_path
+	   redirect_to new_admin_session_path
   end
   end
 
@@ -54,10 +54,12 @@ class System::SiteviewsController < ApplicationController
             puts Time.now
             puts 'AKI TERMINA IR EL PARAMETRO EMAIL ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
             puts @email
+            array_mailer = [@email, params[:notificaciones]]
+            puts array_mailer
 
 respond_to do |format|
     if @system_siteview.save
-	ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
+	ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer)
         format.html { redirect_to @system_siteview, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_siteview }
         format.js   { redirect_to @system_siteview, notice: t('.created') }
