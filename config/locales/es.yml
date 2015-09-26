@@ -96,9 +96,10 @@ es:
         device: 'Equipo:'
         description: 'Descripción:'
         supplier: 'Proveedor:'
-        start_date: 'Fecha inicio:'
-        end_date: 'Fecha final:'
+        start_date: 'Fecha inicio'
+        end_date: 'Fecha final'
         contract_no: 'No. de Contrato:'
+        visit_date: Fecha de Visita
         to_expire: Pronto a expirar
         active: Vigente
         finished: Expirado

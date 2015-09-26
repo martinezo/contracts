@@ -2,7 +2,7 @@
   = simple_form_for @system_renewal, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
 
     = f.error_notification
-    = f.input :contract_id, :input_html => { :value => @contract_id}
+    = f.input :contract_id, :as => :hidden, :input_html => { :value => @contract_id}
     /= f.association :contract, label_method: :contract_no, value_method: :id, label: t('.contract_no')
     = f.input :start_date, wrapper_html: { class: 'form-inline' }
     = f.input :end_date, wrapper_html: { class: 'form-inline' }
