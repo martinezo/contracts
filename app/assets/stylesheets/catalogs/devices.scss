@@ -10,40 +10,9 @@
 }
 
 .title_devices {
-  background-color: rgb(238,150,40);
+  background-color: rgb(50,76,115);
   color: white;
   padding: 10px;
   border-radius: 3px;
 }
 
-.btn-tss,
-.btn-tss:visited,
-.btn-tss:hover,
-.btn-tss:active {
-  color:white;
-  background-color: rgb(191,85,38);
-}
-
-
-.modal-header {
-  background-color: rgb(238,150,40);
-  color: white;
-}
-
-
-.apple_pagination {
-  background: #f1f1f1;
-  border: 1px solid #e5e5e5;
-  text-align: center;
-  padding: 1em;
-  cursor: default; }
-  .apple_pagination a, .apple_pagination span{
-    padding: 0.2em 0.3em; }
-  .apple_pagination .disabled {
-    color: #aaaaaa; }
-  .apple_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: #bebebe;
-    display: inline-block;
-    width: 1.4em;}
