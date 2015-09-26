@@ -5,7 +5,7 @@
     /= f.input :contract_id, required: true
     = f.association :renewal, label_method: :id, value_method: :id, label: t('.renewal')
     = f.input :visit_date, required: true, wrapper_html: { class: 'form-inline' }
-    = f.input :completed, required: true   
+    = f.input :completed, required: true, input_html: { class: 'col-md-7 col-md-offset-7'}
     = f.label t('.remember_day')
     = datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
     = f.label t('.remember_day')
