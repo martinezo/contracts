@@ -42,16 +42,30 @@
 /TERMINA BARRA TEMPORAL
 /FALTAN TRADUCCIONES
 
-
 = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
-  .form-group
-    %p
-    Nombre:
-    %br/
-    = text_field_tag("name", @mailers[:name_technical_secretary])
-    %p
-    Correo:
-    %br/
-    = text_field_tag("e_mail", @mailers[:e_mail_technical_secretary])
-    %p
-    = submit_tag "Submit", class:"btn btn-ttc"
+  
+  - @mailers.each do |key, value|
+    - if @traduccion.has_key?(key) == true
+      = label_tag("campo_etiqueta", @traduccion.fetch(key))
+      = text_field_tag(key, @mailers.values_at(key))
+    - elsif @traduccion.has_key?(key) == false
+      = label_tag("campo_etiqueta", key)
+      = text_field_tag(key, @mailers.values_at(key))
+
+    / = label_tag("x", key)    
+    / = text_field_tag(key, @mailers.values_at(key))
+
+  = submit_tag "Submit", class:"btn btn-ttc"
+
+/ = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
+/   .form-group
+/     %p
+/     Nombre:
+/     %br/
+/     = text_field_tag("name", @mailers[:name_technical_secretary])
+/     %p
+/     Correo:
+/     %br/
+/     = text_field_tag("e_mail", @mailers[:e_mail_technical_secretary])
+/     %p
+/     = submit_tag "Submit", class:"btn btn-ttc"
