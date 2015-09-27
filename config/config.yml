@@ -1,6 +1,7 @@
 ---
 production:
-  :name_technical_secretary: fg
-  :e_mail_technical_secretary: czar.5@hotmail.com
-  :truncate_length: '18'
-  :notification_time: '604800'
+  name_technical_secretary: da
+  e_mail_technical_secretary: nanish_20@hotmail.com
+  truncate_length: '18'
+  notification_time: '604800'
+  daniela: cerrillo
