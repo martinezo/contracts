@@ -4,6 +4,7 @@ class CreateSystemRenewals < ActiveRecord::Migration
       t.integer :contract_id
       t.date :start_date
       t.date :end_date
+      t.string :monto
 
       t.timestamps null: false
     end

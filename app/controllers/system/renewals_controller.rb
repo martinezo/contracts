@@ -105,6 +105,6 @@ class System::RenewalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def system_renewal_params
-      params.require(:system_renewal).permit(:contract_id, :start_date, :end_date)
+      params.require(:system_renewal).permit(:contract_id, :start_date, :end_date, :monto)
     end
 end

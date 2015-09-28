@@ -44,6 +44,7 @@ class System::ContractsController < ApplicationController
 
   # GET /system/contracts/1/edit
   def edit
+    @system_renewal = System::Renewal.find(@system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last)
   end
 
   def delete
@@ -76,7 +77,7 @@ class System::ContractsController < ApplicationController
     respond_to do |format|
       if @system_contract.save
         
-        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date)
+        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: params[:monto])
        if  @system_renewal.save
 	#ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
         format.html { redirect_to @system_contract, notice: t('.created') }
@@ -98,6 +99,18 @@ class System::ContractsController < ApplicationController
   def update
     respond_to do |format|
       if @system_contract.update(system_contract_params)
+
+        format1=*params["start_date"].values.map(&:to_i)
+  @start_date=Date.new(format1[2],format1[1],format1[0])
+
+        format2=*params["end_date"].values.map(&:to_i)
+  @end_date=Date.new(format2[2],format2[1],format2[0])
+        var = @system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last
+
+        system_renewal_params={:contract_id => @system_contract.id,:start_date => @start_date,:end_date => @end_date,:monto => params[:monto]}
+        System::Renewal.find(var).update(system_renewal_params)
+
+
         format.html { redirect_to @system_contract, notice: t('.updated') }
         format.json { render :show, status: :ok, location: @system_contract }
       else
@@ -126,6 +139,6 @@ class System::ContractsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def system_contract_params
-      params.require(:system_contract).permit(:device_id, :supplier_id, :start_date, :end_date, :contract_no, :description)
+      params.require(:system_contract).permit(:device_id, :supplier_id, :start_date, :end_date, :contract_no, :description, :monto)
     end
 end

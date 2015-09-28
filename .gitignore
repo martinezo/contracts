@@ -12,3 +12,6 @@ config/database.yml
 config/database.yml
 config/database.yml
 config/database.yml
+
+*.cache
+config/database.yml

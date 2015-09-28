@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150904061353) do
     t.integer  "contract_id"
     t.date     "start_date"
     t.date     "end_date"
+    t.string   "monto"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
