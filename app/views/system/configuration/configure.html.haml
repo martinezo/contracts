@@ -1,71 +1,73 @@
-%h1 System::Configuration#configure
+.container_general
+  .title_configuration
+    %h1 System::Configuration#configure
 
-/ BARRA TEMPORAL PARA TRASLADARSE A 
-/OTRAS SECCIONES DE LA APP WEB
-%nav.navbar.navbar-default
-  .container-fluid
-    .nav-header
-      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar      
-       
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-right
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            = t('.menu')
-            (
-            = current_admin.login
-            )         
-            %span.caret             
-          %ul.dropdown-menu
-            %li
-              = link_to t('.menu_1'), catalogs_suppliers_path
-            %li
-              = link_to t('.menu_2'), catalogs_devices_path
-            %li
-              = link_to t('.menu_3'), catalogs_locations_path
-            %li.divider{:role => "separator"}
-            %li
-              = link_to t('.menu_4'), system_contracts_path  
-            %li
-              = link_to t('.menu_5'), system_siteviews_path
-            %li
-              = link_to t('.menu_6'), system_renewals_path
-            %li
-              = link_to t('.menu_7'), system_configuration_configure_path
-            %li.divider{:role => "separator"}
-            %li
-              = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')
-/TERMINA BARRA TEMPORAL
-/FALTAN TRADUCCIONES
+    / BARRA TEMPORAL PARA TRASLADARSE A 
+    /OTRAS SECCIONES DE LA APP WEB
+    %nav.navbar.navbar-default
+      .container-fluid
+        .nav-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar      
+           
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                = t('.menu')
+                (
+                = current_admin.login
+                )         
+                %span.caret             
+              %ul.dropdown-menu
+                %li
+                  = link_to t('.menu_1'), catalogs_suppliers_path
+                %li
+                  = link_to t('.menu_2'), catalogs_devices_path
+                %li
+                  = link_to t('.menu_3'), catalogs_locations_path
+                %li.divider{:role => "separator"}
+                %li
+                  = link_to t('.menu_4'), system_contracts_path  
+                %li
+                  = link_to t('.menu_5'), system_siteviews_path
+                %li
+                  = link_to t('.menu_6'), system_renewals_path
+                %li
+                  = link_to t('.menu_7'), system_configuration_configure_path
+                %li.divider{:role => "separator"}
+                %li
+                  = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')
+    /TERMINA BARRA TEMPORAL
+    /FALTAN TRADUCCIONES
 
-= form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
-  
-  - @mailers.each do |key, value|
-    - if @traduccion.has_key?(key) == true
-      = label_tag("campo_etiqueta", @traduccion.fetch(key))
-      = text_field_tag(key, @mailers.values_at(key))
-    - elsif @traduccion.has_key?(key) == false
-      = label_tag("campo_etiqueta", key)
-      = text_field_tag(key, @mailers.values_at(key))
+    = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
+      
+      - @mailers.each do |key, value|
+        - if @traduccion.has_key?(key) == true
+          = label_tag("campo_etiqueta", @traduccion.fetch(key))
+          = text_field_tag(key, @mailers.values_at(key))
+        - elsif @traduccion.has_key?(key) == false
+          = label_tag("campo_etiqueta", key)
+          = text_field_tag(key, @mailers.values_at(key))
 
-    / = label_tag("x", key)    
-    / = text_field_tag(key, @mailers.values_at(key))
+        / = label_tag("x", key)    
+        / = text_field_tag(key, @mailers.values_at(key))
 
-  = submit_tag "Submit", class:"btn btn-ttc"
+      = submit_tag "Submit", class:"btn btn-ttc"
 
-/ = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
-/   .form-group
-/     %p
-/     Nombre:
-/     %br/
-/     = text_field_tag("name", @mailers[:name_technical_secretary])
-/     %p
-/     Correo:
-/     %br/
-/     = text_field_tag("e_mail", @mailers[:e_mail_technical_secretary])
-/     %p
-/     = submit_tag "Submit", class:"btn btn-ttc"
+    / = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
+    /   .form-group
+    /     %p
+    /     Nombre:
+    /     %br/
+    /     = text_field_tag("name", @mailers[:name_technical_secretary])
+    /     %p
+    /     Correo:
+    /     %br/
+    /     = text_field_tag("e_mail", @mailers[:e_mail_technical_secretary])
+    /     %p
+    /     = submit_tag "Submit", class:"btn btn-ttc"

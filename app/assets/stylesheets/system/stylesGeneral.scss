@@ -1,15 +1,20 @@
-// Place all the styles related to the system/renewals controller here.
+// Place all the styles related to the System/Contracts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
 
 .container_general{
   background-color: white;
   padding: 1%;
 }
-
-.title_renewal {
+.title_contract,
+.title_renewal,
+.title_siteview
+.title_configuration{
   background-color: rgb(50,76,115);
   color: white;
   padding: 10px;
   border-radius: 3px;
 }
+
