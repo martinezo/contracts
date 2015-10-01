@@ -50,8 +50,8 @@ class System::RenewalsController < ApplicationController
         t1=Time.new(system_renewal_params["end_date(1i)"].to_i,system_renewal_params["end_date(2i)"].to_i,system_renewal_params["end_date(3i)"].to_i)
         puts 'Aki va el parametro start_date sssssssssssssssssssssssssssssssssss'
         puts t1
-        @recordar = t0 - 604800 # resta 1 semana
-        @recordar2 = t1 - 604800
+        @recordar = t0 - APP_CONFIG["production"][:notification_time].to_i.days # resta 1 semana
+        @recordar2 = t1 - APP_CONFIG["production"][:notification_time].to_i.days
         puts 'aki va el recordatorio al iniciar la renovacion'
         puts @recordar
         puts 'aki terminaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'

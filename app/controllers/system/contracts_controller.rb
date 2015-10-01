@@ -40,11 +40,14 @@ class System::ContractsController < ApplicationController
   # GET /system/contracts/new
   def new
     @system_contract = System::Contract.new
+    @system_renewal = System::Renewal.new
+    @system_renewal.monto = 0
   end
 
   # GET /system/contracts/1/edit
   def edit
     @system_renewal = System::Renewal.find(@system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last)
+
   end
 
   def delete
@@ -64,22 +67,30 @@ class System::ContractsController < ApplicationController
 	@end_date=Date.new(format2[2],format2[1],format2[0])
 
 	#ESTO SE VA DESCOMENTAR CUANDO SE INSERTE EL START_DATE Y EL END_DATE DEL FORMULARIO DE RENEWAL
-	#supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
-	#@email = supplier.email
-	#t0=Time.new(system_contract_params["end_date(1i)"].to_i,system_contract_params["end_date(2i)"].to_i,system_contract_params["end_date(3i)"].to_i)
-	#puts 'Aki va el parametro :end date sssssssssssssssssssssssssssssssssss'
-	#puts t0
-	#@recordar = t0 - 604800 # resta 1 semana
-	#puts 'aki va el recordatorio al finaliza el contrato'
-	#puts @recordar
-	#puts 'aki terminaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-	#puts @email
+	supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
+	@email = supplier.email
+	#t0=Time.new(system_renewal_params["start_date(1i)"].to_i,system_renewal_params["start_date(2i)"].to_i,system_renewal_params["start_date(3i)"].to_i)
+  #t1=Time.new(system_renewal_params["end_date(1i)"].to_i,system_renewal_params["end_date(2i)"].to_i,system_renewal_params["end_date(3i)"].to_i)
+  puts 'Aki va el parametro start_date sssssssssssssssssssssssssssssssssss'
+  #puts t1
+  if params[:notification_date].nil? || params[:notification_date].empty?
+    @recordar = @start_date - APP_CONFIG["production"][:notification_time].to_i.days # resta 1 semana
+  else 
+    @recordar = @start_date - params[:notification_date].to_i.days
+ end
+  @recordar2 = @end_date - APP_CONFIG["production"][:notification_time].to_i.days
+  puts 'aki va el recordatorio al iniciar la renovacion'
+  puts @recordar
+  puts 'aki terminaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+  puts @email
+
     respond_to do |format|
       if @system_contract.save
         
         @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: params[:monto])
        if  @system_renewal.save
-	#ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
+        ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
+        ApplicationMailer.delay(run_at: @recordar2).send_mail(@email) 
         format.html { redirect_to @system_contract, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_contract }
         format.js   { redirect_to @system_contract, notice: t('.created') }

@@ -7,6 +7,9 @@
     = f.input :start_date, wrapper_html: { class: 'form-inline' }
     = f.input :end_date, wrapper_html: { class: 'form-inline' }
     = f.input :monto, wrapper_html: { class: 'form-inline' }
+    = f.label t('notification_date')
+    = text_field_tag "notification_date", ""
+    %br/
     = f.button :submit, t('save'), class: "btn btn-tss col-md-3 col-md-offset-3"
     
 / = simple_form_for(@system_renewal) do |f|
