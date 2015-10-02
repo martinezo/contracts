@@ -11,7 +11,7 @@
     = date_select "end_date", ""
     = f.input :contract_no, requires: true
     = f.input :description, requires: true, as: :text    
-    = f.label t('.start_date')
+    = f.label t('.monto')
     = text_field_tag 'monto', @system_renewal.monto
     %br/
     = f.button :submit, t('save'), class: "btn btn-tss col-md-3 col-md-offset-3"

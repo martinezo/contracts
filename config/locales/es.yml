@@ -83,6 +83,7 @@ es:
         supplier: Proveedor
         contract_no: No. de Contrato
         description: Descripción
+        monto: Monto
         add_visit: Agregar visita
         renew_contract: Renovar contrato
         download_pdf: Descargar PDF
@@ -96,6 +97,7 @@ es:
         device: 'Equipo:'
         description: 'Descripción:'
         supplier: 'Proveedor:'
+        monto: 'Monto:'
         start_date: 'Fecha inicio'
         end_date: 'Fecha final'
         contract_no: 'No. de Contrato:'
@@ -114,6 +116,7 @@ es:
         end_date: 'Fecha final:'
         device: 'Nombre del Equipo:'
         supplier: 'Proveedor:'
+        monto: 'Monto:'
     siteviews:
       create: 
         created: Visita fue agregado exitosamente.
@@ -125,7 +128,7 @@ es:
         title_siteview: Visitas
         renewal_id: Contrato
         visit_date: Fecha de Visita
-        completed: Status de Visita        
+        completed: Status de Visita
       show:
         title_info_siteview: Información de Visita
         renewal_id: 'Contrato:'
@@ -134,10 +137,11 @@ es:
       edit:
         title_edit_siteview: Editar visita
       new:
-        title_new_siteview: Visita nueva
+        title_new_siteview: Visita nueva        
       form:
         renewal: Renovación
         remember_day: 'Recordarme el día:'
+        email_extra: 'Correo electrónico: '
     renewals:
       index:
         title_renewals: Renovaciones de Contrato
@@ -148,12 +152,16 @@ es:
         supplier: Proveedor
       show:
         title_info_renewal: Información de Contrato Renovado
+        contract_no: 'No. de Contrato:'
+        start_date: 'Fecha inicial:'
+        end_date: 'Fecha final:'
+        monto: 'Monto:'
       edit:
         title_edit_renewal: Editar Contrato Renovado
       new:
         title_new_renewal: Agregar Renovación de Contrato
       form:
-        contract_no: 'No. de Contrato:'
+        notification_date: 'Notificar la expiración del contrato:'
 
   layouts:
     application:
