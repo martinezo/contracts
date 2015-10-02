@@ -238,6 +238,7 @@ es:
           attributes:
             business_name:
               blank: Introduce el nombre de la Compañía
+              taken: Esta Compañía ya ha sido registrada previamente
             contact:
               blank: Introduce el nombre del Contacto
             phone:
@@ -248,6 +249,7 @@ es:
           attributes:
             unam_stock_number:
               blank: Introduce el número de inventario
+              taken: No. de Inventario previamente registrado
             name:
               blank: Introduce el nombre
             location_id:
@@ -268,6 +270,7 @@ es:
               blank: Introduce el nombre de proveedor
             contract_no:
               blank: Introduce el numero de contrato
+              taken: No. de Contrato registrado previamente
             description:
               blank: Introduce la descripción del contrato
         system/siteview:
