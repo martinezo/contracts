@@ -38,12 +38,14 @@
                   = link_to t('.menu_6'), system_renewals_path
                 %li
                   = link_to t('.menu_7'), system_configuration_configure_path
+                %li
+                  = link_to t('.menu_8'), system_reporter_index_path  
                 %li.divider{:role => "separator"}
                 %li
                   = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')
     /TERMINA BARRA TEMPORAL
     /FALTAN TRADUCCIONES
-
+  .cuerpo_configuration
     = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
       
       - @mailers.each do |key, value|

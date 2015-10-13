@@ -1,85 +1,127 @@
-%h1 System::Reporter#index
-%p Find me in app/views/system/reporter/index.html.haml
-= form_tag({:controller => "reporter", :action => "index"}, :method => "GET", class: "form-inline") do
-  = date_select "start_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')   
-  = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
-  %br/
-  = select_tag 'supplier', options_from_collection_for_select(@catalog_supplier, "id", "business_name"), include_blank: "Seleccione Proveedor..."
-  %br/
-  = select_tag 'device', options_from_collection_for_select(@catalog_device, "id", "name"), include_blank: "Seleccione Equipo..."
-  %br/
-  = select_tag 'contract_param_no', options_from_collection_for_select(@system_contract, "id", "contract_no"), include_blank: "Seleccione Contrato..."
-  %br/
-  = select_tag 'renewal', options_from_collection_for_select(@catalog_renewals, "id", "contract_id"), include_blank: "Seleccione Renovacion..." 
-  %br/
-  
+.container_general
+  .title_reporter
+    %h1 System::Reporter#index
+    %nav.navbar.navbar-default
+      .container-fluid
+        .nav-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar      
+           
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                = t('.menu')
+                (
+                = current_admin.login
+                )         
+                %span.caret             
+              %ul.dropdown-menu
+                %li
+                  = link_to t('.menu_1'), catalogs_suppliers_path
+                %li
+                  = link_to t('.menu_2'), catalogs_devices_path
+                %li
+                  = link_to t('.menu_3'), catalogs_locations_path
+                %li.divider{:role => "separator"}
+                %li
+                  = link_to t('.menu_4'), system_contracts_path  
+                %li
+                  = link_to t('.menu_5'), system_siteviews_path
+                %li
+                  = link_to t('.menu_6'), system_renewals_path
+                %li
+                  = link_to t('.menu_7'), system_configuration_configure_path
+                %li
+                  = link_to t('.menu_8'), system_reporter_index_path  
+                %li.divider{:role => "separator"}
+                %li
+                  = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')  
+  .cuerpo_reporter
+    %p Find me in app/views/system/reporter/index.html.haml
+    = form_tag({:controller => "reporter", :action => "index"}, :method => "GET", class: "form-inline") do
+      = date_select "start_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')   
+      = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
+      %br/
+      = select_tag 'supplier', options_from_collection_for_select(@catalog_supplier, "id", "business_name"), include_blank: "Seleccione Proveedor..."
+      %br/
+      = select_tag 'device', options_from_collection_for_select(@catalog_device, "id", "name"), include_blank: "Seleccione Equipo..."
+      %br/
+      = select_tag 'contract_param_no', options_from_collection_for_select(@system_contract, "id", "contract_no"), include_blank: "Seleccione Contrato..."
+      %br/
+      = select_tag 'renewal', options_from_collection_for_select(@catalog_renewals, "id", "contract_id"), include_blank: "Seleccione Renovacion..." 
+      %br/
+      
 
-  /@system_renewals.first.contract.device.name
-  /= field_set_tag 'valor', @system_renewals.first.contract.device.name
-  /%br/
-  = submit_tag t('search'), class:"btn btn-ttc"
-  /url: "#{update_artists_path}",
+      /@system_renewals.first.contract.device.name
+      /= field_set_tag 'valor', @system_renewals.first.contract.device.name
+      /%br/
+      = submit_tag t('search'), class:"btn btn-ttc"
+      /url: "#{update_artists_path}",
 
-:javascript
-  $(document).ready(function() {
-    $('#contract_param_no').change(function() {
-      $.ajax({
-        url: "update_renewals",
-        data: {
-          contract_param_no : $('#contract_param_no').val()
-        },
-        dataType: "script"
+    :javascript
+      $(document).ready(function() {
+        $('#contract_param_no').change(function() {
+          $.ajax({
+            url: "update_renewals",
+            data: {
+              contract_param_no : $('#contract_param_no').val()
+            },
+            dataType: "script"
+          });
+        });
       });
-    });
-  });
 
-:javascript
-  $(document).ready(function() {
-    $('#supplier').change(function() {
-      $.ajax({
-        url: "update_contracts",
-        data: {
-          supplier : $('#supplier').val()
-        },
-        dataType: "script"
+    :javascript
+      $(document).ready(function() {
+        $('#supplier').change(function() {
+          $.ajax({
+            url: "update_contracts",
+            data: {
+              supplier : $('#supplier').val()
+            },
+            dataType: "script"
+          });
+        });
       });
-    });
-  });
 
-/ActiveRecord=>Simple_Form
-/- @system_contract.each do |contract_fields|
-/  = simple_form_for contract_fields do |f|
-/    = datetime_select "fecha inicial", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
-/    %br/
-/    = datetime_select "fecha inicial", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
-/    = f.association :device, label_method: :id, value_method: :id, label: t('.device')
-/    = f.association :supplier, label_method: :id, value_method: :id, label: t('.supplier')
-/    = f.association :renewal, label_method: :id, value_method: :id, label: t('.renewal')
-/    = f.button :submit, t('search'), class: "btn btn-tss col-md-3 col-md-offset-3"
-/    %br/
-/    -%br/
+    /ActiveRecord=>Simple_Form
+    /- @system_contract.each do |contract_fields|
+    /  = simple_form_for contract_fields do |f|
+    /    = datetime_select "fecha inicial", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
+    /    %br/
+    /    = datetime_select "fecha inicial", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
+    /    = f.association :device, label_method: :id, value_method: :id, label: t('.device')
+    /    = f.association :supplier, label_method: :id, value_method: :id, label: t('.supplier')
+    /    = f.association :renewal, label_method: :id, value_method: :id, label: t('.renewal')
+    /    = f.button :submit, t('search'), class: "btn btn-tss col-md-3 col-md-offset-3"
+    /    %br/
+    /    -%br/
 
-	
-.table-responsive
-  %table.table.table-striped.table-condensed
-    %thead
-      %tr
-        %th= t('.device')
-        %th= t('.supplier')          
-        %th= t('.contract')
-        %th= t('.start_date')
-        %th= t('.end_date')
-        %th
-        %th
-        %th
+    	
+    .table-responsive
+      %table.table.table-striped.table-condensed
+        %thead
+          %tr
+            %th= t('.device')
+            %th= t('.supplier')          
+            %th= t('.contract')
+            %th= t('.start_date')
+            %th= t('.end_date')
+            %th
+            %th
+            %th
 
-    %tbody
-      - @system_renewals.each do |system_renewal|
-        %tr
-          %td{title: system_renewal.contract.device.name}= system_renewal.contract.device.short_name
-          %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
-          %td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
-          %td= system_renewal.start_date
-          %td= system_renewal.end_date
-= link_to t('back'), system_reporter_index_path, class: "btn btn-sm btn-tss"
-= link_to t('pdf'), "index.pdf", class: "btn btn-sm btn-tss" 
+        %tbody
+          - @system_renewals.each do |system_renewal|
+            %tr
+              %td{title: system_renewal.contract.device.name}= system_renewal.contract.device.short_name
+              %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
+              %td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
+              %td= system_renewal.start_date
+              %td= system_renewal.end_date
+    = link_to t('back'), system_reporter_index_path, class: "btn btn-sm btn-tss"
+    = link_to t('pdf'), "index.pdf", class: "btn btn-sm btn-tss" 
