@@ -66,21 +66,21 @@ body {
   color: white;}
 .btn-ttc:visited,
 .btn-ttc:hover,
-.btn-ttc:active,{
+.btn-ttc:active{
   color: white;
   background-color: rgb(156,198,227);
 }
 
 .btn-tss, a:hover{
   background-color: rgb(52,142,211);
-  color: white;
-}
+  color: white;}
 .btn-tss:visited,
 .btn-tss:hover,
-.btn-tss:active {
+.btn-tss:active{
   color:white;
-  background-color: rgb(23,82,250);
+  border:1px solid rgb(41,49,164);
 }
+
 .modal-header {
   background-color: rgb(19,62,210);
   color: white;
