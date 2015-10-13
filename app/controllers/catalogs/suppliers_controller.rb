@@ -25,10 +25,12 @@ end
   # GET /catalogs/suppliers/new
   def new
     @catalogs_supplier = Catalogs::Supplier.new
+    @eureka = nil
   end
 
   # GET /catalogs/suppliers/1/edit
   def edit
+    @eureka = 'notnil'
   end
   
   def delete

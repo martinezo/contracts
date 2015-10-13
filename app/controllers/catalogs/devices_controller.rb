@@ -29,10 +29,12 @@ class Catalogs::DevicesController < ApplicationController
   # GET /catalogs/devices/new
   def new
     @catalogs_device = Catalogs::Device.new
+    @eureka = nil
   end
 
   # GET /catalogs/devices/1/edit
   def edit
+    @eureka = 'notnil'
   end
 
   def delete
