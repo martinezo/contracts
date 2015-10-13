@@ -25,10 +25,12 @@ class System::RenewalsController < ApplicationController
   def new
     @contract_id = params[:contract_id]
     @system_renewal = System::Renewal.new
+    @eureka = nil
   end
 
   # GET /system/renewals/1/edit
   def edit
+    @eureka = 'notnil'
   end
 
   def delete

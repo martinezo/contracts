@@ -10,8 +10,14 @@
     = f.label t('.notification_date'), wrapper_html: { class: 'form-inline' }
     = text_field_tag "notification_date", ""
     %br/
-    = f.button :submit, t('save'), class: "btn btn-tss col-md-3 col-md-offset-3"
-    
+    .modal-footer
+      = f.button :submit, t('save'), class:"btn btn-sm btn-tss col-md-3 col-md-offset-3"
+      - if @eureka.nil?
+        = link_to t('back'), system_renewals_path, class:"btn btn-sm btn-tss"
+      - else
+        = link_to t('show'), @system_renewal, remote: true, class:"btn btn-sm btn-tss"
+        = link_to t('back'), system_renewals_path, class:"btn btn-sm btn-tss"
+
 / = simple_form_for(@system_renewal) do |f|
 /   = f.error_notification
 
