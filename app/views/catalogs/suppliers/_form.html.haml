@@ -5,5 +5,13 @@
     = f.input :business_name, required: true
     = f.input :contact, required: true
     = f.input :phone, required: true
-    = f.input :email, required: true    
-    = f.button :submit, t('save'), class:"btn btn-tss col-md-3 col-md-offset-3"
+    = f.input :email, required: true
+    .modal-footer
+      = f.button :submit, t('save'), class:"btn btn-sm btn-tss col-md-3 col-md-offset-3"    
+      - if @eureka.nil?
+        = link_to t('back'), catalogs_suppliers_path, class: "btn btn-sm btn-tss"
+      - else 
+        = link_to t('show'), @catalogs_supplier, class: "btn btn-sm btn-tss", remote: true
+        = link_to t('back'), catalogs_suppliers_path, class: "btn btn-sm btn-tss"
+        
+

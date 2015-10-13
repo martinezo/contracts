@@ -25,10 +25,12 @@ class Catalogs::LocationsController < ApplicationController
   # GET /catalogs/locations/new
   def new
     @catalogs_location = Catalogs::Location.new
+    @eureka = nil
   end
 
   # GET /catalogs/locations/1/edit
   def edit
+    @eureka = 'notnil'
   end
 
   def delete

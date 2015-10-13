@@ -42,12 +42,13 @@ class System::ContractsController < ApplicationController
     @system_contract = System::Contract.new
     @system_renewal = System::Renewal.new
     @system_renewal.monto = 0
+    @eureka = nil
   end
 
   # GET /system/contracts/1/edit
   def edit
     @system_renewal = System::Renewal.find(@system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last)
-
+    @eureka = 'notnil'
   end
 
   def delete

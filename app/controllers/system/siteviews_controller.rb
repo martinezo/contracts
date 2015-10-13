@@ -29,10 +29,12 @@ class System::SiteviewsController < ApplicationController
     puts "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYXXXXXXX#{params[:page]}"
     @page = params[:page]
     @system_siteview = System::Siteview.new
+    @eureka = nil
   end
 
   # GET /system/siteviews/1/edit
   def edit
+    @eureka = 'notnil'
   end
 
   def delete
