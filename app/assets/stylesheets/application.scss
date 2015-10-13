@@ -60,19 +60,26 @@ body {
   background-color: black;
   /*background-color: rgb(63,15,11);*/
 }
-.btn-ttc,
+
+.btn-ttc, a:hover{
+  background-color: rgb(50,76,115);
+  color: white;}
 .btn-ttc:visited,
 .btn-ttc:hover,
-.btn-ttc:active {
+.btn-ttc:active,{
   color: white;
-  background-color: rgb(50,76,115);
+  background-color: rgb(156,198,227);
 }
-.btn-tss,
+
+.btn-tss, a:hover{
+  background-color: rgb(52,142,211);
+  color: white;
+}
 .btn-tss:visited,
 .btn-tss:hover,
 .btn-tss:active {
   color:white;
-  background-color: rgb(52,142,211);
+  background-color: rgb(23,82,250);
 }
 .modal-header {
   background-color: rgb(19,62,210);
