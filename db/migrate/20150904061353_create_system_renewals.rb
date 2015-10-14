@@ -1,10 +1,12 @@
 class CreateSystemRenewals < ActiveRecord::Migration
   def change
     create_table :system_renewals do |t|
-      t.integer :contract_id
-      t.date :start_date
-      t.date :end_date
-      t.string :monto
+      t.integer :contract_id, null: false
+      t.date :start_date, null: false
+      t.date :end_date, null: false
+      t.string :monto, null: false
+	  t.string :google_event_start, null: false
+	  t.string :google_event_end, null: false
 
       t.timestamps null: false
     end

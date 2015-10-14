@@ -67,6 +67,10 @@ class System::ContractsController < ApplicationController
         format2=*params["end_date"].values.map(&:to_i)
 	@end_date=Date.new(format2[2],format2[1],format2[0])
 
+	@start_date_google=format1[2].to_s + '-' + format1[1].to_s + '-' + format1[0].to_s + 'T10:00:52-05:00'
+	@end_date_google=format2[2].to_s + '-' + format2[1].to_s + '-' + format2[0].to_s + 'T10:00:52-05:00'
+
+		
 	#ESTO SE VA DESCOMENTAR CUANDO SE INSERTE EL START_DATE Y EL END_DATE DEL FORMULARIO DE RENEWAL
 	supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
 	@email = supplier.email
@@ -87,9 +91,15 @@ class System::ContractsController < ApplicationController
 
     respond_to do |format|
       if @system_contract.save
-        
-        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: params[:monto])
-       if  @system_renewal.save
+        @google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,system_contract_params[:description],'neuro')
+		@google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,system_contract_params[:description],'neuro')
+
+        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: params[:monto], google_event_start: @google_event_start, google_event_end: @google_event_end)
+		puts 'google_event aki es'
+		puts @google_event_start
+		puts @google_event_end
+	    puts 'google_event aki terminar'
+	   if  @system_renewal.save
         ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
         ApplicationMailer.delay(run_at: @recordar2).send_mail(@email) 
         format.html { redirect_to @system_contract, notice: t('.created') }
@@ -118,7 +128,14 @@ class System::ContractsController < ApplicationController
         format2=*params["end_date"].values.map(&:to_i)
   @end_date=Date.new(format2[2],format2[1],format2[0])
         var = @system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last
+		
+		@start_date_google=format1[2].to_s + '-' + format1[1].to_s + '-' + format1[0].to_s + 'T10:00:52-05:00'
+		@end_date_google=format2[2].to_s + '-' + format2[1].to_s + '-' + format2[0].to_s + 'T10:00:52-05:00'
 
+		system_renewal_params={:contract_id => @system_contract.id,:start_date => @start_date,:end_date => @end_date,:monto => params[:monto]}
+        System::Renewal.find(var).update(system_renewal_params)
+	  	System::Renewal.event_update(@start_date_google,@start_date_google,system_contract_params[:description],'neuro',System::Renewal.find(var).google_event_start)
+		System::Renewal.event_update(@end_date_google,@end_date_google,system_contract_params[:description],'neuro',System::Renewal.find(var).google_event_end)
         system_renewal_params={:contract_id => @system_contract.id,:start_date => @start_date,:end_date => @end_date,:monto => params[:monto]}
         System::Renewal.find(var).update(system_renewal_params)
 

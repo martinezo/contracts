@@ -75,20 +75,24 @@ ActiveRecord::Schema.define(version: 20150904061353) do
   end
 
   create_table "system_renewals", force: :cascade do |t|
-    t.integer  "contract_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "monto"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "contract_id",        null: false
+    t.date     "start_date",         null: false
+    t.date     "end_date",           null: false
+    t.string   "monto",              null: false
+    t.string   "google_event_start", null: false
+    t.string   "google_event_end",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "system_siteviews", force: :cascade do |t|
-    t.integer  "renewal_id", null: false
-    t.datetime "visit_date", null: false
+    t.integer  "renewal_id",         null: false
+    t.datetime "visit_date",         null: false
+    t.string   "google_event_start", null: false
+    t.string   "google_event_end",   null: false
     t.boolean  "completed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_foreign_key "catalogs_devices", "catalogs_locations", column: "location_id"

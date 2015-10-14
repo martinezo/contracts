@@ -41,16 +41,19 @@ class System::RenewalsController < ApplicationController
   # POST /system/renewals
   # POST /system/renewals.json
   def create
-        @system_renewal = System::Renewal.new(system_renewal_params)
+	
         #ESTO SE VA DESCOMENTAR CUANDO SE INSERTE EL START_DATE Y EL END_DATE DEL FORMULARIO DE RENEWAL
         puts 'Aki va el array de Renewal'
         puts system_renewal_params
         puts 'Aki termina el arrayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
         contract = System::Contract.find(system_renewal_params[:contract_id])
         @email = contract.supplier.email
-        t0=Time.new(system_renewal_params["start_date(1i)"].to_i,system_renewal_params["start_date(2i)"].to_i,system_renewal_params["start_date(3i)"].to_i)
+        @start_date=Date.new(system_renewal_params["start_date(1i)"].to_i,system_renewal_params["start_date(2i)"].to_i,system_renewal_params["start_date(3i)"].to_i)
+        @end_date=Date.new(system_renewal_params["end_date(1i)"].to_i,system_renewal_params["end_date(2i)"].to_i,system_renewal_params["end_date(3i)"].to_i)
+		t0=Time.new(system_renewal_params["start_date(1i)"].to_i,system_renewal_params["start_date(2i)"].to_i,system_renewal_params["start_date(3i)"].to_i)
         t1=Time.new(system_renewal_params["end_date(1i)"].to_i,system_renewal_params["end_date(2i)"].to_i,system_renewal_params["end_date(3i)"].to_i)
-        puts 'Aki va el parametro start_date sssssssssssssssssssssssssssssssssss'
+              
+	   puts 'Aki va el parametro start_date sssssssssssssssssssssssssssssssssss'
         puts t1
         @recordar = t0 - APP_CONFIG["production"][:notification_time].to_i.days # resta 1 semana
         @recordar2 = t1 - APP_CONFIG["production"][:notification_time].to_i.days
@@ -58,8 +61,19 @@ class System::RenewalsController < ApplicationController
         puts @recordar
         puts 'aki terminaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
         puts @email
+		
+ 
+	@start_date_google=system_renewal_params["start_date(1i)"].to_s + '-' + system_renewal_params["start_date(2i)"].to_s + '-' + system_renewal_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
+	@end_date_google=system_renewal_params["end_date(1i)"].to_s + '-' + system_renewal_params["end_date(2i)"].to_s + '-' + system_renewal_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
+	x=System::Contract.find(system_renewal_params[:contract_id])
+	@google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,x.description,'neuro')
+    @google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,x.description,'neuro')
+
+	@system_renewal = System::Renewal.new(contract_id: system_renewal_params[:contract_id], start_date: @start_date, end_date: @end_date, monto: system_renewal_params[:monto], google_event_start: @google_event_start, google_event_end: @google_event_end)
+
     respond_to do |format|
       if @system_renewal.save
+	    
         ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
         ApplicationMailer.delay(run_at: @recordar2).send_mail(@email)
 	format.html { redirect_to @system_renewal, notice: 'Renewal was successfully created.' }
