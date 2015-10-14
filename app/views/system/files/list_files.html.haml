@@ -1,0 +1,27 @@
+%h2 Archivos
+- if @mensaje
+  / Mensaje enviado de la anterior página
+  %div
+    %strong
+      = @mensaje
+/ Enlace a la página de subir archivos
+%p
+  = link_to "Subir archivo", :controller => "files", :action => "load_files"
+/ Lista de archivos subidos
+%ul
+  - @archivos.each do |a|
+    - if a == "." or a == ".." then next end;
+    %li
+      %strong
+        = a
+      |
+      %a{:href => "/files/#{a}", :target => "_blank"} Ver archivo
+      |
+      \#{link_to "Borrar archivo", {:controller => "files", :action => "delete_files", :archivo_a_borrar => a}, {:method => "post", :confirm => "Seguro?"}}
+/ Acá se guarda el nombre del archivo antes de que el formularo sea enviado
+%hr/
+/ Comentarios guardados por el usuario.
+%h2 Últimos Comentarios:
+%div
+  %pre= @comentarios;
+  = link_to "Agregar comentarios", :controller => "files", :action => "save_comments"

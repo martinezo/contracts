@@ -1,0 +1,7 @@
+%h2 Guardar comentarios
+= form_tag({:controller => "files", :action => "save_comments"}, :method => "post") do
+  = text_area_tag "comentarios", @comentarios, :cols => 50, :rows => 10, :required => "required"
+  %br/
+  = submit_tag "Guardar comentario"
+%p
+  = link_to "Volver a la lista de archivos", :controller => "files", :action => "list_files"

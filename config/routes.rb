@@ -1,5 +1,33 @@
 Rails.application.routes.draw do
   namespace :system do
+  get 'files/load_files'
+  end
+  
+  namespace :system do
+  post 'files/load_files'
+  end
+
+  namespace :system do
+  get 'files/list_files'
+  end
+  
+  namespace :system do
+  post 'files/delete_files'
+  end
+  
+  namespace :system do
+  get 'files/delete_files'
+  end
+
+  namespace :system do
+  get 'files/save_comments'
+  end
+  
+  namespace :system do
+  post 'files/save_comments'
+  end
+
+  namespace :system do
   get 'reporter/index'
   end
 
