@@ -76,7 +76,7 @@ Rails.application.routes.draw do
   get 'system/contract/delete' => 'system/contracts#delete'
   get 'system/siteview/delete' => 'system/siteviews#delete'
   get 'system/renewal/delete' => 'system/renewals#delete'
-  get 'system/configuration/save' => 'system/configuration#save'
+  post 'system/configuration/save' => 'system/configuration#save'
   get 'system/reporter/update_renewals' => 'system/reporter#update_renewals'
 
  
