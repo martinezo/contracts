@@ -1,11 +1,32 @@
 es:
   configure:
     name_technical_secretary: 
-      name: 'Nombre del Secretario Técnico '
+      name: 'Nombre del Secretario Técnico: '
       hint: 'Nombre actual del encargado '
     e_mail_technical_secretary: 
-      name: 'Correo electrónico del Secretario Técnico '
+      name: 'Correo electrónico del Secretario Técnico: '
       hint: 'Correo electrónico del encargado actual '
+    truncate_length:
+      name: 'Número de caracteres: '
+      hint: 'Caracteres mostrados en pantalla de información'
+    notification_time:
+      name: 'Tiempo de notificación: '
+      hint: 'Tiempo previo a verificar una expiración de contrato'
+    developper_id: 
+      name: 'ID de desarrollador: '
+      hint: ' '
+    developper_key:
+      name: 'Llave de desarrollador: '
+      hint: ''
+    key_path_p12:
+      name: 'Ruta del archivo p12: '
+      hint: ''
+    developper_email:
+      name: 'Correo de desarrollador: '
+      hint: ''
+    calendar_id:
+      name: 'ID de calendario: '
+      hint: 'Correo electrónico en donde se encuentra el calendario disponible.'
   catalogs:
     suppliers:
       create:
@@ -175,6 +196,15 @@ es:
       save:
         title_save: 'Configuraciones del sistema'
         current: 'Archivo actualizado'
+    reporter:
+      index:
+        title_reporter: 'Generador de reportes'
+        device: 'Nombre de Equipo'
+        supplier: 'Proveedor'
+        contract: 'No. de Contrato'
+        start_date: 'Fecha inicial'
+        end_date: 'Fecha final'
+
   layouts:
     application:
       title_system: Contratos
