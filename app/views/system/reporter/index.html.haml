@@ -1,45 +1,8 @@
 .container_general
   .title_reporter
     %h1 System::Reporter#index
-    %nav.navbar.navbar-default
-      .container-fluid
-        .nav-header
-          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar      
-           
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                = t('.menu')
-                (
-                = current_admin.login
-                )         
-                %span.caret             
-              %ul.dropdown-menu
-                %li
-                  = link_to t('.menu_1'), catalogs_suppliers_path
-                %li
-                  = link_to t('.menu_2'), catalogs_devices_path
-                %li
-                  = link_to t('.menu_3'), catalogs_locations_path
-                %li.divider{:role => "separator"}
-                %li
-                  = link_to t('.menu_4'), system_contracts_path  
-                %li
-                  = link_to t('.menu_5'), system_siteviews_path
-                %li
-                  = link_to t('.menu_6'), system_renewals_path
-                %li
-                  = link_to t('.menu_7'), system_configuration_configure_path
-                %li
-                  = link_to t('.menu_8'), system_reporter_index_path  
-                %li.divider{:role => "separator"}
-                %li
-                  = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')  
+  .barra_busqueda
+    = render partial: 'layouts/search',locals: { viewer: 'nil' }      
   .cuerpo_reporter
     %p Find me in app/views/system/reporter/index.html.haml
     = form_tag({:controller => "reporter", :action => "index"}, :method => "GET", class: "form-inline") do

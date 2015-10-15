@@ -6,7 +6,7 @@
   .cuerpo_configuration
     = simple_form_for :configure, url: system_configuration_save_path, :enforce_utf8 => true do |f|    
       - @mailers.each do |key, value|
-        - if @traduccion.nil? == true or @traduccion.key?(key)
+        - if @traduccion.nil? == true or @traduccion.key?(key) == false
           = f.label "campo_etiqueta", key
           = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key)                                   
         - elsif @traduccion.key?(key) == true          

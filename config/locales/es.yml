@@ -1,4 +1,11 @@
 es:
+  configure:
+    name_technical_secretary: 
+      name: 'Nombre del Secretario Técnico '
+      hint: 'Nombre actual del encargado '
+    e_mail_technical_secretary: 
+      name: 'Correo electrónico del Secretario Técnico '
+      hint: 'Correo electrónico del encargado actual '
   catalogs:
     suppliers:
       create:
@@ -176,6 +183,7 @@ es:
       menu_5: Visitas
       menu_6: Renovaciones
       menu_7: Configuración
+      menu_8: Reportes
       menu_logut: Cerrar sesión
   
   add_supplier: Agregar Proveedor
