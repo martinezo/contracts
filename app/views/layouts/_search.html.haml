@@ -53,5 +53,12 @@
             %li
               = link_to t('.menu_8'), system_reporter_index_path
             %li.divider{:role => "separator"}
+            %li 
+              = link_to t('.menu_9'), system_files_list_files_path
+            %li
+              = link_to t('.menu_10'), system_files_load_files_path
+            %li 
+              = link_to t('.menu_11'), system_files_save_comments_path    
+            %li.divider{:role => "separator"}
             %li
               = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')
