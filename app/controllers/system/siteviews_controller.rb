@@ -27,6 +27,7 @@ class System::SiteviewsController < ApplicationController
 
   # GET /system/siteviews/new
   def new
+	@renewal_id = params[:renewal_id]
     puts "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYXXXXXXX#{params[:page]}"
     @page = params[:page]
     @system_siteview = System::Siteview.new
@@ -46,6 +47,14 @@ class System::SiteviewsController < ApplicationController
   # POST /system/siteviews
   # POST /system/siteviews.json
   def create
+		@start_date=Date.new(system_siteview_params["visit_date(1i)"].to_i,system_siteview_params["visit_date(2i)"].to_i,system_siteview_params["visit_date(3i)"].to_i)
+        
+		format2=*params["recordar"].values.map(&:to_i)
+	    @end_date=Date.new(format2[2],format2[1],format2[0])
+
+		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T10:00:52-05:00'
+		@end_date_google=format2[2].to_s + '-' + format2[1].to_s + '-' + format2[0].to_s + 'T10:00:52-05:00'
+		
 	    @system_siteview = System::Siteview.new(system_siteview_params)
             renewal=System::Renewal.find(system_siteview_params[:renewal_id])
             format=*params["recordar"].values.map(&:to_i)
@@ -59,7 +68,12 @@ class System::SiteviewsController < ApplicationController
             puts @email
             array_mailer = [@email, params[:notificaciones]]
             puts array_mailer
+			x=System::Renewal.find(system_siteview_params[:renewal_id])
+	@google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,x.contract.description,'neuro')
+    @google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,x.contract.description,'neuro')
 
+	
+			@system_siteview= System::Siteview.new(renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: @google_event_start, google_event_end: @google_event_end, completed: system_siteview_params[:completed])
 respond_to do |format|
     if @system_siteview.save
 	ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer)

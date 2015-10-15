@@ -36,7 +36,7 @@
               %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.start_date
               %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.end_date
               %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.monto
-              %td= link_to '', new_system_siteview_path(:page => "contracts"), class:"btn btn-sm btn-tss fa fa-plus", title: t('.add_visit'), remote: true
+              %td= link_to '', new_system_siteview_path(:page => "contracts", :renewal_id => system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last), class:"btn btn-sm btn-tss fa fa-plus", title: t('.add_visit'), remote: true
               %td  
                 %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o{title: t('.download_pdf')}
               %td= link_to '', new_system_renewal_path(:contract_id => system_contract.id), class:"btn btn-sm btn-tss fa fa-refresh", title: t('.renew_contract'), remote: true
