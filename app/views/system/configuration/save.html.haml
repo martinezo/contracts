@@ -4,4 +4,5 @@
   .barra_busqueda
     = render partial: 'layouts/search',locals: { viewer: 'nil' }    
   .cuerpo_configuration
-    %h2 #{@file_yaml}
+    %h3= t('.current')
+    %p #{@file_yaml}

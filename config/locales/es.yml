@@ -169,7 +169,12 @@ es:
         title_new_renewal: Agregar Renovación de Contrato
       form:
         notification_date: 'Notificar la expiración del contrato:'
-
+    configuration:
+      configure:
+        title_configure: 'Configuraciones del sistema'
+      save:
+        title_save: 'Configuraciones del sistema'
+        current: 'Archivo actualizado'
   layouts:
     application:
       title_system: Contratos
