@@ -1,6 +1,6 @@
 .container_general
   .title_configuration
-    %h1 System::Configuration#configure
+    %h1= t('.title_configure')
   .barra_busqueda
     = render partial: 'layouts/search',locals: { viewer: 'nil' }    
   .cuerpo_configuration
@@ -20,7 +20,7 @@
                 = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key), class:"form-control"
                 = f.hint @traduccion.fetch(key).values_at("hint").to_s.delete('[]\\""')
             %br/    
-            = f.button :submit, class:"btn btn-ttc"
+            = f.button :submit, t('save') , class:"btn btn-ttc"
 
     / = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
     /   .form-group
