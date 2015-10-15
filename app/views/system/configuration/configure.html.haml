@@ -10,12 +10,15 @@
           - @mailers.each do |key, value|
             - if @traduccion.nil? == true or @traduccion.key?(key) == false
               = f.label "campo_etiqueta", key
-              = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key)                                   
+              %br/
+              = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key)
+              %br/                                   
             - elsif @traduccion.key?(key) == true
-                      
+
               = f.label "campo_etiqueta", @traduccion.fetch(key).values_at("name").to_s.delete('[]\\""')      
               = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key)
               = f.hint @traduccion.fetch(key).values_at("hint").to_s.delete('[]\\""')
+          %br/    
           = f.button :submit, class:"btn btn-ttc"
 
     / = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do

@@ -4,7 +4,6 @@
   .barra_busqueda
     = render partial: 'layouts/search',locals: { viewer: 'nil' }      
   .cuerpo_reporter
-    %p Find me in app/views/system/reporter/index.html.haml
     = form_tag({:controller => "reporter", :action => "index"}, :method => "GET", class: "form-inline") do
       = date_select "start_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')   
       = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
