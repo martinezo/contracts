@@ -1,6 +1,8 @@
 class System::ReporterController < ApplicationController
   
   def index
+    @aux = 'notnil'
+    
   	@system_contract=System::Contract.all
   	@catalog_supplier = Catalogs::Supplier.all
     @catalog_device = Catalogs::Device.all

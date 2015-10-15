@@ -4,17 +4,18 @@ class Catalogs::SuppliersController < ApplicationController
   # GET /catalogs/suppliers
   # GET /catalogs/suppliers.json
  def index
-   if admin_signed_in?      
-          if params[:codigo].nil? || params[:codigo].empty?
-            @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 10)
-          else
-            #@catalogs_suppliers.where(business_name: params[:codido])
-	     @catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],params[:codigo]).paginate(page: params[:page],per_page: 10)
-          end
-   else
-	redirect_to new_admin_session_path
-   end
-end
+  @aux = 'notnil'
+  if admin_signed_in?      
+    if params[:codigo].nil? || params[:codigo].empty?
+      @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 10)
+    else
+      #@catalogs_suppliers.where(business_name: params[:codido])
+	    @catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],params[:codigo]).paginate(page: params[:page],per_page: 10)
+    end
+  else
+	  redirect_to new_admin_session_path
+  end
+ end
 
 
   # GET /catalogs/suppliers/1

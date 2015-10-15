@@ -4,6 +4,7 @@ class System::SiteviewsController < ApplicationController
   # GET /system/siteviews
   # GET /system/siteviews.json
  def index
+  @aux = 'notnil'
  if admin_signed_in?
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?

@@ -4,17 +4,18 @@ class Catalogs::LocationsController < ApplicationController
   # GET /catalogs/locations
   # GET /catalogs/locations.json
   def index
-   if admin_signed_in?
+    @aux = 'notnil'
+    if admin_signed_in?
       puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
       if params[:codigo].nil? || params[:codigo].empty?
-      @catalogs_locations = Catalogs::Location.all.paginate(page: params[:page], per_page: 10)
+        @catalogs_locations = Catalogs::Location.all.paginate(page: params[:page], per_page: 10)
       else
-      #@catalogs_suppliers.where(business_name: params[:codido])
-      @catalogs_locations= Catalogs::Location.where("department LIKE :codigo or responsible LIKE :codigo or email LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 10)
+        #@catalogs_suppliers.where(business_name: params[:codido])
+        @catalogs_locations= Catalogs::Location.where("department LIKE :codigo or responsible LIKE :codigo or email LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 10)
       end
-   else
-	redirect_to new_admin_session_path
-   end
+    else
+    	redirect_to new_admin_session_path
+    end
   end
 
   # GET /catalogs/locations/1

@@ -1,11 +1,14 @@
 # encoding: UTF-8
 class System::ConfigurationController < ApplicationController
+
+  @aux = nil
+
   def configure
   	@configuration_fields = YAML.load_file "#{Rails.root}/config/config.yml"
   	@mailers = @configuration_fields["production"]
 
-    @traduccion_fields = YAML.load_file "#{Rails.root}/config/locales/config_es.yml"
-    @traduccion = @traduccion_fields["configure"]
+    @traduccion_fields = YAML.load_file "#{Rails.root}/config/locales/es.yml"
+    @traduccion = @traduccion_fields["es"]["configure"]
   	#@configuration_fields = "#{APP_CONFIG[:technical_secretary][:e_mail]}"
   end
 
@@ -21,15 +24,11 @@ class System::ConfigurationController < ApplicationController
     #La linea de abajo sirve para depurar la cadena en caso de que marque algun error de codificación
     #Al parecer no acepta acentos.
     prueba = @file_yaml["production"]
-
     prueba.each do | key, value |
-      @file_yaml["production"][key] = params[key].encode("UTF-8", "binary", :invalid => :replace, :undef => :replace, :replace => "?")
+      @file_yaml["production"][key] = params[:configure][key].encode("UTF-8", "binary", :invalid => :replace, :undef => :replace, :replace => "?")
     end
-
     @file_yaml.to_yaml
     puts "Prueba para el Save #{@file_yaml}"
     File.open("#{Rails.root}/config/config.yml", 'w+') { |f| YAML.dump(@file_yaml, f)}
-
-
   end
 end

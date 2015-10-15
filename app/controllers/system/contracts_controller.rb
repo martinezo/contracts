@@ -4,6 +4,7 @@ class System::ContractsController < ApplicationController
   # GET /system/contracts
   # GET /system/contracts.json
   def index
+    @aux = 'notnil'
     if admin_signed_in?
       puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
       if params[:codigo].nil? || params[:codigo].empty?

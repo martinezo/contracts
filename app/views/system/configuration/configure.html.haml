@@ -1,65 +1,19 @@
 .container_general
   .title_configuration
     %h1 System::Configuration#configure
-
-    / BARRA TEMPORAL PARA TRASLADARSE A 
-    /OTRAS SECCIONES DE LA APP WEB
-    %nav.navbar.navbar-default
-      .container-fluid
-        .nav-header
-          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar      
-           
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                = t('.menu')
-                (
-                = current_admin.login
-                )         
-                %span.caret             
-              %ul.dropdown-menu
-                %li
-                  = link_to t('.menu_1'), catalogs_suppliers_path
-                %li
-                  = link_to t('.menu_2'), catalogs_devices_path
-                %li
-                  = link_to t('.menu_3'), catalogs_locations_path
-                %li.divider{:role => "separator"}
-                %li
-                  = link_to t('.menu_4'), system_contracts_path  
-                %li
-                  = link_to t('.menu_5'), system_siteviews_path
-                %li
-                  = link_to t('.menu_6'), system_renewals_path
-                %li
-                  = link_to t('.menu_7'), system_configuration_configure_path
-                %li
-                  = link_to t('.menu_8'), system_reporter_index_path  
-                %li.divider{:role => "separator"}
-                %li
-                  = link_to( t('.menu_logut'), destroy_admin_session_path, :method => 'delete')
-    /TERMINA BARRA TEMPORAL
-    /FALTAN TRADUCCIONES
+  .barra_busqueda
+    = render partial: 'layouts/search',locals: { viewer: 'nil' }    
   .cuerpo_configuration
-    = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
-      
+    = simple_form_for :configure, url: system_configuration_save_path, :enforce_utf8 => true do |f|    
       - @mailers.each do |key, value|
-        - if @traduccion.has_key?(key) == true
-          = label_tag("campo_etiqueta", @traduccion.fetch(key))
-          = text_field_tag(key, @mailers.values_at(key))
-        - elsif @traduccion.has_key?(key) == false
-          = label_tag("campo_etiqueta", key)
-          = text_field_tag(key, @mailers.values_at(key))
-
-        / = label_tag("x", key)    
-        / = text_field_tag(key, @mailers.values_at(key))
-
-      = submit_tag "Submit", class:"btn btn-ttc"
+        - if @traduccion.nil? == true or @traduccion.key?(key)
+          = f.label "campo_etiqueta", key
+          = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key)                                   
+        - elsif @traduccion.key?(key) == true          
+          = f.label "campo_etiqueta", @traduccion.fetch(key).values_at("name").to_s.delete('[]\\""')      
+          = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key)
+          = f.hint @traduccion.fetch(key).values_at("hint").to_s.delete('[]\\""')
+      = f.button :submit, class:"btn btn-ttc"
 
     / = form_tag({:controller => "system/configuration", :action => "save"}, :method => "get", :enforce_utf8 => true, class: "form-inline") do
     /   .form-group
