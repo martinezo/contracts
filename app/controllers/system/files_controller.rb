@@ -7,7 +7,7 @@ class System::FilesController < ApplicationController
   @formato_erroneo = false;
    if request.post?
       #Archivo subido por el usuario.
-      archivo = params[:file];
+      archivo = params[:files][:file];
       #Nombre original del archivo.
       nombre = archivo.original_filename;
       #Directorio donde se va a guardar.
