@@ -7,12 +7,15 @@
     = simple_form_for :files, url: system_files_load_files_path, html: {multipart: true} do |f|
       = f.input :file, as: :file, label: t('upload'), required: false, input_html: {class:"btn btn-ttc"}
       %br/
-      = f.button :submit, 'Subir archivo' , class:"btn btn-ttc"
+      = f.button :submit, 'Subir archivo' , class:"btn btn-ttc"      
     - if @formato_erroneo
       %div
         %p El formato ingresado es incorrecto. Usted sólo puede subir archivos .pdf, .doc y .docx
     %p
-      = link_to "Volver a la lista de archivos", :controller => "files", :action => "load_files"
+      %br/
+      = link_to "Volver a la lista de archivos", system_files_list_files_path, class:"btn btn-ttc"
+      /:controller => "files", :action => "load_files"
+
 
     / = form_tag({:controller => "files", :action => "load_files"}, :method => "post", :multipart => true) do
     /   = file_field_tag "file", :required => "required", class: "btn btn-ttc"

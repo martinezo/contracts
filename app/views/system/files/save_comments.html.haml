@@ -3,10 +3,13 @@
     %h2 Guardar comentarios
   .barra_busqueda
     = render partial: 'layouts/search',locals: { viewer: 'nil' }
-  .cuerpo_file    
-    = form_tag({:controller => "files", :action => "save_comments"}, :method => "post") do
-      = text_area_tag "comentarios", @comentarios, :cols => 50, :rows => 10, :required => "required"
-      %br/
-      = submit_tag "Guardar comentario"
-    %p
-      = link_to "Volver a la lista de archivos", :controller => "files", :action => "list_files"
+  .cuerpo_file 
+    = simple_form_for :files, url: system_files_save_comments_path do |f|
+      = f.input :comentarios, as: :text, @comentarios, 
+
+    / = form_tag({:controller => "files", :action => "save_comments"}, :method => "post") do
+    /   = text_area_tag "comentarios", @comentarios, :cols => 50, :rows => 10, :required => "required"
+    /   %br/
+    /   = submit_tag "Guardar comentario"
+    / %p
+    /   = link_to "Volver a la lista de archivos", :controller => "files", :action => "list_files"
