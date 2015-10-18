@@ -15,13 +15,3 @@
     - if @formato_erroneo
       %div
         %p El formato ingresado es incorrecto. Usted sólo puede subir archivos .pdf, .doc y .docx
-    /%p          
-
-    / = form_tag({:controller => "files", :action => "load_files"}, :method => "post", :multipart => true) do
-    /   = file_field_tag "file", :required => "required", class: "btn btn-ttc"
-    /   = submit_tag "Upload File", class: "btn btn-ttc"
-    / - if @formato_erroneo
-    /   %div
-    /     %p El formato ingresado es incorrecto. Usted sólo puede subir archivos .pdf, .doc y .docx
-    / %p
-    /   = link_to "Volver a la lista de archivos", :controller => "files", :action => "load_files", class: "btn btn-ttc"

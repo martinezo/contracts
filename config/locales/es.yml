@@ -214,6 +214,10 @@ es:
         name_file: 'Nombre del Archivo'
         last_comments: 'Últimos Comentarios:'
         add_comment: 'Agregar comentarios'
+      save_comments:
+        title_save_comments: 'Comentarios'
+        comments: 'Escribe tu comentario: '
+
   layouts:
     application:
       title_system: Contratos
