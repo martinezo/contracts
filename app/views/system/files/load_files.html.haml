@@ -3,19 +3,19 @@
     %h2 Subir archivo
   .barra_busqueda
     = render partial: 'layouts/search',locals: { viewer: 'nil' } 
-  .cuerpo_file
-    = simple_form_for :files, url: system_files_load_files_path, html: {multipart: true} do |f|
-      = f.input :file, as: :file, label: t('upload'), required: false, input_html: {class:"btn btn-ttc"}
+  .cuerpo_file_load
+    %h3= t('.msg_load_files')
+    %br/
+    = simple_form_for :files, url: system_files_load_files_path, html: {multipart: true}, wrapper: :horizontal_form do |f|
+      = f.input :file, as: :file, required: false, label: false, input_html: { class: "btn btn-block"}
       %br/
-      = f.button :submit, 'Subir archivo' , class:"btn btn-ttc"      
+      = f.button :submit, 'Subir archivo' , class:"btn btn-ttc btn-block", wrapper: :horizontal_form
+      = link_to t('back'), system_files_list_files_path, class:"btn btn-ttc btn-block", wrapper: :horizontal_form
+
     - if @formato_erroneo
       %div
         %p El formato ingresado es incorrecto. Usted sólo puede subir archivos .pdf, .doc y .docx
-    %p
-      %br/
-      = link_to "Volver a la lista de archivos", system_files_list_files_path, class:"btn btn-ttc"
-      /:controller => "files", :action => "load_files"
-
+    /%p          
 
     / = form_tag({:controller => "files", :action => "load_files"}, :method => "post", :multipart => true) do
     /   = file_field_tag "file", :required => "required", class: "btn btn-ttc"

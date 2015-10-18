@@ -1,6 +1,8 @@
 class System::FilesController < ApplicationController
   Ruta_archivo_comentarios = "public/comments/comentarios.txt";
-  Ruta_directorio_archivos = "public/files/";
+  Ruta_directorio_archivos = "public/files/";  
+  
+  @aux = nil
    
   def load_files
   
@@ -36,7 +38,7 @@ class System::FilesController < ApplicationController
   end
 
   def list_files
-  
+   @aux = 'archivo'
    #Guardamos la lista de archivos de la carpeta "archivos".
    @archivos = Dir.entries(Ruta_directorio_archivos);
    #Mensaje que mostrará si la página viene desde otra acción.
@@ -96,7 +98,7 @@ class System::FilesController < ApplicationController
   #Si llega por post intentará guardar los comentarios que ha ingresado el usuario.
    if request.post?
       #Guarda los comentarios en una variable
-      comentarios = params[:comentarios];
+      comentarios = params[:files][:comentarios];
       #Abre el archivo de comentarios, Si no existe lo crea, si existe lo sobrescribe
       File.open(Ruta_archivo_comentarios, "wb"){
          #Alias

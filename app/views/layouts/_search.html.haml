@@ -17,6 +17,10 @@
               = text_field_tag "codigo", "", :size => 30, :maxlenght => 50, :placeholder => t('search'), disabled: true, :style => "display:none"
               = submit_tag t('search'), class:"btn btn-ttc", disabled: true, :style => "display:none"
               = submit_tag t('show_all'), class:"btn btn-ttc", disabled: true, :style => "display:none"
+        - elsif @aux == 'archivo'
+          /%i.fa.fa-file-text.fa-lg
+          /i fa fa-file-text fa-lg
+          = link_to t(name), helper, class:"btn btn-ttc"
         - else
           %i.fa.fa-search.fa-fw
           = form_tag({:controller => viewer, :action => "index"}, :method => "get", class: "form-inline") do
