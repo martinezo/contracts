@@ -31,6 +31,8 @@
     %hr/
     / Comentarios guardados por el usuario.
     %h2= t('.last_comments')
+    %br/
     %div
-      %pre= @comentarios;
-      = link_to "Agregar comentarios", system_files_save_comments_path, class:"btn btn-ttc"
+    %pre= @comentarios;  
+    = link_to "Agregar comentarios", system_files_save_comments_path, class:"btn btn-ttc"
+
