@@ -1,8 +1,8 @@
 .container_general
   .title_file
-    %h2 Archivos
+    %h2= t('.title_list_files')
   .barra_busqueda
-    = render partial: 'layouts/search',locals: { viewer: 'nil' }    
+    = render partial: 'layouts/search',locals: { viewer: 'files', name: 'add_file', helper: system_files_load_files_path }   
   .cuerpo_file
     - if @mensaje
       / Mensaje enviado de la anterior página
@@ -10,23 +10,34 @@
         %strong
           = @mensaje
     / Enlace a la página de subir archivos
-    %p
-      = link_to "Subir archivo", :controller => "files", :action => "load_files"
+    / %p
+    /   = link_to t('.upload_file') , system_files_load_files_path, class: "btn btn-ttc"
+
+    /= link_to "Subir archivo", :controller => "files", :action => "load_files"
     / Lista de archivos subidos
-    %ul
-      - @archivos.each do |a|
-        - if a == "." or a == ".." then next end;
-        %li
-          %strong
-            = a
-          |
-          %a{:href => "/files/#{a}", :target => "_blank"} Ver archivo
-          |
-          \#{link_to "Borrar archivo", {:controller => "files", :action => "delete_files", :archivo_a_borrar => a}, {:method => "post", :confirm => "Seguro?"}}
+    .table-responsive
+      %table.table.table-condensed.table-striped
+        %thead
+          %tr
+            %th= t('.name_file')            
+            %th  
+            %th  
+            %th        
+        %tbody
+          - @archivos.each do |a|
+            - if a == "." or a == ".." then next end;
+            %tr            
+              %td= a
+              %td{:align => "center"}
+                %a.btn.btn-sm.btn-tss.fa.fa-eye{:href => "/files/#{a}", :target => "_blank", title: t('see')}
+              %td{:align => "center"}        
+                \#{link_to '', {:controller => "files", :action => "delete_files", :archivo_a_borrar => a}, {:method => "post", :confirm => "Seguro?", class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete') }}
+              %td 
     / Acá se guarda el nombre del archivo antes de que el formularo sea enviado
     %hr/
     / Comentarios guardados por el usuario.
-    %h2 Últimos Comentarios:
+    %h2= t('.last_comments')
     %div
       %pre= @comentarios;
-      = link_to "Agregar comentarios", :controller => "files", :action => "save_comments"
+      = link_to "Agregar comentarios", system_files_save_comments_path, class:"btn btn-ttc"
+      /= link_to "Agregar comentarios", :controller => "files", :action => "save_comments"
