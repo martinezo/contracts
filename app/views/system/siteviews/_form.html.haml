@@ -15,33 +15,6 @@
     = text_field_tag "notificaciones"
     .modal-footer    
       = f.button :submit, t('save'), :page => @page, class: "btn btn-sm btn-tss col-md-3 col-md-offset-3"
-      - if @eureka.nil?
-        = link_to t('back'), system_siteviews_path, class: "btn btn-sm btn-tss"        
-      - else
+      - if @eureka.nil? == false then
         = link_to t('show'), @system_siteview, remote: true, class: "btn btn-sm btn-tss"
-        = link_to t('back'), system_siteviews_path, class: "btn btn-sm btn-tss"
-
-/ = form_for @system_siteview do |f|
-/   - if @system_siteview.errors.any?
-/     #error_explanation
-/       %h2= "#{pluralize(@system_siteview.errors.count, "error")} prohibited this system_siteview from being saved:"
-/       %ul
-/         - @system_siteview.errors.full_messages.each do |msg|
-/           %li= msg
-
-/   .field
-/     = f.label :contract_id
-/     = f.number_field :contract_id
-/   .field
-/     = f.label :visit_date
-/     = f.datetime_select :visit_date
-/   .field
-/     = f.label :completed
-/     = f.check_box :completed
-/   .field  
-/     =  label_tag "Recordarme el dia:"
-/     =  datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('search')
-  
- 
-/   .actions
-/     = f.submit 'Save'
+      = link_to t('back'), system_siteviews_path, class: "btn btn-sm btn-tss"
