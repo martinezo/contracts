@@ -214,6 +214,10 @@ es:
         name_file: 'Nombre del Archivo'
         last_comments: 'Últimos Comentarios:'
         add_comment: 'Agregar comentarios'
+        deleted_file: 'El archivo ha sido eliminado exitosamente'
+        not_deleted_file: 'El archivo no ha podido ser eliminado'
+        upload_file_ok: 'El archivo ha sido subido exitosamente'
+        upload_file_fail: 'El archivo no ha podido ser subido'
       save_comments:
         title_save_comments: 'Comentarios'
         comments: 'Escribe tu comentario: '

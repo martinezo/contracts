@@ -46,17 +46,17 @@ class System::FilesController < ApplicationController
    #Verificamos si existe la variable subir_archivo por GET.
    if params[:subir_archivo].present?
       if params[:subir_archivo] == "ok";
-         @mensaje = "El archivo ha sido subido exitosamente.";
+         @mensaje = t('.upload_file_ok') ;
       else
-         @mensaje = "El archivo no ha podido ser subido.";
+         @mensaje = t('.upload_file_fail') ;
       end
    end
    #Verificamos si existe la variable eliminar_archivo por GET.
    if params[:eliminar_archivo].present?
       if params[:eliminar_archivo] == "ok";
-         @mensaje = "El archivo ha sido eliminado exitosamente";
+         @mensaje = t('.deleted_file');
       else
-         @mensaje = "El archivo no ha podido ser eliminado.";
+         @mensaje = t('.not_deleted_file');
       end
    end
    #Verifica si existe el archivo de los comentarios.
