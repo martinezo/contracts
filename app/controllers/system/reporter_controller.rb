@@ -1,5 +1,6 @@
 class System::ReporterController < ApplicationController
-  
+  $pdf_var
+
   def index
     @aux = nil
     
@@ -21,7 +22,7 @@ class System::ReporterController < ApplicationController
           if params[:device].nil? or params[:device].to_i == 0
             if params[:supplier].nil? or params[:supplier].to_i ==0
               @system_renewals = @renewals
-              @pdf_var = @system_renewals
+              $pdf_var = @system_renewals
             else
               puts "Supplieeeeer! #{params[:supplier].to_i}"
               contracts = System::Contract.where("supplier_id = '#{params[:supplier].to_i}'")
@@ -31,7 +32,7 @@ class System::ReporterController < ApplicationController
                   @system_renewals.insert(0,rnwl)
                 end
               end 
-              @pdf_var = @system_renewals
+              $pdf_var = @system_renewals
             end
           else
             puts "Deviceeeeeeeees!!!!#{params[:device]}"
@@ -42,13 +43,13 @@ class System::ReporterController < ApplicationController
                 @system_renewals.insert(0,rnwl)
               end
             end
-            @pdf_var = @system_renewals
+            $pdf_var = @system_renewals
           end
         else
           puts "What!!!!!!??????????????????????????? #{params[:contract_param_no].class}"
           var0 = System::Contract.find(params[:contract_param_no].to_i)
           @system_renewals = var0.Renewals
-          @pdf_var = @system_renewals
+          $pdf_var = @system_renewals
         end
 			else
         puts "fechaaaaaaaa! :o"
@@ -62,14 +63,14 @@ class System::ReporterController < ApplicationController
 				else
 
 				end
-        @pdf_var = @system_renewals
+        $pdf_var = @system_renewals
 			end
 		end
     end
      format.js
       format.pdf do
-        puts "#{@pdf_var}"
-        pdf = ReportPDF.new(@pdf_var)
+        puts "#{$pdf_var}"
+        pdf = ReportPDF.new($pdf_var)
         send_data pdf.render, filename: "PDF Test.pdf",
                               type: "application/pdf",
                               disposition: "inline"
