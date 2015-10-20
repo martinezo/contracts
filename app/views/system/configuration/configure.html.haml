@@ -7,7 +7,7 @@
     .form-group
       = simple_form_for :configure, url: system_configuration_save_path, :enforce_utf8 => true do |f|    
         .row
-          .col-xs-6.col-md-4
+          .col-xs-8
             - @mailers.each do |key, value|
               - if @traduccion.nil? == true or @traduccion.key?(key) == false
                 = f.label "campo_etiqueta", key
