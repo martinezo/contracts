@@ -10,8 +10,9 @@
       = f.input :file, as: :file, required: false, label: false, input_html: { class: "btn btn-block"}
       %br/
       = f.button :submit, 'Subir archivo' , class:"btn btn-ttc btn-block", wrapper: :horizontal_form
-      = link_to t('back'), system_files_list_files_path, class:"btn btn-ttc btn-block", wrapper: :horizontal_form
-
+      = link_to t('.back_files'), system_files_list_files_path, class:"btn btn-ttc btn-block", wrapper: :horizontal_form
+      = link_to t('.back_contracts'), system_contracts_path, class:"btn btn-ttc btn-block", wrapper: :horizontal_form
+      
     - if @formato_erroneo
       %div
         %p El formato ingresado es incorrecto. Usted sólo puede subir archivos .pdf, .doc y .docx

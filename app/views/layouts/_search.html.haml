@@ -17,10 +17,6 @@
               = text_field_tag "codigo", "", :size => 30, :maxlenght => 50, :placeholder => t('search'), disabled: true, :style => "display:none"
               = submit_tag t('search'), class:"btn btn-ttc", disabled: true, :style => "display:none"
               = submit_tag t('show_all'), class:"btn btn-ttc", disabled: true, :style => "display:none"
-        - elsif @aux == 'archivo'
-          /%i.fa.fa-file-text.fa-lg
-          /i fa fa-file-text fa-lg
-          = link_to t(name), helper, class:"btn btn-ttc"
         - else
           %i.fa.fa-search.fa-fw
           = form_tag({:controller => viewer, :action => "index"}, :method => "get", class: "form-inline") do
@@ -28,8 +24,11 @@
               = label_tag "codigo", t('search'), class: "sr-only"
               = text_field_tag "codigo", "", :size => 30, :maxlenght => 50, :placeholder => t('search')
               = submit_tag t('search'), class:"btn btn-ttc"
-              = submit_tag t('show_all'), class:"btn btn-ttc"        
-              = link_to t(name), helper, class:"btn btn-ttc", remote: true
+              = submit_tag t('show_all'), class:"btn btn-ttc"
+              - if name == 'add_siteview' or name == 'add_renewal'
+                = link_to t(name), helper, class:"btn btn-ttc", :style => "display:none", remote: true
+              - else 
+                = link_to t(name), helper, class:"btn btn-ttc", remote: true              
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

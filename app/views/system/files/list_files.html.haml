@@ -2,7 +2,7 @@
   .title_file
     %h2= t('.title_list_files')
   .barra_busqueda
-    = render partial: 'layouts/search',locals: { viewer: 'files', name: 'add_file', helper: system_files_load_files_path }   
+    = render partial: 'layouts/search',locals: { viewer: 'nil' }   
   .cuerpo_file
     - if @mensaje
       / Mensaje enviado de la anterior página
