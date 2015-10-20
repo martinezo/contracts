@@ -208,6 +208,8 @@ es:
       load_files:
         files: 'Elige el archivo que deseas almacenar'
         msg_load_files: 'Por favor elige el documento que deseas almacenar en los archivos del sistema.'
+        back_files: 'Regresar a Archivos'
+        back_contracts: 'Regresar a Contratos'
       list_files:
         title_list_files: 'Almacenamiento de Archivos Generales'
         upload_file: 'Subir Archivo'
@@ -245,7 +247,7 @@ es:
   add_contract: Agregar Contrato
   add_siteview: Agregar Visita
   add_renewal: Agregar Renovación
-  add_file: '  Agregar Archivo'
+  add_file: Agregar Archivo
   search: Buscar
   show_all: Mostrar todo
   show: Mostrar

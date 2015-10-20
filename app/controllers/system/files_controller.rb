@@ -38,7 +38,6 @@ class System::FilesController < ApplicationController
   end
 
   def list_files
-   @aux = 'archivo'
    #Guardamos la lista de archivos de la carpeta "archivos".
    @archivos = Dir.entries(Ruta_directorio_archivos);
    #Mensaje que mostrará si la página viene desde otra acción.

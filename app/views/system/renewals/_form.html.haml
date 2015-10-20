@@ -2,8 +2,7 @@
   = simple_form_for @system_renewal, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
 
     = f.error_notification
-    = f.input :contract_id, :input_html => { :value => @contract_id}
-    /= f.association :contract, label_method: :contract_no, value_method: :id, label: t('.contract_no')
+    = f.input :contract_id, :as => :hidden, :input_html => { :value => @contract_id}
     = f.input :start_date, wrapper_html: { class: 'form-inline' }
     = f.input :end_date, wrapper_html: { class: 'form-inline' }
     = f.input :monto, wrapper_html: { class: 'form-inline' }
@@ -15,14 +14,3 @@
       - if @eureka.nil? == false then
         = link_to t('show'), @system_renewal, remote: true, class:"btn btn-sm btn-tss"
       = link_to t('back'), system_renewals_path, class:"btn btn-sm btn-tss"
-
-/ = simple_form_for(@system_renewal) do |f|
-/   = f.error_notification
-
-/   .form-inputs
-/     = f.input :contract_id
-/     = f.input :start_date
-/     = f.input :end_date
-
-/   .form-actions
-/     = f.button :submit
