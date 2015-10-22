@@ -23,6 +23,10 @@ validates :contract_id, :start_date, :end_date, :monto, presence: true
   	end
   end
 
-  
+  def date_filter(startDate, endDate)
+    if start_date >= startDate and end_date <= endDate
+      :active
+    end
+  end
 
 end

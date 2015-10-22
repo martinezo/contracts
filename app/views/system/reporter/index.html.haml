@@ -21,6 +21,9 @@
             %th= t('.end_date')
           .col-xs-6.col-sm-3 
             = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
+          .col-xs-6.col-sm-3 
+            = "Filtrar por fecha: "
+            = check_box_tag "use_date", "1", true
           %br/
           %br/
           .col-xs-6.col-sm-3
@@ -47,6 +50,14 @@
             = select_tag 'renewal', options_from_collection_for_select(@catalog_renewals, "id", "contract_id"), include_blank: "Seleccione Renovacion..." 
           %br/
           %br/
+          .col-xs-6.col-sm-3
+            = "Solo vigentes: "
+            = check_box_tag "active"
+          %br/
+          %br/
+          = submit_tag t('search'), class:"btn btn-ttc"
+          %br/
+          %br/
 
     %br/
     %br/
@@ -57,14 +68,13 @@
       /@system_renewals.first.contract.device.name
       /= field_set_tag 'valor', @system_renewals.first.contract.device.name
       /%br/
-      = submit_tag t('search'), class:"btn btn-ttc"
       /url: "#{update_artists_path}",
 
     :javascript
       $(document).ready(function() {
         $('#contract_param_no').change(function() {
           $.ajax({
-            url: "update_renewals",
+            url: "clean_device_supplier",
             data: {
               contract_param_no : $('#contract_param_no').val()
             },
@@ -77,12 +87,37 @@
       $(document).ready(function() {
         $('#supplier').change(function() {
           $.ajax({
-            url: "update_contracts",
+            url: "clean_device_contract",
             data: {
               supplier : $('#supplier').val()
             },
             dataType: "script"
           });
+        });
+      });
+
+    :javascript
+      $(document).ready(function() {
+        $('#device').change(function() {
+          $.ajax({
+            url: "clean_supplier_contract",
+            data: {
+              device : $('#device').val()
+            },
+            dataType: "script"
+          });
+        });
+      });
+
+    :javascript
+      $(document).ready(function() {
+        $('#use_date').click(function() {
+          $('select#end_date__3i').attr('disabled',! this.checked);
+          $('select#end_date__2i').attr('disabled',! this.checked);
+          $('select#end_date__1i').attr('disabled',! this.checked);
+          $('select#start_date__3i').attr('disabled',! this.checked);
+          $('select#start_date__2i').attr('disabled',! this.checked);
+          $('select#start_date__1i').attr('disabled',! this.checked);
         });
       });
 

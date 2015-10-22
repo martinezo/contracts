@@ -16,3 +16,5 @@ config/database.yml
 *.cache
 config/database.yml
 app/views/system/reporter/jquery-2.1.4.js
+*.cache
+config/database.yml
