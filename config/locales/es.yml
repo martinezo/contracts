@@ -1,4 +1,11 @@
 es:
+  pdf:
+    title_pdf: Reporte general de Contratos
+    device_id: Nombre de Equipo
+    supplier_id: Proveedor
+    contract_no: No. de Contrato
+    start_date: Fecha de inicio
+    end_date: Fecha de fin
   configure:
     name_technical_secretary: 
       name: 'Nombre del Secretario Técnico: '

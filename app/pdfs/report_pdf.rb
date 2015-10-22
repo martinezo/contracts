@@ -12,20 +12,22 @@ class ReportPDF < Prawn::Document
 	def report_number
 		move_down 10
 		font "Helvetica", :size => 16
-		text "Reporte general de Contratos", :align => :center, :color => "FF0000"
+		#text I18n.t('pdf.title_pdf') , :align => :center, :color => "FF0000"
+		text "Reporte general de Contratos" , :align => :center, :color => "FF0000"	
 	end
 
 	def line_items
 		move_down 20
 		font "Helvetica", :size => 10		
-		table line_item_rows, :row_colors => ["8CB9DC" , "F0F0F0"], :header => true  do
+		table line_item_rows, :width => 750, :column_widths => [180, 180, 180, 105, 105], :row_colors => ["8CB9DC" , "F0F0F0"], :header => true  do
 			row(0).font_style = :bold
-			columns(0...1).align = :right
+			columns(0...4).align = :left
 		end
 	end
 
 	def line_item_rows
-		[["Device ID","Supplier ID", "Contract No", "Fecha inicio", "Fecha fin"]] +
+		#[[I18n.t('pdf.device_id'),I18n.t('pdf.supplier_id'), I18n.t('pdf.contract_no'), I18n.t('pdf.start_date'), I18n.t('pdf.end_date')]] +
+		[[ "Nombre de Equipo" , "Proveedor" , "No. de Contrato" , "Fecha inicial" , "Fecha final" ]] +
 		@report.map do |rep|
 		#@report.line_items.map do |item|
 			[rep.device.name, rep.supplier.business_name, rep.contract_no, "00-0000000-0000", "00-0000000-0000"]
