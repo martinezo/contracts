@@ -16,3 +16,12 @@ config/database.yml
 *.cache
 config/database.yml
 app/views/system/reporter/jquery-2.1.4.js
+*.cache
+*.cache
+tmp/cache/assets/development/sprockets/v3.0/fcPSCT2r03sZt4B9diihQz2LViIqknt340v_2EHv-tw.cache
+*.cache
+config/database.yml
+app/pdfs/report_pdf.rb
+*.cache
+config/database.yml
+app/views/layouts/_search.html.haml

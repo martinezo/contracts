@@ -1,0 +1,2 @@
+$('#start_date').html("#{escape_javascript(date_select "start_date", "",disabled: true, :size => 30, :maxlenght => 50, :placeholder => t('.search'))}");
+$('#supplier').html("#{escape_javascript(select_tag 'supplier', options_from_collection_for_select(@catalog_supplier, "id", "business_name"), disabled: true , include_blank: "Seleccione Proveedor...")}");

@@ -1,13 +1,14 @@
 class ReportPDF < Prawn::Document
 	def initialize(report)
 		super()
+		puts "reporteeeeeeeeeeeeee!!!!!#{report}"
 		@report = report
 		report_number
 		line_items
 	end
 
 	def report_number
-		text "Report \# #{@report.class}", size: 30, :styles => [:bold]
+		text "Report \# #{@report}", size: 30, :styles => [:bold]
 	end
 
 	def line_items

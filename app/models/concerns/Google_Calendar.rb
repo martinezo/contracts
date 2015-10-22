@@ -7,7 +7,8 @@ module Google_Calendar
 			file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
 			
 			@key = file_yaml["production"][:developper_id]
-		    @path_key = 'C:/unam-b563e3112a76.p12';
+		    @path_key = 'C:/Sites/contracts/unam-b563e3112a76.p12'
+			#@path_key = file_yaml["production"][:key_path_p12]
 			@cuenta_developper = '109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com';
 			@calendar_id = 'java4ever.sys@gmail.com';
 			@time_min = time_min_param;
@@ -17,6 +18,8 @@ module Google_Calendar
 			@client = Google::APIClient.new(:key => @key);
 			path_to_key_file = @path_key;
 			passphrase = 'notasecret';
+			puts "Aqui vaaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!!!!"
+			puts path_to_key_file
 			key = Google::APIClient::PKCS12.load_key(path_to_key_file, passphrase)
 			asserter = Google::APIClient::JWTAsserter.new(
 					@cuenta_developper,

@@ -5,8 +5,13 @@
     = render partial: 'layouts/search',locals: { viewer: 'nil' }      
   .cuerpo_reporter
     = form_tag({:controller => "reporter", :action => "index"}, :method => "GET", class: "form-inline") do
-      = date_select "start_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')   
-      = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
+      = "Fecha inicial"
+      = date_select "start_date", "", :size => 30, :maxlenght => 50 
+      = "Fecha Final"
+      = date_select "end_date", "", :size => 30, :maxlenght => 50
+      = "Filtrar por fecha: "
+      = check_box_tag "use_date", "1", true
+      /= check_box_tag "use_date", :onclick=>'$(this).checked() ? $("#start_date").show(): $("#start_date")hide();'
       %br/
       = select_tag 'supplier', options_from_collection_for_select(@catalog_supplier, "id", "business_name"), include_blank: "Seleccione Proveedor..."
       %br/
@@ -14,9 +19,9 @@
       %br/
       = select_tag 'contract_param_no', options_from_collection_for_select(@system_contract, "id", "contract_no"), include_blank: "Seleccione Contrato..."
       %br/
-      = select_tag 'renewal', options_from_collection_for_select(@catalog_renewals, "id", "contract_id"), include_blank: "Seleccione Renovacion..." 
+      = "Solo vigentes: "
+      = check_box_tag "active"
       %br/
-      
 
       /@system_renewals.first.contract.device.name
       /= field_set_tag 'valor', @system_renewals.first.contract.device.name
@@ -28,7 +33,7 @@
       $(document).ready(function() {
         $('#contract_param_no').change(function() {
           $.ajax({
-            url: "update_renewals",
+            url: "clean_device_supplier",
             data: {
               contract_param_no : $('#contract_param_no').val()
             },
@@ -41,12 +46,37 @@
       $(document).ready(function() {
         $('#supplier').change(function() {
           $.ajax({
-            url: "update_contracts",
+            url: "clean_device_contract",
             data: {
               supplier : $('#supplier').val()
             },
             dataType: "script"
           });
+        });
+      });
+
+    :javascript
+      $(document).ready(function() {
+        $('#device').change(function() {
+          $.ajax({
+            url: "clean_supplier_contract",
+            data: {
+              device : $('#device').val()
+            },
+            dataType: "script"
+          });
+        });
+      });
+
+    :javascript
+      $(document).ready(function() {
+        $('#use_date').click(function() {
+          $('select#end_date__3i').attr('disabled',! this.checked);
+          $('select#end_date__2i').attr('disabled',! this.checked);
+          $('select#end_date__1i').attr('disabled',! this.checked);
+          $('select#start_date__3i').attr('disabled',! this.checked);
+          $('select#start_date__2i').attr('disabled',! this.checked);
+          $('select#start_date__1i').attr('disabled',! this.checked);
         });
       });
 
