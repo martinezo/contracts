@@ -1,23 +1,22 @@
 class System::ReporterController < ApplicationController
-  $pdf_var
-
+  $pdf_var = System::Contract.all
   def index
     @aux = nil
     
-  	@system_contract=System::Contract.all
-  	@catalog_supplier = Catalogs::Supplier.all
+    @system_contract=System::Contract.all
+    @catalog_supplier = Catalogs::Supplier.all
     @catalog_device = Catalogs::Device.all
-	  @renewals=System::Renewal.all    
+    @renewals=System::Renewal.all    
     @catalog_renewals = @renewals
-	  @system_renewals = Array.new()
+    @system_renewals = Array.new()
     params[:start_date] = nil
     #params[:contract_param_no] = nil
     #params[:device] = nil
     #params[:supplier] = nil
 
-  	respond_to do |format|
-    	format.html do
-			if params[:start_date].nil? or params[:end_date].nil?
+    respond_to do |format|
+      format.html do
+      if params[:start_date].nil? or params[:end_date].nil?
         if params[:contract_param_no].nil? or params[:contract_param_no].to_i == 0
           if params[:device].nil? or params[:device].to_i == 0
             if params[:supplier].nil? or params[:supplier].to_i ==0
@@ -51,21 +50,21 @@ class System::ReporterController < ApplicationController
           @system_renewals = var0.Renewals
           $pdf_var = @system_renewals
         end
-			else
+      else
         puts "fechaaaaaaaa! :o"
-				format1=*params["start_date"].values.map(&:to_i)
-				t0=Date.new(format1[2],format1[1],format1[0])
-        		format2=*params["end_date"].values.map(&:to_i)
-				t1=Date.new(format2[2],format2[1],format2[0])
-				@renewals.each do |renewal|
-				if (renewal.date_filter(t0,t1) == :active)
-					@system_renewals.insert(0,renewal)
-				else
+        format1=*params["start_date"].values.map(&:to_i)
+        t0=Date.new(format1[2],format1[1],format1[0])
+            format2=*params["end_date"].values.map(&:to_i)
+        t1=Date.new(format2[2],format2[1],format2[0])
+        @renewals.each do |renewal|
+        if (renewal.date_filter(t0,t1) == :active)
+          @system_renewals.insert(0,renewal)
+        else
 
-				end
+        end
         $pdf_var = @system_renewals
-			end
-		end
+      end
+    end
     end
      format.js
       format.pdf do
