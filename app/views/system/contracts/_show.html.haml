@@ -44,7 +44,7 @@
 .cuerpo_comtract
 
   - if @active_renewal.nil?
-    %p= t('.msg_expired')
+    %p{'align' => 'center'}= t('.msg_expired')
   - else
     .table-responsive
       %table.table.table-striped.table-condensed
