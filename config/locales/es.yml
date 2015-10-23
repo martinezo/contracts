@@ -17,20 +17,20 @@ es:
       name: 'Número de caracteres: '
       hint: 'Caracteres mostrados en pantalla de información'
     notification_time:
-      name: 'Tiempo de notificación: '
+      name: 'Tiempo de notificación (días): '
       hint: 'Tiempo previo a verificar una expiración de contrato'
     developper_id: 
       name: 'ID de desarrollador: '
-      hint: ' '
+      hint: 'Datos asociados a la cuenta en Google Calendar'
     developper_key:
       name: 'Llave de desarrollador: '
-      hint: ''
+      hint: 'Datos asociados a la cuenta en Google Calendar'
     key_path_p12:
       name: 'Ruta del archivo p12: '
-      hint: ''
+      hint: 'Localización del archivo p12 en'
     developper_email:
       name: 'Correo de desarrollador: '
-      hint: ''
+      hint: 'Datos asociados a la cuenta en Google Calendar'
     calendar_id:
       name: 'ID de calendario: '
       hint: 'Correo electrónico en donde se encuentra el calendario disponible.'
@@ -142,6 +142,7 @@ es:
         finished: Expirado
         visited: Visita realizada
         not_visited: Visita no realizada
+        msg_expired: El contrato se encuentra vencido.
       edit:
         title_edit_contract: Editar Contrato
       new:
