@@ -92,10 +92,13 @@ class System::ContractsController < ApplicationController
 
     respond_to do |format|
       if @system_contract.save
-        #@google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,system_contract_params[:description],'neuro')
-		    #@google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,system_contract_params[:description],'neuro')
+        @google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,system_contract_params[:description],'neuro')
+		@google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,system_contract_params[:description],'neuro')
 
-        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: params[:monto], google_event_start: "demo", google_event_end: "demo")
+        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: params[:monto], google_event_start: @google_event_start, google_event_end: @google_event_end)
+		puts 'google_event aki es'
+		puts @google_event_start
+		puts @google_event_end
 
 	    puts 'google_event aki terminar'
 	   if  @system_renewal.save
@@ -133,8 +136,8 @@ class System::ContractsController < ApplicationController
 
 		system_renewal_params={:contract_id => @system_contract.id,:start_date => @start_date,:end_date => @end_date,:monto => params[:monto]}
         System::Renewal.find(var).update(system_renewal_params)
-	  	#System::Renewal.event_update(@start_date_google,@start_date_google,system_contract_params[:description],'neuro',System::Renewal.find(var).google_event_start)
-		  #System::Renewal.event_update(@end_date_google,@end_date_google,system_contract_params[:description],'neuro',System::Renewal.find(var).google_event_end)
+	  	System::Renewal.event_update(@start_date_google,@start_date_google,system_contract_params[:description],'neuro',System::Renewal.find(var).google_event_start)
+		System::Renewal.event_update(@end_date_google,@end_date_google,system_contract_params[:description],'neuro',System::Renewal.find(var).google_event_end)
         system_renewal_params={:contract_id => @system_contract.id,:start_date => @start_date,:end_date => @end_date,:monto => params[:monto]}
         System::Renewal.find(var).update(system_renewal_params)
 

@@ -67,10 +67,10 @@ class System::RenewalsController < ApplicationController
 	@start_date_google=system_renewal_params["start_date(1i)"].to_s + '-' + system_renewal_params["start_date(2i)"].to_s + '-' + system_renewal_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
 	@end_date_google=system_renewal_params["end_date(1i)"].to_s + '-' + system_renewal_params["end_date(2i)"].to_s + '-' + system_renewal_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
 	x=System::Contract.find(system_renewal_params[:contract_id])
-	  #@google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,x.description,'neuro')
-    #@google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,x.description,'neuro')
+	@google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,x.description,'neuro')
+    @google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,x.description,'neuro')
 
-	@system_renewal = System::Renewal.new(contract_id: system_renewal_params[:contract_id], start_date: @start_date, end_date: @end_date, monto: system_renewal_params[:monto], google_event_start: "demo", google_event_end: "demo")
+	@system_renewal = System::Renewal.new(contract_id: system_renewal_params[:contract_id], start_date: @start_date, end_date: @end_date, monto: system_renewal_params[:monto], google_event_start: @google_event_start, google_event_end: @google_event_end)
 
     respond_to do |format|
       if @system_renewal.save
@@ -91,8 +91,21 @@ class System::RenewalsController < ApplicationController
   # PATCH/PUT /system/renewals/1
   # PATCH/PUT /system/renewals/1.json
   def update
+  		@start_date=Date.new(system_renewal_params["start_date(1i)"].to_i,system_renewal_params["start_date(2i)"].to_i,system_renewal_params["start_date(3i)"].to_i)
+        @end_date=Date.new(system_renewal_params["end_date(1i)"].to_i,system_renewal_params["end_date(2i)"].to_i,system_renewal_params["end_date(3i)"].to_i)
+		
+		@start_date_google=system_renewal_params["start_date(1i)"].to_s + '-' + system_renewal_params["start_date(2i)"].to_s + '-' + system_renewal_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
+		@end_date_google=system_renewal_params["end_date(1i)"].to_s + '-' + system_renewal_params["end_date(2i)"].to_s + '-' + system_renewal_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
+	
+		x=System::Contract.find(system_renewal_params[:contract_id])
+		puts 'aki va el ID del calendariooooooooooooooooooooooooooooooooooooooooo'
+		puts System::Renewal.find(params[:id]).google_event_start
+		puts 'aki termina el ID del calendariooooooooooooooooooooooooooooooooooooooooo'
+		System::Renewal.event_update(@start_date_google,@start_date_google,x.description,'neuro',System::Renewal.find(params[:id]).google_event_start)
+		System::Renewal.event_update(@end_date_google,@end_date_google,x.description,'neuro',System::Renewal.find(params[:id]).google_event_end)
+
     respond_to do |format|
-      if @system_renewal.update(system_renewal_params)
+      if @system_renewal.update(contract_id: system_renewal_params[:contract_id], start_date: @start_date, end_date: @end_date, monto: system_renewal_params[:monto])
         format.html { redirect_to @system_renewal, notice: 'Renewal was successfully updated.' }
         format.json { render :show, status: :ok, location: @system_renewal }
         format.js   { redirect_to @system_renewal, notice: 'Renewal was successfully updated.' }

@@ -1,3 +1,4 @@
+require 'net/ftp'
 class System::FilesController < ApplicationController
   Ruta_archivo_comentarios = "public/comments/comentarios.txt";
   Ruta_directorio_archivos = "public/files/";  
@@ -5,16 +6,18 @@ class System::FilesController < ApplicationController
   @aux = nil
    
   def load_files
-  
+  @renewal_id=params[:renewal_id];
   @formato_erroneo = false;
    if request.post?
       #Archivo subido por el usuario.
       archivo = params[:files][:file];
       #Nombre original del archivo.
-      nombre = archivo.original_filename;
+      nombre = @renewal_id.to_s + "_" + archivo.original_filename;
       #Directorio donde se va a guardar.
       directorio = Ruta_directorio_archivos;
       #Extensión del archivo.
+	  puts 'aki va el nombre Renewallllllllllllllllllllllllllllllllllllll'
+	  puts @renewal_id
       extension = nombre.slice(nombre.rindex("."), nombre.length).downcase;
       #Verifica que el archivo tenga una extensión correcta.
       if extension == ".pdf" or extension == ".doc" or extension == ".docx"
@@ -23,6 +26,10 @@ class System::FilesController < ApplicationController
          #Crear en el archivo en el directorio. Guardamos el resultado en una variable, será true si el archivo se ha guardado correctamente.
          resultado = File.open(path, "wb") { |f| f.write(archivo.read) };
          #Verifica si el archivo se subió correctamente.
+		 ftp = Net::FTP.new('ftp.Smarterasp.net', 'mcpramirez-001', 'windowslnx')
+		 ftp.chdir('/site1/')
+         ftp.storbinary("STOR " + archivo.original_filename, StringIO.new(archivo.read), Net::FTP::DEFAULT_BLOCKSIZE)
+		 ftp.close
          if resultado
             subir_archivo = "ok";
          else

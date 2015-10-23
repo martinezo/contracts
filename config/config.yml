@@ -1,7 +1,7 @@
 ---
 production:
   name_technical_secretary: Hola
-  e_mail_technical_secretary: czar.5@hotmail.com
+  e_mail_technical_secretary: martinezo@comunidad.unam.mx
   truncate_length: '13'
   notification_time: '7'
   developper_id: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com

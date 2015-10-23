@@ -29,4 +29,5 @@ validates :contract_id, :start_date, :end_date, :monto, presence: true
     end
   end
 
+  
 end

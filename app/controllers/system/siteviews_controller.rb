@@ -47,14 +47,17 @@ class System::SiteviewsController < ApplicationController
   # POST /system/siteviews
   # POST /system/siteviews.json
   def create
-		@start_date=Date.new(system_siteview_params["visit_date(1i)"].to_i,system_siteview_params["visit_date(2i)"].to_i,system_siteview_params["visit_date(3i)"].to_i)
+		
+		@start_date=Time.new(system_siteview_params["visit_date(1i)"].to_i,system_siteview_params["visit_date(2i)"].to_i,system_siteview_params["visit_date(3i)"].to_i,system_siteview_params["visit_date(4i)"].to_i - 5,system_siteview_params["visit_date(5i)"].to_i)
         
 		format2=*params["recordar"].values.map(&:to_i)
 	    @end_date=Date.new(format2[2],format2[1],format2[0])
 
-		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T10:00:52-05:00'
-		@end_date_google=format2[2].to_s + '-' + format2[1].to_s + '-' + format2[0].to_s + 'T10:00:52-05:00'
-		
+		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T'+system_siteview_params["visit_date(4i)"].to_s+':'+system_siteview_params["visit_date(5i)"].to_s+':52-05:00'
+
+
+
+
 	    @system_siteview = System::Siteview.new(system_siteview_params)
             renewal=System::Renewal.find(system_siteview_params[:renewal_id])
             format=*params["recordar"].values.map(&:to_i)
@@ -69,11 +72,11 @@ class System::SiteviewsController < ApplicationController
             array_mailer = [@email, params[:notificaciones]]
             puts array_mailer
 			x=System::Renewal.find(system_siteview_params[:renewal_id])
-	  #@google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,x.contract.description,'neuro')
-    #@google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,x.contract.description,'neuro')
+			@google_event_start = System::Siteview.event_insert(@start_date_google,@start_date_google,x.contract.description,'neuro')
+
 
 	
-			@system_siteview= System::Siteview.new(renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: "demo", google_event_end: "demo", completed: system_siteview_params[:completed])
+			@system_siteview= System::Siteview.new(renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: @google_event_start, completed: system_siteview_params[:completed])
 respond_to do |format|
     if @system_siteview.save
 	ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer)
@@ -91,7 +94,22 @@ respond_to do |format|
   # PATCH/PUT /system/siteviews/1
   # PATCH/PUT /system/siteviews/1.json
   def update
+ 	    @start_date=Time.new(system_siteview_params["visit_date(1i)"].to_i,system_siteview_params["visit_date(2i)"].to_i,system_siteview_params["visit_date(3i)"].to_i,system_siteview_params["visit_date(4i)"].to_i,system_siteview_params["visit_date(5i)"].to_i)
+		
+		format2=*params["recordar"].values.map(&:to_i)
+	    @end_date=Date.new(format2[2],format2[1],format2[0])
+
+		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T'+system_siteview_params["visit_date(4i)"].to_s+':'+system_siteview_params["visit_date(5i)"].to_s+':52-05:00'
+
+		x=System::Renewal.find(system_siteview_params[:renewal_id])
+		@google_event_start=System::Siteview.find(params[:id]).google_event_start
+		
+		System::Siteview.event_update(@start_date_google,@start_date_google,x.contract.description,'neuro',@google_event_start)
+puts 'Aki va la hora del star_dateeeeeeeeeeeeeeeeeeeeeeeeeeee'
+puts @start_date
+puts 'Aki termina la hora del star_dateeeeeeeeeeeeeeeeeeeeeeee'
     respond_to do |format|
+	
       if @system_siteview.update(system_siteview_params)
         format.html { redirect_to @system_siteview, notice: t('.updated') }
         format.json { render :show, status: :ok, location: @system_siteview }
@@ -106,6 +124,8 @@ respond_to do |format|
   # DELETE /system/siteviews/1
   # DELETE /system/siteviews/1.json
   def destroy
+  puts 'destruyendo eventooooooooooooooooooooooooooo'
+    System::Siteview.event_delete(System::Siteview.find(params[:id]).google_event_start)
     @system_siteview.destroy
     respond_to do |format|
       format.html { redirect_to system_siteviews_url, notice: t('.destroyed') }

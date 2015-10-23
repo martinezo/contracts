@@ -13,7 +13,9 @@
     = f.label t('.email_extra')
     = text_field_tag "notificaciones"
     .modal-footer    
-      = f.button :submit, t('save'), :page => @page, class: "btn btn-sm btn-tss col-md-3 col-md-offset-3"
+      = f.button :submit, t('save'), :page => @page, class: "btn btn-sm btn-tss col-md-3 col-md-offset-3", data: {disable_with: "Submitting..."}
       - if @eureka.nil? == false then
+        = link_to t('back'), system_siteviews_path, class: "btn btn-sm btn-tss"        
+      - else
         = link_to t('show'), @system_siteview, remote: true, class: "btn btn-sm btn-tss"
-      = link_to t('back'), system_siteviews_path, class: "btn btn-sm btn-tss"
+      = link_to t('back'), system_contracts_path, class: "btn btn-sm btn-tss"

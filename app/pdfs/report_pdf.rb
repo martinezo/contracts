@@ -30,7 +30,7 @@ class ReportPDF < Prawn::Document
 		[[ "Nombre de Equipo" , "Proveedor" , "No. de Contrato" , "Fecha inicial" , "Fecha final" ]] +
 		@report.map do |rep|
 		#@report.line_items.map do |item|
-			[rep.device.name, rep.supplier.business_name, rep.contract_no, "00-0000000-0000", "00-0000000-0000"]
+			[rep.contract.device.name, rep.contract.supplier.business_name, rep.contract.contract_no, rep.start_date, rep.end_date]
 		end
 	end
 	#end

@@ -1,5 +1,5 @@
 class System::ReporterController < ApplicationController
-  $pdf_var = System::Contract.all
+  $pdf_var = System::Renewal.all
   def index
     @aux = nil
   	@system_contract=System::Contract.all

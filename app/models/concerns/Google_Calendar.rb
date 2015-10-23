@@ -104,9 +104,12 @@ def event_update(time_min_param,time_max_param,summary_param,location_param,even
 def event_delete(event_id_param)
 	file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
 	@key = file_yaml["production"][:developper_id]
-	@path_key = file_yaml["production"][:key_path_p12]
-	@cuenta_developper = file_yaml["production"][:developper_email]
-	@calendar_id = file_yaml["production"][:calendar_id]
+
+
+
+	@path_key = 'C:/Sites/google-calendar-ruby/unam-b563e3112a76.p12';
+	@cuenta_developper = '109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com';
+	@calendar_id = 'java4ever.sys@gmail.com';	
 	@event_id = event_id_param;
 
 	@client = Google::APIClient.new(:key => @key)
