@@ -50,19 +50,17 @@
   .paginacion  
     .apple_pagination
       = will_paginate @system_contracts, :container => false
-
     %br
-    /= link_to t('.add_contract'), new_system_contract_path, class:"btn btn-tss", remote: true
 
   #contract-modal.modal.fade
-    .modal-dialog
+    .modal-dialog.modal-lg
       #inner-contract-modal.modal-content
   #delete-modal.modal.fade
     .modal-dialog
       #inner-delete-modal.modal-content
   #renewal-modal.modal.fade
-    .modal-dialog
+    .modal-dialog.modal-lg
       #inner-renewal-modal.modal-content
   #siteview-modal.modal.fade
-    .modal-dialog
+    .modal-dialog.modal-lg
       #inner-siteview-modal.modal-content
