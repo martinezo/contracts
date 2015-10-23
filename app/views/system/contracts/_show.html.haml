@@ -85,18 +85,13 @@
               %td
                 - if visit.status_visit == :visited
                   %i.fa.fa-exclamation-circle.fa-lg{:style => "color:yellowgreen", :title => t('.visited')}
-                  /%i.fa.fa-exclamation{class: "btn btn-xs btn-success", title: t('.visited')}
                 - if visit.status_visit == :not_visited
                   %i.fa.fa-exclamation-circle.fa-lg{:style => "color:red", :title => t('.not_visited')}
-                  /%i.fa.fa-exclamation{class: "btn btn-xs btn-danger", title: t('.not_visited')}
               %td= visit.renewal.contract.contract_no
               %td= visit.visit_date
               %td
 
 .modal-footer
-  /= link_to t('pdf'), "contracts/#{@system_contract.id}.pdf", class: "btn btn-sm btn-tss" 
-  /= link_to t('xlsx'), system_contracts_path, class: "btn btn-sm btn-tss" 
-  /\|
   = link_to t('edit'), edit_system_contract_path(@system_contract), remote: true, class: "btn btn-sm btn-tss"
   = link_to t('back'), system_contracts_path, class: "btn btn-sm btn-tss"
 
