@@ -176,7 +176,7 @@ es:
       form:
         renewal: Renovación
         remember_day: 'Recordarme el día:'
-        email_extra: 'Correo electrónico: '
+        email_extra: 'Correos electrónicos adicionales a notificar: '
     renewals:
       index:
         title_renewals: Renovaciones de Contrato
