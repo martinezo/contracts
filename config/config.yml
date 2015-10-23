@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 ---
 production:
   name_technical_secretary: Hola
-  e_mail_technical_secretary: martinezo@comunidad.unam.mx
+  e_mail_technical_secretary: nanish_20@hotmail.com
   truncate_length: '13'
   notification_time: '7'
   developper_id: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com
@@ -10,16 +9,3 @@ production:
   key_path_p12: C\:\/Sites\/google-calendar-ruby\/unam-b563e3112a76.p12
   developper_email: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com
   calendar_id: java4ever.sys@gmail.com
-=======
----
-production:
-  name_technical_secretary: Hola
-  e_mail_technical_secretary: czar.5@hotmail.com
-  truncate_length: '18'
-  notification_time: '7'
-  developper_id: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com
-  developper_key: AIzaSyCRH1hazwsIa5wm9-CRicRxvkVxId3Nx1s
-  key_path_p12: C\:\/Sites\/google-calendar-ruby\/unam-b563e3112a76.p12
-  developper_email: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com
-  calendar_id: java4ever.sys@gmail.com
->>>>>>> 03_23octFileview
