@@ -32,11 +32,14 @@ class System::FilesController < ApplicationController
 		 ftp.close
          if resultado
             subir_archivo = "ok";
+            redirect_to :controller => "contracts", :action => "index"
          else
             subir_archivo = "error";
+            #Redirige al controlador "archivos", a la acción "lista_archivos" y con la variable de tipo GET "subir_archivos" con el valor "ok" si se subió el archivo y "error" si no se pudo.
+            redirect_to :controller => "files", :action => "list_files", :subir_archivo => subir_archivo;
          end
          #Redirige al controlador "archivos", a la acción "lista_archivos" y con la variable de tipo GET "subir_archivos" con el valor "ok" si se subió el archivo y "error" si no se pudo.
-         redirect_to :controller => "files", :action => "list_files", :subir_archivo => subir_archivo;
+         #redirect_to :controller => "files", :action => "list_files", :subir_archivo => subir_archivo;
       else
          @formato_erroneo = true;
       end
