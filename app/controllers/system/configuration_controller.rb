@@ -28,7 +28,14 @@ class System::ConfigurationController < ApplicationController
       @file_yaml["production"][key] = params[:configure][key].encode("UTF-8", "binary", :invalid => :replace, :undef => :replace, :replace => "?")
     end
     @file_yaml.to_yaml
-    puts "Prueba para el Save #{@file_yaml}"
-    File.open("#{Rails.root}/config/config.yml", 'w+') { |f| YAML.dump(@file_yaml, f)}
+    #puts "Prueba para el Save #{@file_yaml}"
+    resultado = File.open("#{Rails.root}/config/config.yml", 'w+') { |f| YAML.dump(@file_yaml, f)}
+    
+    if resultado
+      puts 'Nos vamos a contratos'
+      redirect_to :controller => "contracts", :action => "index"
+    else
+      redirect_to :controller => "configuration", :action => "configure"
+    end    
   end
 end
