@@ -134,6 +134,9 @@
     /    %br/
     /    -%br/
 
+    /= link_to t('back'), system_reporter_index_path, class: "btn btn-sm btn-tss"
+    = link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank" 
+
     %br/
     %br/	
     .table-responsive
@@ -156,8 +159,4 @@
               %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
               %td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
               %td= system_renewal.start_date
-              %td= system_renewal.end_date
-    %br/
-    %br/          
-    = link_to t('back'), system_reporter_index_path, class: "btn btn-sm btn-tss"
-    = link_to t('pdf'), "index.pdf", class: "btn btn-sm btn-tss" 
+              %td= system_renewal.end_date    

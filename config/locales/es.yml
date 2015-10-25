@@ -212,6 +212,7 @@ es:
         contract: 'No. de Contrato'
         start_date: 'Fecha inicial'
         end_date: 'Fecha final'
+        pdf: 'Generar documento PDF'
     files:
       load_files:
         files: 'Elige el archivo que deseas almacenar'
