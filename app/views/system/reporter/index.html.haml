@@ -45,17 +45,16 @@
           %br/
           %br/
           .col-xs-6.col-sm-3
-            %th= t('.renewal')
-          .col-xs-6.col-sm-3
-            = select_tag 'renewal', options_from_collection_for_select(@catalog_renewals, "id", "contract_id"), include_blank: "Seleccione Renovacion..." 
-          %br/
-          %br/
-          .col-xs-6.col-sm-3
             = "Solo vigentes: "
+          .col-xs-6.col-sm-3
             = check_box_tag "active"
           %br/
           %br/
-          = submit_tag t('search'), class:"btn btn-ttc"
+          .col-xs-6.col-sm-3
+            = select_tag 'renewal', options_from_collection_for_select(@catalog_renewals, "id", "contract_id"), include_blank: "Seleccione Renovacion...", :hidden => true
+          %br/        
+          .col-xs-6.col-sm-3  
+          = submit_tag t('search'), class:"btn btn-ttc btn-sm"
           %br/
           %br/
 
@@ -146,6 +145,7 @@
             %th= t('.device')
             %th= t('.supplier')          
             %th= t('.contract')
+            %th= t('.monto')
             %th= t('.start_date')
             %th= t('.end_date')
             %th
@@ -158,5 +158,6 @@
               %td{title: system_renewal.contract.device.name}= system_renewal.contract.device.short_name
               %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
               %td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
+              %td= system_renewal.monto
               %td= system_renewal.start_date
               %td= system_renewal.end_date    

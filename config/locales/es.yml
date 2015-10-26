@@ -210,6 +210,7 @@ es:
         device: 'Nombre de Equipo'
         supplier: 'Proveedor'
         contract: 'No. de Contrato'
+        monto: 'Monto'
         start_date: 'Fecha inicial'
         end_date: 'Fecha final'
         pdf: 'Generar documento PDF'
