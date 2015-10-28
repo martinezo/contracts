@@ -14,7 +14,6 @@
  *= require_tree .
  *= require_self
  */
-
 @import 'font-awesome';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
@@ -60,7 +59,6 @@ body {
   background-color: black;
   /*background-color: rgb(63,15,11);*/
 }
-
 .btn-ttc, a:hover{
   background-color: rgb(50,76,115);
   color: white;}
@@ -70,7 +68,6 @@ body {
   color: white;
   background-color: rgb(156,198,227);
 }
-
 .texto{
   padding-left: 8px;
   color: black;
@@ -79,8 +76,6 @@ body {
   border-style: groove;
   border-width: 5px;
   border-color: rgb(241,164,40);
-  
-
 }
 .btn-tss, a:hover{
   background-color: rgb(52,142,211);
@@ -91,7 +86,6 @@ body {
   color:white;
   border:1px solid rgb(41,49,164);
 }
-
 .modal-header {
   background-color: rgb(19,62,210);
   color: white;
@@ -132,10 +126,7 @@ body {
   width: autopx;*/
   overflow: scroll;
 }
-
 .cuerpo_file_load{
   padding-left: 30%;
   padding-right: 30%;
 }
-     
-

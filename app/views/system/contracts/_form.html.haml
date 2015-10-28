@@ -1,18 +1,25 @@
 .container-fluid
   = simple_form_for @system_contract, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
-       
     = f.error_notification
     = f.association :device, label: t('.device'), required: true
     = f.association :supplier, label: t('.supplier') ,label_method: :business_name, value_method: :id, requiered: true
-    = f.label t('.start_date')
+    .col-xs-4.col-sm-3 
+      = f.label t('.start_date')
     = date_select "start_date", ""
     %br/
-    = f.label t('.end_date')
+    %br/
+    .col-xs-4.col-sm-3 
+      = f.label t('.end_date')   
     = date_select "end_date", ""
+    %br/
+    %br/
     = f.input :contract_no, requires: true
     = f.input :description, requires: true, as: :text    
-    = f.label t('.monto')
+    .col-xs-4.col-sm-3 
+      = f.label t('.monto')
     = text_field_tag 'monto', @system_renewal.monto
+    %br/
+    %br/
     %br/
     .modal-footer
       = f.button :submit, t('save'), class: "btn btn-sm btn-tss col-md-3 col-md-offset-3", data: {disable_with: "Submitting..."}
