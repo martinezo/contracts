@@ -32,9 +32,9 @@ body {
 }
 .backcontainer {
     background-image:url('http://carloscavazos.com/wp-content/uploads/background-navy-blue-1600x900.jpg'); 
-    background-repeat:repeat;
-    /*width:
-    // height: 700px; */    }
+    background-repeat: repeat-y;
+    background-size: 100%
+      }
 .container {
     background-color:white;
     height: 1100px;
