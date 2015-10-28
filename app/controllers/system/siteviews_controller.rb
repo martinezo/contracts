@@ -28,7 +28,8 @@ class System::SiteviewsController < ApplicationController
   # GET /system/siteviews/new
   def new
 	@renewal_id = params[:renewal_id]
-    puts "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYXXXXXXX#{params[:page]}"
+  @renewal = System::Renewal.find(params[:renewal_id])
+    puts "Renewaaaaaaaaaaaaaaaaaaaaaaaaaal!!!!!!!!!!#{params[:renewal_id]}"
     @page = params[:page]
     @system_siteview = System::Siteview.new
     @eureka = nil

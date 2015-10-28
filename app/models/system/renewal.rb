@@ -24,8 +24,13 @@ validates :contract_id, :start_date, :end_date, :monto, presence: true
   end
 
   def date_filter(startDate, endDate)
-    if start_date >= startDate and end_date <= endDate
+   # if start_date >= startDate or end_date <= endDate
+    #  :active
+    #end
+    if startDate >= start_date and startDate <= end_date
       :active
+    elsif endDate <= end_date and endDate >= start_date
+      :active        
     end
   end
 

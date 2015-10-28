@@ -8,10 +8,6 @@ class System::ReporterController < ApplicationController
 	  @renewals=System::Renewal.all    
     @catalog_renewals = @renewals
 	  @system_renewals = Array.new()
-    #params[:start_date] = nil
-    #params[:contract_param_no] = nil
-    #params[:device] = nil
-    #params[:supplier] = nil
 
   	respond_to do |format|
     	format.html do
@@ -19,44 +15,22 @@ class System::ReporterController < ApplicationController
         puts "fechaaaaaaaaaaaaaaaaaaa!!!!!!#{params[:end_date].class}"
         filter_without_date
 			else
-         puts "fechaaaaaaaa! :o"
-      format1=*params["start_date"].values.map(&:to_i)
-      t0=Date.new(format1[2],format1[1],format1[0])
-            format2=*params["end_date"].values.map(&:to_i)
-      t1=Date.new(format2[2],format2[1],format2[0])
-      puts "variable renewals!!!!!!!!!!!!!!!!!!!!#{@renewals}"
-      unless params[:supplier].nil? or params[:supplier].to_i == 0
-        puts "si pasoooooooooooooooooo!?!?!?!?!?!?!?!?!?!?!"
-        select_supplier
-        @renewals = @system_renewals
-        @system_renewals = Array.new()
-      end
-       unless params[:device].nil? or params[:device].to_i == 0
-        puts "si pasoooooooooooooooooo!?!?!?!?!?!?!?!?!?!?!"
-        select_device
-        @renewals = @system_renewals
-        @system_renewals = Array.new()
-      end
-      unless params[:contract_param_no].nil? or params[:contract_param_no].to_i == 0
-        puts "si pasoooooooooooooooooo!?!?!?!?!?!?!?!?!?!?!"
-        select_contract
-        @renewals = @system_renewals
-        @system_renewals = Array.new()
-      end
-      @renewals.each do |renewal|
-        if (renewal.date_filter(t0,t1) == :active)
-          #me parece que aqui ya se filtro por activos o inactivos
-          @system_renewals.insert(0,renewal)
-        else
-
-        end
-        $pdf_var = @system_renewals
-        puts "funcionaaaaaaaaaaaaaa!!!!!#{$pdf_var}"
-			end
-		end
+        filter_with_date
+		  end
     end
-     format.js
-      format.pdf do
+     format.js do
+        #@system_renewals.insert(0,System::Renewal.first)
+        #@system_renewals.insert(0,System::Renewal.last)
+        #@system_renewals = System::Renewal.first
+        if params[:start_date].nil? or params[:end_date].nil?
+          puts "fechaaaaaaaaaaaaaaaaaaa!!!!!!#{params[:end_date].class}"
+          filter_without_date
+        else
+          filter_with_date
+        end
+        render :body
+      end
+     format.pdf do
         puts "variablepdfffffffffffffff!!!!#{$pdf_var.class}"
         pdf = ReportPDF.new($pdf_var)
         send_data pdf.render, filename: "PDF Test.pdf",
@@ -129,7 +103,40 @@ class System::ReporterController < ApplicationController
   end
 
   def filter_with_date
-     
+     puts "fechaaaaaaaa! :o"
+      format1=*params["start_date"].values.map(&:to_i)
+      t0=Date.new(format1[2],format1[1],format1[0])
+            format2=*params["end_date"].values.map(&:to_i)
+      t1=Date.new(format2[2],format2[1],format2[0])
+      puts "variable renewals!!!!!!!!!!!!!!!!!!!!#{@renewals}"
+      unless params[:supplier].nil? or params[:supplier].to_i == 0
+        puts "si pasoooooooooooooooooo!?!?!?!?!?!?!?!?!?!?!"
+        select_supplier
+        @renewals = @system_renewals
+        @system_renewals = Array.new()
+      end
+       unless params[:device].nil? or params[:device].to_i == 0
+        puts "si pasoooooooooooooooooo!?!?!?!?!?!?!?!?!?!?!"
+        select_device
+        @renewals = @system_renewals
+        @system_renewals = Array.new()
+      end
+      unless params[:contract_param_no].nil? or params[:contract_param_no].to_i == 0
+        puts "si pasoooooooooooooooooo!?!?!?!?!?!?!?!?!?!?!"
+        select_contract
+        @renewals = @system_renewals
+        @system_renewals = Array.new()
+      end
+      @renewals.each do |renewal|
+        if (renewal.date_filter(t0,t1) == :active)
+          #me parece que aqui ya se filtro por activos o inactivos
+          @system_renewals.insert(0,renewal)
+        else
+
+        end
+        $pdf_var = @system_renewals
+        puts "funcionaaaaaaaaaaaaaa!!!!!#{$pdf_var}"
+      end
   end
 
   def select_contract

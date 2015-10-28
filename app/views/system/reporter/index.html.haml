@@ -9,7 +9,7 @@
   .cuerpo_reporter
     .form_group
       .texto
-        = form_tag({:controller => "reporter", :action => "index"}, :method => "GET", class: "form-inline") do
+        = form_tag({:controller => "reporter", :action => "index"}, :remote => true, :method => "GET", class: "form-inline") do
           %br/
           .col-xs-4.col-sm-3 
             %th= t('.start_date')
@@ -136,6 +136,8 @@
     /= link_to t('back'), system_reporter_index_path, class: "btn btn-sm btn-tss"
     = link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank" 
 
+    #divprueba
+
     %br/
     %br/	
     .table-responsive
@@ -152,7 +154,7 @@
             %th
             %th
 
-        %tbody
+        %tbody#dynamic_table
           - @system_renewals.each do |system_renewal|
             %tr
               %td{title: system_renewal.contract.device.name}= system_renewal.contract.device.short_name
@@ -161,3 +163,4 @@
               %td= system_renewal.monto
               %td= system_renewal.start_date
               %td= system_renewal.end_date    
+          
