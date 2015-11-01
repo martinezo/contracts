@@ -3,13 +3,14 @@ module Google_Calendar
 
     module ClassMethods
    
-  def event_insert(time_min_param,time_max_param,summary_param,location_param)
-			file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
+	def event_insert(time_min_param,time_max_param,summary_param,location_param)
 			
-			@key = file_yaml["production"][:developper_id]
-		    @path_key = 'C:/unam-b563e3112a76.p12';
-			@cuenta_developper = '109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com';
-			@calendar_id = 'java4ever.sys@gmail.com';
+			file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
+
+			@key = file_yaml["production"]['developper_key']
+		    @path_key = file_yaml["production"]['key_path_p12']
+			@cuenta_developper = file_yaml["production"]['developper_email']
+			@calendar_id = file_yaml["production"]['calendar_id']
 			@time_min = time_min_param;
 			@time_max = time_max_param;
 			@location = location_param;

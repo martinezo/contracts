@@ -3,9 +3,7 @@
     = f.error_notification
     = f.association :device, label: t('.device'), required: true
     = f.association :supplier, label: t('.supplier') ,label_method: :business_name, value_method: :id, requiered: true
-    .col-xs-4.col-sm-3 
-      = f.label t('.start_date')
-    = date_select "start_date", ""
+    = f.input :start_date, requires: true
     %br/
     %br/
     .col-xs-4.col-sm-3 
