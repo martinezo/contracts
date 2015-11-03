@@ -61,17 +61,12 @@ class System::ContractsController < ApplicationController
   # POST /system/contracts
   # POST /system/contracts.json
   def create
-    	@system_contract = System::Contract.new(system_contract_params)
-	# INERTAR UN NUEVO RENEWAL DE FORMA AUTOMATICA
-        format1=*params["start_date"].values.map(&:to_i)
-	@start_date=Date.new(format1[2],format1[1],format1[0])
-
-        format2=*params["end_date"].values.map(&:to_i)
-	@end_date=Date.new(format2[2],format2[1],format2[0])
-
-	@start_date_google=format1[2].to_s + '-' + format1[1].to_s + '-' + format1[0].to_s + 'T10:00:52-05:00'
-	@end_date_google=format2[2].to_s + '-' + format2[1].to_s + '-' + format2[0].to_s + 'T10:00:52-05:00'
-
+    @system_contract = System::Contract.new(system_contract_params)
+	@start_date_google=system_contract_params["start_date(1i)"].to_s + '-' + system_contract_params["start_date(2i)"].to_s + '-' + system_contract_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
+	@end_date_google=system_contract_params["start_date(1i)"].to_s + '-' + system_contract_params["start_date(2i)"].to_s + '-' + system_contract_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
+	
+	@start_date=Date.new(system_contract_params["start_date(1i)"].to_i,system_contract_params["start_date(2i)"].to_i,system_contract_params["start_date(3i)"].to_i)
+	@end_date=Date.new(system_contract_params["end_date(1i)"].to_i,system_contract_params["end_date(2i)"].to_i,system_contract_params["end_date(3i)"].to_i)
 		
 	#ESTO SE VA DESCOMENTAR CUANDO SE INSERTE EL START_DATE Y EL END_DATE DEL FORMULARIO DE RENEWAL
 	supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
@@ -96,10 +91,13 @@ class System::ContractsController < ApplicationController
         @google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,system_contract_params[:description],'neuro')
 		@google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,system_contract_params[:description],'neuro')
 
-        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: params[:monto], google_event_start: @google_event_start, google_event_end: @google_event_end)
+        @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: system_contract_params[:monto], google_event_start: @google_event_start, google_event_end: @google_event_end)
 		puts 'google_event aki es'
 		puts @google_event_start
 		puts @google_event_end
+		format.html { redirect_to @system_contract, notice: t('.created') }
+        format.json { render :show, status: :created, location: @system_contract }
+        format.js   { redirect_to @system_contract, notice: t('.created') }
 
 	    puts 'google_event aki terminar'
 	   if  @system_renewal.save

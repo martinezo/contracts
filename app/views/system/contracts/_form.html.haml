@@ -3,19 +3,11 @@
     = f.error_notification
     = f.association :device, label: t('.device'), required: true
     = f.association :supplier, label: t('.supplier') ,label_method: :business_name, value_method: :id, requiered: true
-    = f.input :start_date, requires: true
-    %br/
-    %br/
-    .col-xs-4.col-sm-3 
-      = f.label t('.end_date')   
-    = date_select "end_date", ""
-    %br/
-    %br/
+    = f.input :start_date, as: :date, requires: true
+    = f.input :end_date, as: :date, requires: true
     = f.input :contract_no, requires: true
-    = f.input :description, requires: true, as: :text    
-    .col-xs-4.col-sm-3 
-      = f.label t('.monto')
-    = text_field_tag 'monto', @system_renewal.monto
+    = f.input :description, requires: true, as: :text     
+    = f.input :monto, requires: true, as: :text, input_html: { value: @system_renewal.monto }
     %br/
     %br/
     %br/
