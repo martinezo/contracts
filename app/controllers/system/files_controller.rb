@@ -22,9 +22,11 @@ class System::FilesController < ApplicationController
       #Verifica que el archivo tenga una extensión correcta.
       if extension == ".pdf" or extension == ".doc" or extension == ".docx"
          #Ruta del archivo.
-         path = File.join(directorio, nombre);
+         path = File.join(directorio, @renewal_id + extension);
          #Crear en el archivo en el directorio. Guardamos el resultado en una variable, será true si el archivo se ha guardado correctamente.
          resultado = File.open(path, "wb") { |f| f.write(archivo.read) };
+		 
+  
          #Verifica si el archivo se subió correctamente.
 		 ftp = Net::FTP.new('ftp.Smarterasp.net', 'mcpramirez-001', 'windowslnx')
 		 ftp.chdir('/site1/')

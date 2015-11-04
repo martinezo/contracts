@@ -159,7 +159,8 @@
             %tr
               %td{title: system_renewal.contract.device.name}= system_renewal.contract.device.short_name
               %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
-              %td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
+              /%td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
+              %td= link_to system_renewal.contract.contract_no, "/files/#{system_renewal.id}.pdf", :target => "_blank"
               %td= system_renewal.monto
               %td= system_renewal.start_date
               %td= system_renewal.end_date    
