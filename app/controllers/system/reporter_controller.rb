@@ -166,7 +166,6 @@ class System::ReporterController < ApplicationController
   def select_supplier
       puts "Supplieeeeer! #{params[:supplier].to_i}"
       contracts = System::Contract.where("supplier_id = '#{params[:supplier].to_i}'")
-      puts @catalog_supplier.where("id = '#{params[:supplier].to_i}'").business_name
       contracts.each do |cntrct|
         rnwls = System::Renewal.where("contract_id = '#{cntrct.id.to_i}'")
         rnwls.each do |rnwl|
