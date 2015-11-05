@@ -1,5 +1,9 @@
 class System::ReporterController < ApplicationController
   $pdf_var = System::Renewal.all
+
+    $filtro_fecha_inicio = nil
+    $filtro_fecha_fin = nil   
+
   def index
     @aux = nil
   	@system_contract=System::Contract.all
@@ -32,7 +36,7 @@ class System::ReporterController < ApplicationController
       end
      format.pdf do
         puts "variablepdfffffffffffffff!!!!#{$pdf_var.class}"
-        pdf = ReportPDF.new($pdf_var)
+        pdf = ReportPDF.new($pdf_var, $filtro_fecha_inicio, $filtro_fecha_fin)
         send_data pdf.render, filename: "PDF Test.pdf",
                               type: "application/pdf",
                               disposition: "inline"
@@ -85,9 +89,11 @@ class System::ReporterController < ApplicationController
   end
 
   def filter_without_date
+    $filtro_fecha_inicio = nil
+    $filtro_fecha_fin = nil
     if params[:contract_param_no].nil? or params[:contract_param_no].to_i == 0
       if params[:device].nil? or params[:device].to_i == 0
-        if params[:supplier].nil? or params[:supplier].to_i ==0
+        if params[:supplier].nil? or params[:supplier].to_i ==0 
           @system_renewals = @renewals
           $pdf_var = @system_renewals
           puts "variableeeeeeeeeeee!!!!!!!!!#{$pdf_var.first}"
@@ -108,6 +114,8 @@ class System::ReporterController < ApplicationController
       t0=Date.new(format1[2],format1[1],format1[0])
             format2=*params["end_date"].values.map(&:to_i)
       t1=Date.new(format2[2],format2[1],format2[0])
+        $filtro_fecha_inicio = t0.to_formatted_s(:iso8601)
+        $filtro_fecha_fin = t1.to_formatted_s(:iso8601)
       puts "variable renewals!!!!!!!!!!!!!!!!!!!!#{@renewals}"
       unless params[:supplier].nil? or params[:supplier].to_i == 0
         puts "si pasoooooooooooooooooo!?!?!?!?!?!?!?!?!?!?!"
@@ -158,6 +166,7 @@ class System::ReporterController < ApplicationController
   def select_supplier
       puts "Supplieeeeer! #{params[:supplier].to_i}"
       contracts = System::Contract.where("supplier_id = '#{params[:supplier].to_i}'")
+      puts @catalog_supplier.where("id = '#{params[:supplier].to_i}'").business_name
       contracts.each do |cntrct|
         rnwls = System::Renewal.where("contract_id = '#{cntrct.id.to_i}'")
         rnwls.each do |rnwl|
