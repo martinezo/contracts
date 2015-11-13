@@ -38,6 +38,7 @@ class System::SiteviewsController < ApplicationController
   # GET /system/siteviews/1/edit
   def edit
     @eureka = 'notnil'
+	@renewal = params["id"]
   end
 
   def delete

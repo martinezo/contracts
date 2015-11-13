@@ -1,11 +1,11 @@
 ---
 production:
-  name_technical_secretary: Daniela Cerrillo
-  e_mail_technical_secretary: nanish_20@hotmail.com
+  name_technical_secretary: Anaid Antaramian
+  e_mail_technical_secretary: antaramian@unam.mx
   truncate_length: '20'
   notification_time: '10'
-  developper_id: '109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com'
-  developper_key: 'AIzaSyCRH1hazwsIa5wm9-CRicRxvkVxId3Nx1s'
-  key_path_p12: 'C:/Sites/google-calendar-ruby/unam-b563e3112a76.p12'
-  developper_email: '109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com'
-  calendar_id: 'java4ever.sys@gmail.com'
+  developper_id: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com
+  developper_key: AIzaSyCRH1hazwsIa5wm9-CRicRxvkVxId3Nx1s
+  key_path_p12: C:/Sites/google-calendar-ruby/unam-b563e3112a76.p12
+  developper_email: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com
+  calendar_id: java4ever.sys@gmail.com
