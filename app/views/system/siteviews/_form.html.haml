@@ -3,16 +3,16 @@
     
     = f.error_notification
     - if @renewal_id.nil? || @renewal_id.empty?
-      = f.association :renewal, :as => :hidden, label_method: :id, value_method: :id, label: t('.renewal')
+      = f.association :renewal, :as => :hidden, label_method: :id, value_method: :id
     - else
       = f.input :renewal_id, :input_html => { :value => @renewal_id}, :as => :hidden
     .col-xs-4.col-sm-3
-      = f.label "Fecha de visita:"
-    = f.input_field :visit_date, as: :datetime, required: true, wrapper_html: { class: 'form-inline' }
+      = f.label :visit_date
+    = f.input_field :visit_date, as: :datetime, wrapper_html: { class: 'form-inline' }
     = f.input :completed, required: true, input_html: { class: 'col-md-7 col-md-offset-7'}
     .col-xs-4.col-sm-3 
       = f.label t('.remember_day')
-    = datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
+    = datetime_select "recordar", "", :size => 30, :maxlenght => 50, :placeholder => t('.search'), required: true
     %br/
     %br/
     .col-xs-4.col-sm-3 
