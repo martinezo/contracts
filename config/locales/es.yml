@@ -292,19 +292,26 @@ es:
         name: 'Nombre de Equipo:'
         unam_stock_number: 'No. de Inventario:'
         location_id: 'Departamento:'
+        location: 'Departamento:'
       system/contract:
         device_id: 'Nombre de Equipo:'
         supplier_id: 'Proveedor:'
         contract_no: 'No. de Contrato:'
         description: 'Descripción:'
+        start_date: 'Fecha inicial:'
+        end_date: 'Fecha final:'
+        device: 'Equipo:'
+        supplier: 'Proveedor:'
       system/siteview:
         renewal_id: 'ID de Renovación:'
         visit_date: 'Fecha de visita:'
         completed: 'Visita efectuada:'
+        renewal: 'ID de Renovación'
       system/renewal:
         contract_id: 'ID de Contrato:'
         start_date: 'Fecha inicial:'
         end_date: 'Fecha final:'
+        contract: 'No. de Contrato'
 
     errors:
       models:
