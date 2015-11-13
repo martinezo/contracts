@@ -57,18 +57,9 @@
           = submit_tag t('search'), class:"btn btn-ttc btn-sm"
           %br/
           %br/
-
     %br/
     %br/
     %div
-
-      
-
-      /@system_renewals.first.contract.device.name
-      /= field_set_tag 'valor', @system_renewals.first.contract.device.name
-      /%br/
-      /url: "#{update_artists_path}",
-
     :javascript
       $(document).ready(function() {
         $('#contract_param_no').change(function() {
@@ -81,7 +72,6 @@
           });
         });
       });
-
     :javascript
       $(document).ready(function() {
         $('#supplier').change(function() {
@@ -94,7 +84,6 @@
           });
         });
       });
-
     :javascript
       $(document).ready(function() {
         $('#device').change(function() {
@@ -107,7 +96,6 @@
           });
         });
       });
-
     :javascript
       $(document).ready(function() {
         $('#use_date').click(function() {
@@ -119,23 +107,8 @@
           $('select#start_date__1i').attr('disabled',! this.checked);
         });
       });
-
-    /ActiveRecord=>Simple_Form
-    /- @system_contract.each do |contract_fields|
-    /  = simple_form_for contract_fields do |f|
-    /    = datetime_select "fecha inicial", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
-    /    %br/
-    /    = datetime_select "fecha inicial", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
-    /    = f.association :device, label_method: :id, value_method: :id, label: t('.device')
-    /    = f.association :supplier, label_method: :id, value_method: :id, label: t('.supplier')
-    /    = f.association :renewal, label_method: :id, value_method: :id, label: t('.renewal')
-    /    = f.button :submit, t('search'), class: "btn btn-tss col-md-3 col-md-offset-3"
-    /    %br/
-    /    -%br/
-
     /= link_to t('back'), system_reporter_index_path, class: "btn btn-sm btn-tss"
     = link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank" 
-
     #divprueba
 
     %br/
@@ -161,7 +134,7 @@
               %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
               /%td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
               %td= link_to system_renewal.contract.contract_no, "/files/#{system_renewal.id}.pdf", :target => "_blank"
-              %td= system_renewal.monto
+              %td= number_to_currency(system_renewal.monto)
               %td= system_renewal.start_date
               %td= system_renewal.end_date    
           
