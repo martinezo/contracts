@@ -1,19 +1,27 @@
 class ReportPDF < Prawn::Document
-	def initialize(report)
+	def initialize(report, fecha1, fecha2)
 		super(
 			:page_size => "A4", 
 			:page_layout => :landscape, 
 			:margin => 50 )
 		@report = report
+		@fecha_inicio = fecha1
+		@fecha_fin = fecha2
 		report_number
 		line_items
 	end
 
 	def report_number
 		move_down 10
-		font "Helvetica", :size => 16
-		#text I18n.t('pdf.title_pdf') , :align => :center, :color => "FF0000"
-		text "Reporte general de Contratos" , :align => :center, :color => "FF0000"	
+		font "Helvetica", :size => 12
+		text Time.now.to_formatted_s(:db), :align => :right
+		font "Helvetica", :size => 16		
+		stroke_horizontal_rule
+		pad(10) { text "Reporte general de Contratos" , :align => :center, :color => "FF0000" }
+		
+		if @fecha_inicio.nil? == false and @fecha_fin.nil? == false
+		    text @fecha_inicio.to_s + " *** " + @fecha_fin.to_s, :align => :center, :size => 12
+		end
 	end
 
 	def line_items
@@ -27,7 +35,6 @@ class ReportPDF < Prawn::Document
 	end
 
 	def line_item_rows
-		#[[I18n.t('pdf.device_id'),I18n.t('pdf.supplier_id'), I18n.t('pdf.contract_no'), I18n.t('pdf.start_date'), I18n.t('pdf.end_date')]] +
 		[[ "Nombre de Equipo" , "Proveedor" , "No. de Contrato" , "Monto" , "Fecha inicial" , "Fecha final" ]] +
 		@report.map do |rep|
 		#@report.line_items.map do |item|
