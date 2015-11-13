@@ -1,7 +1,7 @@
 class System::Renewal < ActiveRecord::Base
 include Google_Calendar
 
-has_many :Siteviews
+has_many :Siteviews, dependent: :destroy
 belongs_to :contract, :class_name => 'System::Contract', :foreign_key => 'contract_id'
 validates :contract_id, :start_date, :end_date, :monto, presence: true
 

@@ -1,7 +1,7 @@
 ---
 production:
-  name_technical_secretary: Anaid Antaramian
-  e_mail_technical_secretary: antaramian@unam.mx
+  name_technical_secretary: Prueba de nombre
+  e_mail_technical_secretary: genomma@live.com
   truncate_length: '20'
   notification_time: '10'
   developper_id: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com

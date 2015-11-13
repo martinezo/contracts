@@ -64,7 +64,7 @@ class System::ContractsController < ApplicationController
   def create
     @system_contract = System::Contract.new(system_contract_params)
 	@start_date_google=system_contract_params["start_date(1i)"].to_s + '-' + system_contract_params["start_date(2i)"].to_s + '-' + system_contract_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
-	@end_date_google=system_contract_params["start_date(1i)"].to_s + '-' + system_contract_params["start_date(2i)"].to_s + '-' + system_contract_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
+	@end_date_google=system_contract_params["end_date(1i)"].to_s + '-' + system_contract_params["end_date(2i)"].to_s + '-' + system_contract_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
 	
 	@start_date=Date.new(system_contract_params["start_date(1i)"].to_i,system_contract_params["start_date(2i)"].to_i,system_contract_params["start_date(3i)"].to_i)
 	@end_date=Date.new(system_contract_params["end_date(1i)"].to_i,system_contract_params["end_date(2i)"].to_i,system_contract_params["end_date(3i)"].to_i)
@@ -125,7 +125,7 @@ class System::ContractsController < ApplicationController
       if @system_contract.update(system_contract_params)
 
 	@start_date_google=system_contract_params["start_date(1i)"].to_s + '-' + system_contract_params["start_date(2i)"].to_s + '-' + system_contract_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
-	@end_date_google=system_contract_params["start_date(1i)"].to_s + '-' + system_contract_params["start_date(2i)"].to_s + '-' + system_contract_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
+	@end_date_google=system_contract_params["end_date(1i)"].to_s + '-' + system_contract_params["end_date(2i)"].to_s + '-' + system_contract_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
 	
 	@start_date=Date.new(system_contract_params["start_date(1i)"].to_i,system_contract_params["start_date(2i)"].to_i,system_contract_params["start_date(3i)"].to_i)
 	@end_date=Date.new(system_contract_params["end_date(1i)"].to_i,system_contract_params["end_date(2i)"].to_i,system_contract_params["end_date(3i)"].to_i)
@@ -154,6 +154,7 @@ class System::ContractsController < ApplicationController
   # DELETE /system/contracts/1
   # DELETE /system/contracts/1.json
   def destroy
+	System::Renewal.event_delete_cascade_contract(@system_contract.id)
     @system_contract.destroy
     respond_to do |format|
       format.html { redirect_to system_contracts_url, notice: t('.destroyed') }
