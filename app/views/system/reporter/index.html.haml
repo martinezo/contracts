@@ -11,64 +11,62 @@
       .texto
         = form_tag({:controller => "reporter", :action => "index"}, :remote => true, :method => "GET", class: "form-inline") do
           %br/
-          .col-xs-4.col-sm-3 
-            %th= t('.start_date')
-          .col-xs-4.col-sm-3
-            = date_select "start_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search') 
-          %br/ 
-          %br/ 
-          .col-xs-6.col-sm-3
-            %th= t('.end_date')
-          .col-xs-6.col-sm-3 
-            = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
-          .col-xs-6.col-sm-3 
-            = "Filtrar por fecha: "
-            = check_box_tag "use_date", "1", true
+          .city
+            .col-xs-6.col-sm-3 
+              = "Filtrar por fecha: "
+            .col-xs-6.col-sm-3  
+              = check_box_tag "use_date", "1", true
           %br/
+          .city
+            .col-xs-6.col-sm-3 
+              %th= t('.start_date')
+            .col-xs-6.col-sm-3
+              = date_select "start_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')  
+            .col-xs-6.col-sm-3
+              %th= t('.end_date')
+            .col-xs-6.col-sm-3 
+              = date_select "end_date", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
           %br/
-          .col-xs-6.col-sm-3
-            %th= t('.supplier')
-          .col-xs-6.col-sm-3
-            = select_tag 'supplier', options_from_collection_for_select(@catalog_supplier, "id", "business_name"), include_blank: "Seleccione Proveedor..."
+          .city
+            .col-xs-6.col-sm-3
+              %th= t('.supplier')
+            .col-xs-6.col-sm-3
+              = select_tag 'supplier', options_from_collection_for_select(@catalog_supplier, "id", "business_name"), include_blank: "Seleccione Proveedor..."
           %br/
+          .city
+            .col-xs-6.col-sm-3
+              %th= t('.device')
+            .col-xs-6.col-sm-3
+              = select_tag 'device', options_from_collection_for_select(@catalog_device, "id", "name"), include_blank: "Seleccione Equipo..."
           %br/
-          .col-xs-6.col-sm-3
-            %th= t('.device')
-          .col-xs-6.col-sm-3
-            = select_tag 'device', options_from_collection_for_select(@catalog_device, "id", "name"), include_blank: "Seleccione Equipo..."
+          .city
+            .col-xs-6.col-sm-3
+              %th= t('.contract')
+            .col-xs-6.col-sm-3
+              = select_tag 'contract_param_no', options_from_collection_for_select(@system_contract, "id", "contract_no"), include_blank: "Seleccione Contrato..."
           %br/
+          .city
+            .col-xs-6.col-sm-3
+              = "Solo vigentes: "
+            .col-xs-6.col-sm-3
+              = check_box_tag "active"
           %br/
-          .col-xs-6.col-sm-3
-            %th= t('.contract')
-          .col-xs-6.col-sm-3
-            = select_tag 'contract_param_no', options_from_collection_for_select(@system_contract, "id", "contract_no"), include_blank: "Seleccione Contrato..."
+          .city
+            .col-xs-6.col-sm-3
+              = select_tag 'renewal', options_from_collection_for_select(@catalog_renewals, "id", "contract_id"), include_blank: "Seleccione Renovacion...", :hidden => true
           %br/
-          %br/
-          .col-xs-6.col-sm-3
-            = "Solo vigentes: "
-          .col-xs-6.col-sm-3
-            = check_box_tag "active"
-          %br/
-          %br/
-          .col-xs-6.col-sm-3
-            = select_tag 'renewal', options_from_collection_for_select(@catalog_renewals, "id", "contract_id"), include_blank: "Seleccione Renovacion...", :hidden => true
           %br/        
           .col-xs-6.col-sm-3  
           = submit_tag t('search'), class:"btn btn-ttc btn-sm"
           %br/
           %br/
-
+          .col-xs-6.col-sm-3
+          = link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank" 
+          %br/
+          %br/
     %br/
     %br/
     %div
-
-      
-
-      /@system_renewals.first.contract.device.name
-      /= field_set_tag 'valor', @system_renewals.first.contract.device.name
-      /%br/
-      /url: "#{update_artists_path}",
-
     :javascript
       $(document).ready(function() {
         $('#contract_param_no').change(function() {
@@ -119,49 +117,9 @@
           $('select#start_date__1i').attr('disabled',! this.checked);
         });
       });
-
-    /ActiveRecord=>Simple_Form
-    /- @system_contract.each do |contract_fields|
-    /  = simple_form_for contract_fields do |f|
-    /    = datetime_select "fecha inicial", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
-    /    %br/
-    /    = datetime_select "fecha inicial", "", :size => 30, :maxlenght => 50, :placeholder => t('.search')
-    /    = f.association :device, label_method: :id, value_method: :id, label: t('.device')
-    /    = f.association :supplier, label_method: :id, value_method: :id, label: t('.supplier')
-    /    = f.association :renewal, label_method: :id, value_method: :id, label: t('.renewal')
-    /    = f.button :submit, t('search'), class: "btn btn-tss col-md-3 col-md-offset-3"
-    /    %br/
-    /    -%br/
-
-    /= link_to t('back'), system_reporter_index_path, class: "btn btn-sm btn-tss"
-    = link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank" 
-
-    #divprueba
-
+    #divprueba  
     %br/
     %br/	
-    .table-responsive
-      %table.table.table-striped.table-condensed
-        %thead
-          %tr
-            %th= t('.device')
-            %th= t('.supplier')          
-            %th= t('.contract')
-            %th= t('.monto')
-            %th= t('.start_date')
-            %th= t('.end_date')
-            %th
-            %th
-            %th
-
-        %tbody#dynamic_table
-          - @system_renewals.each do |system_renewal|
-            %tr
-              %td{title: system_renewal.contract.device.name}= system_renewal.contract.device.short_name
-              %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
-              /%td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
-              %td= link_to system_renewal.contract.contract_no, "/files/#{system_renewal.id}.pdf", :target => "_blank"
-              %td= system_renewal.monto
-              %td= system_renewal.start_date
-              %td= system_renewal.end_date    
-          
+    #new-modal-table.modal.fade
+      .modal-dialog.modal-lg
+        #new_dynamic_table.modal-content           
