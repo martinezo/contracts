@@ -120,25 +120,6 @@
     #divprueba  
     %br/
     %br/	
-    .table-responsive
-      %table.table.table-striped.table-condensed
-        %thead
-          %tr
-            %th= t('.device')
-            %th= t('.supplier')          
-            %th= t('.contract')
-            %th= t('.monto')
-            %th= t('.start_date')
-            %th= t('.end_date')
-            %th
-            %th
-            %th
-        %tbody#dynamic_table
-          - @system_renewals.each do |system_renewal|
-            %tr
-              %td{title: system_renewal.contract.device.name}= system_renewal.contract.device.short_name
-              %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
-              %td= link_to system_renewal.contract.contract_no, "/files/#{system_renewal.id}.pdf", :target => "_blank"
-              %td= system_renewal.monto
-              %td= system_renewal.start_date
-              %td= system_renewal.end_date           
+    #new-modal-table.modal.fade
+      .modal-dialog.modal-lg
+        #new_dynamic_table.modal-content           
