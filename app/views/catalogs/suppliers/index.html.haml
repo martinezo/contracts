@@ -25,7 +25,7 @@
             %tr
               %td{title: catalogs_supplier.business_name}= catalogs_supplier.short_name
               %td= catalogs_supplier.contact
-              %td= catalogs_supplier.phone
+              %td= number_to_phone(catalogs_supplier.phone)
               %td= catalogs_supplier.email
               %td
                 = link_to '', catalogs_supplier, class: "btn btn-sm btn-tss fa fa-eye", title: t('see')  , remote: true
