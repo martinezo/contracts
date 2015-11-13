@@ -21,7 +21,6 @@ html,
 body {
   height: 100%;
   background-color:white;
-/* The html and body elements cannot have any padding or margin. */
 }
 #header{
     background-image :url('http://www.neuroespacio.com/wp-content/uploads/2012/01/inst_instneurobio2.jpg');
@@ -43,9 +42,7 @@ body {
 .wrap {
     min-height: 100%;
     height: auto;
-    /* Negative indent footer by its height */
     margin: 0 auto -60px;
-    /* Pad bottom by footer height */
     padding: 0 0 60px;
 }
 .text-center {
@@ -57,7 +54,6 @@ body {
   width: 100%;
   padding: 15px 15px; 
   background-color: black;
-  /*background-color: rgb(63,15,11);*/
 }
 .btn-ttc, a:hover{
   background-color: rgb(50,76,115);
@@ -69,6 +65,7 @@ body {
   background-color: rgb(156,198,227);
 }
 .texto{
+  float: left;
   padding-left: 8px;
   color: black;
   text-align: justify;
@@ -76,6 +73,8 @@ body {
   border-style: groove;
   border-width: 5px;
   border-color: rgb(241,164,40);
+  width: 100%;
+  height: 100%;
 }
 .btn-tss, a:hover{
   background-color: rgb(52,142,211);
@@ -122,8 +121,6 @@ body {
       -webkit-border-radius: 1em;
       border-radius: 1em; }
 .div_modal{
-  /*height: 160px;
-  width: autopx;*/
   overflow: scroll;
 }
 .cuerpo_file_load{
