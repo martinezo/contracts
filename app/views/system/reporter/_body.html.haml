@@ -12,9 +12,6 @@
           %th= t('.monto')
           %th= t('.start_date')
           %th= t('.end_date')
-          %th
-          %th
-          %th
       #table
         - @system_renewals.each do |system_renewal|
           %tr
@@ -22,9 +19,8 @@
           %td{title: system_renewal.contract.supplier.business_name}= system_renewal.contract.supplier.short_name
           /%td{title: system_renewal.contract.contract_no}= system_renewal.contract.short_name
           %td= link_to system_renewal.contract.contract_no, "/files/#{system_renewal.id}.pdf", :target => "_blank"
-          %td= system_renewal.monto
+          %td= number_to_currency(system_renewal.monto)
           %td= system_renewal.start_date
           %td= system_renewal.end_date 
-
-
-
+.modal-footer
+  = link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank"

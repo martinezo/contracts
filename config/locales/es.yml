@@ -213,6 +213,16 @@ es:
         monto: 'Monto'
         start_date: 'Fecha inicial'
         end_date: 'Fecha final'
+        filter_by: 'Filtrar por fecha'
+        in_time: 'Solo vigentes'
+      body:
+        title_new_contract: 'Lista de resultado de Contratos'
+        device: 'Nombre de Equipo'
+        supplier: 'Proveedor'
+        contract: 'No. de Contrato'
+        monto: 'Monto'
+        start_date: 'Fecha inicial'
+        end_date: 'Fecha final'
         pdf: 'Generar documento PDF'
     files:
       load_files:

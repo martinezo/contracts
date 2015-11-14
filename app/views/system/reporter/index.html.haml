@@ -13,7 +13,7 @@
           %br/
           .city
             .col-xs-6.col-sm-3 
-              = "Filtrar por fecha: "
+              = t('.filter_by')
             .col-xs-6.col-sm-3  
               = check_box_tag "use_date", "1", true
           %br/
@@ -47,7 +47,7 @@
           %br/
           .city
             .col-xs-6.col-sm-3
-              = "Solo vigentes: "
+              = t('.in_time')
             .col-xs-6.col-sm-3
               = check_box_tag "active"
           %br/
@@ -60,10 +60,8 @@
           = submit_tag t('search'), class:"btn btn-ttc btn-sm"
           %br/
           %br/
-          .col-xs-6.col-sm-3
-          = link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank" 
-          %br/
-          %br/
+          /.col-xs-6.col-sm-3
+          /= link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank" 
     %br/
     %br/
     %div

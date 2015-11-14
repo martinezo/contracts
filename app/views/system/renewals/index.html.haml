@@ -27,7 +27,7 @@
               %td= system_renewal.contract.contract_no
               %td= system_renewal.start_date
               %td= system_renewal.end_date
-              %td= system_renewal.monto
+              %td= number_to_currency(system_renewal.monto)
               %td= link_to '', system_renewal, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true
               %td= link_to '', edit_system_renewal_path(system_renewal), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
               %td= link_to '', system_renewal_delete_path(id: system_renewal, viewer: 'renewals'), class: "btn btn-sm btn-tss fa fa-trash-o", title: t('delete'), remote: true
