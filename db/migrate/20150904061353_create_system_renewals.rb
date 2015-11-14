@@ -4,7 +4,7 @@ class CreateSystemRenewals < ActiveRecord::Migration
       t.integer :contract_id, null: false
       t.date :start_date, null: false
       t.date :end_date, null: false
-      t.string :monto, null: false
+      t.float :monto, null: false
 	  t.string :google_event_start, null: false
 	  t.string :google_event_end, null: false
 
