@@ -17,6 +17,7 @@
             .col-xs-6.col-sm-3  
               = check_box_tag "use_date", "1", true
           %br/
+          %br/
           .city
             .col-xs-6.col-sm-3 
               %th= t('.start_date')
@@ -45,11 +46,13 @@
             .col-xs-6.col-sm-3
               = select_tag 'contract_param_no', options_from_collection_for_select(@system_contract, "id", "contract_no"), include_blank: "Seleccione Contrato..."
           %br/
+          %br/
           .city
             .col-xs-6.col-sm-3
               = t('.in_time')
             .col-xs-6.col-sm-3
               = check_box_tag "active"
+          %br/
           %br/
           .city
             .col-xs-6.col-sm-3
@@ -60,8 +63,6 @@
           = submit_tag t('search'), class:"btn btn-ttc btn-sm"
           %br/
           %br/
-          /.col-xs-6.col-sm-3
-          /= link_to t('.pdf'), "index.pdf", class: "btn btn-sm btn-tss", target: "_blank" 
     %br/
     %br/
     %div
