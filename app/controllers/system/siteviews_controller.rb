@@ -50,16 +50,14 @@ class System::SiteviewsController < ApplicationController
   # POST /system/siteviews.json
   def create
 		
-		@start_date=Time.new(system_siteview_params["visit_date(1i)"].to_i,system_siteview_params["visit_date(2i)"].to_i,system_siteview_params["visit_date(3i)"].to_i,system_siteview_params["visit_date(4i)"].to_i - 5,system_siteview_params["visit_date(5i)"].to_i)
+		@start_date=Time.new(system_siteview_params["visit_date(1i)"].to_i,system_siteview_params["visit_date(2i)"].to_i,system_siteview_params["visit_date(3i)"].to_i,system_siteview_params["visit_date(4i)"],system_siteview_params["visit_date(5i)"].to_i)
         
 		format2=*params["recordar"].values.map(&:to_i)
 	    @end_date=Date.new(format2[2],format2[1],format2[0])
 
-		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T'+system_siteview_params["visit_date(4i)"].to_s+':'+system_siteview_params["visit_date(5i)"].to_s+':52-05:00'
-
-
-
-
+		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T'+system_siteview_params["visit_date(4i)"].to_s+':'+system_siteview_params["visit_date(5i)"].to_s+':00-06:00'
+		puts 'AKI VA LA HOR ADE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOGLE'
+		puts @start_date_google
 	    @system_siteview = System::Siteview.new(system_siteview_params)
             renewal=System::Renewal.find(system_siteview_params[:renewal_id])
             format=*params["recordar"].values.map(&:to_i)
@@ -101,15 +99,15 @@ respond_to do |format|
 		format2=*params["recordar"].values.map(&:to_i)
 	    @end_date=Date.new(format2[2],format2[1],format2[0])
 
-		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T'+system_siteview_params["visit_date(4i)"].to_s+':'+system_siteview_params["visit_date(5i)"].to_s+':52-05:00'
+		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T'+system_siteview_params["visit_date(4i)"].to_s+':'+system_siteview_params["visit_date(5i)"].to_s+':00-06:00'
 
 		x=System::Renewal.find(system_siteview_params[:renewal_id])
 		@google_event_start=System::Siteview.find(params[:id]).google_event_start
 		
 		System::Siteview.event_update(@start_date_google,@start_date_google,x.contract.description,'neuro',@google_event_start)
-puts 'Aki va la hora del star_dateeeeeeeeeeeeeeeeeeeeeeeeeeee'
-puts @start_date
-puts 'Aki termina la hora del star_dateeeeeeeeeeeeeeeeeeeeeeee'
+		puts 'Aki va la hora del star_dateeeeeeeeeeeeeeeeeeeeeeeeeeee'
+		puts @start_date
+		puts 'Aki termina la hora del star_dateeeeeeeeeeeeeeeeeeeeeeee'
     respond_to do |format|
 	
       if @system_siteview.update(system_siteview_params)

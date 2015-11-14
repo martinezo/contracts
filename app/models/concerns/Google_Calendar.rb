@@ -32,10 +32,12 @@ module Google_Calendar
 			  'summary' => @summary,
 			  'location' => @location,
 			  'start' => {
-				  'dateTime' => @time_min
+				  'dateTime' => @time_min,
+				  'timeZone' => 'America/Mexico_City'	
 			   },
 			   'end' => {
-				  'dateTime' => @time_max
+				  'dateTime' => @time_max,
+				  'timeZone' => 'America/Mexico_City'
 				},
 				'attendees' => [
 					{
@@ -82,10 +84,12 @@ module Google_Calendar
 			  'summary' => @summary,
 			  'location' => @location,
 			  'start' => {
-				  'dateTime' => @time_min
+				  'dateTime' => @time_min,
+				  'timeZone' => 'America/Mexico_City'
 			   },
 			   'end' => {
-				  'dateTime' => @time_max
+				  'dateTime' => @time_max,
+				  'timeZone' => 'America/Mexico_City'
 				},
 				'attendees' => [
 					{
