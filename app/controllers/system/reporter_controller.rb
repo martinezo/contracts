@@ -32,7 +32,7 @@ class System::ReporterController < ApplicationController
                 sheet.add_row [sc.contract.device.name, sc.contract.supplier.business_name, sc.contract.contract_no, sc.monto, sc.start_date, sc.end_date]
               end
             end
-            p.serialize('simple.xlsx')
+            #p.serialize('simple.xlsx')
             send_data p.to_stream.read, :filename => "Prueba 1.xlsx"
           end
       end
