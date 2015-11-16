@@ -19,3 +19,5 @@ app/views/system/reporter/jquery-2.1.4.js
 *.cache
 config/database.yml
 config/database.yml
+simple.xlsx
+config/database.yml

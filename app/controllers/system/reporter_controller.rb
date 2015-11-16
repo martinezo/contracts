@@ -1,3 +1,4 @@
+require 'axlsx'
 class System::ReporterController < ApplicationController
   $pdf_var = System::Renewal.all
 
@@ -14,14 +15,27 @@ class System::ReporterController < ApplicationController
 	  @system_renewals = Array.new()
 
   	respond_to do |format|
-    	format.html do
-			if params[:start_date].nil? or params[:end_date].nil?
+      format.html do
+			 if params[:start_date].nil? or params[:end_date].nil?
         puts "fechaaaaaaaaaaaaaaaaaaa!!!!!!#{params[:end_date].class}"
         filter_without_date
-			else
+			 else
         filter_with_date
-		  end
-    end
+		   end
+      end
+      format.xlsx do
+        puts "variablepdfffffffffffffff!!!!#{$pdf_var.nil?}"
+        Axlsx::Package.new do |p|
+            p.workbook.add_worksheet(:name => "Prueba 1") do |sheet|
+              sheet.add_row ["Nombre de Equipo", "Proveedor", "No. Contrato", "Monto", "Fecha inicial" , "Fecha final"]
+              $pdf_var.each do |sc|
+                sheet.add_row [sc.contract.device.name, sc.contract.supplier.business_name, sc.contract.contract_no, sc.monto, sc.start_date, sc.end_date]
+              end
+            end
+            p.serialize('simple.xlsx')
+            send_data p.to_stream.read, :filename => "Prueba 1.xlsx"
+          end
+      end
      format.js do
         #@system_renewals.insert(0,System::Renewal.first)
         #@system_renewals.insert(0,System::Renewal.last)

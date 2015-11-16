@@ -48,6 +48,10 @@ GEM
     autoprefixer-rails (6.1.0.1)
       execjs
       json
+    axlsx (2.0.1)
+      htmlentities (~> 4.3.1)
+      nokogiri (>= 1.4.1)
+      rubyzip (~> 1.0.0)
     bcrypt (3.1.10)
     bcrypt (3.1.10-x86-mingw32)
     binding_of_caller (0.7.2)
@@ -123,6 +127,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    htmlentities (4.3.4)
     i18n (0.7.0)
     insensitive_hash (0.3.3)
     jbuilder (2.3.2)
@@ -198,6 +203,7 @@ GEM
     retriable (1.4.1)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
+    rubyzip (1.0.0)
     sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -252,6 +258,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  axlsx
   bootstrap-sass
   coffee-rails (~> 4.1.0)
   coffee-script-source (= 1.8.0)
