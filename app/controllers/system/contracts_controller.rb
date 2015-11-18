@@ -159,7 +159,7 @@ class System::ContractsController < ApplicationController
   # DELETE /system/contracts/1
   # DELETE /system/contracts/1.json
   def destroy
-	System::Renewal.event_delete_cascade_contract(@system_contract.id)
+    System::Renewal.event_delete_cascade_contract(@system_contract.id)
     @system_contract.destroy
     respond_to do |format|
       format.html { redirect_to system_contracts_url, notice: t('.destroyed') }

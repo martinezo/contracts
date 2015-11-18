@@ -137,6 +137,7 @@ module Google_Calendar
 	def event_delete_cascade_contract(contract_id)
 		begin
 			contrato=System::Contract.find(contract_id)
+      @renovaciones=contrato.Renewals
 					@renovaciones.each do |r|
 					System::Contract.event_delete(r.google_event_start)
 					System::Contract.event_delete(r.google_event_end)
@@ -153,13 +154,12 @@ module Google_Calendar
 	end
   end
     
-      def event_delete_cascade_renewal(renewal_id)
-      puts 'Este es el renewal_id'
-        renewal=System::Renewal.find(renewal_id)
+  def event_delete_cascade_renewal(renewal_id)
+      renewal=System::Renewal.find(renewal_id)
       System::Renewal.event_delete(renewal.google_event_start)
       System::Renewal.event_delete(renewal.google_event_end)
         			begin 
-                @visitas=renewal.Siteviews
+              @visitas=renewal.Siteviews
 							@visitas.each do |v|
 								System::Renewal.event_delete(v.google_event_start)
 							end
