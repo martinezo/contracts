@@ -62,6 +62,7 @@ class System::ContractsController < ApplicationController
   # POST /system/contracts
   # POST /system/contracts.json
   def create
+    begin 
     @system_contract = System::Contract.new(system_contract_params)
 	@start_date_google=system_contract_params["start_date(1i)"].to_s + '-' + system_contract_params["start_date(2i)"].to_s + '-' + system_contract_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
 	@end_date_google=system_contract_params["end_date(1i)"].to_s + '-' + system_contract_params["end_date(2i)"].to_s + '-' + system_contract_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
@@ -116,6 +117,10 @@ class System::ContractsController < ApplicationController
         format.js   { render :new }
       end
     end
+  rescue
+    System::Renewal.event_delete(@google_event_start) 
+    System::Renewal.event_delete(@google_event_end) 
+  end
   end
 
   # PATCH/PUT /system/contracts/1

@@ -26,7 +26,7 @@
           - @system_contracts.each do |system_contract|
             %tr
               %td{:align => "center"}
-                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:vigencia) || "-" == :active
+                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:vigencia) == :active
                   %i.fa.fa-exclamation-circle.fa-lg{ :style => "color:yellowgreen", :title => t('.active')}
                 - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:vigencia) == :finished
                   %i.fa.fa-exclamation-circle.fa-lg{:style => "color:orange", :title => t('.finished')}

@@ -120,7 +120,10 @@ class System::RenewalsController < ApplicationController
   # DELETE /system/renewals/1
   # DELETE /system/renewals/1.json
   def destroy
-    @system_renewal.destroy
+    System::Renewal.event_delete_cascade_renewal(@system_renewal.id)
+    puts 'AKI VA EL ID DE LA RENOVACION QUE SE ESTA ELIMINANDO-||||||||||||||||||||||||||||||||||||||||'
+    puts @system_renewal.destroy
+     puts 'AKI VA EL ID DE LA RENOVACION QUE SE ESTA ELIMINANDO-|||||||||||||||||||||||||||||||||||||||'
     respond_to do |format|
       format.html { redirect_to system_renewals_url, notice: 'Renewal was successfully destroyed.' }
       format.json { head :no_content }
