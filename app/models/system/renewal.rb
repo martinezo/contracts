@@ -1,4 +1,5 @@
 class System::Renewal < ActiveRecord::Base
+require 'Google_Calendar'
 include Google_Calendar
 
 has_many :Siteviews, dependent: :destroy

@@ -26,21 +26,21 @@
           - @system_contracts.each do |system_contract|
             %tr
               %td{:align => "center"}
-                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :active
+                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:vigencia) || "-" == :active
                   %i.fa.fa-exclamation-circle.fa-lg{ :style => "color:yellowgreen", :title => t('.active')}
-                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :finished
+                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:vigencia) == :finished
                   %i.fa.fa-exclamation-circle.fa-lg{:style => "color:orange", :title => t('.finished')}
-                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.vigencia == :to_expire
+                - if system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:vigencia) == :to_expire
                   %i.fa.fa-exclamation-circle.fa-lg{:style => "color:red", :title => t('.to_expire')}
               %td{title: system_contract.device.name}= system_contract.device.short_name
               %td{title: system_contract.supplier.business_name}= system_contract.supplier.short_name
-              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.start_date
-              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.end_date
-              %td.price= number_to_currency(system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.monto)
+              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:start_date)
+              %td= system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:end_date)
+              %td.price= number_to_currency(system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:monto))
               %td= link_to '', new_system_siteview_path(:page => "contracts", :renewal_id => system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last), class:"btn btn-sm btn-tss fa fa-plus", title: t('.add_visit'), remote: true
               %td= link_to '', system_files_load_files_path(:renewal_id => system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last), class: "btn btn-sm btn-tss fa fa-upload", title: t('add_file')
               %td  
-                %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o{:href => "/files/#{system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.id}.pdf", :target => "_blank", title: t('.download_pdf')}
+                %a.btn.btn-sm.btn-tss.fa.fa-file-pdf-o{:href => "/files/#{system_contract.Renewals.sort_by{ |hsh| hsh[:start_date] }.last.try(:id)}.pdf", :target => "_blank", title: t('.download_pdf')}
               %td= link_to '', new_system_renewal_path(:contract_id => system_contract.id), class:"btn btn-sm btn-tss fa fa-refresh", title: t('.renew_contract'), remote: true
               %td= link_to '', system_contract, class: "btn btn-sm btn-tss fa fa-eye", title: t('see'), remote: true 
               %td= link_to '', edit_system_contract_path(system_contract), class: "btn btn-sm btn-tss fa fa-pencil-square-o", title: t('edit'), remote: true
