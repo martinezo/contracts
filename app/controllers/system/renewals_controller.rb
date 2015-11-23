@@ -66,17 +66,17 @@ class System::RenewalsController < ApplicationController
  
 	@start_date_google=system_renewal_params["start_date(1i)"].to_s + '-' + system_renewal_params["start_date(2i)"].to_s + '-' + system_renewal_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
 	@end_date_google=system_renewal_params["end_date(1i)"].to_s + '-' + system_renewal_params["end_date(2i)"].to_s + '-' + system_renewal_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
-	x=System::Contract.find(system_renewal_params[:contract_id])
-	@google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,x.description,'neuro')
-    @google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,x.description,'neuro')
+	@x=System::Contract.find(system_renewal_params[:contract_id])
+	@google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,@x.description,'neuro')
+    @google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,@x.description,'neuro')
 
 	@system_renewal = System::Renewal.new(contract_id: system_renewal_params[:contract_id], start_date: @start_date, end_date: @end_date, monto: system_renewal_params[:monto], google_event_start: @google_event_start, google_event_end: @google_event_end)
 
     respond_to do |format|
       if @system_renewal.save
 	    
-        ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
-        ApplicationMailer.delay(run_at: @recordar2).send_mail(@email)
+        ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @x)
+        ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @x)
 	format.html { redirect_to @system_renewal, notice: 'Renewal was successfully created.' }
         format.json { render :show, status: :created, location: @system_renewal }
         format.js { redirect_to @system_renewal, notice: 'Renewal was successfully created.' }

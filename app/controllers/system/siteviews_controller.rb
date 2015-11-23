@@ -71,15 +71,15 @@ class System::SiteviewsController < ApplicationController
             puts @email
             array_mailer = [@email, params[:notificaciones]]
             puts array_mailer
-			x=System::Renewal.find(system_siteview_params[:renewal_id])
-			@google_event_start = System::Siteview.event_insert(@start_date_google,@start_date_google,x.contract.description,'neuro')
+			@x=System::Renewal.find(system_siteview_params[:renewal_id])
+			@google_event_start = System::Siteview.event_insert(@start_date_google,@start_date_google,@x.contract.description,'neuro')
 
 
 	
 			@system_siteview= System::Siteview.new(renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: @google_event_start, completed: system_siteview_params[:completed])
 respond_to do |format|
     if @system_siteview.save
-	ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer)
+	ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer,@x.contract)
         format.html { redirect_to @system_siteview, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_siteview }
         format.js   { redirect_to @system_siteview, notice: t('.created') }

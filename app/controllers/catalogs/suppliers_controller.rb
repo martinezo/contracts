@@ -90,6 +90,6 @@ class Catalogs::SuppliersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def catalogs_supplier_params
-      params.require(:catalogs_supplier).permit(:business_name, :contact, :phone, :email)
+      params.require(:catalogs_supplier).permit(:business_name, :contact, :phone, :email, :phone_office)
     end
 end

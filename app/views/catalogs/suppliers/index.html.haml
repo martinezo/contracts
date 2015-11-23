@@ -16,6 +16,8 @@
             %th
               = t('.phone')
             %th
+              = t('.phone')
+            %th
               = t('.email')
             %th
             %th
@@ -26,6 +28,7 @@
               %td{title: catalogs_supplier.business_name}= catalogs_supplier.short_name
               %td= catalogs_supplier.contact
               %td= number_to_phone(catalogs_supplier.phone)
+              %td= number_to_phone(catalogs_supplier.phone_office)
               %td= catalogs_supplier.email
               %td
                 = link_to '', catalogs_supplier, class: "btn btn-sm btn-tss fa fa-eye", title: t('see')  , remote: true

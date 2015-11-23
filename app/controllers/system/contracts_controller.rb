@@ -103,8 +103,8 @@ class System::ContractsController < ApplicationController
 
 	    puts 'google_event aki terminar'
 	   if  @system_renewal.save
-        ApplicationMailer.delay(run_at: @recordar).send_mail(@email)
-        ApplicationMailer.delay(run_at: @recordar2).send_mail(@email) 
+        ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @system_contract)
+        ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @system_contract) 
         format.html { redirect_to @system_contract, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_contract }
         format.js   { redirect_to @system_contract, notice: t('.created') }
