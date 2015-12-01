@@ -2,9 +2,12 @@ class System::Renewal < ActiveRecord::Base
 require 'Google_Calendar'
 include Google_Calendar
 
+require 'Delayed_Calendar'
+include Delayed_Calendar
+  
 has_many :Siteviews, dependent: :destroy
 belongs_to :contract, :class_name => 'System::Contract', :foreign_key => 'contract_id'
-validates :contract_id, :start_date, :end_date, :monto, presence: true
+validates :start_date, :end_date, :monto, presence: true
 
   def stat
         if Time.now >= start_date and Time.now <= end_date

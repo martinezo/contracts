@@ -16,6 +16,7 @@ module Contracts
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     
     config.time_zone = 'Mexico City'
+    config.active_record.default_timezone = 'Mexico City'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

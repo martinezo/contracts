@@ -6,6 +6,8 @@ class System::SiteviewsController < ApplicationController
  def index
   @aux = 'notnil'
  if admin_signed_in?
+
+   
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
       @system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 10)
@@ -73,13 +75,17 @@ class System::SiteviewsController < ApplicationController
             puts array_mailer
 			@x=System::Renewal.find(system_siteview_params[:renewal_id])
 			@google_event_start = System::Siteview.event_insert(@start_date_google,@start_date_google,@x.contract.description,'neuro')
+      @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer,@x.contract)
+    
+    puts 'AKI DEBE SALIR EL ID DEL EVENETO DELAYED_JOBS'
+    puts @delayed_id_start.id
+     puts 'AKI DEBE SALIR EL ID DEL EVENETO DELAYED_JOBS'
+    
+			@system_siteview= System::Siteview.new(renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: @google_event_start, completed: system_siteview_params[:completed], delayed_id_start: @delayed_id_start.id)
 
-
-	
-			@system_siteview= System::Siteview.new(renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: @google_event_start, completed: system_siteview_params[:completed])
-respond_to do |format|
+    respond_to do |format|
     if @system_siteview.save
-	ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer,@x.contract)
+	
         format.html { redirect_to @system_siteview, notice: t('.created') }
         format.json { render :show, status: :created, location: @system_siteview }
         format.js   { redirect_to @system_siteview, notice: t('.created') }
@@ -104,12 +110,26 @@ respond_to do |format|
 		x=System::Renewal.find(system_siteview_params[:renewal_id])
 		@google_event_start=System::Siteview.find(params[:id]).google_event_start
 		
-		System::Siteview.event_update(@start_date_google,@start_date_google,x.contract.description,'neuro',@google_event_start)
+    visita = System::Siteview.find(params[:id])
+    
+    @email = visita.renewal.contract.supplier.email
+    @system_contract = visita.renewal.contract
+    
+    System::Renewal.delayed_event_delete(System::Siteview.find(params[:id]).delayed_id_start)
+    @delayed_id_start = ApplicationMailer.delay(run_at: @start_date).send_mail(@email, @system_contract)
+
+    
+		System::Siteview.event_update(@start_date_google,@start_date_google,x.contract.description,'neuro',@google_event_start, )
 		puts 'Aki va la hora del star_dateeeeeeeeeeeeeeeeeeeeeeeeeeee'
 		puts @start_date
 		puts 'Aki termina la hora del star_dateeeeeeeeeeeeeeeeeeeeeeee'
     respond_to do |format|
-	
+      visita = System::Siteview.find(params[:id])
+      job = Delayed::Job.find(visita.delayed_id_start)
+      job.update_attributes(run_at: @start_date)
+    
+      system_siteview_params = { renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: @google_event_start, completed: system_siteview_params[:completed], delayed_id_start: @delayed_id_start.id }
+      
       if @system_siteview.update(system_siteview_params)
         format.html { redirect_to @system_siteview, notice: t('.updated') }
         format.json { render :show, status: :ok, location: @system_siteview }
@@ -124,6 +144,8 @@ respond_to do |format|
   # DELETE /system/siteviews/1
   # DELETE /system/siteviews/1.json
   def destroy
+    Delayed::Job.find(@system_siteview.delayed_id_start).destroy
+    
   puts 'destruyendo eventooooooooooooooooooooooooooo'
     System::Siteview.event_delete(System::Siteview.find(params[:id]).google_event_start)
     @system_siteview.destroy
@@ -141,6 +163,6 @@ respond_to do |format|
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def system_siteview_params
-      params.require(:system_siteview).permit(:renewal_id, :visit_date, :completed)
+      params.require(:system_siteview).permit(:renewal_id, :visit_date, :completed, :delayed_id_start)
     end
 end

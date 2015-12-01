@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20150904061353) do
     t.float    "monto",              null: false
     t.string   "google_event_start", null: false
     t.string   "google_event_end",   null: false
+    t.integer  "delayed_id_start"
+    t.integer  "delayed_id_end"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 20150904061353) do
     t.datetime "visit_date",         null: false
     t.string   "google_event_start", null: false
     t.boolean  "completed"
+    t.string   "delayed_id_start"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

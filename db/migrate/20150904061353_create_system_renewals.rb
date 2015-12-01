@@ -5,8 +5,10 @@ class CreateSystemRenewals < ActiveRecord::Migration
       t.date :start_date, null: false
       t.date :end_date, null: false
       t.float :monto, null: false
-	  t.string :google_event_start, null: false
-	  t.string :google_event_end, null: false
+	    t.string :google_event_start, null: false
+	    t.string :google_event_end, null: false
+      t.integer :delayed_id_start
+      t.integer :delayed_id_end
 
       t.timestamps null: false
     end
