@@ -46,13 +46,15 @@ es:
         title_supplier: Proveedores
         business: Nombre de Compañía
         contact: Contacto
-        phone: Telefono
+        phone: Télefono
+        phone_office: Teléfono de oficina
         email: Correo electronico
       show:
         title_info_supplier: Informacion de Proveedor
         business: 'Nombre de Compañía:'
         contact: 'Contacto:'
         phone: 'Teléfono:'
+        phone_office: 'Teléfono de oficina:'
         email: 'Correo electrónico:'
       edit:
         title_edit_supplier: Editar Proveedor
@@ -293,6 +295,7 @@ es:
         business_name: 'Nombre de Compañía:'
         contact: 'Contacto:'
         phone: 'Teléfono:'
+        phone_office: 'Teléfono de oficina:'
         email: 'Correo electrónico:'
       catalogs/location:
         department: 'Departamento:'
@@ -334,6 +337,8 @@ es:
               blank: Introduce el nombre del Contacto
             phone:
               blank: Introduce el número telefónico del Contacto
+            phone_office:
+              blank: Introduce el número de oficina del Contacto
             email:
               blank: Introduce el correo electrónico del Contacto
         catalogs/device:
