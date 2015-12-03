@@ -115,22 +115,21 @@ class System::SiteviewsController < ApplicationController
     @email = visita.renewal.contract.supplier.email
     @system_contract = visita.renewal.contract
     
+  
     System::Renewal.delayed_event_delete(System::Siteview.find(params[:id]).delayed_id_start)
     @delayed_id_start = ApplicationMailer.delay(run_at: @start_date).send_mail(@email, @system_contract)
 
+ 
     
-		System::Siteview.event_update(@start_date_google,@start_date_google,x.contract.description,'neuro',@google_event_start, )
+		System::Siteview.event_update(@start_date_google,@start_date_google,x.contract.description,'neuro',@google_event_start)
 		puts 'Aki va la hora del star_dateeeeeeeeeeeeeeeeeeeeeeeeeeee'
 		puts @start_date
 		puts 'Aki termina la hora del star_dateeeeeeeeeeeeeeeeeeeeeeee'
     respond_to do |format|
       visita = System::Siteview.find(params[:id])
-      job = Delayed::Job.find(visita.delayed_id_start)
-      job.update_attributes(run_at: @start_date)
     
-      system_siteview_params = { renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: @google_event_start, completed: system_siteview_params[:completed], delayed_id_start: @delayed_id_start.id }
       
-      if @system_siteview.update(system_siteview_params)
+      if @system_siteview.update(renewal_id: system_siteview_params[:renewal_id], visit_date: @start_date, google_event_start: @google_event_start, completed: system_siteview_params[:completed], delayed_id_start: @delayed_id_start.id)
         format.html { redirect_to @system_siteview, notice: t('.updated') }
         format.json { render :show, status: :ok, location: @system_siteview }
       else

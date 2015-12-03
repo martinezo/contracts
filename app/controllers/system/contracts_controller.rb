@@ -157,12 +157,9 @@ class System::ContractsController < ApplicationController
        
         System::Renewal.delayed_event_delete(System::Renewal.find(var).delayed_id_start)
         System::Renewal.delayed_event_delete(System::Renewal.find(var).delayed_id_end)
-        @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @system_contract)
-        @delayed_id_end = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @system_contract)
-        
-        
-        
-        
+        @delayed_id_start = ApplicationMailer.delay(run_at: @start_date).send_mail(@email, @system_contract)
+        @delayed_id_end = ApplicationMailer.delay(run_at: @end_date).send_mail(@email, @system_contract)
+ 
         supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
 	@email = supplier.email
 	#t0=Time.new(system_renewal_params["start_date(1i)"].to_i,system_renewal_params["start_date(2i)"].to_i,system_renewal_params["start_date(3i)"].to_i)
