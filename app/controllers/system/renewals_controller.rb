@@ -56,15 +56,18 @@ class System::RenewalsController < ApplicationController
               
 	   puts 'Aki va el parametro start_date sssssssssssssssssssssssssssssssssss'
         puts t1
-        @recordar = t0 - APP_CONFIG["production"][:notification_time].to_i.days # resta 1 semana
-        @recordar2 = t1 - APP_CONFIG["production"][:notification_time].to_i.days
+               file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
+      @before_days = file_yaml["production"]['notification_time'].to_i.days
+    
+    @recordar = t0 - @before_days
+    @recordar2 = t1 - @before_days
         puts 'aki va el recordatorio al iniciar la renovacion'
         puts @recordar
         puts 'aki terminaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
         puts @email
-    
-		    @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @x)
-        @delayed_id_end =  ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @x)
+    puts 'aki termina emailllllllllllllllllllllllllllllllllllllllllllllllllllllll'
+		    @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, contract)
+        @delayed_id_end =  ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, contract)
  
 	@start_date_google=system_renewal_params["start_date(1i)"].to_s + '-' + system_renewal_params["start_date(2i)"].to_s + '-' + system_renewal_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
 	@end_date_google=system_renewal_params["end_date(1i)"].to_s + '-' + system_renewal_params["end_date(2i)"].to_s + '-' + system_renewal_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
@@ -113,8 +116,14 @@ class System::RenewalsController < ApplicationController
     
         System::Renewal.delayed_event_delete(System::Renewal.find(params[:id]).delayed_id_start)
         System::Renewal.delayed_event_delete(System::Renewal.find(params[:id]).delayed_id_end)
-    @delayed_id_start = ApplicationMailer.delay(run_at: @start_date).send_mail(@email, @system_contract)
-    @delayed_id_end = ApplicationMailer.delay(run_at: @end_date).send_mail(@email, @system_contract)
+    
+    file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
+    @before_days = file_yaml["production"]['notification_time'].to_i.days
+    @recordar1 = @start_date - @before_days
+    @recordar2 = @start_date - @before_days
+    
+    @delayed_id_start = ApplicationMailer.delay(run_at: @recordar1).send_mail(@email, @system_contract)
+    @delayed_id_end = ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @system_contract)
         
     
     respond_to do |format|

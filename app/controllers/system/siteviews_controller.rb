@@ -63,7 +63,9 @@ class System::SiteviewsController < ApplicationController
 	    @system_siteview = System::Siteview.new(system_siteview_params)
             renewal=System::Renewal.find(system_siteview_params[:renewal_id])
             format=*params["recordar"].values.map(&:to_i)
-            @recordar=Time.new(format[2],format[1],format[0],format[3],format[4])
+   
+    
+    @recordar=Time.new(format[2],format[1],format[0],format[3],format[4]) 
             @email=renewal.contract.supplier.email
             puts 'AKI DEBE IR EL PARAMETRO RECORDAR ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
             puts @recordar
@@ -103,7 +105,7 @@ class System::SiteviewsController < ApplicationController
  	    @start_date=Time.new(system_siteview_params["visit_date(1i)"].to_i,system_siteview_params["visit_date(2i)"].to_i,system_siteview_params["visit_date(3i)"].to_i,system_siteview_params["visit_date(4i)"].to_i,system_siteview_params["visit_date(5i)"].to_i)
 		
 		format2=*params["recordar"].values.map(&:to_i)
-	    @end_date=Date.new(format2[2],format2[1],format2[0])
+    @end_date=Time.new(format2[2],format2[1],format2[0],format2[3],format2[4],format2[5])
 
 		@start_date_google=system_siteview_params["visit_date(1i)"].to_s + '-' + system_siteview_params["visit_date(2i)"].to_s + '-' + system_siteview_params["visit_date(3i)"].to_s + 'T'+system_siteview_params["visit_date(4i)"].to_s+':'+system_siteview_params["visit_date(5i)"].to_s+':00-06:00'
 
@@ -116,8 +118,9 @@ class System::SiteviewsController < ApplicationController
     @system_contract = visita.renewal.contract
     
   
+    
     System::Renewal.delayed_event_delete(System::Siteview.find(params[:id]).delayed_id_start)
-    @delayed_id_start = ApplicationMailer.delay(run_at: @start_date).send_mail(@email, @system_contract)
+    @delayed_id_start = ApplicationMailer.delay(run_at: @end_date).send_mail(@email, @system_contract)
 
  
     
@@ -143,7 +146,10 @@ class System::SiteviewsController < ApplicationController
   # DELETE /system/siteviews/1
   # DELETE /system/siteviews/1.json
   def destroy
+    begin
     Delayed::Job.find(@system_siteview.delayed_id_start).destroy
+    rescue 
+    end
     
   puts 'destruyendo eventooooooooooooooooooooooooooo'
     System::Siteview.event_delete(System::Siteview.find(params[:id]).google_event_start)

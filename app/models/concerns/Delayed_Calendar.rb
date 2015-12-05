@@ -5,13 +5,21 @@ module Delayed_Calendar
 
 			
       def delayed_event_update(time_min_param,delayed_id_param)
+        begin
         job=Delayed::Job.find(delayed_id_param)
         job.update_attributes(run_at: time_min_param)
+      rescue 'ActiveRecord::RecordNotFound'  
+      return 
+        end
+        
       end
 	
       def delayed_event_delete(delayed_id_param)
+        begin
         job=Delayed::Job.find(delayed_id_param)
         job.destroy
+      rescue
+        end
 	    end
 
       def delayed_event_delete_cascade_contract(contract_id)  
