@@ -23,7 +23,7 @@
           - @system_siteviews.each do |system_siteview|
             %tr
               %td= system_siteview.renewal.contract.short_name
-              %td= system_siteview.visit_date.nil?
+              %td= system_siteview.visit_date
               /%td= system_siteview.completed
               - if system_siteview.completed == true
                 %td Efectuada
