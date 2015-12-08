@@ -56,8 +56,12 @@ class System::RenewalsController < ApplicationController
               
 	   puts 'Aki va el parametro start_date sssssssssssssssssssssssssssssssssss'
         puts t1
-               file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
-      @before_days = file_yaml["production"]['notification_time'].to_i.days
+    if params[:notification_date].nil?
+                 file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
+            @before_days = file_yaml["production"]['notification_time'].to_i.days
+    else
+     @before_days = params[:notification_date].to_i.days
+    end
     
     @recordar = t0 - @before_days
     @recordar2 = t1 - @before_days
@@ -117,8 +121,13 @@ class System::RenewalsController < ApplicationController
         System::Renewal.delayed_event_delete(System::Renewal.find(params[:id]).delayed_id_start)
         System::Renewal.delayed_event_delete(System::Renewal.find(params[:id]).delayed_id_end)
     
-    file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
-    @before_days = file_yaml["production"]['notification_time'].to_i.days
+    if params[:notification_date].nil?
+                 file_yaml = YAML.load_file "#{Rails.root}/config/config.yml"
+            @before_days = file_yaml["production"]['notification_time'].to_i.days
+    else
+     @before_days = params[:notification_date].to_i.days
+    end
+    
     @recordar1 = @start_date - @before_days
     @recordar2 = @start_date - @before_days
     
