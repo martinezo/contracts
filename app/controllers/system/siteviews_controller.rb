@@ -77,7 +77,7 @@ class System::SiteviewsController < ApplicationController
             puts array_mailer
 			@x=System::Renewal.find(system_siteview_params[:renewal_id])
 			@google_event_start = System::Siteview.event_insert(@start_date_google,@start_date_google,@x.contract.description,'neuro')
-      @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer,@x.contract)
+      @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer,@x.contract,'create_siteview', @start_date, nil)
     
     puts 'AKI DEBE SALIR EL ID DEL EVENETO DELAYED_JOBS'
     puts @delayed_id_start.id
@@ -120,7 +120,7 @@ class System::SiteviewsController < ApplicationController
   
     
     System::Renewal.delayed_event_delete(System::Siteview.find(params[:id]).delayed_id_start)
-    @delayed_id_start = ApplicationMailer.delay(run_at: @end_date).send_mail(@email, @system_contract)
+    @delayed_id_start = ApplicationMailer.delay(run_at: @end_date).send_mail(@email, @system_contract,'update_siteview', @start_date, nil)
 
  
     

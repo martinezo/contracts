@@ -7,6 +7,9 @@ class System::FilesController < ApplicationController
    
   def load_files
   @renewal_id=params[:renewal_id];
+    renewal = System::Renewal.find(@renewal_id)
+  @contract_no = renewal.contract.contract_no
+    
   @formato_erroneo = false;
    if request.post?
       #Archivo subido por el usuario.
@@ -22,7 +25,7 @@ class System::FilesController < ApplicationController
       #Verifica que el archivo tenga una extensión correcta.
       if extension == ".pdf" or extension == ".doc" or extension == ".docx"
          #Ruta del archivo.
-         path = File.join(directorio, @renewal_id + extension);
+         path = File.join(directorio, @contract_no + "_" + @renewal_id + extension);
          #Crear en el archivo en el directorio. Guardamos el resultado en una variable, será true si el archivo se ha guardado correctamente.
          resultado = File.open(path, "wb") { |f| f.write(archivo.read) };
 		 

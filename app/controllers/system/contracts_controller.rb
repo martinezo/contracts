@@ -98,8 +98,9 @@ class System::ContractsController < ApplicationController
         @google_event_start = System::Renewal.event_insert(@start_date_google,@start_date_google,system_contract_params[:description],'neuro')
 		@google_event_end= System::Renewal.event_insert(@end_date_google,@end_date_google,system_contract_params[:description],'neuro')
 
-        @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @system_contract)
-        @delayed_id_end = ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @system_contract) 
+        
+        @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @system_contract,'create_contract', @start_date, @end_date)
+        @delayed_id_end = ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @system_contract,'create_contract', @start_date, @end_date) 
         
         puts 'aki deberia ir el id de la Delayed_ start Renovacion'
         puts @delayed_id_start.id
@@ -167,11 +168,13 @@ class System::ContractsController < ApplicationController
         @recordar = @start_date - @before_days # resta x dias del archivo de configuracion
       @recordar2 = @end_date - @before_days
         
-        @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @system_contract)
-        @delayed_id_end = ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @system_contract)
- 
-        supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
+  supplier = Catalogs::Supplier.find(system_contract_params[:supplier_id])
 	@email = supplier.email
+        
+        @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, @system_contract,'update_contract', @start_date, @end_date)
+        @delayed_id_end = ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @system_contract,'update_contract', @start_date, @end_date)
+ 
+
 	#t0=Time.new(system_renewal_params["start_date(1i)"].to_i,system_renewal_params["start_date(2i)"].to_i,system_renewal_params["start_date(3i)"].to_i)
   #t1=Time.new(system_renewal_params["end_date(1i)"].to_i,system_renewal_params["end_date(2i)"].to_i,system_renewal_params["end_date(3i)"].to_i)
   puts 'Aki va el parametro start_date sssssssssssssssssssssssssssssssssss'
