@@ -3,7 +3,7 @@
     = t('.title_info_renewal')
 
 .modal-body
-  /%p#notice= notice
+
   .row
     .col-xs-6.col-md-4
       %p
@@ -32,7 +32,6 @@
 
 
 .modal-footer
-  / = link_to t('.add_siteview'), new_system_siteview_path, class:"btn btn-tss", remote: true
   = link_to t('edit'), edit_system_renewal_path(@system_renewal), class: "btn btn-sm btn-tss", remote: true
   = link_to t('back'), system_contracts_path, class: "btn btn-sm btn-tss"
 

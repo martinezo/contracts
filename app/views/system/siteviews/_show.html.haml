@@ -3,7 +3,7 @@
     = t('.title_info_siteview')
 
 .modal-body
-  /%p#notice= notice
+
   .row
     .col-xs-6.col-md-4
       %p
@@ -29,7 +29,7 @@
           Efectuada
         - else
           No efectuada 
-        /= @system_siteview.completed
+        
     
 .modal-footer
   = link_to t('edit'), edit_system_siteview_path(@system_siteview), remote: true, class: "btn btn-sm btn-tss"

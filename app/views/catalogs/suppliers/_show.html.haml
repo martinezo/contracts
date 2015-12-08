@@ -3,7 +3,6 @@
     = t('.title_info_supplier')
 
 .modal-body
-  /%p#notice= notice
   .row
     .col-xs-6.col-md-4
       %p
@@ -44,4 +43,3 @@
 .modal-footer
   = link_to t('edit'), edit_catalogs_supplier_path(@catalogs_supplier), class: "btn btn-sm btn-tss", remote: true
   = link_to t('back'), catalogs_suppliers_path, class: "btn btn-sm btn-tss"
-

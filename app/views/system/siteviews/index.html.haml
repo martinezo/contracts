@@ -24,7 +24,7 @@
             %tr
               %td= system_siteview.renewal.contract.short_name
               %td= system_siteview.visit_date
-              /%td= system_siteview.completed
+           
               - if system_siteview.completed == true
                 %td Efectuada
               - else
@@ -38,7 +38,7 @@
       = will_paginate @system_siteviews, :container => false
 
     %br
-    /= link_to t('.add_siteview'), new_system_siteview_path, class:"btn btn-tss", remote: true
+  
 
   #siteview-modal.modal.fade
     .modal-dialog.modal-lg

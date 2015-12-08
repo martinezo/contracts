@@ -7,6 +7,9 @@ es:
     start_date: Fecha de inicio
     end_date: Fecha de fin
   configure:
+    e_mail_text:
+      name: 'Texto predeterminado para correo: ' 
+      hint:  'Escriba el texto que desea incluir segun el correo electrónico'
     name_technical_secretary: 
       name: 'Nombre del Secretario Técnico: '
       hint: 'Nombre actual del encargado '

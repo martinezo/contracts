@@ -34,7 +34,6 @@
     .apple_pagination
       = will_paginate @catalogs_locations, :container => false 
     %br
-    /= link_to t('.add_location'), new_catalogs_location_path, class: "btn btn-tss", remote: true
   #location-modal.modal.fade
     .modal-dialog.modal-lg
       #inner-location-modal.modal-content
