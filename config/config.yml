@@ -6,7 +6,7 @@ production:
   notification_time: '10'
   developper_id: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com
   developper_key: AIzaSyCRH1hazwsIa5wm9-CRicRxvkVxId3Nx1s
-  key_path_p12: /Users/Susana/Documents/contracts/unam-b563e3112a76.p12 
+  key_path_p12: C:\Sites\contracts\unam-b563e3112a76.p12 
   developper_email: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com
   calendar_id: java4ever.sys@gmail.com
   e_mail_text: 'Aquí puede escribir el texto predeterminado para el correo.'

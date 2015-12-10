@@ -105,10 +105,8 @@ class System::ContractsController < ApplicationController
         puts 'aki deberia ir el id de la Delayed_ start Renovacion'
         puts @delayed_id_start.id
         puts @delayed_id_end.id
-        puts 'aki deberia ir TERMINAR| el id de la Delayed_ start Renovacion'
-        
-        
-        
+        puts 'aki deberia ir TERMINAR| el id de la Delayed_ start Renovacion'                
+        puts '-------------'
         @system_renewal=System::Renewal.new(contract_id: @system_contract.id, start_date: @start_date, end_date: @end_date, monto: system_contract_params[:monto], google_event_start: @google_event_start, google_event_end: @google_event_end, delayed_id_start: @delayed_id_start.id, delayed_id_end: @delayed_id_end.id)
 		    puts 'google_event aki es'
 		    puts @google_event_start
