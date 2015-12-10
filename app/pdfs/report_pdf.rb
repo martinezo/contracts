@@ -27,10 +27,10 @@ class ReportPDF < Prawn::Document
 	def line_items
 		move_down 20
 		font "Helvetica", :size => 10		
-		table line_item_rows, :width => 750, :column_widths => [170, 170, 170, 50, 95, 95], :row_colors => ["8CB9DC" , "F0F0F0"], :header => true  do
+		table line_item_rows, :width => 750, :column_widths => [165, 170, 170, 69, 88, 88], :row_colors => ["8CB9DC" , "F0F0F0"], :header => true  do
 			row(0).font_style = :bold
 			columns(0...5).align = :left
-			#columns(3).align = :right
+			columns(3).align = :right
 		end
 	end
 
@@ -38,7 +38,7 @@ class ReportPDF < Prawn::Document
 		[[ "Nombre de Equipo" , "Proveedor" , "No. de Contrato" , "Monto" , "Fecha inicial" , "Fecha final" ]] +
 		@report.map do |rep|
 		#@report.line_items.map do |item|
-			[rep.contract.device.name, rep.contract.supplier.business_name, rep.contract.contract_no, rep.monto, rep.start_date, rep.end_date]
+			[rep.contract.device.name, rep.contract.supplier.business_name, rep.contract.contract_no, '$' + rep.monto.round(2).to_s + '0', rep.start_date, rep.end_date]
 		end
 	end
 	#end

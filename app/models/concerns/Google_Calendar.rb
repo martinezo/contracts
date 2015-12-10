@@ -24,9 +24,16 @@ module Google_Calendar
 					'https://www.googleapis.com/auth/calendar',
 					key)
 			# To request an access token, call authorize:
-			puts 'Hola aquí estamos a punto de entrar -----'
-			@client.authorization = asserter.authorize()
-			puts 'Hola authorize excelente'
+			puts 'Hola aquí estamos a punto de entrar -------'
+			puts @client
+			begin
+      				@client.authorization = asserter.authorize()
+			rescue Signet::AuthorizationError => e	
+				puts e.message
+			ensure
+				puts 'El resto de código hacia abajo, se ejecuta'
+			end
+
 
 			calendar = @client.discovered_api('calendar', 'v3')
 

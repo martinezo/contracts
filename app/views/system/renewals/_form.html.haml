@@ -5,10 +5,10 @@
     - if @contract_id.nil? || @contract_id.empty?
       = f.association :contract, label_method: :contract_no, value_method: :id
     - else
-    = f.input :contract_id, :input_html => { :value => @contract_id}
+    = f.input :contract_id, :as => :hidden, :input_html => { :value => @contract_id}
     = f.input :start_date, wrapper_html: { class: 'form-inline' }
     = f.input :end_date, wrapper_html: { class: 'form-inline' }
-    = f.input :monto, wrapper_html: { class: 'form-inline' }
+    = f.input :monto, :as => :string, wrapper_html: { class: 'form-inline' }
     = f.label t('.notification_date'), wrapper_html: { class: 'form-inline' }
     = text_field_tag "notification_date", ""
     %br/
