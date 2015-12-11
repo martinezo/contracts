@@ -47,11 +47,9 @@
       %table.table.table-striped.table-condensed
         %thead
           %tr
-            %th
-            %th= t('.contract_no')
+            %th          
             %th= t('.start_date')
             %th= t('.end_date')
-            %th
         %tbody
           %tr
             %td
@@ -65,15 +63,13 @@
                 %i.fa.fa-exclamation-circle.fa-lg{:style => "color:red", :title => t('.to_expire')}
                 
             %td= @active_renewal.start_date
-            %td= @active_renewal.end_date
+            %td= @active_renewal.end_date            
     .table-responsive
       %table.table.table-striped.table-condensed
         %thead
           %tr
             %th
-            %th= t('.contract_no')
             %th= t('.visit_date')
-            %th
         %tbody
           - @active_renewal.Siteviews.each do |visit|
             %tr
@@ -82,9 +78,8 @@
                   %i.fa.fa-exclamation-circle.fa-lg{:style => "color:yellowgreen", :title => t('.visited')}
                 - if visit.status_visit == :not_visited
                   %i.fa.fa-exclamation-circle.fa-lg{:style => "color:red", :title => t('.not_visited')}
-              %td= visit.renewal.contract.contract_no
               %td= visit.visit_date
-              %td
+
 .modal-footer
   = link_to t('edit'), edit_system_contract_path(@system_contract), remote: true, class: "btn btn-sm btn-tss"
   = link_to t('back'), system_contracts_path, class: "btn btn-sm btn-tss"

@@ -128,8 +128,8 @@ es:
         renew_contract: Renovar contrato
         download_pdf: Ver Contrato
         not_found_pdf: No existe el archivo
-        start_date: Fecha inicial
-        end_date: Fecha final
+        start_date: Fecha de inicio
+        end_date: Fecha de fin
         to_expire: Pronto a expirar
         active: Vigente
         finished: Expirado
@@ -139,8 +139,8 @@ es:
         description: 'Descripción:'
         supplier: 'Proveedor:'
         monto: 'Monto:'
-        start_date: 'Fecha inicio'
-        end_date: 'Fecha final'
+        start_date: 'Fecha de inicio'
+        end_date: 'Fecha de fin'
         contract_no: 'No. de Contrato:'
         visit_date: Fecha de Visita
         to_expire: Pronto a expirar
@@ -154,8 +154,8 @@ es:
       new:
         title_new_contract: Contrato nuevo
       form:
-        start_date: 'Fecha inicial:'
-        end_date: 'Fecha final:'
+        start_date: 'Fecha de inicio:'
+        end_date: 'Fecha de fin:'
         device: 'Nombre del Equipo:'
         supplier: 'Proveedor:'
         monto: 'Monto:'
@@ -188,15 +188,15 @@ es:
       index:
         title_renewals: Renovaciones de Contrato
         contract: Contrato
-        start_date: Fecha inicial
-        end_date: Fecha final
+        start_date: Fecha de inicio
+        end_date: Fecha de fin
         device: Nombre de Equipo
         supplier: Proveedor
       show:
         title_info_renewal: Información de Contrato Renovado
         contract_no: 'No. de Contrato:'
-        start_date: 'Fecha inicial:'
-        end_date: 'Fecha final:'
+        start_date: 'Fecha de inicio:'
+        end_date: 'Fecha de fin:'
         monto: 'Monto:'
       edit:
         title_edit_renewal: Editar Contrato Renovado
@@ -217,8 +217,8 @@ es:
         supplier: 'Proveedor'
         contract: 'No. de Contrato'
         monto: 'Monto'
-        start_date: 'Fecha inicial'
-        end_date: 'Fecha final'
+        start_date: 'Fecha de inicio'
+        end_date: 'Fecha de fin'
         filter_by: 'Filtrar por fecha'
         in_time: 'Solo vigentes'
       body:
@@ -227,8 +227,8 @@ es:
         supplier: 'Proveedor'
         contract: 'No. de Contrato'
         monto: 'Monto'
-        start_date: 'Fecha inicial'
-        end_date: 'Fecha final'
+        start_date: 'Fecha de inicio'
+        end_date: 'Fecha de fin'
         pdf: 'Generar documento PDF'
         xlsx: 'Generar documento Excel'
     files:
@@ -316,8 +316,8 @@ es:
         supplier_id: 'Proveedor:'
         contract_no: 'No. de Contrato:'
         description: 'Descripción:'
-        start_date: 'Fecha inicial:'
-        end_date: 'Fecha final:'
+        start_date: 'Fecha de inicio:'
+        end_date: 'Fecha de fin:'
         device: 'Equipo:'
         supplier: 'Proveedor:'
       system/siteview:
@@ -327,8 +327,8 @@ es:
         renewal: 'ID de Renovación'
       system/renewal:
         contract_id: 'ID de Contrato:'
-        start_date: 'Fecha inicial:'
-        end_date: 'Fecha final:'
+        start_date: 'Fecha de inicio:'
+        end_date: 'Fecha de fin:'
         contract: 'No. de Contrato'
 
     errors:
