@@ -345,6 +345,7 @@ es:
             phone_office:
               blank: Introduce el número de oficina del Contacto
             email:
+              invalid: Correo electrónico invalido
               blank: Introduce el correo electrónico del Contacto
         catalogs/device:
           attributes:
@@ -363,6 +364,7 @@ es:
               blank: Introduce el nombre del Responsable
             email:
               blank: Introduce el correo electrónico
+              invalid: Correo electrónico invalido
         system/contract:
           attributes:
             device_id:
@@ -384,6 +386,8 @@ es:
           attributes:
             contract_id:
               blank: Introduce el ID de contrato
+            monto:
+              blank: Introduce el monto del Contrato
 
 #es.activerecord.errors.models.system/renewal.attributes.contract_id.blank
   devise:

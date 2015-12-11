@@ -3,9 +3,9 @@
     
     = f.error_notification
     - if @renewal_id.nil? || @renewal_id.empty?
-      = f.association :renewal, :as => :hidden, label_method: :id, value_method: :id
+      = f.association :renewal, as: :hidden, label_method: :id, value_method: :id
     - else
-      = f.input :renewal_id, :input_html => { :value => @renewal_id}, :as => :hidden
+      = f.input :renewal_id, :input_html => { :value => @renewal_id}, as: :hidden
     .col-xs-4.col-sm-3
       = f.label :visit_date
     = f.input_field :visit_date, as: :datetime, wrapper_html: { class: 'form-inline' }

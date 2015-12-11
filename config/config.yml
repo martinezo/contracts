@@ -1,7 +1,7 @@
 ---
 production:
   name_technical_secretary: Prueba de nombre
-  e_mail_technical_secretary: genomma@live.com
+  e_mail_technical_secretary: nanish_20@hotmail.com
   truncate_length: '20'
   notification_time: '10'
   developper_id: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com
@@ -9,4 +9,4 @@ production:
   key_path_p12: C:\Sites\contracts\unam-b563e3112a76.p12
   developper_email: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com
   calendar_id: java4ever.sys@gmail.com
-  e_mail_text: 'Aquí puede escribir el texto predeterminado para el correo.'
+  e_mail_text: Aqu?? puede escribir el texto predeterminado para el correo.
