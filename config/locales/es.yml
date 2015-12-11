@@ -239,7 +239,7 @@ es:
       list_files:
         title_list_files: 'Almacenamiento de Archivos Generales'
         upload_file: 'Subir Archivo'
-        name_file: 'Nombre del Archivo'
+        name_file: 'Nombre del Archivo (Nomenclatura: No. Contrato + ID de Renovación)'
         last_comments: 'Últimos Comentarios:'
         add_comment: 'Agregar comentarios'
         deleted_file: 'El archivo ha sido eliminado exitosamente'
