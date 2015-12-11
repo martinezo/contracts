@@ -139,11 +139,11 @@ end
     respond_to do |format|
       if @system_contract.update(system_contract_params)
 
-	@start_date_google=system_contract_params["start_date(1i)"].to_s + '-' + system_contract_params["start_date(2i)"].to_s + '-' + system_contract_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
-	@end_date_google=system_contract_params["end_date(1i)"].to_s + '-' + system_contract_params["end_date(2i)"].to_s + '-' + system_contract_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
+	@start_date_google=params["system_contract"]["start_date(1i)"].to_s + '-' + params["system_contract"]["start_date(2i)"].to_s + '-' + params["system_contract"]["start_date(3i)"].to_s + 'T10:00:52-05:00'
+	@end_date_google=params["system_contract"]["end_date(1i)"].to_s + '-' + params["system_contract"]["end_date(2i)"].to_s + '-' + params["system_contract"]["end_date(3i)"].to_s + 'T10:00:52-05:00'
 	
-	@start_date=Date.new(system_contract_params["start_date(1i)"].to_i,system_contract_params["start_date(2i)"].to_i,system_contract_params["start_date(3i)"].to_i)
-	@end_date=Date.new(system_contract_params["end_date(1i)"].to_i,system_contract_params["end_date(2i)"].to_i,system_contract_params["end_date(3i)"].to_i)
+	@start_date=Date.new(params["system_contract"]["start_date(1i)"].to_i,params["system_contract"]["start_date(2i)"].to_i,params["system_contract"]["start_date(3i)"].to_i)
+	@end_date=Date.new(params["system_contract"]["end_date(1i)"].to_i,params["system_contract"]["end_date(2i)"].to_i,params["system_contract"]["end_date(3i)"].to_i)
 		
         var = @system_contract.Renewals.sort_by{ |hsh| hsh[:end_date] }.last
 		
@@ -184,7 +184,7 @@ end
   puts @email
         
         
-        system_renewal_params={:contract_id => @system_contract.id,:start_date => @start_date,:end_date => @end_date,:monto => system_contract_params[:monto],delayed_id_start: @delayed_id_start.id, delayed_id_end: @delayed_id_end.id}
+        system_renewal_params={:contract_id => @system_contract.id,:start_date => @start_date,:end_date => @end_date,:monto => params["system_contract"][:monto],delayed_id_start: @delayed_id_start.id, delayed_id_end: @delayed_id_end.id}
         System::Renewal.find(var).update(system_renewal_params)
 
 
