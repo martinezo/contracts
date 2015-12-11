@@ -126,7 +126,8 @@ es:
         monto: Monto
         add_visit: Agregar visita
         renew_contract: Renovar contrato
-        download_pdf: Descargar PDF
+        download_pdf: Ver Contrato
+        not_found_pdf: No existe el archivo
         start_date: Fecha inicial
         end_date: Fecha final
         to_expire: Pronto a expirar
