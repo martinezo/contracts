@@ -8,8 +8,11 @@ include Delayed_Calendar
 belongs_to :device, :class_name => 'Catalogs::Device', :foreign_key => 'device_id'
 belongs_to :supplier, :class_name => 'Catalogs::Supplier', :foreign_key => 'supplier_id'
 has_many :Renewals, dependent: :destroy
-validates :device_id, :supplier_id, :description ,presence: true
+accepts_nested_attributes_for :Renewals
+  
+  validates :device_id, :supplier_id, :description , :contract_no, presence: true
 validates :contract_no, uniqueness: true
+  
 
 attr_accessor :start_date
 attr_accessor :end_date
