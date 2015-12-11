@@ -142,7 +142,8 @@ es:
         start_date: 'Fecha de inicio'
         end_date: 'Fecha de fin'
         contract_no: 'No. de Contrato:'
-        visit_date: Fecha de Visita
+        visit_date: 'Fechas de visitas agendadas:'
+        status: 'Estatus'
         to_expire: Pronto a expirar
         active: Vigente
         finished: Expirado
