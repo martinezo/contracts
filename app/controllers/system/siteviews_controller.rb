@@ -73,10 +73,14 @@ class System::SiteviewsController < ApplicationController
             puts Time.now
             puts 'AKI TERMINA IR EL PARAMETRO EMAIL ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOT'
             puts @email
-            array_mailer = [@email, params[:notificaciones]]
-            puts array_mailer
+            
+           
 			@x=System::Renewal.find(system_siteview_params[:renewal_id])
 			@google_event_start = System::Siteview.event_insert(@start_date_google,@start_date_google,@x.contract.description,'neuro')
+    
+      @email_departamento = @x.contract.device.location.email      
+      array_mailer = [@email, @email_departamento, params[:notificaciones]]
+    
       @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer,@x.contract,'create_siteview', @start_date, nil)
     
     puts 'AKI DEBE SALIR EL ID DEL EVENETO DELAYED_JOBS'
@@ -117,10 +121,13 @@ class System::SiteviewsController < ApplicationController
     @email = visita.renewal.contract.supplier.email
     @system_contract = visita.renewal.contract
     
-  
-    
+
     System::Renewal.delayed_event_delete(System::Siteview.find(params[:id]).delayed_id_start)
-    @delayed_id_start = ApplicationMailer.delay(run_at: @end_date).send_mail(@email, @system_contract,'update_siteview', @start_date, nil)
+    
+    @email_departamento = @system_contract.device.location.email      
+    array_mailer = [@email, @email_departamento, params[:notificaciones]]
+    
+    @delayed_id_start = ApplicationMailer.delay(run_at: @end_date).send_mail(array_mailer, @system_contract,'update_siteview', @start_date, nil)
 
  
     

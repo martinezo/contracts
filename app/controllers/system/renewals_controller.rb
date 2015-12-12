@@ -70,8 +70,12 @@ class System::RenewalsController < ApplicationController
         puts 'aki terminaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
         puts @email
     puts 'aki termina emailllllllllllllllllllllllllllllllllllllllllllllllllllllll'
-    @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(@email, contract,'create_renewal', @start_date, @end_date)
-        @delayed_id_end =  ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, contract,'create_renewal', @start_date, @end_date)
+    
+    @email_departamento = contract.device.location.email      
+        array_mailer = [@email, @email_departamento]
+    
+    @delayed_id_start = ApplicationMailer.delay(run_at: @recordar).send_mail(array_mailer, contract,'create_renewal', @start_date, @end_date)
+        @delayed_id_end =  ApplicationMailer.delay(run_at: @recordar2).send_mail(array_mailer, contract,'create_renewal', @start_date, @end_date)
  
 	@start_date_google=system_renewal_params["start_date(1i)"].to_s + '-' + system_renewal_params["start_date(2i)"].to_s + '-' + system_renewal_params["start_date(3i)"].to_s + 'T10:00:52-05:00'
 	@end_date_google=system_renewal_params["end_date(1i)"].to_s + '-' + system_renewal_params["end_date(2i)"].to_s + '-' + system_renewal_params["end_date(3i)"].to_s + 'T10:00:52-05:00'
@@ -131,8 +135,11 @@ class System::RenewalsController < ApplicationController
     @recordar1 = @start_date - @before_days
     @recordar2 = @start_date - @before_days
     
-    @delayed_id_start = ApplicationMailer.delay(run_at: @recordar1).send_mail(@email, @system_contract,'update_renewal', @start_date, @end_date)
-    @delayed_id_end = ApplicationMailer.delay(run_at: @recordar2).send_mail(@email, @system_contract,'update_renewal', @start_date, @end_date)
+    @email_departamento = @system_contract.device.location.email      
+    array_mailer = [@email, @email_departamento]
+    
+    @delayed_id_start = ApplicationMailer.delay(run_at: @recordar1).send_mail(array_mailer, @system_contract,'update_renewal', @start_date, @end_date)
+    @delayed_id_end = ApplicationMailer.delay(run_at: @recordar2).send_mail(array_mailer, @system_contract,'update_renewal', @start_date, @end_date)
         
     
     respond_to do |format|

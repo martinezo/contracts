@@ -25,8 +25,11 @@ class System::ConfigurationController < ApplicationController
     #Al parecer no acepta acentos.
     prueba = @file_yaml["production"]
     prueba.each do | key, value |
+      begin
       @file_yaml["production"][key] = params[:configure][key].encode("UTF-8", "binary", :invalid => :replace, :undef => :replace, :replace => "?")
-    end
+      rescue
+      end
+      end
     @file_yaml.to_yaml
     #puts "Prueba para el Save #{@file_yaml}"
     resultado = File.open("#{Rails.root}/config/config.yml", 'w+') { |f| YAML.dump(@file_yaml, f)}
