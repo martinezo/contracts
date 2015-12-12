@@ -21,3 +21,5 @@ config/database.yml
 config/database.yml
 simple.xlsx
 config/database.yml
+db/schema.rb
+config/database.yml
