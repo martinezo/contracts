@@ -5,6 +5,7 @@
   .barra_busqueda
     = render partial: 'layouts/search',locals: { viewer: 'devices', name: 'add_device', helper: new_catalogs_device_path }
   .cuerpo_devices
+    = flash[:error]
     .table-responsive
       %table.table.table-striped.table-condensed
         %thead
