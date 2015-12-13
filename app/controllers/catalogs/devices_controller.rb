@@ -8,7 +8,7 @@ class Catalogs::DevicesController < ApplicationController
   	if admin_signed_in?
     	puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     	if params[:codigo].nil? || params[:codigo].empty?
-    		@catalogs_devices = Catalogs::Device.all.paginate(page: params[:page], per_page: 10)
+    		@catalogs_devices = Catalogs::Device.all.paginate(page: params[:page], per_page: 15)
   		else
    		 #@catalogs_suppliers.where(business_name: params[:codido])     		 @catalogs_devices= Catalogs::Device.where("name LIKE :codigo or unam_stock_number LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 10)
     	end

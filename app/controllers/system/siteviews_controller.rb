@@ -10,7 +10,7 @@ class System::SiteviewsController < ApplicationController
    
     puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
     if params[:codigo].nil? || params[:codigo].empty?
-      @system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 10)
+      @system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 15)
     else
       #@system_siteviews = System::Siteview.all.paginate(page: params[:page], per_page: 10)
 

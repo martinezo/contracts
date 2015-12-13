@@ -8,7 +8,7 @@ class Catalogs::LocationsController < ApplicationController
     if admin_signed_in?
       puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
       if params[:codigo].nil? || params[:codigo].empty?
-        @catalogs_locations = Catalogs::Location.all.paginate(page: params[:page], per_page: 10)
+        @catalogs_locations = Catalogs::Location.all.paginate(page: params[:page], per_page: 15)
       else
         #@catalogs_suppliers.where(business_name: params[:codido])
         @catalogs_locations= Catalogs::Location.where("department LIKE :codigo or responsible LIKE :codigo or email LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 10)

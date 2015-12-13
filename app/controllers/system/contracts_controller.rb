@@ -8,7 +8,7 @@ class System::ContractsController < ApplicationController
     if admin_signed_in?
       puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
       if params[:codigo].nil? || params[:codigo].empty?
-        @system_contracts = System::Contract.all.paginate(page: params[:page], per_page: 10)      
+        @system_contracts = System::Contract.all.paginate(page: params[:page], per_page: 15)      
       else    
         @system_contracts= System::Contract.where("contract_no LIKE :codigo",{:codigo => "%#{params[:codigo]}%"}).paginate(page: params[:page], per_page: 10)
       end

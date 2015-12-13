@@ -7,7 +7,7 @@ class Catalogs::SuppliersController < ApplicationController
   @aux = 'notnil'
   if admin_signed_in?      
     if params[:codigo].nil? || params[:codigo].empty?
-      @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 10)
+      @catalogs_suppliers = Catalogs::Supplier.all.paginate(page: params[:page], per_page: 15)
     else
       #@catalogs_suppliers.where(business_name: params[:codido])
 	    @catalogs_suppliers = Catalogs::Supplier.search_b(['business_name','contact','phone','email'],params[:codigo]).paginate(page: params[:page],per_page: 10)

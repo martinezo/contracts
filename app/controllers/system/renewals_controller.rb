@@ -8,9 +8,9 @@ class System::RenewalsController < ApplicationController
     if admin_signed_in?
       puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#{params[:codigo]}"
       if params[:codigo].nil? || params[:codigo].empty?
-        @system_renewals = System::Renewal.all.paginate(page: params[:page], per_page: 10)
+        @system_renewals = System::Renewal.all.paginate(page: params[:page], per_page: 15)
       else
-        @system_renewals = System::Renewal.all.paginate(page: params[:page], per_page: 10)
+        @system_renewals = System::Renewal.all.paginate(page: params[:page], per_page: 15)
       end
     else
       redirect_to new_admin_session_path
