@@ -15,7 +15,6 @@
                 = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key), class:"form-control"
                 %br/                                   
               - elsif @traduccion.key?(key) == true
-
                 = f.label "campo_etiqueta", @traduccion.fetch(key).values_at("name").to_s.delete('[]\\""')      
                 = f.input_field @mailers.key(value).to_s, :value => @mailers.fetch(key), class:"form-control"
                 = f.hint @traduccion.fetch(key).values_at("hint").to_s.delete('[]\\""')

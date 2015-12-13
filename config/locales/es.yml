@@ -7,9 +7,24 @@ es:
     start_date: Fecha de inicio
     end_date: Fecha de fin
   configure:
-    e_mail_text:
-      name: 'Texto predeterminado para correo: ' 
-      hint:  'Escriba el texto que desea incluir segun el correo electrónico'
+    e_mail_create_contract:
+      name: 'Texto para correo de contrato nuevo: ' 
+      hint:  'Escriba el texto que desea incluir segun el tipo de correo electrónico'
+    e_mail_update_contract:
+      name: 'Texto para correo de actualización de contrato: ' 
+      hint:  'Escriba el texto que desea incluir segun el tipo de correo electrónico'
+    e_mail_create_renewal:
+      name: 'Texto para correo de renovación de contrato: ' 
+      hint:  'Escriba el texto que desea incluir segun el tipo de correo electrónico'
+    e_mail_update_renewal:
+      name: 'Texto para correo de actualización de renovación: ' 
+      hint:  'Escriba el texto que desea incluir segun el tipo de correo electrónico'
+    e_mail_create_siteview:
+      name: 'Texto para correo de visita: ' 
+      hint:  'Escriba el texto que desea incluir segun el tipo de correo electrónico'
+    e_mail_update_siteview:
+      name: 'Texto para correo de actualización de visita: ' 
+      hint:  'Escriba el texto que desea incluir segun el tipo de correo electrónico'
     name_technical_secretary: 
       name: 'Nombre del Secretario Técnico: '
       hint: 'Nombre actual del encargado '
@@ -142,7 +157,7 @@ es:
         start_date: 'Fecha de inicio'
         end_date: 'Fecha de fin'
         contract_no: 'No. de Contrato:'
-        visit_date: 'Fechas de visitas agendadas:'
+        visit_date: 'Fechas de visitas programadas:'
         status: 'Estatus'
         to_expire: Pronto a expirar
         active: Vigente

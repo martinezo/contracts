@@ -1,7 +1,7 @@
 ---
 production:
-  name_technical_secretary: Prueba de nombre
-  e_mail_technical_secretary: java4ever.sys@gmail.com
+  name_technical_secretary: Hola
+  e_mail_technical_secretary: nanish_20@hotmail.com
   truncate_length: '20'
   notification_time: '10'
   developper_id: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5.apps.googleusercontent.com
@@ -9,9 +9,9 @@ production:
   key_path_p12: C:\Sites\contracts\unam-b563e3112a76.p12
   developper_email: 109856604582-208qmf2tc8gbqpki4hkajgsl2mgh3va5@developer.gserviceaccount.com
   calendar_id: java4ever.sys@gmail.com
-  e_mail_create_contract: Aqui puede escribir el texto predeterminado para el correo.
-  e_mail_update_contract: Aqui puede escribir el texto predeterminado para el correo.
-  e_mail_create_renewal: Aqui puede escribir el texto predeterminado para el correo.
-  e_mail_update_renewal: Aqui puede escribir el texto predeterminado para el correo.
-  e_mail_create_siteview: Aqui puede escribir el texto predeterminado para el correo.
-  e_mail_update_siteview: Aqui puede escribir el texto predeterminado para el correo.
+  e_mail_create_contract: Aviso de creacion de contrato de mantenimiento.
+  e_mail_update_contract: Aviso de actualizacion de informacion del contrato.
+  e_mail_create_renewal: Aviso de renovacion de contrato de mantenimiento.
+  e_mail_update_renewal: Aviso de actualizacion de renovacion.
+  e_mail_create_siteview: Aviso de una visita programada.
+  e_mail_update_siteview: Aviso de actualizacion de una visita programada.
