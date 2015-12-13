@@ -74,19 +74,19 @@ class Catalogs::DevicesController < ApplicationController
   # DELETE /catalogs/devices/1
   # DELETE /catalogs/devices/1.json
   def destroy
-   begin
-     @catalogs_device.destroy
-     respond_to do |format|
+    begin
+      @catalogs_device.destroy
+      respond_to do |format|
        format.html { redirect_to catalogs_devices_url, notice: t('.destroyed') }
        format.json { head :no_content }
-     end
-   rescue
-     respond_to do |format|
-       format.html { render '/layouts/_warning.html.haml', locals: {viewer: 'devices'} }
-     format.json { head :no_content }
-     format.js   { render '/layouts/_warning.html.haml' }
-     end
-     end
+      end
+    rescue
+      respond_to do |format|
+        format.html { render '/layouts/_warning.html.haml', locals: {viewer: 'devices'} }
+        format.json { head :no_content }
+        format.js   { render '/layouts/_warning.html.haml', locals: {viewer: 'devices'} }
+      end
+    end
   end
 
   private

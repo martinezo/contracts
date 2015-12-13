@@ -1,2 +1,7 @@
-aki va un error perzonalizado con un boton que redireccione segun el Form desde que se llama
-
+.modal-header
+  %h3.modal-title 
+    = t('.title_warning')
+.modal-body
+  Mensaje preventivo
+.modal-footer
+  = link_to t('Aceptar'), {:controller => @viewer, :action => 'index' }, :method => :get, class: "btn btn-sm btn-tss"
