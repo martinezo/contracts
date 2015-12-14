@@ -166,6 +166,7 @@ class System::RenewalsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to system_renewals_url, notice: 'Renewal was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { render :js => "window.location = '/system/renewals'" }
     end
   end
 

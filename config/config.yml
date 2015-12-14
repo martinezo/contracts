@@ -6,7 +6,7 @@ production:
   notification_time: '10'
   developper_id: '113619161063904399388'
   developper_key: AIzaSyCGpMd7fnGN4FwAChD4I97O3auFvk4nbwQ
-  key_path_p12: "/home/mbyte/Documents/contratos/contracts/INBappweb-a33f05a2b051.p12"
+  key_path_p12: C:\Sites\contracts\INBappweb-a33f05a2b051.p12
   developper_email: inb-321@inb-appweb.iam.gserviceaccount.com
   calendar_id: contratos.inb.unam@gmail.com
   e_mail_create_contract: Aviso de creacion de contrato de mantenimiento.

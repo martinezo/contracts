@@ -213,7 +213,7 @@ end
     respond_to do |format|
       format.html { redirect_to system_contracts_url, notice: t('.destroyed') }
       format.json { head :no_content }
-      format.js   { redirect_to system_contracts_url, notice: t('.destroyed')}
+      format.js { render :js => "window.location = '/system/contracts'" }
       
     end
   end
