@@ -164,6 +164,7 @@ class System::SiteviewsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to system_siteviews_url, notice: t('.destroyed') }
       format.json { head :no_content }
+      format.js { render :js => "window.location = '/system/siteviews'" }
     end
   end
 
