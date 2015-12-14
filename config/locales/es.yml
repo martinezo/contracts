@@ -283,6 +283,9 @@ es:
       menu_8: Reportes
       menu_9: Archivos
       menu_logut: Cerrar sesión
+    wmessage:
+      title_warning: 'Precaución'
+      accept: 'Aceptar'
 
   add_supplier: Agregar Proveedor
   add_location: Agregar Departamento
