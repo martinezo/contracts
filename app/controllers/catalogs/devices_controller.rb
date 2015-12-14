@@ -75,6 +75,8 @@ class Catalogs::DevicesController < ApplicationController
   # DELETE /catalogs/devices/1.json
   def destroy
     begin
+      @viewer = 'devices'
+      @mensaje = 'Para poder eliminar un equipo no debe tener contratos asociados- Elimina primero los contratos-!!!'
       @catalogs_device.destroy
       respond_to do |format|
        format.html { redirect_to catalogs_devices_url, notice: t('.destroyed') }
@@ -82,9 +84,10 @@ class Catalogs::DevicesController < ApplicationController
       end
     rescue
       respond_to do |format|
-        format.html { render '/layouts/_warning.html.haml', locals: {viewer: 'devices'} }
+        
+        format.html { render '/layouts/_warning.html.haml'}
         format.json { head :no_content }
-        format.js   { render '/layouts/_warning.html.haml', locals: {viewer: 'devices'} }
+        format.js   { render '/layouts/_warning.html.haml' }
       end
     end
   end

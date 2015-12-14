@@ -75,11 +75,23 @@ class Catalogs::LocationsController < ApplicationController
   # DELETE /catalogs/locations/1
   # DELETE /catalogs/locations/1.json
   def destroy
+    begin
+      @viewer = 'locations'
+      @mensaje = 'Para poder eliminar un departamento no debe tener contratos asociados- Elimina primero los contratos-!!!'
+      
     @catalogs_location.destroy
     respond_to do |format|
       format.html { redirect_to catalogs_locations_url, notice: t('.destroyed') }
       format.json { head :no_content }
     end
+  rescue
+ respond_to do |format|
+        
+        format.html { render '/layouts/_warning.html.haml'}
+        format.json { head :no_content }
+        format.js   { render '/layouts/_warning.html.haml' }
+      end
+  end
   end
 
   private

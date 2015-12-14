@@ -75,12 +75,24 @@ class Catalogs::SuppliersController < ApplicationController
   # DELETE /catalogs/suppliers/1
   # DELETE /catalogs/suppliers/1.json
   def destroy
+    begin
+      @viewer = 'suppliers'
+      @mensaje = 'Para poder eliminar un proveedor no debe tener contratos asociados- Elimina primero los contratos-!!!'
+      
     @catalogs_supplier.destroy
     respond_to do |format|
       format.html { redirect_to catalogs_suppliers_url, notice: t('.destroyed') }
       format.json { head :no_content }
     end
+  rescue
+    respond_to do |format|
+        
+        format.html { render '/layouts/_warning.html.haml'}
+        format.json { head :no_content }
+        format.js   { render '/layouts/_warning.html.haml' }
+      end
   end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
